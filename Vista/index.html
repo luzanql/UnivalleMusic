@@ -10,18 +10,20 @@
 		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 	</head>
 	<body>
+ <!-- inicio sesion-->
 
 <div data-role="page" data-theme= "a">
 
 	<div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
 	<div style="width:180px; height:100px; float:right; ">
+            <form name="autenticarForm" method="post" action="../accesoDatos/autenticacion.php">    
 	 <label for="basic" data-mini="true">Usuario:</label><input type="text" name="usuario" id="basic" value="" data-mini="true"  />
 	 <label for="basic" data-mini="true">Password:</label><input type="password" name="password" id="basic" value=""  data-mini="true" />
 	 <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-	 <a href="index.html" data-role="button">Ingresar</a>
+	 <input  data-role="button" value="Ingresar" type="submit"/>
 	 <a href="index.html" data-role="button">Registrarse</a>
 </div>
-	
+            </form>>
 	</div>
 	</div><!-- /header -->
 
@@ -32,8 +34,8 @@
 	
 	<div class="ui-grid-b">
 	<div class="ui-block-a"><img src="../Recursos/compartir1.jpeg" ></div>
-	<div class="ui-block-b"><img src="../Recursos/organizar1.jpeg" ></div>
-	<div class="ui-block-c"><img src="../Recursos/megusta1.jpeg"   ></div>
+	<div class="ui-block-b"><img src="../Recursos/organizar1_1.jpeg"></div>
+	<div class="ui-block-c"><img src="../Recursos/megusta1.jpeg"></div>
 </div><!-- /grid-b -->
 </div><!-- /content -->
 	
