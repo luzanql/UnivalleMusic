@@ -3,7 +3,7 @@
 
 include('conexion.php');
 $conexion = new Conexion();
-
+$conexion->Conectar();
 session_start(); 
 
 //generando la consulta sobre el usuario y su contrasena

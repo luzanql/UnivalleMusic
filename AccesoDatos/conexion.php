@@ -18,7 +18,7 @@ class Conexion
         $this->usuario = "root";
         $this->password = "root";
         $this->basedatos = "univalle_music";
-        $this->Conectar();
+       
         echo "asf";
     }
   
