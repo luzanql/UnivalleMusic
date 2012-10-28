@@ -1,6 +1,6 @@
 <?php
 
-//$conexion = new Conexion();
+$conexion = new Conexion();
 
 
 
