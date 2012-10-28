@@ -3,9 +3,13 @@
 class DaoGenero{
   include('conexion.php');
   
-    function obtenerGeneros(){
+    function getGeneros(){
         $conexion = new Conexion();
-        $conexion->conectar();     
+        $conexion->conectar();  
+        $sql="'SELECT nombre FROM Genero'"; 
+        //ejecutando la consulta
+        $respuesta = mysql_query($sql);
+        return $row = mysql_fetch_object($rs);
     }
     
     
