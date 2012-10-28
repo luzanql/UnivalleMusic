@@ -1,8 +1,6 @@
 <?php
 
-$conexion = new Conexion();
-
-
+//$conexion = new Conexion();
 
 class Conexion
 {
@@ -12,7 +10,7 @@ class Conexion
     private $server;
     static $conexion;
     
-  function Conexion() 
+  function static Conexion() 
   {
         $this->server = "localhost";
         $this->usuario = "root";
