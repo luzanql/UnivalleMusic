@@ -1,6 +1,7 @@
 <?php
 
 include('../AccesoDatos/DaoGenero.php');
+include('../Logica/Genero.php');
 
 class ControladorGenero {
 
@@ -11,8 +12,17 @@ class ControladorGenero {
     }
 
     function obtenerGeneros() {
-
-        $this->daoGenero->getGeneros();
+       return $this->daoGenero->getGeneros();
+    }
+    
+    function createGenero($nombre){
+        $genero=new Genero;
+        $genero->setNombre($nombre);
+        $this->daoGenero->createGenero($genero);
+    }
+    
+    function deleteGenero($codigo){
+        $this->daoGenero->deleteGenero($codigo);
     }
 
 }
