@@ -1,18 +1,16 @@
 <?php
 
-$conexion = new Conexion();
-
-
+//$conexion = new Conexion();
 
 class Conexion
 {
-  var $usuario;
-  var $password;
-  var $basedatos;
-  var $server;
-  var $conexion;
+  private $usuario;
+  private $password;
+  private $basedatos;
+  private $server;
+  private $conexion;
     
-  function Conexion() 
+  function static Conexion() 
   {
         $this->server = "localhost";
         $this->usuario = "root";
