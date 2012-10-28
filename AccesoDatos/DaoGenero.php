@@ -1,7 +1,7 @@
 <?php
+include('conexion.php');
 
 class DaoGenero{
-  include('conexion.php');
   
     function getGeneros(){
         $conexion = new Conexion();
@@ -11,8 +11,6 @@ class DaoGenero{
         $respuesta = mysql_query($sql);
         return $row = mysql_fetch_object($rs);
     }
-    
-    
-    
+        
 }
 ?>

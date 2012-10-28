@@ -10,7 +10,7 @@ class Conexion
     private $server;
     static $conexion;
     
-  function static Conexion() 
+  function Conexion() 
   {
         $this->server = "localhost";
         $this->usuario = "root";
@@ -22,7 +22,7 @@ class Conexion
   
     function Conectar() {
         if ($this->conexion != NULL) {
-            $this->conexion = @mysql_connect($this->server, $this->usuario, $this->password);
+            $this->conexion = mysql_connect($this->server, $this->usuario, $this->password);
             $bool = mysql_select_db($this->basedatos, $this->conexion);
             return $this->conexion;
             if ($bool === False) {
@@ -38,11 +38,13 @@ class Conexion
  {
          return mysql_error();
   }
-  
-  //Finalizar la conexion con el servidor
-  function Cerrar(){
-	mysql_close($this->conexion); 
-  }
+
+//Finalizar la conexion con el servidor
+  function Cerrar()
+  {
+      mysql_close();  
+      
+      }
     
 }
 
