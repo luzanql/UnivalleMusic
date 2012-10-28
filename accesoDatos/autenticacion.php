@@ -26,7 +26,7 @@ if($nr == 1){
          
          if ($_SESSION["perfil"] == 2)
          {
-         header ("Location: ../Vista/admiGui.html");    
+         header ("Location: ../Vista/principalAdmin.html");    
          }
 	 
 } else if($nr <= 0) {
