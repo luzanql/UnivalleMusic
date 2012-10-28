@@ -1,64 +1,43 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Inicio</title>
-		<link rel="stylesheet" href="../themes/male.min.css" />
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" />
-		<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-	</head>
+	 <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Inicio</title>
+        <link rel="stylesheet" href="../themes/male.min.css" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" />
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    </head>
 	<body>
 
 <div data-role="page" data-theme= "a">
 
-	<div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
-	<img src="../Recursos/Banner.png" width="80%" height="100%">
-	<div style="width:20%; height:100%; float:right; ">
-	<img src="../Recursos/carrito.jpeg" width="70px" height="70px" />
-	</div>
-	</div><!-- /header -->
+	    <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
+                <img src="../Recursos/Banner.png" width="80%" height="100%">
+                <div style="float:right; "><!--style="width:20%; height:100%; float:right; "-->
+                    <img src="../Recursos/carrito.jpeg" style=" width:50%; height: 50%; "  />
+                </div>
+            </div><!-- /header -->
 
-	<div data-role="content" data-theme = "a">	
-	<div class="ui-grid-b">
-	<div class="ui-block-a" style="width:300px">
-	<!--Menu desplegable-->
-	<div style="width:200px;">
-	<div data-role="collapsible-set">
+	 <div data-role="content" data-theme = "a">	
+                <div class="ui-grid-b">
+                    <div class="ui-block-a" style="width:250px; margin:3%">
 
-	<div data-role="collapsible" data-collapsed="false">
-	<h3>Coleccion</h3>
-	<p>Ir a mi colección</p>
-	</div>
-	
-	<div data-role="collapsible">
-	<h3>Listas de Reproduccion</h3>
-	<p>Crear Lista</p>
-	<p>Ver Mis Listas</p>
-	</div>
-	
-	<div data-role="collapsible">
-	<h3>Canciones</h3>
-	<p>Subir Cancion</p>
-	</div>
-	
-	<div data-role="collapsible">
-	<h3>Comprar Musica</h3>
-	<p>Ver Musica Comprada</p>
-	<p>Comprar Musica</p>
-	</div>
-	
-</div>
-</div>
-<!--FIN Menu desplegable--></div>
-	<div class="ui-block-b">
+                        <div data-role="controlgroup"> 
+                            <a href="index.html" data-role="button"> Mi Perfil </a> 
+                            <a href="index.html" data-role="button"> Mi Coleccion</a> 
+                            <a href="index.html" data-role="button"> Listas de Reproduccion</a> 
+                            <a href="index.html" data-role="button"> Comprar Musica</a>
+                        </div>
+                    </div>
+	<div class="ui-block-b" style="margin:3%">
 	<h3>Subir Canción</h3>
 	<h5>Ficha de la Canción</h5>
 	<div id="FichaCancion">
 	 <label for="basic" data-mini="true">Título:</label> <input type="text" name="Titulo" id="titulo" value="" data-mini="true"  />
 	 <label for="basic" data-mini="true">Artista:</label><input type="text" name="Artista" id="artista" value=""  data-mini="true" />
-	 <label for="basic" data-mini="true">Álbum:</label><input type="text" name="Album" id="album" value=""  data-mini="true" />
+	 <label for="basic" data-mini="true">�?lbum:</label><input type="text" name="Album" id="album" value=""  data-mini="true" />
 	 <label for="select-choice-min" class="select">Genero:</label>
 	 <!--Lista Selecionable-->
 	 <select name="genero" id="genero" data-mini="true">
