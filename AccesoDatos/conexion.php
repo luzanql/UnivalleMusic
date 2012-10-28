@@ -6,11 +6,11 @@ $conexion = new Conexion();
 
 class Conexion
 {
-  var $usuario;
-  var $password;
-  var $basedatos;
-  var $server;
-  var $conexion;
+    private $usuario;
+    private $password;
+    private $basedatos;
+    private $server;
+    static $conexion;
     
   function Conexion() 
   {
@@ -22,16 +22,17 @@ class Conexion
         echo "asf";
     }
   
-     function Conectar() 
-    {
-        $this->conexion = @mysql_connect($this->server, $this->usuario, $this->password);
-        $bool = mysql_select_db($this->basedatos, $this->conexion);
-        return $this->conexion;
-        if ($bool === False) 
-        {
-            print "can't find $mysql_database";
+    function Conectar() {
+        if ($this->conexion != NULL) {
+            $this->conexion = @mysql_connect($this->server, $this->usuario, $this->password);
+            $bool = mysql_select_db($this->basedatos, $this->conexion);
+            return $this->conexion;
+            if ($bool === False) {
+                print "can't find $mysql_database";
+            }
+        }else{
+            return $this->conexion;
         }
-        
     }
     
       //Devuelve el ultimo mensaje de error
