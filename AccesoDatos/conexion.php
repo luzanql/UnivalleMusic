@@ -13,8 +13,8 @@ class Conexion {
     function Conexion() {
         $this->server = "localhost";
         $this->usuario = "root";
-        $this->password = "root";
-        $this->basedatos = "univalle_music";
+        $this->password = "maleja";
+        $this->basedatos = "univallemusic";
 
         //echo "asf";
     }

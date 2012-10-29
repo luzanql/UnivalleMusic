@@ -5,12 +5,12 @@ include('../Logica/Genero.php');
 
 class DaoGenero {
 
-    private $daoGenero;
+    private $conexion;
     private $genero;
     private $codigo;
 
     function DaoGenero() {
-        $this->daoGenero = new Conexion();
+        $this->conexion = new Conexion();
     }
 
     function getGeneros() {
