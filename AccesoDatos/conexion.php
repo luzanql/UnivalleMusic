@@ -8,7 +8,7 @@ class Conexion {
     private $password;
     private $basedatos;
     private $server;
-    static $conexion;
+    private $conexion;
 
     function Conexion() {
         $this->server = "localhost";

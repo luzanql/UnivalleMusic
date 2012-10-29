@@ -1,15 +1,16 @@
 <?php
 
-include('conexion.php');
-include('../Logica/Cancion.php');
+require_once 'conexion.php';
+require_once '../Logica/Cancion.php';
 
 class DaoCancion{
 
-    private $conexion;
+   private $conexion;
  
     
     function Daocancion() {
         $this->conexion = new Conexion();
+        
     }
 
     function getCanciones() {
@@ -27,9 +28,19 @@ class DaoCancion{
         $codigo=$cancion->getCodigo();
         $album=$cancion->getAlbum();
         $genero=$cancion->getGenero();
-        $this->conexion->conectar();
-        $sql="INSERT INTO Cancion VALUES ( '"+$codigo+"','"+"'"+$titulo+"','"+$album+"','"+$genero+"')";
+        //$this->conexion->conectar();
+        $server = "localhost";
+        $usuario = "root";
+        $password = "maleja";
+        $basedatos = "univallemusic";
+        $conexion = mysql_connect($server, $usuario, $password);
+        $bool = mysql_select_db($basedatos, $conexion);
+   
+        
+        $sql="INSERT INTO cancion VALUES ( '".$codigo."','".$titulo."','".$album."','".$genero."')";
+       
         $ejecutar=  mysql_query($sql);
+         echo $sql;
         $this->conexion->cerrar();
         
     }

@@ -1,6 +1,6 @@
 <?php
-include('../AccesoDatos/DaoCancion.php');
-include('../Logica/Cancion.php');
+require_once'../AccesoDatos/DaoCancion.php';
+require_once'../Logica/Cancion.php';
 
 class ControladorCancion{
 
