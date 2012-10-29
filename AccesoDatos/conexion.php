@@ -2,24 +2,23 @@
 
 //$conexion = new Conexion();
 
-class Conexion
-{
+class Conexion {
+
     private $usuario;
     private $password;
     private $basedatos;
     private $server;
     static $conexion;
-    
-  function Conexion() 
-  {
+
+    function Conexion() {
         $this->server = "localhost";
         $this->usuario = "root";
         $this->password = "root";
         $this->basedatos = "univalle_music";
-       
-        echo "asf";
+
+        //echo "asf";
     }
-  
+
     function Conectar() {
         if ($this->conexion != NULL) {
             $this->conexion = mysql_connect($this->server, $this->usuario, $this->password);
@@ -28,24 +27,26 @@ class Conexion
             if ($bool === False) {
                 print "can't find $mysql_database";
             }
-        }else{
+        } else {
             return $this->conexion;
         }
     }
-    
-      //Devuelve el ultimo mensaje de error
-  function Error()
- {
-         return mysql_error();
-  }
+
+    //Devuelve el ultimo mensaje de error
+    function Error() {
+        return mysql_error();
+    }
 
 //Finalizar la conexion con el servidor
-  function Cerrar()
-  {
-      mysql_close();  
-      
-      }
+    function Cerrar() {
+        mysql_close();
+    }
     
+    //Ejecuta sentencias
+    function executeQuery($sqr){
+        
+    }
+
 }
 
 ?>

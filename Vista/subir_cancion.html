@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html>
-	 <head>
+    <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Inicio</title>
+        <title>Subir Cancion</title>
         <link rel="stylesheet" href="../themes/male.min.css" />
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" />
         <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
     </head>
-	<body>
+    <body>
+        <div data-role="page" data-theme= "a">
 
-<div data-role="page" data-theme= "a">
-
-	    <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
+            <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
                 <img src="../Recursos/Banner.png" width="80%" height="100%">
                 <div style="float:right; "><!--style="width:20%; height:100%; float:right; "-->
                     <img src="../Recursos/carrito.jpeg" style=" width:50%; height: 50%; "  />
                 </div>
             </div><!-- /header -->
 
-	 <div data-role="content" data-theme = "a">	
+            <div data-role="content" data-theme = "a">	
                 <div class="ui-grid-b">
                     <div class="ui-block-a" style="width:250px; margin:3%">
 
@@ -31,45 +30,43 @@
                             <a href="index.html" data-role="button"> Comprar Musica</a>
                         </div>
                     </div>
-	<div class="ui-block-b" style="margin:3%">
-	<h3>Subir Canción</h3>
-	<h5>Ficha de la Canción</h5>
-	<div id="FichaCancion">
-            <label for="basic" data-mini="true">T&iacute;tulo:</label> <input type="text" name="Titulo" id="titulo" value="" data-mini="true"  />
-	 <label for="basic" data-mini="true">Artista:</label><input type="text" name="Artista" id="artista" value=""  data-mini="true" />
-         <label for="basic" data-mini="true">&Aacute;lbum:</label><input type="text" name="Album" id="album" value=""  data-mini="true" />
-	 <label for="select-choice-min" class="select">Genero:</label>
-	 <!--Lista Selecionable-->
-	 <select name="genero" id="genero" data-mini="true">
-	 <option value="pop">Pop</option>
-	 <option value="rock">Rock</option>
-	 <option value="clasica">Clasica</option>
-	 <option value="romantica">Romantica</option>
-	 </select> 
-	 <!--FIN Lista Selecionable-->
-	 <input type="file" id="track" class="radius_3" name="track_file" size="53" value="" /><!--Campo de examinar-->
-	 <a href="index.html" data-role="button" data-inline="true">Subir</a>
-	
-	</div>
-	
-	
-	</div>
-	
-</div><!-- /grid-b -->
+                    <div class="ui-block-b" style="margin:3%">
+                        <h3>Subir Canción</h3>
+                        <h5>Ficha de la Canción</h5>
+                        <div id="FichaCancion">
+                            <form action="resultadoSubirCancion.php" method="post" data-ajax="false" enctype="multipart/form-data">
+                                <label for="basic" data-mini="true">T&iacute;tulo:</label> <input type="text" name="Titulo" id="titulo" value="" data-mini="true"  />
+                                <label for="basic" data-mini="true">Artista:</label><input type="text" name="Artista" id="artista" value=""  data-mini="true" />
+                                <label for="basic" data-mini="true">&Aacute;lbum:</label><input type="text" name="Album" id="album" value=""  data-mini="true" />
+                                <label for="select-choice-min" class="select">Genero:</label>
+                                <!--Lista Selecionable-->
+                                <select name="genero" id="genero" data-mini="true">
+                                    <option value="pop">Pop</option>
+                                    <option value="rock">Rock</option>
+                                    <option value="clasica">Clasica</option>
+                                    <option value="romantica">Romantica</option>
+                                </select> 
+                                <!--FIN Lista Selecionable-->
+                                <input type="file" id="track" class="radius_3" name="track_file" /><!--Campo de examinar-->
+                                <input  data-role="button" value="Subir" type="submit"/> 
+                            </form>                
+                        </div>
 
 
+                    </div>
 
-				
-	</div><!-- /content -->
-	
-	<div data-role="footer" data-theme = "b" STYLE=" border-style:solid; border-color: #c73930;">
-			<h6>UNIVERSIDAD DEL VALLE</h6>
-			<h6>Aplicaciones en la Web y Redes Inhalambricas</h6>
-		</div>
-	
-	
-</div><!-- /page -->
+                </div><!-- /grid-b -->
+
+            </div><!-- /content -->
+
+            <div data-role="footer" data-theme = "b" STYLE=" border-style:solid; border-color: #c73930;">
+                <h6>UNIVERSIDAD DEL VALLE</h6>
+                <h6>Aplicaciones en la Web y Redes Inhalambricas</h6>
+            </div>
 
 
-</body>
+        </div><!-- /page -->
+
+
+    </body>
 </html>

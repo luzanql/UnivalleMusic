@@ -13,6 +13,7 @@ class DaoListaReproduccion {
         $nombre = $lr->getNombre();
         $usuario = $lr->getIdUsuario();
         $sqr_insert ="INSERT INTO ListaReproduccion(nombre,id_Usuario) VALUES ($nombre,$usuario)";
+        $con = $this->conexion->Conectar();
         
     }
     
