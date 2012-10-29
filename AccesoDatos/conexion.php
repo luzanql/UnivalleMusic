@@ -1,7 +1,5 @@
 <?php
 
-//$conexion = new Conexion();
-
 class Conexion {
 
     private $usuario;
@@ -13,13 +11,18 @@ class Conexion {
     function Conexion() {
         $this->server = "localhost";
         $this->usuario = "root";
-        $this->password = "maleja";
+        $this->password = "root";
         $this->basedatos = "univallemusic";
+   
+        
+    }
+        
+        
 
         //echo "asf";
-    }
+    
 
-    function Conectar() {
+    /*function Conectar() {
         if ($this->conexion != NULL) {
             $this->conexion = mysql_connect($this->server, $this->usuario, $this->password);
             $bool = mysql_select_db($this->basedatos, $this->conexion);
@@ -30,7 +33,23 @@ class Conexion {
         } else {
             return $this->conexion;
         }
-    }
+    }*/
+    
+   
+  function Conectar(){
+ 
+   
+    $this->conexion = mysql_connect($this->server, $this->usuario,  $this->password);
+    mysql_select_db($this->basedatos,$this->conexion);
+    return $this->conexion;
+  }
+    
+  //Realizar una consulta o actualización en la BD
+  function EjecutarSql($consulta){  
+     $this->resconsul      = mysql_query($consulta);
+ 	 $this->registroActual = mysql_fetch_array($this->resconsul);
+	 return $this->registroActual;
+  } 
 
     //Devuelve el ultimo mensaje de error
     function Error() {

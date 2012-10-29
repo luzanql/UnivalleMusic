@@ -14,7 +14,7 @@ class DaoCancion{
     }
 
     function getCanciones() {
-        $this->conexion->conectar();
+        $this->conexion->Conectar();
         $sql = "SELECT * FROM Cancion";
         //ejecutando la consulta
         $respuesta = mysql_query($sql);
@@ -22,26 +22,16 @@ class DaoCancion{
     }
     
     function createCancion(Cancion $c){
-   
+        $this->conexion->Conectar();
         $cancion=$c;
         $titulo=$cancion->getTitulo();
         $codigo=$cancion->getCodigo();
         $album=$cancion->getAlbum();
         $genero=$cancion->getGenero();
-        //$this->conexion->conectar();
-        $server = "localhost";
-        $usuario = "root";
-        $password = "maleja";
-        $basedatos = "univallemusic";
-        $conexion = mysql_connect($server, $usuario, $password);
-        $bool = mysql_select_db($basedatos, $conexion);
-   
-        
-        $sql="INSERT INTO cancion VALUES ( '".$codigo."','".$titulo."','".$album."','".$genero."')";
-       
-        $ejecutar=  mysql_query($sql);
-         echo $sql;
+        $consulta="INSERT INTO cancion VALUES('".$codigo."','".$titulo."','".$album."','".$genero."');";
+        mysql_query($consulta);
         $this->conexion->cerrar();
+ 
         
     }
     

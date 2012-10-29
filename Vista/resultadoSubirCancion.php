@@ -33,20 +33,17 @@
                     <div class="ui-block-b" style="margin:3%">
 
                         <?php
-                        
+                      
                         include('../Controladores/ControladorCancion.php');
                         //
                         $titulo=$_POST["titulo"];
                         $album=$_POST["album"];
-                        $genero='001';
+                        $genero=$_POST["genero"];
                         $codigo='001';
                         
                         $controlador=new ControladorCancion();
                         $controlador->createCancion($titulo, $codigo, $album, $genero);
-                        echo $titulo;
-                        echo $album;
-                        echo $genero;
-                                       
+                     
                         //
                         if ($_FILES["track_file"]["error"] > 0) {
                             echo "Upload File: " . ini_get('upload_max_filesize') . "<br/>";
