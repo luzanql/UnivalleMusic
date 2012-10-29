@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 class DaoListaReproduccion {
@@ -20,3 +21,5 @@ class DaoListaReproduccion {
 }
 
 ?>
+=======
+>>>>>>> origin/master
