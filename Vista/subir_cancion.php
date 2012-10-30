@@ -29,9 +29,9 @@
                             <a href="index.html" data-role="button"> Listas de Reproduccion</a> 
                             <a href="index.html" data-role="button"> Comprar Musica</a>
                         </div>
-                    
-					</div>
-					
+
+                    </div>
+
                     <div class="ui-block-b" style="margin:3%">
                         <h3>Subir Canción</h3>
                         <h5>Ficha de la Canción</h5>
@@ -42,11 +42,19 @@
                                 <label for="basic" data-mini="true">&Aacute;lbum:</label><input type="text" name="album" id="album" value=""  data-mini="true" />
                                 <label for="select-choice-min" class="select">Genero:</label>
                                 <!--Lista Selecionable-->
-                                    
+
                                 <select name="genero" id="genero" data-mini="true">
-                                    <option value="0">Seleccione Facultad</option>  
+                                    <?php
+                                    require_once('../Controladores/ControladorGenero.php');
+                                    $controladorGenero= new C
                                     
-                                   
+                                    
+                                    
+                                    ?>
+
+                                    <option value="0">Seleccione Facultad</option>  
+
+
                                 </select> 
                                 <!--FIN Lista Selecionable-->
                                 <input type="file" id="track" class="radius_3" name="track_file" /><!--Campo de examinar-->

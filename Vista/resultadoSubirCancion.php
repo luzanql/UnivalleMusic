@@ -32,8 +32,7 @@
                     </div>
                     <div class="ui-block-b" style="margin:3%">
 
-                        <?php
-                      
+                        <?php    
                         include('../Controladores/ControladorCancion.php');
                         //
                         $titulo=$_POST["titulo"];

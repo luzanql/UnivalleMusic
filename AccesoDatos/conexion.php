@@ -13,9 +13,7 @@ class Conexion {
         $this->usuario = "root";
         $this->password = "root";
         $this->basedatos = "univallemusic";
-   
-        
-    }
+      }
         
         
 
