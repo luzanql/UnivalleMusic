@@ -51,19 +51,18 @@
 
                                 <select name="genero" id="genero" data-mini="true">
                                  <?php
-                                require_once('../Controladores/ControladorGenero.php');
-                                $controladorGenero = new ControladorGenero();
-                                $generos = $controladorGenero->obtenerGeneros();
-                                    <script>
-                                   
-                                   </script>
-                                for ($i = 0; $i < count($generos); $i++){
-                                   echo $generos[$i]; 
-                                  
-                               }
+                                    require_once('../Controladores/ControladorGenero.php');
+                                    $controladorGenero = new ControladorGenero();
+                                    $generos = $controladorGenero->obtenerGeneros();
 
-                                     
+                                    for ($i = 0; $i < count($generos); $i++) {
+                                        echo $generos[$i];
 
+                                        /* var $cControl = document.getElementById(cControlId);
+                                          cControl.options.length = 0;
+                                          cControl.options[0] = new Option(‘Cargando…’, ‘-1′);
+                                          $options[0] = new Option('Cargando…', '-1'); */
+                                    }
                                     ?>
                                     <option value="0">Seleccione Facultad</option> 
                                 </select> 
