@@ -1,7 +1,7 @@
 <?php
 
-include('../AccesoDatos/DaoGenero.php');
-include('../Logica/Genero.php');
+require_once '../AccesoDatos/DaoGenero.php';
+require_once '../Logica/Genero.php';
 
 class ControladorGenero {
 
@@ -12,7 +12,7 @@ class ControladorGenero {
     }
 
     function obtenerGeneros() {
-       return $this->daoGenero->getGeneros();
+       return $this->daoGenero->getNombreGeneros();
     }
     
     function createGenero($nombre){

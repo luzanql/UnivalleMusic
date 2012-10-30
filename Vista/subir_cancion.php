@@ -8,6 +8,12 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" />
         <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+        
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+        <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+    
+    
     </head>
     <body>
         <div data-role="page" data-theme= "a">
@@ -44,25 +50,31 @@
                                 <!--Lista Selecionable-->
 
                                 <select name="genero" id="genero" data-mini="true">
-                                    <?php
-                                    require_once('../Controladores/ControladorGenero.php');
-                                    $controladorGenero= new C
-                                    
-                                    
-                                    
+                                 <?php
+                                require_once('../Controladores/ControladorGenero.php');
+                                $controladorGenero = new ControladorGenero();
+                                $generos = $controladorGenero->obtenerGeneros();
+                                    <script>
+                                   
+                                   </script>
+                                for ($i = 0; $i < count($generos); $i++){
+                                   echo $generos[$i]; 
+                                  
+                               }
+
+                                     
+
                                     ?>
-
-                                    <option value="0">Seleccione Facultad</option>  
-
-
+                                    <option value="0">Seleccione Facultad</option> 
                                 </select> 
                                 <!--FIN Lista Selecionable-->
                                 <input type="file" id="track" class="radius_3" name="track_file" /><!--Campo de examinar-->
                                 <input  data-role="button" value="Subir" type="submit"/> 
+                               
                             </form>                
                         </div>
                     </div>
-
+                        
                 </div><!-- /grid-b -->
 
             </div><!-- /content -->

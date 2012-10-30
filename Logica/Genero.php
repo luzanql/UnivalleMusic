@@ -1,29 +1,26 @@
 <?php
 
-class Genero
-{
+class Genero {
+
     Private $codigo;
     Private $nombre;
-    
-    
-      function setCodigo($codigo) {
+
+    function setCodigo($codigo) {
         $this->codigo = $codigo;
     }
-    
-        function setNombre($nombre) {
+
+    function setNombre($nombre) {
         $this->nombre = $nombre;
     }
-    
+
     function getCodigo() {
         return $this->codigo;
     }
-    
+
     function getNombre() {
         return $this->nombre;
     }
-    
+
 }
-
-
 
 ?>

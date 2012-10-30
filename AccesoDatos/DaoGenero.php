@@ -16,8 +16,14 @@ class DaoGenero {
         $this->conexion->Conectar();
         $sql = "SELECT nombre FROM Genero";
         $respuesta = mysql_query($sql);
+        $filas = array();
+        while ($row = mysql_fetch_array($respuesta)) {
+            $filas [] =
+                $row ["nombre"];
+}
+    
         $this->conexion->cerrar();
-        return $row = mysql_fetch_object($respuesta);
+        return $filas;
     }
     
     function createGenero(Genero $g){
