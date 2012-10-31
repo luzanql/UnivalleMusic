@@ -13,7 +13,7 @@
         <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
         <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
     
-    
+     
     </head>
     <body>
         <div data-role="page" data-theme= "a">
@@ -46,27 +46,40 @@
                                 <label for="basic" data-mini="true">T&iacute;tulo:</label> <input type="text" name="titulo" id="titulo" value="" data-mini="true"  />
                                 <label for="basic" data-mini="true">Artista:</label><input type="text" name="artista" id="artista" value=""  data-mini="true" />
                                 <label for="basic" data-mini="true">&Aacute;lbum:</label><input type="text" name="album" id="album" value=""  data-mini="true" />
-                                <label for="select-choice-min" class="select">Genero:</label>
-                                <!--Lista Selecionable-->
-
-                                <select name="genero" id="genero" data-mini="true">
-                                 <?php
-                                    require_once('../Controladores/ControladorGenero.php');
-                                    $controladorGenero = new ControladorGenero();
-                                    $generos = $controladorGenero->obtenerGeneros();
-
-                                    for ($i = 0; $i < count($generos); $i++) {
-                                        echo $generos[$i];
-
-                                        /* var $cControl = document.getElementById(cControlId);
-                                          cControl.options.length = 0;
-                                          cControl.options[0] = new Option(‘Cargando…’, ‘-1′);
-                                          $options[0] = new Option('Cargando…', '-1'); */
-                                    }
-                                    ?>
-                                    <option value="0">Seleccione Facultad</option> 
-                                </select> 
-                                <!--FIN Lista Selecionable-->
+                                <label for="basic" data-mini="true">G&eacute;nero:</label><input type="text" name="album" id="genero" value=""  data-mini="true" />
+                                <script>
+                                    $(function() {
+                                        var availableTags = [
+                                            "ActionScript",
+                                            "AppleScript",
+                                            "Asp",
+                                            "BASIC",
+                                            "C",
+                                            "C++",
+                                            "Clojure",
+                                            "COBOL",
+                                            "ColdFusion",
+                                            "Erlang",
+                                            "Fortran",
+                                            "Groovy",
+                                            "Haskell",
+                                            "Java",
+                                            "JavaScript",
+                                            "Lisp",
+                                            "Perl",
+                                            "PHP",
+                                            "Python",
+                                            "Ruby",
+                                            "Scala",
+                                            "Scheme"
+                                        ];
+                                        $( "#genero" ).autocomplete({
+                                            source: availableTags
+                                        });
+                                    });
+                                    
+                                    
+                                </script>
                                 <input type="file" id="track" class="radius_3" name="track_file" /><!--Campo de examinar-->
                                 <input  data-role="button" value="Subir" type="submit"/> 
                                
