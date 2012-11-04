@@ -18,7 +18,7 @@
         <div data-role="page" data-theme= "a">
 
             <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
-                <img src="../Recursos/Banner.png" width="80%" height="100%">
+                <img src="../Recursos/Banner.png" style="width: 80%; height: 100%;">
                 <div style="float:right; "><!--style="width:20%; height:100%; float:right; "-->
                     <img src="../Recursos/carrito.jpeg" style=" width:50%; height: 50%; "  />
                 </div>
@@ -51,6 +51,7 @@
                                 <input  data-role="button" value="Subir" type="submit"/> 
                                     
                             </form>
+                            <div id="progressbar"></div>
                             <script>
                                   
                                   $( "#artista" ).autocomplete({
@@ -71,6 +72,9 @@
                                       select: function ( event, ui ) {}
                                   });
                                   
+                                  $( "#progressbar" ).progressbar({
+                                      
+                                  });
                                     
                                     
                                     
