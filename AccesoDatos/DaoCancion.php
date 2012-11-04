@@ -25,13 +25,28 @@ class DaoCancion{
         $this->conexion->Conectar();
         $cancion=$c;
         $titulo=$cancion->getTitulo();
-        $codigo=$cancion->getCodigo();
+        $artista=$cancion->getArtista();
         $album=$cancion->getAlbum();
         $genero=$cancion->getGenero();
-        $consulta="INSERT INTO cancion VALUES('".$codigo."','".$titulo."','".$album."','".$genero."');";
+        
+        
+        $consulta="INSERT INTO cancion (artista,titulo,album,genero) VALUES('".$artista."','".$titulo."','".$album."','".$genero."');";
         mysql_query($consulta);
         $this->conexion->cerrar();
  
+        
+    }
+    
+    
+    function obtenerCancion($nombre,$artista,$album){
+        $this->conexion->Conectar();
+            
+        
+        $consulta="SELECT * FROM cancion WHERE nombre='".$nombre."',artista='".$artista."', codigo_Album='".$album."')";
+        $consulta=mysql_query($consulta);
+        $row= mysql_fetch_row($consulta);
+        $this->conexion->cerrar();
+        return $row;
         
     }
     
