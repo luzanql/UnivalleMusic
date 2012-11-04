@@ -24,6 +24,15 @@ class ControladorGenero {
     function deleteGenero($codigo){
         $this->daoGenero->deleteGenero($codigo);
     }
+    
+    function existeGenero($nombre){
+        return $this->daoGenero->existeGenero($nombre);
+    }
+    
+    function obtenerGenero($nombre){
+        return $this->daoGenero->obtenerGenero($nombre);
+        
+    }
 
 }
 ?>

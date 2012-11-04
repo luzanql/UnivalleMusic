@@ -32,18 +32,62 @@
                     </div>
                     <div class="ui-block-b" style="margin:3%">
 
-                        <?php    
-                        include_once '../Controladores/ControladorCancion.php';
+                        <?php
+                        include('../Controladores/ControladorCancion.php');
+                        include('../Controladores/ControladorArtista.php');
+                        include('../Controladores/ControladorAlbum.php');
+                        include('../Controladores/ControladorGenero.php');
+                        include('../Controladores/ControladorArtistaxAlbum.php');
+                        include('../Controladores/ControladorArtistaXCancion.php');
                         //
-                        $titulo=$_POST["titulo"];
-                        $album=$_POST["album"];
-                        $genero=$_POST["genero"];
-                        $codigo='001';
+                        $titulo = $_POST["titulo"];
+                        $album = $_POST["album"];
+                        $genero = $_POST["genero"];
+                        $artista = $_POST["artista"];
+
+
+
+
+                        $controladorAlbum = new ControladorAlbum();
+                        $controladorArtista = new ControladorArtista();
+                        $controladorGenero = new ControladorGenero();
+                        $controladorCancion = new ControladorCancion();
+                        $controladorArtistaXAlbum=new ControladorArtistaxAlbum();
+                        $controladorArtistaXCancion=new ControladorArtistaXCancion();
+
+                        $existeGenero = $controladorGenero->existeGenero(strtolower(trim($genero)));
+                        if (!$existeGenero) {
+                            $controladorGenero->createGenero($genero);
+                            $codigoGenero = $controladorGenero->obtenerGenero(strtolower(trim($genero)));
+                        } else {
+                            $codigoGenero = $controladorGenero->obtenerGenero(strtolower(trim($genero)));
+                        }
+
+                        $existeArtista = $controladorArtista->existeArtista(strtolower(trim($artista)));
+                        $existeAlbum = $controladorAlbum->existeAlbum(strtolower(trim($album)));
+                        $existeArtistaXAlbum=$controladorArtistaXAlbum->existeArtistaXAlbum(strtolower(trim($artista)), strtolower(trim($album)));
                         
-                        $controlador=new ControladorCancion();
-                        $controlador->createCancion($titulo, $codigo, $album, $genero);
-                     
-                        //
+
+                        if (!$existeAlbum) {
+                            $controladorAlbum->createAlbum(strtolower(trim($album)));
+                        }
+                        if (!$existeArtista) {
+                            $controladorArtista->createArtista(strtolower(trim($artista)));
+                        }
+                        
+                        if(!$existeArtistaXAlbum){
+                            
+                            $controladorArtistaXAlbum->createArtistaxalbum(strtolower(trim($album)), strtolower(trim($artista)));
+                        }
+                        
+                        $codigoAlbum = $controladorAlbum->obtenerCodigoAlbum(strtolower(trim($album)));
+                        $codigoArtista = $controladorArtista->obtenerCodigoArtista(strtolower(trim($artista)));
+
+                        $controladorCancion->createCancion($titulo, $codigoAlbum, $codigoGenero, $codigoArtista);
+                        $cancion=$controladorCancion->obtenerCancion($titulo, $codigoArtista, $codigoAlbum);
+                        $codigo_Cancion=$cancion->getCodigo();
+                        $controladorArtistaXCancion->createArtistaXCancion($codigo_Cancion, $codigoArtista);
+//
                         if ($_FILES["track_file"]["error"] > 0) {
                             echo "Upload File: " . ini_get('upload_max_filesize') . "<br/>";
                             echo "Error: " . $_FILES["track_file"]["error"] . "<br />";

@@ -35,7 +35,7 @@ class DaoAlbum{
     
      function deleteGenero($codigo){
         $this->conexion->Conectar();
-        $sql="DELETE Album WHERE codigo='".$codigo."'";
+        $sql="DELETE FROM Album WHERE codigo='".$codigo."'";
         $ejecutar=mysql_query($sql);
         $this->conexion->cerrar();
         
@@ -52,6 +52,17 @@ class DaoAlbum{
             return true;
         }else
             return false;
+    }
+    
+    
+    function obtenerCodigoAlbum($nombre){
+        $this->conexion->Conectar();
+        $sql = "SELECT codigo FROM Album WHERE nombre='".$nombre."'";
+        $ejecutar = mysql_query($sql);
+        $row = mysql_fetch_array($ejecutar);
+        $this->conexion->cerrar();
+        return $row["nombre"];
+        
     }
     
     
