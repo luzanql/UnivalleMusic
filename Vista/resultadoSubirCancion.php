@@ -33,7 +33,7 @@
                     <div class="ui-block-b" style="margin:3%">
 
                         <?php    
-                        include('../Controladores/ControladorCancion.php');
+                        include_once '../Controladores/ControladorCancion.php';
                         //
                         $titulo=$_POST["titulo"];
                         $album=$_POST["album"];

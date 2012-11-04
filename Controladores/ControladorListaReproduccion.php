@@ -1,12 +1,12 @@
 <?php
-require_once '../AccesoDatos/DaoListaReproduccion.php';
-require_once '../Logica/ListaReproduccion.php';
+include_once '../AccesoDatos/DaoListaReproduccion.php';
+include_once '../Logica/ListaReproduccion.php';
 
 class ControladorListaReproduccion {
 
     private $daoListaReproduccion;
 
-    function ControladorListaReproduccion() {
+    function __construct() {
         $this->daoListaReproduccion = new DaoListaReproduccion();
     }
 
@@ -22,6 +22,7 @@ class ControladorListaReproduccion {
         $listaReproduccion->setNombre($nombre);
         //Modificar cuando se implement la sesion
         $idUsuario = 1;
+        $listaReproduccion->setIdUsuario($idUsuario);
         //--------------------
         $listaReproduccion->setIdUsuario($idUsuario);
         $this->daoListaReproduccion->createListaReproduccion($listaReproduccion);

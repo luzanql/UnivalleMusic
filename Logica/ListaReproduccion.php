@@ -1,12 +1,13 @@
 <?php
+
    class ListaReproduccion{
        
        private $codigo;
        private $nombre;
        private $idUsuario;
        
-       function ListaReproduccion(){}
-
+       function __construct() {}
+       
        public function getCodigo() {
            return $this->codigo;
        }
@@ -30,7 +31,6 @@
        public function setIdUsuario($idUsuario) {
            $this->idUsuario = $idUsuario;
        }
-
-
+       
    }
 ?>
