@@ -7,10 +7,20 @@ class DaoGenero {
 
     private $conexion;
     private $codigo;
+   // private $opcion=$_GET['opcion'];
+    
+    
+   
 
     function DaoGenero() {
         $this->conexion = new Conexion();
     }
+    
+    
+    
+    
+    
+   
 
     function getNombreGeneros() {
         $this->conexion->Conectar();
