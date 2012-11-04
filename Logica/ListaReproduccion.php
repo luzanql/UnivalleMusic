@@ -5,6 +5,8 @@
        private $nombre;
        private $idUsuario;
        
+       function ListaReproduccion(){}
+
        public function getCodigo() {
            return $this->codigo;
        }
