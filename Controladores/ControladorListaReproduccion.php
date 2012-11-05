@@ -12,7 +12,7 @@ class ControladorListaReproduccion {
 
     function obtenerListasReproduccion() {
        //Modificar con sesion
-        $idUsuario = 1;
+        $idUsuario = $_SESSION['usuario'];
        //-----------
         return $this->daoListaReproduccion->getListasReproduccionPorUsuario($idUsuario);
     }
@@ -21,7 +21,7 @@ class ControladorListaReproduccion {
         $listaReproduccion = new ListaReproduccion();
         $listaReproduccion->setNombre($nombre);
         //Modificar cuando se implement la sesion
-        $idUsuario = 1;
+        $idUsuario = $_SESSION['usuario'];
         $listaReproduccion->setIdUsuario($idUsuario);
         //--------------------
         $listaReproduccion->setIdUsuario($idUsuario);

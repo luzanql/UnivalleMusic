@@ -1,13 +1,13 @@
-
 <?php
 
-include('conexion.php');
+include_once ('conexion.php');
+
 $conexion = new Conexion();
 $conexion->Conectar();
 session_start(); 
 
 //generando la consulta sobre el usuario y su contrasena
-$sqr ="SELECT id_Usuario, contrasena, nombre, apellido, codigo_Perfil FROM Usuario WHERE usuario = '".$_POST["usuario"]."' and contrasena='".$_POST["password"]."'"; 
+$sqr ="SELECT usuario, contrasena, nombre, apellido, codigo_Perfil FROM Usuario WHERE usuario = '".$_POST["usuario"]."' and contrasena='".$_POST["password"]."'"; 
 //ejecutando la consulta
 $rs = mysql_query($sqr);
 $row = mysql_fetch_object($rs); 
@@ -20,7 +20,7 @@ if($nr == 1){
          
          $_SESSION["autenticado"] = "si";
 	 $_SESSION["usuario"] = $_POST['usuario'];
-         $_SESSION["id_user"] = $row->id_Usuario;
+         $_SESSION["id_user"] = $row->usuario;
 	 $_SESSION["nombreusr"] = $row->nombre." ".$row->apellido;
          $_SESSION["perfil"] = $row->codigo_Perfil;
          
@@ -31,7 +31,7 @@ if($nr == 1){
 	 
 } else if($nr <= 0) {
 	 //si no existe se va a ... y pone el valor de error a SI
-	 header ("Location: errorSession.php"); 
+	 header ("Location: ../Vista/index.html"); 
                     } 
 
 ?>

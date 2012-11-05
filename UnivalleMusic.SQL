@@ -10,6 +10,9 @@ CREATE TABLE Perfil
 ) 
 ;
 
+INSERT INTO Perfil VALUES (1,'Administrador');
+INSERT INTO Perfil VALUES(2,'Suscriptor UnivalleMusic');
+
 CREATE TABLE Album
 (
 	codigo INTEGER AUTO_INCREMENT,
@@ -33,6 +36,44 @@ CREATE TABLE Nacionalidad
 	PRIMARY KEY (codigo)
 ) 
 ;
+
+INSERT INTO Nacionalidad VALUES (1,"Aleman");
+INSERT INTO Nacionalidad VALUES (2,"Arabe");
+INSERT INTO Nacionalidad VALUES (3,"Argentino");
+INSERT INTO Nacionalidad VALUES (4,"Australiano");
+INSERT INTO Nacionalidad VALUES (5,"Boliviano");
+INSERT INTO Nacionalidad VALUES (6,"Brasilero");
+INSERT INTO Nacionalidad VALUES (7,"Canadiense");
+INSERT INTO Nacionalidad VALUES (8,"Chileno");
+INSERT INTO Nacionalidad VALUES (9,"Chino");
+INSERT INTO Nacionalidad VALUES (10,"Colombiano");
+INSERT INTO Nacionalidad VALUES (11,"Coreano");
+INSERT INTO Nacionalidad VALUES (12,"Cubano");
+INSERT INTO Nacionalidad VALUES (13,"Costarricense");
+INSERT INTO Nacionalidad VALUES (14,"Ecuatoriano");
+INSERT INTO Nacionalidad VALUES (15,"Espanol");
+INSERT INTO Nacionalidad VALUES (16,"Estadounidense");
+INSERT INTO Nacionalidad VALUES (17,"Frances");
+INSERT INTO Nacionalidad VALUES (18,"Griego");
+INSERT INTO Nacionalidad VALUES (19,"Guatemalteco");
+INSERT INTO Nacionalidad VALUES (20,"Holandes");
+INSERT INTO Nacionalidad VALUES (21,"Indones");
+INSERT INTO Nacionalidad VALUES (22,"Ingles");
+INSERT INTO Nacionalidad VALUES (23,"Italiano");
+INSERT INTO Nacionalidad VALUES (24,"Japones");
+INSERT INTO Nacionalidad VALUES (25,"Mexicano");
+INSERT INTO Nacionalidad VALUES (26,"Panameno");
+INSERT INTO Nacionalidad VALUES (27,"Peruano");
+INSERT INTO Nacionalidad VALUES (28,"Polaco");
+INSERT INTO Nacionalidad VALUES (29,"Portugues");
+INSERT INTO Nacionalidad VALUES (30,"Puertorriqueno");
+INSERT INTO Nacionalidad VALUES (31,"Dominicano");
+INSERT INTO Nacionalidad VALUES (32,"Ruso");
+INSERT INTO Nacionalidad VALUES (33,"Sueco");
+INSERT INTO Nacionalidad VALUES (34,"Suizo");
+INSERT INTO Nacionalidad VALUES (35,"Ucraniano");
+INSERT INTO Nacionalidad VALUES (36,"Uruguayo");
+INSERT INTO Nacionalidad VALUES (37,"Venezolano");
 
 CREATE TABLE Genero
 (

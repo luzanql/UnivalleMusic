@@ -13,7 +13,7 @@ class DaoListaReproduccion {
 
     function getListasReproduccionPorUsuario($idUsuario) {
         $this->conexion->Conectar();
-        $sql = "SELECT nombre FROM ListaReproduccion WHERE id_Usuario=" . $idUsuario;
+        $sql = "SELECT nombre FROM ListaReproduccion WHERE id_Usuario=$idUsuario";
         $respuesta = mysql_query($sql);
         $filas = array();
         while ($row = mysql_fetch_array($respuesta)) {
@@ -37,7 +37,7 @@ class DaoListaReproduccion {
 
     function deleteListaReproduccion($codigo) {
         $this->conexion->Conectar();
-        $sql = "DELETE FROM ListaReproduccion WHERE codigo='" . $codigo . "'";
+        $sql = "DELETE FROM ListaReproduccion WHERE codigo=$codigo";
         $ejecutar = mysql_query($sql);
         $this->conexion->cerrar();
     }
