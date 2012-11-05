@@ -68,10 +68,11 @@
                                 <th width="20%">&Aacute;lbum</th>
                                 <th width="40%">Opciones</th>
                             </tr>
-                       <?php
-//--------------Leer Directorios----------
-    $dir = "../Recursos/Canciones/";
-        
+                                <?php
+                                
+                                $dir = "../Recursos/Canciones/";
+      /*  
+       * //--------------Leer Directorios----------
 // Open a known directory, and proceed to read its contents
     if (is_dir($dir)) {
         if ($dh = opendir($dir)) {
@@ -82,6 +83,7 @@
         }
     }
 //--------------Fin Leer Directorios----------
+    */
                         ?>
                             <tr>
                                 <td></td>

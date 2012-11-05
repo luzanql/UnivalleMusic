@@ -41,8 +41,7 @@ class DaoCancion{
     
     
     function obtenerCancion($nombre,$artista,$album){
-        $this->conexion->Conectar();
-            
+        $this->conexion->Conectar();         
         
         $consulta="SELECT * FROM cancion WHERE nombre='$nombre' AND artista='$artista' AND codigo_Album='$album'";
         $respuesta=mysql_query($consulta);
@@ -52,7 +51,16 @@ class DaoCancion{
         
     }
     
-   
+   function obtenerCancionPorCodigo($codigo){
+        $this->conexion->Conectar();         
+        
+        $consulta="SELECT * FROM cancion WHERE codigo='$codigo'";
+        $respuesta=mysql_query($consulta);
+        $row = mysql_fetch_array($respuesta);
+        $this->conexion->cerrar();
+        return $row;
+        
+    }
     
 }
 ?>
