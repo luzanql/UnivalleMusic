@@ -79,7 +79,6 @@ CREATE TABLE Artista
 ) 
 ;
 
-
 INSERT INTO Artista VALUES (001, 'Andres Cepeda');
 INSERT INTO Artista VALUES (002, 'Carlos Vives');
 INSERT INTO Artista VALUES (003, 'Alejandro Lerner');
@@ -179,46 +178,45 @@ CREATE TABLE Genero
 ) 
 ;
 
-
 INSERT INTO Genero VALUES (001,"Acid");
 INSERT INTO Genero VALUES (002,"Acid Jazz");
 INSERT INTO Genero VALUES (003,"Ambient");
 INSERT INTO Genero VALUES (004,"Acid-Rock");
 INSERT INTO Genero VALUES (005,"Blues");
 INSERT INTO Genero VALUES (006,"Cool-Jazz");
-INSERT INTO Genero VALUES (001,"Country");
-INSERT INTO Genero VALUES (001,"Dance");
-INSERT INTO Genero VALUES (001,"Disco");
-INSERT INTO Genero VALUES (001,"ElectroAcustica");
-INSERT INTO Genero VALUES (001,"Etno-Rock");
-INSERT INTO Genero VALUES (001,"Hip-Hop");
-INSERT INTO Genero VALUES (001,"Jazz");
-INSERT INTO Genero VALUES (001,"Electronica");
-INSERT INTO Genero VALUES (001,"Pop");
-INSERT INTO Genero VALUES (001,"Pop-Rock");
-INSERT INTO Genero VALUES (001,"Punk");
-INSERT INTO Genero VALUES (001,"Rap");
-INSERT INTO Genero VALUES (001,"Reggae");
-INSERT INTO Genero VALUES (001,"Rock");
-INSERT INTO Genero VALUES (001,"Rock and Roll");
-INSERT INTO Genero VALUES (001,"Ska");
-INSERT INTO Genero VALUES (001,"Tango");
-INSERT INTO Genero VALUES (001,"Tecno");
-INSERT INTO Genero VALUES (001,"Trance");
-INSERT INTO Genero VALUES (001,"Bachata");
-INSERT INTO Genero VALUES (001,"Bolero");
-INSERT INTO Genero VALUES (001,"Heavy Metal");
-INSERT INTO Genero VALUES (001,"Folk");
-INSERT INTO Genero VALUES (001,"Salsa");
-INSERT INTO Genero VALUES (001,"Merengue");
-INSERT INTO Genero VALUES (001,"Reggaeton");
-INSERT INTO Genero VALUES (001,"Timba Cubana");
-INSERT INTO Genero VALUES (001,"Clasica");
-INSERT INTO Genero VALUES (001,"Ranchera");
-INSERT INTO Genero VALUES (001,"Tropical");
-INSERT INTO Genero VALUES (001,"Vallenato");
-INSERT INTO Genero VALUES (001,"Gospel");
-INSERT INTO Genero VALUES (001,"Flamenco");
+INSERT INTO Genero VALUES (007,"Country");
+INSERT INTO Genero VALUES (008,"Dance");
+INSERT INTO Genero VALUES (009,"Disco");
+INSERT INTO Genero VALUES (010,"ElectroAcustica");
+INSERT INTO Genero VALUES (011,"Etno-Rock");
+INSERT INTO Genero VALUES (012,"Hip-Hop");
+INSERT INTO Genero VALUES (013,"Jazz");
+INSERT INTO Genero VALUES (014,"Electronica");
+INSERT INTO Genero VALUES (015,"Pop");
+INSERT INTO Genero VALUES (016,"Pop-Rock");
+INSERT INTO Genero VALUES (017,"Punk");
+INSERT INTO Genero VALUES (018,"Rap");
+INSERT INTO Genero VALUES (019,"Reggae");
+INSERT INTO Genero VALUES (020,"Rock");
+INSERT INTO Genero VALUES (021,"Rock and Roll");
+INSERT INTO Genero VALUES (022,"Ska");
+INSERT INTO Genero VALUES (023,"Tango");
+INSERT INTO Genero VALUES (024,"Tecno");
+INSERT INTO Genero VALUES (025,"Trance");
+INSERT INTO Genero VALUES (026,"Bachata");
+INSERT INTO Genero VALUES (027,"Bolero");
+INSERT INTO Genero VALUES (028,"Heavy Metal");
+INSERT INTO Genero VALUES (029,"Folk");
+INSERT INTO Genero VALUES (030,"Salsa");
+INSERT INTO Genero VALUES (013,"Merengue");
+INSERT INTO Genero VALUES (032,"Reggaeton");
+INSERT INTO Genero VALUES (033,"Timba Cubana");
+INSERT INTO Genero VALUES (034,"Clasica");
+INSERT INTO Genero VALUES (035,"Ranchera");
+INSERT INTO Genero VALUES (036,"Tropical");
+INSERT INTO Genero VALUES (037,"Vallenato");
+INSERT INTO Genero VALUES (038,"Gospel");
+INSERT INTO Genero VALUES (039,"Flamenco");
 
 
 CREATE TABLE ArtistasXAlbum
