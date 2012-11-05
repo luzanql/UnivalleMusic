@@ -2,37 +2,47 @@
 
 require_once 'conexion.php';
 
+class DaoCancionesXUsuario {
 
-class DaoArtistaXCancion {
-     private $conexion;
-     
-      function DaoArtistaXCancion() {
+    private $conexion;
+
+    function DaoCancionesXUsuario() {
         $this->conexion = new Conexion();
     }
-    
-    function createArtistaXCancion(ArtistaXCancion $artistaXCancion){
-        
+
+    function createCancionXUsuario(CancionesXUsuario $cancionXUsuario) {
+
         $this->conexion->Conectar();
-        $artista=$artistaXCancion->getCodigoArtista();
-        $cancion=$artistaXCancion->getCodigoCancion();
-        $sql="INSERT INTO ArtistasXCancion VALUES ('$cancion','$artista')";
-        $ejecutar= mysql_query($sql);
+        $usuario = $cancionXUsuario->getCodigoUsuario();
+        $cancion = $cancionXUsuario->getCodigoCancion();
+
+        $sql = "INSERT INTO CancionesXUsuario (codigo_Usuario, codigo_Cancion, fecha)VALUES ('$usuario','$cancion',CURRENT_TIMESTAMP)";
+        $ejecutar = mysql_query($sql);
         $this->conexion->cerrar();
     }
-    
-       function existeArtistasXCancion($codigo_Artista, $codigo_Cancion)
-    {
-       $this->conexion->Conectar();
-       $sql = "SELECT * FROM artistasxcancion WHERE codigo_Cancion='$codigo_Cancion' AND codigo_Artista='$codigo_Artista';";
-       $ejecutar = mysql_query($sql);
-       $row = mysql_fetch_array($ejecutar);
-       $this->conexion->cerrar();
-       if($row>=1){
-        return true;
-        }else
-        return false;
 
-}
+    function existeCancionXUsuario($codigo_usuario, $codigo_Cancion) {
+        $this->conexion->Conectar();
+        $sql = "SELECT * FROM CancionesXUsuraio WHERE codigo_Cancion='$codigo_Cancion' AND codigo_Usuario='$codigo_usuario'";
+        $ejecutar = mysql_query($sql);
+        $row = mysql_fetch_array($ejecutar);
+        $this->conexion->cerrar();
+        if ($row >= 1) {
+            return true;
+        }else
+            return false;
+    }
+    
+    function obtenerCancionesXUsuario($codigoUsuario){
+        $this->conexion->Conectar();
+        $sql = "SELECT codigo_Cancion FROM CancionesXUsuraio WHERE codigo_Usuario='$codigoUsuario'";
+        $ejecutar = mysql_query($sql);
+        $row = mysql_fetch_array($ejecutar);
+        $this->conexion->Cerrar();
+        return $row;
+        
+    }
+
 }
 
 ?>

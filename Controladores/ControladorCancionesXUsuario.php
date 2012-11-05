@@ -1,36 +1,35 @@
 <?php
 
-require_once'../Logica/ArtistasXAlbum.php';
-require_once '../Controladores/ControladorArtistaxAlbum.php';
-require_once '../AccesoDatos/DaoArtistaxAlbum.php';
+require_once'../Logica/CancionesXUsuario.php';
+require_once '../AccesoDatos/DaoCancionesXUsuario.php';
 
-class ControladorArtistaxAlbum{
+class ControladorCancionesXUsuario{
 
-    private $daoArtistasxAlbum;
+    private $daoCancionesXUsuario;
 
-    function ControladorArtistaxAlbum() 
+    function ControladorCancionesXUsuario() 
     {
-        $this->daoArtistasxAlbum=new DaoArtistaxAlbum();
+        $this->daoCancionesXUsuario=new DaoCancionesXUsuario();
     }
     
-    function createArtistaxalbum($codigo_Album, $codigo_Artista)
+    function createCancionesXUsuario($codigo_cancion)
     {
-        $artistaxAlbum = new ArtistaXAlbum();
-        $artistaxAlbum->setCodigoAlbum($codigo_Album);
-        $artistaxAlbum->setCodigoArtista($codigo_Artista);
-        $this->daoArtistasxAlbum->createArtistaXAlbum($artistaxAlbum);
+        $codigo_usuario=$_SESSION['usuario'];
+        $cancionXUsuario = new CancionesXUsuario();
+        $cancionXUsuario->setCodigoCancion($codigo_cancion);
+        $cancionXUsuario->setCodigoUsuario($codigo_usuario);
+        $this->daoCancionesXUsuario->createCancionXUsuario($cancionXUsuario);
     
     }
-    function existeArtistaXAlbum($artista,$album){
-        return $this->daoArtistasxAlbum->existeArtistasXAlbum($album, $artista);
+    function existeCancionXUsuario($cancion,$usuario){
+        return $this->daoCancionesXUsuario->existeCancionXUsuario($usuario, $cancion);
     } 
-
-  
-  
     
     
-    
-    
+    function obtenerCancionesXUsuario($usuario){
+        return $this->daoCancionesXUsuario->obtenerCancionesXUsuario($usuario);
+        
+    }
     
    
 }

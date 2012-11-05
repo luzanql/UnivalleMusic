@@ -39,6 +39,7 @@
                         include('../Controladores/ControladorGenero.php');
                         include('../Controladores/ControladorArtistaxAlbum.php');
                         include('../Controladores/ControladorArtistaXCancion.php');
+                        include('../Controladores/ControladorCancionesXUsuario.php');
                         //
                         $titulo = $_POST["titulo"];
                         $album = $_POST["album"];
@@ -93,6 +94,7 @@
                         $controladorCancion = new ControladorCancion();
                         $controladorArtistaXAlbum = new ControladorArtistaxAlbum();
                         $controladorArtistaXCancion = new ControladorArtistaXCancion();
+                        $controladorCancionesXUsuario=new ControladorCancionesXUsuario();
 
                         $existeGenero = $controladorGenero->existeGenero(strtolower(trim($genero)));
                         if (!$existeGenero) {
@@ -126,6 +128,7 @@
                         }                    
                         
                         $controladorArtistaXCancion->createArtistaXCancion($codigo_Cancion, $codigoArtista);
+                        $controladorCancionesXUsuario->createCancionesXUsuario($codigo_Cancion);
 //
 
                         copy($source, "../Recursos/Canciones/".$nombreCancion);
