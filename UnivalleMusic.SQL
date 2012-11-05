@@ -134,6 +134,8 @@ CREATE TABLE Usuario
 ) 
 ;
 
+INSERT INTO Usuario VALUES ('admin',MD5('admin'),1,'Admin','Admin','admin@univallemusic.com',10);
+
 CREATE TABLE CancionesDescargadas
 (
 	codigo_Cancion VARCHAR(50) NOT NULL,
