@@ -29,7 +29,7 @@ class DaoGenero {
     function createGenero(Genero $g){
         $this->conexion->Conectar();
         $nombre=$g->getNombre();
-        $sql="INSERT INTO Genero VALUES ('".$nombre."')";
+        $sql="INSERT INTO Genero(nombre) VALUES ('$nombre')";
         $ejecutar= mysql_query($sql);
         $this->conexion->cerrar();
         
@@ -37,23 +37,22 @@ class DaoGenero {
     
     function deleteGenero($codigo){
         $this->conexion->Conectar();
-        $sql="DELETE FROM Genero WHERE codigo='".$codigo."'";
+        $sql="DELETE FROM Genero WHERE codigo='$codigo'";
         $ejecutar=mysql_query($sql);
-        $this->conexion->cerrar();
-        
-    }
-    
+        $this->conexion->cerrar();        
+    }    
     
     function existeGenero($nombre){
         $this->conexion->Conectar();
-        $sql="SELECT codigo FROM Genero WHERE nombre='".$nombre."'";
+        $sql="SELECT codigo FROM Genero WHERE nombre='$nombre'";
         $ejecutar=mysql_query($sql);
         $row=  mysql_fetch_array($ejecutar);
         $this->conexion->cerrar();
         if($row>=1){
             return true;
-        }else 
-        return false;
+        }else {
+            return false;        
+        }
         
     }
     

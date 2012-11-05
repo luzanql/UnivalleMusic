@@ -24,14 +24,15 @@ class DaoCancion{
     function createCancion(Cancion $c){
         $this->conexion->Conectar();
         $cancion=$c;
+        $codigo=$cancion->getCodigo();
         $titulo=$cancion->getTitulo();
         $artista=$cancion->getArtista();
         $album=$cancion->getAlbum();
         $genero=$cancion->getGenero();
         
         
-        $consulta=(string)"INSERT INTO cancion (nombre, artista,codigo_Album,genero) VALUES('$titulo','$artista','$album','$genero')";
-        printf($consulta);
+        $consulta="INSERT INTO cancion (codigo,nombre, artista,codigo_Album,genero) VALUES('$codigo','$titulo','$artista','$album','$genero')";
+        
         mysql_query($consulta);
         $this->conexion->cerrar();
  

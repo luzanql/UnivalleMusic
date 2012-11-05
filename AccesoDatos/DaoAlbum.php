@@ -24,9 +24,8 @@ class DaoAlbum{
     
     function createAlbum(Album $a){
         $this->conexion->Conectar();
-        $album=$a;
         $nombre = $a->getNombre();
-        $consulta="INSERT INTO album (nombre) VALUES('".$codigo.")';";
+        $consulta="INSERT INTO album (nombre) VALUES('$nombre')";
         mysql_query($consulta);
         $this->conexion->cerrar();
  

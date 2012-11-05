@@ -12,8 +12,9 @@ class ControladorCancion{
 
   
     
-    function createCancion($titulo,$album,$genero,$artista){
+    function createCancion($codigo,$titulo,$album,$genero,$artista){
         $cancion=new Cancion();
+        $cancion->setCodigo($codigo);
         $cancion->setTitulo($titulo);
         $cancion->setAlbum($album);
         $cancion->setGenero($genero);
