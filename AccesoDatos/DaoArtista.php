@@ -53,9 +53,9 @@ class DaoArtista {
         $this->conexion->Conectar();
         $sql="SELECT codigo FROM Artista WHERE nombre='".$nombre."'";
         $ejecutar=mysql_query($sql);
-        $row=  mysql_fetch_array($ejecutar);
+        $row= mysql_fetch_row($ejecutar);
         $this->conexion->cerrar();
-        return $row;
+        return $row[0];
         
     }
 }

@@ -59,9 +59,13 @@ class DaoAlbum{
         $this->conexion->Conectar();
         $sql = "SELECT codigo FROM Album WHERE nombre='".$nombre."'";
         $ejecutar = mysql_query($sql);
+        $fila = array();
         $row = mysql_fetch_array($ejecutar);
+      //  $row = mysql_fetch_row($ejecutar);
+        $fila [] = array 
+        ($row["codigo"]);
         $this->conexion->cerrar();
-        return $row["nombre"];
+        return $row['codigo'];
         
     }
     

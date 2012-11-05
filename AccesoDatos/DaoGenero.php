@@ -59,11 +59,11 @@ class DaoGenero {
     
     function obtenerGenero($nombre){
         $this->conexion->Conectar();
-        $sql="SELECT * FROM Genero WHERE nombre='".$nombre."'";
+        $sql="SELECT codigo FROM Genero WHERE nombre='$nombre'";
         $ejecutar=mysql_query($sql);
-        $row=  mysql_fetch_row($ejecutar);
+        $row=  mysql_fetch_array($ejecutar);
         $this->conexion->cerrar();
-        return $row;    
+        return $row[0];    
         
     }
     

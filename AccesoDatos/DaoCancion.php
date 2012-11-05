@@ -30,7 +30,8 @@ class DaoCancion{
         $genero=$cancion->getGenero();
         
         
-        $consulta="INSERT INTO cancion (artista,titulo,album,genero) VALUES('".$artista."','".$titulo."','".$album."','".$genero."');";
+        $consulta=(string)"INSERT INTO cancion (nombre, artista,codigo_Album,genero) VALUES('$titulo','$artista','$album','$genero')";
+        printf($consulta);
         mysql_query($consulta);
         $this->conexion->cerrar();
  
@@ -42,9 +43,9 @@ class DaoCancion{
         $this->conexion->Conectar();
             
         
-        $consulta="SELECT * FROM cancion WHERE nombre='".$nombre."',artista='".$artista."', codigo_Album='".$album."')";
-        $consulta=mysql_query($consulta);
-        $row= mysql_fetch_row($consulta);
+        $consulta="SELECT * FROM cancion WHERE nombre='$nombre' AND artista='$artista' AND codigo_Album='$album'";
+        $respuesta=mysql_query($consulta);
+        $row = mysql_fetch_array($respuesta);
         $this->conexion->cerrar();
         return $row;
         

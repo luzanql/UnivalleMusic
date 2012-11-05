@@ -44,10 +44,8 @@
                         $album = $_POST["album"];
                         $genero = $_POST["genero"];
                         $artista = $_POST["artista"];
-
-
-
-
+                        
+                        
                         $controladorAlbum = new ControladorAlbum();
                         $controladorArtista = new ControladorArtista();
                         $controladorGenero = new ControladorGenero();
@@ -94,6 +92,11 @@
                         } else {
                             $file_name = $_FILES["track_file"]["name"];
                             $source = $_FILES["track_file"]["tmp_name"];
+                            
+                            $nombreCancion = explode("\\", $source);
+                            $nombreCancion = $nombreCancion[sizeof($nombreCancion)-1];
+                            $nombreCancion = str_replace("tmp", "mp3", $nombreCancion);
+                                                        
                             echo "Upload: " . $file_name . "<br />";
                             echo "Type: " . $_FILES["track_file"]["type"] . "<br />";
                             echo "Size: " . ($_FILES["track_file"]["size"] / 1024) . " Kb<br />";

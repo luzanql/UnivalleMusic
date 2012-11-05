@@ -25,9 +25,9 @@ class ControladorCancion{
         $cancion=$this->daocancion->obtenerCancion($nombre, $artista, $album);
         $miCancion=new Cancion();
         
-        $titulo=$cancion ["titulo"];
+        $titulo=$cancion ["nombre"];
         $artista=$cancion ["artista"];
-        $album=$cancion ["album"];
+        $album=$cancion ["codigo_Album"];
         $codigo=$cancion ["codigo"];
         $genero=$cancion ["genero"];
         $miCancion->setTitulo($titulo);

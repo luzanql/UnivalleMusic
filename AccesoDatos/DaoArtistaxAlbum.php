@@ -39,7 +39,7 @@ class DaoArtistaxAlbum {
        $this->conexion->Conectar();
        $sql = "SELECT codigo FROM artistasxalbum WHERE codigo_Album='".$codigo_Album."' AND codigo_Artista='".$codigo_Artista."';";
        $ejecutar = mysql_query($sql);
-      // $row = mysql_affected_rows();
+       $row = mysql_affected_rows();
        //$row = mysql_fetch_array($ejecutar);
        
        $this->conexion->cerrar();
