@@ -16,12 +16,11 @@
 
             <div data-role="header" data-theme ="b" style="height: 167px;"><!--background-image: url(banner.png); -->
                 <div style="width:180px; height:100px; float:right; ">
-                    <form name="autenticarForm" method="post" action="../AccesoDatos/autenticacion.php">   
+                    <form name="autenticarForm" method="post" data-ajax="false" action="../AccesoDatos/autenticacion.php">   
                         <label for="basic" data-mini="true">Usuario:</label><input type="text" name="usuario" id="basic" value="" data-mini="true"  />
                         <label for="basic" data-mini="true">Password:</label><input type="password" name="password" id="basic" value=""  data-mini="true" />
                         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
                             <input  data-role="button" value="Ingresar" type="submit"/> 
-
                             <a href="index.html" data-role="button">Registrarse</a>
                         </div>
                     </form> 

@@ -14,7 +14,7 @@
         <div data-role="page" data-theme= "a">
 
             <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
-                <img src="../Recursos/Banner.png" style="width: 80%; height: 100%;">
+                <img src="../Recursos/Banner.png" style="width: 80%; height: 100%;"/>
                 <div style="float:right;">
                     <img src="../Recursos/carrito.jpeg" style=" width:50%; height: 50%; "  />
                 </div>
@@ -26,7 +26,7 @@
 
                         <div data-role="controlgroup"> 
                             <a href="index.html" data-role="button"> Mi Perfil </a> 
-                            <a href="index.html" data-role="button"> Mi Coleccion</a> 
+                            <a href="../Vista/MiColeccion.php" data-role="button"> Mi Coleccion</a> 
                             <a href="index.html" data-role="button"> Listas de Reproduccion</a> 
                             <a href="index.html" data-role="button"> Comprar Musica</a>
                         </div>
