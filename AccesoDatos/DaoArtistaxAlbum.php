@@ -3,27 +3,29 @@
 require_once 'conexion.php';
 require_once '../Logica/ArtistasXAlbum.php';
 
-class DaoArtistasxAlbum {
+class DaoArtistaxAlbum {
 
     private $conexion;    
    
 
-    function DaoArtistasxAlbum() {
+    function DaoArtistaxAlbum() {
         $this->conexion = new Conexion();
     }
     
     
     
         
-    function createArtistaXAlbum($codigoAlbum, $codigoArtista)
+    function createArtistaXAlbum(ArtistaXAlbum $artistaXAlbum)
     {
         $this->conexion->Conectar();
-        $sql="INSERT INTO artistasxalbum VALUES('".$codigoAlbum."','".$codigoArtista."');";
+        $artista=$artistaXAlbum->getCodigoArtista();
+        $album=$artistaXAlbum->getsetCodigoAlbum();
+        $sql="INSERT INTO artistasxalbum VALUES('".$album."','".$artista."');";
         $ejecutar= mysql_query($sql);
         $this->conexion->cerrar();            
     }
     
-    function deleteArtistasXAlbum()
+    function deleteArtistasXAlbum($codigo)
     {
         $this->conexion->Conectar();
         $sql="DELETE FROM artistasxalbum WHERE codigo'".$codigo."'";
@@ -37,7 +39,9 @@ class DaoArtistasxAlbum {
        $this->conexion->Conectar();
        $sql = "SELECT codigo FROM artistasxalbum WHERE codigo_Album='".$codigo_Album."' AND codigo_Artista='".$codigo_Artista."';";
        $ejecutar = mysql_query($sql);
-       $row = mysql_fetch_array($ejecutar);
+      // $row = mysql_affected_rows();
+       //$row = mysql_fetch_array($ejecutar);
+       
        $this->conexion->cerrar();
        if($row>=1){
         return true;

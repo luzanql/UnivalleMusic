@@ -1,15 +1,16 @@
-<?
-require_once 'conexion.php';
-require_once '../Logica/ListaReproduccion.php';
+<?php
+
+include_once 'conexion.php';
+include_once '../Logica/ListaReproduccion.php';
 
 class DaoListaReproduccion {
 
     private $conexion;
-    
-    function DaoListaReproduccion() {
+
+    function __construct() {
         $this->conexion = new Conexion();
     }
-    
+
     function getListasReproduccionPorUsuario($idUsuario) {
         $this->conexion->Conectar();
         $sql = "SELECT nombre FROM ListaReproduccion WHERE id_Usuario=" . $idUsuario;
@@ -26,14 +27,17 @@ class DaoListaReproduccion {
         $this->conexion->Conectar();
         $nombre = $lr->getNombre();
         $idUsuario = $lr->getIdUsuario();
-        $sql = "INSERT INTO ListaReproduccion(nombre,id_Usuario) VALUES ('.$nombre.',.$idUsuario.)";
+        $sql = "INSERT INTO ListaReproduccion(nombre,id_Usuario) VALUES ('$nombre',$idUsuario)";
         $ejecutar = mysql_query($sql);
+        if (!$ejecutar) {
+            die('Consulta no válida: ' . mysql_error());            
+            }
         $this->conexion->cerrar();
     }
 
     function deleteListaReproduccion($codigo) {
         $this->conexion->Conectar();
-        $sql = "DELETE FROM ListaReproduccion WHERE codigo='" .$codigo . "'";
+        $sql = "DELETE FROM ListaReproduccion WHERE codigo='" . $codigo . "'";
         $ejecutar = mysql_query($sql);
         $this->conexion->cerrar();
     }

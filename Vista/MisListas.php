@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Inicio</title>
+        <title>Mis Listas de Reproduccion</title>
         <link rel="stylesheet" href="../themes/male.min.css" />
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" />
         <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
@@ -33,17 +33,18 @@
                     </div>
                     <div class="ui-block-b" style=" margin:3%" >
                         
-                        <?php    
-                        include('../Controladores/ControladorListaReproduccion.php');
-                        //
-                        $nombre=$_POST["nombre"];
+                        <?php
+                        include_once '../Controladores/ControladorListaReproduccion.php';
+                        $controlador = new ControladorListaReproduccion();
                         
-                        $controlador=new ControladorListaReproduccion();
-                        $controlador->createCancion($titulo, $codigo, $album, $genero);
-                     
+                        if($_POST){
+                            $nombre = $_POST['nombre'];
+                            $controlador->createListaReproduccion($nombre);
+                            echo "<h2>Se ha creado la Lista de Reproduccion: $nombre con exito!</h2>";
+                            }
                         ?>
-                        
-                        <p>Mis Listas</p>
+                                
+                        <h1>Mis Listas</h1>
                         <table>
                             <tr>
                                 <td>
