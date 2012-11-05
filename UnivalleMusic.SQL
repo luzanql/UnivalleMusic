@@ -21,6 +21,56 @@ CREATE TABLE Album
 ) 
 ;
 
+INSERT INTO Album VALUES (001,'Se Morir');
+INSERT INTO Album VALUES (002,'Lo Mejor que hay en mi Vida');
+INSERT INTO Album VALUES (003,'El Carpintero');
+INSERT INTO Album VALUES (004,'Canción Rota');
+INSERT INTO Album VALUES (005,'Dia tras Dia');
+INSERT INTO Album VALUES (006,'Para Amarte Mejor');
+INSERT INTO Album VALUES (007,'El Rock de Mi Pueblo');
+INSERT INTO Album VALUES (008,'Dos Voces');
+INSERT INTO Album VALUES (009,'Enojado');
+INSERT INTO Album VALUES (010,'Volver a Empezar');
+INSERT INTO Album VALUES (011,'20 Años');
+INSERT INTO Album VALUES (012,'Cada Dia');
+INSERT INTO Album VALUES (013,'Soy Feliz');
+INSERT INTO Album VALUES (014,'Viajero Frecuente');
+INSERT INTO Album VALUES (015,'Rompecabezas');
+INSERT INTO Album VALUES (016,'Un Poco Mas');
+INSERT INTO Album VALUES (017,'Real');
+INSERT INTO Album VALUES (018,'El Negocio');
+INSERT INTO Album VALUES (019,'Camaleon');
+INSERT INTO Album VALUES (020,'Mundo Nuevo');
+INSERT INTO Album VALUES (021,'Debut');
+INSERT INTO Album VALUES (022,'Cabas');
+INSERT INTO Album VALUES (023,'Contacto');
+INSERT INTO Album VALUES (024,'Amores Dificiles');
+INSERT INTO Album VALUES (025,'Fiajate Bien');
+INSERT INTO Album VALUES (026,'Un Dia Normal');
+INSERT INTO Album VALUES (027,'Mi Sangre');
+INSERT INTO Album VALUES (028,'La Vida es Un Ratico');
+INSERT INTO Album VALUES (029,'Parce');
+INSERT INTO Album VALUES (030,'La Vida es Gratis');
+INSERT INTO Album VALUES (031,'El Condor Fenix');
+INSERT INTO Album VALUES (032,'Sale el Sol');
+INSERT INTO Album VALUES (033,'Live From Paris');
+INSERT INTO Album VALUES (034,'Pies Descalzos');
+INSERT INTO Album VALUES (035,'¿Donde estan los Ladrones?');
+INSERT INTO Album VALUES (036,'Al Pasito');
+INSERT INTO Album VALUES (037,'Querer es Poder');
+INSERT INTO Album VALUES (038,'Preparate');
+INSERT INTO Album VALUES (039,'Sutil y Contundente');
+INSERT INTO Album VALUES (040,'Cielo de Tambores');
+INSERT INTO Album VALUES (041,'12 Años');
+INSERT INTO Album VALUES (042,'Bueno y mas');
+INSERT INTO Album VALUES (043,'Extremo');
+INSERT INTO Album VALUES (044,'Como en un Baile');
+INSERT INTO Album VALUES (045,'No me Compares');
+INSERT INTO Album VALUES (046,'El Tren de los Momentos');
+INSERT INTO Album VALUES (047,'El Alma al Aire');
+
+
+
 CREATE TABLE Artista
 (
 	codigo INTEGER AUTO_INCREMENT,
@@ -28,6 +78,52 @@ CREATE TABLE Artista
 	PRIMARY KEY (codigo)
 ) 
 ;
+
+
+INSERT INTO Artista VALUES (001, 'Andres Cepeda');
+INSERT INTO Artista VALUES (002, 'Carlos Vives');
+INSERT INTO Artista VALUES (003, 'Alejandro Lerner');
+INSERT INTO Artista VALUES (004, 'Ricardo Montaner');
+INSERT INTO Artista VALUES (005, 'Lucas Arnau');
+INSERT INTO Artista VALUES (006, 'J Balvin');
+INSERT INTO Artista VALUES (007, 'Jose Gaviria');
+INSERT INTO Artista VALUES (008, 'Veronica Orozco');
+INSERT INTO Artista VALUES (009, 'Andres Cabas');
+INSERT INTO Artista VALUES (010, 'Juanes');
+INSERT INTO Artista VALUES (011, 'Julio Nava');
+INSERT INTO Artista VALUES (012, 'Shakira');
+INSERT INTO Artista VALUES (013, 'Grupo Niche');
+INSERT INTO Artista VALUES (014, 'Guayacan');
+INSERT INTO Artista VALUES (015, 'Alejandro Saenz');
+INSERT INTO Artista VALUES (016, 'Andrea Echeverry');
+INSERT INTO Artista VALUES (017, 'Aterciopelados');
+INSERT INTO Artista VALUES (018, 'Jimmy Saa');
+INSERT INTO Artista VALUES (019, 'Fonseca');
+INSERT INTO Artista VALUES (020, 'Soraya');
+INSERT INTO Artista VALUES (021, 'Alejandro Fernadez');
+INSERT INTO Artista VALUES (022, 'Carlos Baute');
+INSERT INTO Artista VALUES (023, 'Luis Fonsi');
+INSERT INTO Artista VALUES (024, 'Noel Schajris');
+INSERT INTO Artista VALUES (025, 'Diego Torres');
+INSERT INTO Artista VALUES (026, 'Ricardo Arjona');
+INSERT INTO Artista VALUES (027, 'Axel');
+INSERT INTO Artista VALUES (028, 'Cristian Castro');
+INSERT INTO Artista VALUES (029, 'Vicentico');
+INSERT INTO Artista VALUES (030, 'Calle 13');
+INSERT INTO Artista VALUES (031, 'Don Omar');
+INSERT INTO Artista VALUES (032, 'Justin Timberlake');
+INSERT INTO Artista VALUES (033, 'Michael Jackson');
+INSERT INTO Artista VALUES (034, 'Nelly Furtado');
+INSERT INTO Artista VALUES (035, 'Paulina Rubio');
+INSERT INTO Artista VALUES (036, 'Madonna');
+INSERT INTO Artista VALUES (037, 'Lady Gaga');
+INSERT INTO Artista VALUES (038, 'Beyonce');
+INSERT INTO Artista VALUES (039, 'Criss Brown');
+INSERT INTO Artista VALUES (040, 'Britney Spears');
+INSERT INTO Artista VALUES (041, 'Cristina Aguilera');
+INSERT INTO Artista VALUES (042, 'Belinda');
+
+
 
 CREATE TABLE Nacionalidad
 (
@@ -82,6 +178,47 @@ CREATE TABLE Genero
 	PRIMARY KEY (codigo)
 ) 
 ;
+
+
+INSERT INTO Genero VALUES (001,"Acid");
+INSERT INTO Genero VALUES (002,"Acid Jazz");
+INSERT INTO Genero VALUES (003,"Ambient");
+INSERT INTO Genero VALUES (004,"Acid-Rock");
+INSERT INTO Genero VALUES (005,"Blues");
+INSERT INTO Genero VALUES (006,"Cool-Jazz");
+INSERT INTO Genero VALUES (001,"Country");
+INSERT INTO Genero VALUES (001,"Dance");
+INSERT INTO Genero VALUES (001,"Disco");
+INSERT INTO Genero VALUES (001,"ElectroAcustica");
+INSERT INTO Genero VALUES (001,"Etno-Rock");
+INSERT INTO Genero VALUES (001,"Hip-Hop");
+INSERT INTO Genero VALUES (001,"Jazz");
+INSERT INTO Genero VALUES (001,"Electronica");
+INSERT INTO Genero VALUES (001,"Pop");
+INSERT INTO Genero VALUES (001,"Pop-Rock");
+INSERT INTO Genero VALUES (001,"Punk");
+INSERT INTO Genero VALUES (001,"Rap");
+INSERT INTO Genero VALUES (001,"Reggae");
+INSERT INTO Genero VALUES (001,"Rock");
+INSERT INTO Genero VALUES (001,"Rock and Roll");
+INSERT INTO Genero VALUES (001,"Ska");
+INSERT INTO Genero VALUES (001,"Tango");
+INSERT INTO Genero VALUES (001,"Tecno");
+INSERT INTO Genero VALUES (001,"Trance");
+INSERT INTO Genero VALUES (001,"Bachata");
+INSERT INTO Genero VALUES (001,"Bolero");
+INSERT INTO Genero VALUES (001,"Heavy Metal");
+INSERT INTO Genero VALUES (001,"Folk");
+INSERT INTO Genero VALUES (001,"Salsa");
+INSERT INTO Genero VALUES (001,"Merengue");
+INSERT INTO Genero VALUES (001,"Reggaeton");
+INSERT INTO Genero VALUES (001,"Timba Cubana");
+INSERT INTO Genero VALUES (001,"Clasica");
+INSERT INTO Genero VALUES (001,"Ranchera");
+INSERT INTO Genero VALUES (001,"Tropical");
+INSERT INTO Genero VALUES (001,"Vallenato");
+INSERT INTO Genero VALUES (001,"Gospel");
+INSERT INTO Genero VALUES (001,"Flamenco");
 
 
 CREATE TABLE ArtistasXAlbum
