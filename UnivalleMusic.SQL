@@ -208,7 +208,7 @@ INSERT INTO Genero VALUES (027,"Bolero");
 INSERT INTO Genero VALUES (028,"Heavy Metal");
 INSERT INTO Genero VALUES (029,"Folk");
 INSERT INTO Genero VALUES (030,"Salsa");
-INSERT INTO Genero VALUES (013,"Merengue");
+INSERT INTO Genero VALUES (031,"Merengue");
 INSERT INTO Genero VALUES (032,"Reggaeton");
 INSERT INTO Genero VALUES (033,"Timba Cubana");
 INSERT INTO Genero VALUES (034,"Clasica");
