@@ -54,7 +54,8 @@
                             $extensionArchivo = str_replace(".", "", $extensionArchivo);
                             $extensionArchivo = strtolower($extensionArchivo);
 
-                            $extensionesValidas = array("mp3", "wav", "wma", "cda", "ogg", "ogm", "aac", "ac3", "mid", "midi", "flac");
+                            //$extensionesValidas = array("mp3", "wav", "wma", "cda", "ogg", "ogm", "aac", "ac3", "mid", "midi", "flac");
+                            $extensionesValidas = array("mp3", "ogg");
                             $archivoValido = false;
                             for ($i = 0; $i < sizeof($extensionesValidas); $i++) {
                                 if ($extensionArchivo == $extensionesValidas[$i]) {
@@ -130,6 +131,7 @@
 
                         copy($source, "../Recursos/Canciones/".$nombreCancion);
                        
+                        
                         printf("<audio controls=\"controls\">
                             <source src=\"../Recursos/Canciones/$nombreCancion\" type=\"audio/mpeg\">
                                 Your browser does not support the audio element.
