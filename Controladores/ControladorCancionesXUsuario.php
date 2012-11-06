@@ -2,6 +2,7 @@
 
 require_once'../Logica/CancionesXUsuario.php';
 require_once '../AccesoDatos/DaoCancionesXUsuario.php';
+require_once '../AccesoDatos/Session.php';
 
 class ControladorCancionesXUsuario{
 
@@ -14,7 +15,8 @@ class ControladorCancionesXUsuario{
     
     function createCancionesXUsuario($codigo_cancion)
     {
-        $codigo_usuario=$_SESSION['usuario'];
+        $sessionActual = Session::getInstance();
+        $codigo_usuario = $sessionActual->usuario;
         $cancionXUsuario = new CancionesXUsuario();
         $cancionXUsuario->setCodigoCancion($codigo_cancion);
         $cancionXUsuario->setCodigoUsuario($codigo_usuario);

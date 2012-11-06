@@ -8,6 +8,10 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" />
         <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+        <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
     </head>
     <body>
         <div data-role="page" data-theme= "a">
@@ -26,7 +30,7 @@
                         <div data-role="controlgroup"> 
                             <a href="index.html" data-role="button"> Mi Perfil </a> 
                             <a href="../Vista/MiColeccion.php" data-role="button"> Mi Coleccion</a> 
-                            <a href="index.html" data-role="button"> Listas de Reproduccion</a> 
+                            <a href="../Vista/MisListas.php" data-role="button"> Listas de Reproduccion</a> 
                             <a href="index.html" data-role="button"> Comprar Musica</a>
                         </div>
                     </div>
@@ -83,10 +87,10 @@
                             $nombreCancion = $nombreCancion[sizeof($nombreCancion) - 1];
                             $nombreCancion = str_replace("tmp", $extensionArchivo, $nombreCancion);
 
-                            echo "Cancion: " . $titulo. "<br />";
+                            echo "Cancion: " . $titulo . "<br />";
                             echo "Tipo Archivo: " . $extensionArchivo . "<br />";
-                            echo "Tamano: " . (($_FILES["track_file"]["size"] / 1024)/1024) . " MB<br />";
-                           }
+                            echo "Tamano: " . (($_FILES["track_file"]["size"] / 1024) / 1024) . " MB<br />";
+                        }
 
 
                         $controladorAlbum = new ControladorAlbum();
@@ -95,7 +99,7 @@
                         $controladorCancion = new ControladorCancion();
                         $controladorArtistaXAlbum = new ControladorArtistaxAlbum();
                         $controladorArtistaXCancion = new ControladorArtistaXCancion();
-                        $controladorCancionesXUsuario=new ControladorCancionesXUsuario();
+                        $controladorCancionesXUsuario = new ControladorCancionesXUsuario();
 
                         $existeGenero = $controladorGenero->existeGenero(strtolower(trim($genero)));
                         if (!$existeGenero) {
@@ -118,29 +122,29 @@
                         }
                         $codigoAlbum = $controladorAlbum->obtenerCodigoAlbum(strtolower(trim($album)));
                         $codigoArtista = $controladorArtista->obtenerCodigoArtista(strtolower(trim($artista)));
-                        
-                        $controladorCancion->createCancion($nombreCancion,$titulo, $codigoAlbum, $codigoGenero, $codigoArtista);
+
+                        $controladorCancion->createCancion($nombreCancion, $titulo, $codigoAlbum, $codigoGenero, $codigoArtista);
                         $cancion = $controladorCancion->obtenerCancion($titulo, $codigoArtista, $codigoAlbum);
                         $codigo_Cancion = $cancion->getCodigo();
 
                         if (!$existeArtistaXAlbum) {
 
                             $controladorArtistaXAlbum->createArtistaxalbum($codigoAlbum, $codigoArtista);
-                        }                    
-                        
+                        }
+
                         $controladorArtistaXCancion->createArtistaXCancion($codigo_Cancion, $codigoArtista);
                         $controladorCancionesXUsuario->createCancionesXUsuario($codigo_Cancion);
 //
 
-                        copy($source, "../Recursos/Canciones/".$nombreCancion);
-                       
-                        
+                        copy($source, "../Recursos/Canciones/" . $nombreCancion);
+
+
                         printf("<audio controls=\"controls\">
                             <source src=\"../Recursos/Canciones/$nombreCancion\" type=\"audio/mpeg\">
                                 Your browser does not support the audio element.
                                 </audio>");
-                          /*
-                         
+                        /*
+
                           //--------------Leer Directorios----------
                           $dir = "canciones/";
 

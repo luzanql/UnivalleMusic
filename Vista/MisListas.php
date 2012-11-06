@@ -8,6 +8,10 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" />
         <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+        <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
     </head>
     <body>
 
@@ -27,7 +31,7 @@
                         <div data-role="controlgroup"> 
                             <a href="index.html" data-role="button"> Mi Perfil </a> 
                             <a href="../Vista/MiColeccion.php" data-role="button"> Mi Coleccion</a> 
-                            <a href="index.html" data-role="button"> Listas de Reproduccion</a> 
+                            <a href="../Vista/MisListas.php" data-role="button"> Listas de Reproduccion</a> 
                             <a href="index.html" data-role="button"> Comprar Musica</a>
                         </div>
                     </div>
@@ -49,7 +53,7 @@
                             <tr>
                                 <td>
                             <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-                                <a href="CrearListaReproduccion.html" data-role="button" data-icon="plus" >Crear Lista</a>
+                                <a href="../Vista/CrearListaReproduccion.html" data-role="button" data-icon="plus" >Crear Lista</a>
                             </div>
                                 </td>
                             </tr>

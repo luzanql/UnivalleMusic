@@ -1,6 +1,7 @@
 <?php
 include_once '../AccesoDatos/DaoListaReproduccion.php';
 include_once '../Logica/ListaReproduccion.php';
+include_once '../AccesoDatos/Session.php';
 
 class ControladorListaReproduccion {
 
@@ -12,7 +13,8 @@ class ControladorListaReproduccion {
 
     function obtenerListasReproduccion() {
        //Modificar con sesion
-        $idUsuario = $_SESSION['usuario'];
+        $sessionActual = Session::getInstance();
+        $idUsuario = $sessionActual->usuario;
        //-----------
         return $this->daoListaReproduccion->getListasReproduccionPorUsuario($idUsuario);
     }
@@ -21,7 +23,8 @@ class ControladorListaReproduccion {
         $listaReproduccion = new ListaReproduccion();
         $listaReproduccion->setNombre($nombre);
         //Modificar cuando se implement la sesion
-        $idUsuario = $_SESSION['usuario'];
+        $sessionActual = Session::getInstance();
+        $idUsuario = $sessionActual->usuario;
         $listaReproduccion->setIdUsuario($idUsuario);
         //--------------------
         $listaReproduccion->setIdUsuario($idUsuario);

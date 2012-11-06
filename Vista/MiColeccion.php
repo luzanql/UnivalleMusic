@@ -32,7 +32,7 @@
                         <div data-role="controlgroup"> 
                             <a href="index.html" data-role="button"> Mi Perfil </a> 
                             <a href="../Vista/MiColeccion.html" data-role="button"> Mi Coleccion</a> 
-                            <a href="index.html" data-role="button"> Listas de Reproduccion</a> 
+                            <a href="../Vista/MisListas.php" data-role="button"> Listas de Reproduccion</a> 
                             <a href="index.html" data-role="button"> Comprar Musica</a>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                             <tr>
                                 <td>
                                     <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-                                        <a href="AgregarCancion.html" data-role="button" data-icon="plus" >Subir Cancion</a>
+                                        <a href="../Vista/AgregarCancion.html" data-role="button" data-icon="plus" >Subir Cancion</a>
                                     </div>
                                 </td>
                                 <td>
