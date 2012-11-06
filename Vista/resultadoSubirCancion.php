@@ -49,6 +49,20 @@
                         $album = $_POST["album"];
                         $genero = $_POST["genero"];
                         $artista = $_POST["artista"];
+                        
+                        if ($_FILES["track_file"]["name"]=="" ){
+                              die("Debe elegir un archivo.<br/>
+                                    <a href=\"AgregarCancion.html\" data-role=\"button\"> Volver</a>
+                                    </div></div><!-- /grid-b --></div><!-- /content -->
+                                    <div data-role=\"footer\" data-theme = \"b\" STYLE=\" border-style:solid; border-color: #c73930;\">
+                                    <h6>UNIVERSIDAD DEL VALLE</h6>
+                                    <h6>Aplicaciones en la Web y Redes Inhalambricas</h6>
+                                    </div>
+                                    </div><!-- /page -->
+                                    </body>
+                                    </html>");
+                             
+                         }
 
                         if ($_FILES["track_file"]["error"] > 0) {
                             echo "Upload File: " . ini_get('upload_max_filesize') . "<br/>";
