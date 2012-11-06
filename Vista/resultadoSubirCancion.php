@@ -131,10 +131,12 @@
 
                             $controladorArtistaXAlbum->createArtistaxalbum($codigoAlbum, $codigoArtista);
                         }
-
+                        
+                        
                         $controladorArtistaXCancion->createArtistaXCancion($codigo_Cancion, $codigoArtista);
+                        
                         $controladorCancionesXUsuario->createCancionesXUsuario($codigo_Cancion);
-//
+                        
 
                         copy($source, "../Recursos/Canciones/" . $nombreCancion);
 
