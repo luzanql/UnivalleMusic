@@ -24,13 +24,15 @@ class DaoCancion{
     function createCancion(Cancion $c){
         $this->conexion->Conectar();
         $cancion=$c;
+        $codigo=$cancion->getCodigo();
         $titulo=$cancion->getTitulo();
         $artista=$cancion->getArtista();
         $album=$cancion->getAlbum();
         $genero=$cancion->getGenero();
         
         
-        $consulta="INSERT INTO cancion (artista,titulo,album,genero) VALUES('".$artista."','".$titulo."','".$album."','".$genero."');";
+        $consulta="INSERT INTO cancion (codigo,nombre, artista,codigo_Album,genero) VALUES('$codigo','$titulo','$artista','$album','$genero')";
+        
         mysql_query($consulta);
         $this->conexion->cerrar();
  
@@ -39,18 +41,26 @@ class DaoCancion{
     
     
     function obtenerCancion($nombre,$artista,$album){
-        $this->conexion->Conectar();
-            
+        $this->conexion->Conectar();         
         
-        $consulta="SELECT * FROM cancion WHERE nombre='".$nombre."',artista='".$artista."', codigo_Album='".$album."')";
-        $consulta=mysql_query($consulta);
-        $row= mysql_fetch_row($consulta);
+        $consulta="SELECT * FROM cancion WHERE nombre='$nombre' AND artista='$artista' AND codigo_Album='$album'";
+        $respuesta=mysql_query($consulta);
+        $row = mysql_fetch_array($respuesta);
         $this->conexion->cerrar();
         return $row;
         
     }
     
-   
+   function obtenerCancionPorCodigo($codigo){
+        $this->conexion->Conectar();         
+        
+        $consulta="SELECT * FROM cancion WHERE codigo='$codigo'";
+        $respuesta=mysql_query($consulta);
+        $row = mysql_fetch_array($respuesta);
+        $this->conexion->cerrar();
+        return $row;
+        
+    }
     
 }
 ?>

@@ -12,8 +12,9 @@ class ControladorCancion{
 
   
     
-    function createCancion($titulo,$album,$genero,$artista){
+    function createCancion($codigo,$titulo,$album,$genero,$artista){
         $cancion=new Cancion();
+        $cancion->setCodigo($codigo);
         $cancion->setTitulo($titulo);
         $cancion->setAlbum($album);
         $cancion->setGenero($genero);
@@ -25,9 +26,9 @@ class ControladorCancion{
         $cancion=$this->daocancion->obtenerCancion($nombre, $artista, $album);
         $miCancion=new Cancion();
         
-        $titulo=$cancion ["titulo"];
+        $titulo=$cancion ["nombre"];
         $artista=$cancion ["artista"];
-        $album=$cancion ["album"];
+        $album=$cancion ["codigo_Album"];
         $codigo=$cancion ["codigo"];
         $genero=$cancion ["genero"];
         $miCancion->setTitulo($titulo);
@@ -40,10 +41,5 @@ class ControladorCancion{
         
         
     }
-    
-    
-    
-    
-   
 }
 ?>

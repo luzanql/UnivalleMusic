@@ -20,7 +20,7 @@ class ArtistaXCancion
     }
     
     function getCodigoArtista() {
-        return $this->CodigoArtista;
+        return $this->codigoArtista;
     }
     
 }

@@ -15,7 +15,7 @@ class DaoArtistaXCancion {
         $this->conexion->Conectar();
         $artista=$artistaXCancion->getCodigoArtista();
         $cancion=$artistaXCancion->getCodigoCancion();
-        $sql="INSERT INTO ArtistaXCancion VALUES ('".$cancion."','".$artista."')";
+        $sql="INSERT INTO ArtistasXCancion VALUES ('$cancion','$artista')";
         $ejecutar= mysql_query($sql);
         $this->conexion->cerrar();
     }
@@ -23,7 +23,7 @@ class DaoArtistaXCancion {
        function existeArtistasXCancion($codigo_Artista, $codigo_Cancion)
     {
        $this->conexion->Conectar();
-       $sql = "SELECT * FROM artistasxcancion WHERE codigo_Cancion='".$codigo_Cancion."' AND codigo_Artista='".$codigo_Artista."';";
+       $sql = "SELECT * FROM artistasxcancion WHERE codigo_Cancion='$codigo_Cancion' AND codigo_Artista='$codigo_Artista';";
        $ejecutar = mysql_query($sql);
        $row = mysql_fetch_array($ejecutar);
        $this->conexion->cerrar();

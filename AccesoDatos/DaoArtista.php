@@ -13,7 +13,7 @@ class DaoArtista {
         
         $this->conexion->Conectar();
         $nombre=$a->getNombre();
-        $sql="INSERT INTO Artista (nombre) VALUES ('.$nombre.')";
+        $sql="INSERT INTO Artista (nombre) VALUES ('$nombre')";
         $ejecutar= mysql_query($sql);
         $this->conexion->cerrar();
     }
@@ -38,7 +38,7 @@ class DaoArtista {
     function existeArtista($nombre)
     {
         $this->conexion->Conectar();
-        $sql="SELECT codigo FROM Artista WHERE nombre='".$nombre."'";
+        $sql="SELECT codigo FROM Artista WHERE nombre='$nombre'";
         $ejecutar=mysql_query($sql);
         $row=  mysql_fetch_array($ejecutar);
         $this->conexion->cerrar();
@@ -51,11 +51,11 @@ class DaoArtista {
     
     function obtenerCodigoArtista($nombre){
         $this->conexion->Conectar();
-        $sql="SELECT codigo FROM Artista WHERE nombre='".$nombre."'";
+        $sql="SELECT codigo FROM Artista WHERE nombre='$nombre'";
         $ejecutar=mysql_query($sql);
-        $row=  mysql_fetch_array($ejecutar);
+        $row= mysql_fetch_row($ejecutar);
         $this->conexion->cerrar();
-        return $row;
+        return $row[0];
         
     }
 }

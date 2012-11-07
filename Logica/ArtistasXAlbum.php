@@ -19,7 +19,7 @@ class ArtistaXAlbum
     }
     
     function getCodigoArtista() {
-        return $this->CodigoArtista;
+        return $this->codigoArtista;
     }
     
 }
