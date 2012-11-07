@@ -11,7 +11,7 @@ class Conexion {
     function Conexion() {
         $this->server = "localhost";
         $this->usuario = "root";
-        $this->password = "maleja";
+        $this->password = "mayraata";
         $this->basedatos = "UnivalleMusic";
       }
         

@@ -85,7 +85,7 @@
 
                             if (!$archivoValido) {
                                 die("El archivo no tiene una extension de archivo valida.<br/>
-                                    <a href=\"MisListas.php\" data-role=\"button\"> Volver</a>
+                                    <a href=\"AgregarCancion.html\" data-role=\"button\"> Volver</a>
                                     </div></div><!-- /grid-b --></div><!-- /content -->
                                     <div data-role=\"footer\" data-theme = \"b\" STYLE=\" border-style:solid; border-color: #c73930;\">
                                     <h6>UNIVERSIDAD DEL VALLE</h6>
