@@ -23,7 +23,7 @@ class DaoCancionesXUsuario {
 
     function existeCancionXUsuario($codigo_usuario, $codigo_Cancion) {
         $this->conexion->Conectar();
-        $sql = "SELECT * FROM CancionesXUsuraio WHERE codigo_Cancion='$codigo_Cancion' AND codigo_Usuario='$codigo_usuario'";
+        $sql = "SELECT * FROM CancionesXUsuario WHERE codigo_Cancion='$codigo_Cancion' AND codigo_Usuario='$codigo_usuario'";
         $ejecutar = mysql_query($sql);
         $row = mysql_fetch_array($ejecutar);
         $this->conexion->cerrar();
@@ -35,7 +35,7 @@ class DaoCancionesXUsuario {
 
     function obtenerCancionesXUsuario($codigoUsuario) {
         $this->conexion->Conectar();
-        $sql = "SELECT codigo_Cancion FROM CancionesXUsuraio WHERE codigo_Usuario='$codigoUsuario'";
+        $sql = "SELECT codigo_Cancion FROM CancionesXUsuario WHERE codigo_Usuario='$codigoUsuario'";
         $ejecutar = mysql_query($sql);
         $row = mysql_fetch_array($ejecutar);
         $this->conexion->Cerrar();

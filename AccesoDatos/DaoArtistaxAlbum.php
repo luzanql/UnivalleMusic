@@ -20,9 +20,9 @@ class DaoArtistaxAlbum {
         $this->conexion->cerrar();
     }
 
-    function deleteArtistasXAlbum($codigo) {
+    function deleteArtistasXAlbum($codigoArtista,$codigoAlbum) {
         $this->conexion->Conectar();
-        $sql = "DELETE FROM ArtistasXAlbum WHERE codigo='$codigo'";
+        $sql = "DELETE FROM ArtistasXAlbum WHERE codigo_Artista='$codigoArtista' AND codigo_Album='$codigoAlbum'";
         $ejecutar = mysql_query($sql);
         $this->conexion->cerrar();
     }
