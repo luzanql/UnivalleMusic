@@ -7,7 +7,7 @@ $conexion = new Conexion();
 $conexion->Conectar();
 
 //generando la consulta sobre el usuario y su contrasena
-$sqr = "SELECT usuario, contrasena, nombre, apellido, codigo_Perfil FROM Usuario WHERE usuario = '" . $_POST["usuario"] . "' and contrasena='" . md5($_POST["password"]) . "'";
+$sqr = "SELECT usuario, contrasena, nombre, apellido, codigo_Perfil FROM usuario WHERE usuario = '" . $_POST["usuario"] . "' and contrasena='" . md5($_POST["password"]) . "'";
 //ejecutando la consulta
 $rs = mysql_query($sqr);
 $row = mysql_fetch_array($rs);

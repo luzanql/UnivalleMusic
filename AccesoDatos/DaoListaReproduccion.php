@@ -13,7 +13,7 @@ class DaoListaReproduccion {
 
     function getListasReproduccionPorUsuario($idUsuario) {
         $this->conexion->Conectar();
-        $sql = "SELECT nombre FROM ListaReproduccion WHERE id_Usuario='$idUsuario'";
+        $sql = "SELECT nombre FROM listareproduccion WHERE id_Usuario='$idUsuario'";
         $respuesta = mysql_query($sql);
         $filas = array();
         while ($row = mysql_fetch_array($respuesta)) {
@@ -27,7 +27,7 @@ class DaoListaReproduccion {
         $this->conexion->Conectar();
         $nombre = $lr->getNombre();
         $idUsuario = $lr->getIdUsuario();
-        $sql = "INSERT INTO ListaReproduccion(nombre,id_Usuario) VALUES ('$nombre','$idUsuario')";
+        $sql = "INSERT INTO listareproduccion(nombre,id_Usuario) VALUES ('$nombre','$idUsuario')";
         $ejecutar = mysql_query($sql);
         if (!$ejecutar) {
             die('Consulta no válida: ' . mysql_error());
@@ -37,7 +37,7 @@ class DaoListaReproduccion {
 
     function deleteListaReproduccion($codigo) {
         $this->conexion->Conectar();
-        $sql = "DELETE FROM ListaReproduccion WHERE codigo=$codigo";
+        $sql = "DELETE FROM listareproduccion WHERE codigo=$codigo";
         $ejecutar = mysql_query($sql);
         $this->conexion->cerrar();
     }

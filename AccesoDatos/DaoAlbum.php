@@ -13,7 +13,7 @@ class DaoAlbum {
 
     function getAlbumes() {
         $this->conexion->Conectar();
-        $sql = "SELECT * FROM Album";
+        $sql = "SELECT * FROM album";
         //ejecutando la consulta
         $respuesta = mysql_query($sql);
         return $row = mysql_fetch_object($respuesta);
@@ -22,21 +22,21 @@ class DaoAlbum {
     function createAlbum(Album $a) {
         $this->conexion->Conectar();
         $nombre = $a->getNombre();
-        $consulta = "INSERT INTO Album (nombre) VALUES('$nombre')";
+        $consulta = "INSERT INTO album (nombre) VALUES('$nombre')";
         mysql_query($consulta);
         $this->conexion->cerrar();
     }
 
     function deleteGenero($codigo) {
         $this->conexion->Conectar();
-        $sql = "DELETE FROM Album WHERE codigo='$codigo'";
+        $sql = "DELETE FROM album WHERE codigo='$codigo'";
         $ejecutar = mysql_query($sql);
         $this->conexion->cerrar();
     }
 
     function existeAlbum($nombre) {
         $this->conexion->Conectar();
-        $sql = "SELECT codigo FROM Album WHERE nombre='$nombre'";
+        $sql = "SELECT codigo FROM album WHERE nombre='$nombre'";
         $ejecutar = mysql_query($sql);
         $row = mysql_fetch_array($ejecutar);
         $this->conexion->cerrar();
@@ -48,7 +48,7 @@ class DaoAlbum {
 
     function obtenerCodigoAlbum($nombre) {
         $this->conexion->Conectar();
-        $sql = "SELECT codigo FROM Album WHERE nombre='$nombre'";
+        $sql = "SELECT codigo FROM album WHERE nombre='$nombre'";
         $ejecutar = mysql_query($sql);
         $fila = array();
         $row = mysql_fetch_array($ejecutar);

@@ -13,7 +13,7 @@ class DaoGenero {
 
     function getNombreGeneros() {
         $this->conexion->Conectar();
-        $sql = "SELECT Nombre FROM Genero";
+        $sql = "SELECT Nombre FROM genero";
         $respuesta = mysql_query($sql);
         $filas = array();
         while ($row = mysql_fetch_array($respuesta)) {
@@ -28,21 +28,21 @@ class DaoGenero {
     function createGenero(Genero $g) {
         $this->conexion->Conectar();
         $nombre = $g->getNombre();
-        $sql = "INSERT INTO Genero(Nombre) VALUES ('$nombre')";
+        $sql = "INSERT INTO genero(Nombre) VALUES ('$nombre')";
         $ejecutar = mysql_query($sql);
         $this->conexion->cerrar();
     }
 
     function deleteGenero($codigo) {
         $this->conexion->Conectar();
-        $sql = "DELETE FROM Genero WHERE codigo='$codigo'";
+        $sql = "DELETE FROM genero WHERE codigo='$codigo'";
         $ejecutar = mysql_query($sql);
         $this->conexion->cerrar();
     }
 
     function existeGenero($nombre) {
         $this->conexion->Conectar();
-        $sql = "SELECT codigo FROM Genero WHERE Nombre='$nombre'";
+        $sql = "SELECT codigo FROM genero WHERE Nombre='$nombre'";
         $ejecutar = mysql_query($sql);
         $row = mysql_fetch_array($ejecutar);
         $this->conexion->cerrar();
@@ -55,7 +55,7 @@ class DaoGenero {
 
     function obtenerGenero($nombre) {
         $this->conexion->Conectar();
-        $sql = "SELECT codigo FROM Genero WHERE Nombre='$nombre'";
+        $sql = "SELECT codigo FROM genero WHERE Nombre='$nombre'";
         $ejecutar = mysql_query($sql);
         $row = mysql_fetch_array($ejecutar);
         $this->conexion->cerrar();

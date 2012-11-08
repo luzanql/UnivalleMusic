@@ -15,21 +15,21 @@ class DaoArtistaxAlbum {
         $this->conexion->Conectar();
         $artista = $artistaXAlbum->getCodigoArtista();
         $album = $artistaXAlbum->getsetCodigoAlbum();
-        $sql = "INSERT INTO ArtistasXAlbum VALUES('$album','$artista');";
+        $sql = "INSERT INTO artistasxalbum VALUES('$album','$artista');";
         $ejecutar = mysql_query($sql);
         $this->conexion->cerrar();
     }
 
     function deleteArtistasXAlbum($codigoArtista,$codigoAlbum) {
         $this->conexion->Conectar();
-        $sql = "DELETE FROM ArtistasXAlbum WHERE codigo_Artista='$codigoArtista' AND codigo_Album='$codigoAlbum'";
+        $sql = "DELETE FROM artistasxalbum WHERE codigo_Artista='$codigoArtista' AND codigo_Album='$codigoAlbum'";
         $ejecutar = mysql_query($sql);
         $this->conexion->cerrar();
     }
 
     function existeArtistasXAlbum($codigo_Album, $codigo_Artista) {
         $this->conexion->Conectar();
-        $sql = "SELECT * FROM ArtistasXAlbum WHERE codigo_Album='$codigo_Album' AND codigo_Artista='codigo_Artista'";
+        $sql = "SELECT * FROM artistasxalbum WHERE codigo_Album='$codigo_Album' AND codigo_Artista='codigo_Artista'";
         $ejecutar = mysql_query($sql);
         $row = mysql_fetch_array($ejecutar);
 
