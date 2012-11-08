@@ -1,17 +1,14 @@
 <?php
 
-
 require_once 'conexion.php';
 require_once '../Logica/Album.php';
 
-class DaoAlbum{
+class DaoAlbum {
 
-   private $conexion;
- 
-    
+    private $conexion;
+
     function DaoAlbum() {
         $this->conexion = new Conexion();
-        
     }
 
     function getAlbumes() {
@@ -21,29 +18,25 @@ class DaoAlbum{
         $respuesta = mysql_query($sql);
         return $row = mysql_fetch_object($respuesta);
     }
-    
-    function createAlbum(Album $a){
+
+    function createAlbum(Album $a) {
         $this->conexion->Conectar();
         $nombre = $a->getNombre();
-        $consulta="INSERT INTO album (nombre) VALUES('$nombre')";
+        $consulta = "INSERT INTO Album (nombre) VALUES('$nombre')";
         mysql_query($consulta);
         $this->conexion->cerrar();
- 
-        
     }
-    
-     function deleteGenero($codigo){
+
+    function deleteGenero($codigo) {
         $this->conexion->Conectar();
-        $sql="DELETE FROM Album WHERE codigo='".$codigo."'";
-        $ejecutar=mysql_query($sql);
+        $sql = "DELETE FROM Album WHERE codigo='$codigo'";
+        $ejecutar = mysql_query($sql);
         $this->conexion->cerrar();
-        
     }
-    
-    function existeAlbum($nombre)
-    {
+
+    function existeAlbum($nombre) {
         $this->conexion->Conectar();
-        $sql = "SELECT codigo FROM Album WHERE nombre='".$nombre."'";
+        $sql = "SELECT codigo FROM Album WHERE nombre='$nombre'";
         $ejecutar = mysql_query($sql);
         $row = mysql_fetch_array($ejecutar);
         $this->conexion->cerrar();
@@ -52,29 +45,20 @@ class DaoAlbum{
         }else
             return false;
     }
-    
-    
-    function obtenerCodigoAlbum($nombre){
+
+    function obtenerCodigoAlbum($nombre) {
         $this->conexion->Conectar();
-        $sql = "SELECT codigo FROM Album WHERE nombre='".$nombre."'";
+        $sql = "SELECT codigo FROM Album WHERE nombre='$nombre'";
         $ejecutar = mysql_query($sql);
         $fila = array();
         $row = mysql_fetch_array($ejecutar);
-      //  $row = mysql_fetch_row($ejecutar);
-        $fila [] = array 
-        ($row["codigo"]);
+        //  $row = mysql_fetch_row($ejecutar);
+        $fila [] = array
+            ($row['codigo']);
         $this->conexion->cerrar();
         return $row['codigo'];
-        
     }
-    
-    
-   
-    
+
 }
-
-
-
-
 
 ?>

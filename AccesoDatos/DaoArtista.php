@@ -30,7 +30,7 @@ class DaoArtista {
     function eliminarArtista($codigo)
     {
     $this->conexion->Conectar();
-    $sql="DELETE FROM artista WHERE codigo='".$codigo."'";
+    $sql="DELETE FROM Artista WHERE codigo='".$codigo."'";
     $ejecutar=mysql_query($sql);
     $this->conexion->cerrar();    
     }

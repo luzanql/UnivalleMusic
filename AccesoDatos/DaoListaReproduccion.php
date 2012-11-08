@@ -30,8 +30,8 @@ class DaoListaReproduccion {
         $sql = "INSERT INTO ListaReproduccion(nombre,id_Usuario) VALUES ('$nombre','$idUsuario')";
         $ejecutar = mysql_query($sql);
         if (!$ejecutar) {
-            die('Consulta no válida: ' . mysql_error());            
-            }
+            die('Consulta no válida: ' . mysql_error());
+        }
         $this->conexion->cerrar();
     }
 

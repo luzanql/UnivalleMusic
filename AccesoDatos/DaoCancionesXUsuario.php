@@ -32,15 +32,14 @@ class DaoCancionesXUsuario {
         }else
             return false;
     }
-    
-    function obtenerCancionesXUsuario($codigoUsuario){
+
+    function obtenerCancionesXUsuario($codigoUsuario) {
         $this->conexion->Conectar();
         $sql = "SELECT codigo_Cancion FROM CancionesXUsuraio WHERE codigo_Usuario='$codigoUsuario'";
         $ejecutar = mysql_query($sql);
         $row = mysql_fetch_array($ejecutar);
         $this->conexion->Cerrar();
         return $row;
-        
     }
 
 }
