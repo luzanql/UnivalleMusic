@@ -26,36 +26,39 @@
 
             <div data-role="content" data-theme = "a" align= "center">	
                 <div class="ui-grid-b" >
-                    
-                        <h3>Nuevo Usuario</h3>
-                        <div id="NuevoUsuario">
-                            <form name="formNuevoUsuario" action="resultadoNuevoUsuario.php" method="post" data-ajax="false" enctype="multipart/form-data">
-                                <h4>Datos Personales</h4>
-                                <div data-role="fieldcontain">
-                                    <label for="basic" data-mini="true">Nombre:</label> <input type="text" name="nombre" id="nombre" value="" data-mini="true"  required="" />
-                                </div>
-                                <div data-role="fieldcontain">                                
-                                <label for="basic" data-mini="true">Apellido:</label><input type="text" name="apellido" id="apellido" value=""  data-mini="true"  required=""/>
-                                </div>
-                                <div data-role="fieldcontain">
-                                <label for="basic" data-mini="true">Email:</label><input type="text" name="email" id="email" value=""  data-mini="true" required=""/>
-                                </div>
-                                <h4>Datos Login</h4>
-                                <div data-role="fieldcontain">
-                                <label for="basic" data-mini="true">User:</label><input type="text" name="user" id="user" value=""  data-mini="true" required=""/>
-                                </div>
-                                <div data-role="fieldcontain">
-                                <label for="basic" data-mini="true">Password:</label><input type="password" name="password" id="password" value=""  data-mini="true" required=""/>
-                                </div>
 
-                                    
-                                <input  data-role="button" value="Crear" type="submit"/> 
-                                    
-                            </form>
-                            
-                        </div>
-                    
-                        
+                    <h3>Nuevo Usuario</h3>
+                    <div id="NuevoUsuario">
+                        <form name="formNuevoUsuario" action="resultadoNuevoUsuario.php" method="post" data-ajax="false" enctype="multipart/form-data">
+                            <h4>Datos Personales</h4>
+                            <div data-role="fieldcontain">
+                                <label for="basic" data-mini="true">Nombre:</label> <input type="text" name="nombre" id="nombre" value="" data-mini="true"  required="" />
+                            </div>
+                            <div data-role="fieldcontain">                                
+                                <label for="basic" data-mini="true">Apellido:</label><input type="text" name="apellido" id="apellido" value=""  data-mini="true"  required=""/>
+                            </div>
+                            <div data-role="fieldcontain">
+                                <label for="basic" data-mini="true">Email:</label><input type="text" name="email" id="email" value=""  data-mini="true" required=""/>
+                            </div>
+                            <div data-role="fieldcontain">
+                                <label for="basic" data-mini="true">Naciona:</label><input type="text" name="nacionalidad" id="nacionalidad" value="" data-mini="true"  required="" />
+                            </div>
+                            <h4>Datos Login</h4>
+                            <div data-role="fieldcontain">
+                                <label for="basic" data-mini="true">User:</label><input type="text" name="user" id="user" value=""  data-mini="true" required=""/>
+                            </div>
+                            <div data-role="fieldcontain">
+                                <label for="basic" data-mini="true">Password:</label><input type="password" name="password" id="password" value=""  data-mini="true" required=""/>
+                            </div>                                   
+                            <input  data-role="button" value="Crear" type="submit"/> 
+
+                        </form>
+
+                     
+
+                    </div>
+
+
                 </div><!-- /grid-b -->
 
             </div><!-- /content -->

@@ -12,6 +12,8 @@
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
         <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
         <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+        
+         
     </head>
     <body>
         <!-- inicio sesion-->
@@ -25,7 +27,7 @@
                         <label for="basic" data-mini="true">Password:</label><input type="password" name="password" id="basic" value=""  data-mini="true" />
                         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
                             <input  data-role="button" value="Ingresar" type="submit"/> 
-                            <a href="index.html" data-role="button">Registrarse</a>
+                            <a href="#NuevoUsuario" data-role="button">Registrarse</a>
                         </div>
                     </form> 
                 </div>
@@ -50,6 +52,42 @@
 
 
         </div><!-- /page -->
+
+        <div data-role="page" id="NuevoUsuario" data-theme= "a">
+            <div data-role="header" data-theme= "b" style="height: 167px;"> <h3>Nuevo Usuario</h3></div>
+            <div data-role="content" align= "center" data-theme = "a">
+                  <form name="formNuevoUsuario" action="resultadoNuevoUsuario.php" method="post" data-ajax="false" enctype="multipart/form-data">
+                    <h4>Datos Personales</h4>
+                    <div data-role="fieldcontain">
+                        <label for="basic" data-mini="true">Nombre:</label> <input type="text" name="nombre" id="nombre" value="" data-mini="true"  required="" style="width:200px;height:30px"/>
+                    </div>
+                    <div data-role="fieldcontain">                                
+                        <label for="basic" data-mini="true">Apellido:</label><input type="text" name="apellido" id="apellido" value=""  data-mini="true"  required="" style="width:200px;height:30px"/>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="basic" data-mini="true">Email:</label><input type="text" name="email" id="email" value=""  data-mini="true" required="" style="width:200px;height:30px"/>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="basic" data-mini="true">Naciona:</label><input type="text" name="nacionalidad" id="nacionalidad" value="" data-mini="true"  required="" style="width:200px;height:30px" />
+                    </div>
+                    <h4>Datos Login</h4>
+                    <div data-role="fieldcontain">
+                        <label for="basic" data-mini="true">User:</label><input type="text" name="user" id="user" value=""  data-mini="true" required="" style="width:200px;height:30px"/>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="basic" data-mini="true">Password:</label><input type="password" name="password" id="password" value=""  data-mini="true" required="" style="width:200px;height:30px"/>
+                    </div>                                   
+                    <input  data-role="button" value="Crear" type="submit" style="width:200px;height:30px" /> 
+
+                </form>
+            </div>
+              <div data-role="footer" data-theme = "b" STYLE=" border-style:solid; border-color: #c73930;">
+                <h6>UNIVERSIDAD DEL VALLE</h6>
+                <h6>Aplicaciones en la Web y Redes Inhalambricas</h6>
+            </div>
+
+        </div>
+
 
 
     </body>
