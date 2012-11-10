@@ -27,7 +27,7 @@
                         <label for="basic" data-mini="true">Password:</label><input type="password" name="password" id="basic" value=""  data-mini="true" />
                         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
                             <input  data-role="button" value="Ingresar" type="submit"/> 
-                            <a href="#NuevoUsuario" data-role="button">Registrarse</a>
+                            <a href="#NuevoUsuario" data-role="button" data-inline="true" data-rel="dialog">Registrarse</a>
                         </div>
                     </form> 
                 </div>
@@ -54,7 +54,7 @@
         </div><!-- /page -->
 
         <div data-role="page" id="NuevoUsuario" data-theme= "a">
-            <div data-role="header" data-theme= "b" style="height: 167px;"> <h3>Nuevo Usuario</h3></div>
+            <div data-role="header" data-theme= "b" data-transition="slidedowm" > <h3>Nuevo Usuario</h3></div>
             <div data-role="content" align= "center" data-theme = "a">
                   <form name="formNuevoUsuario" action="resultadoNuevoUsuario.php" method="post" data-ajax="false" enctype="multipart/form-data">
                     <h4>Datos Personales</h4>
