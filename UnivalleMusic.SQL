@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 DROP SCHEMA univallemusic;
-=======
-DELETE SCHEMA univallemusic;
->>>>>>> origin/master
 CREATE SCHEMA univallemusic;
 USE univallemusic;
 
