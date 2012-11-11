@@ -11,7 +11,7 @@ class ControladorListaReproduccion {
         $this->daoListaReproduccion = new DaoListaReproduccion();
     }
 
-    function obtenerListasReproduccion() {
+    function obtenerListasReproduccionPorUsuario() {
        //Modificar con sesion
         $sessionActual = Session::getInstance();
         $idUsuario = $sessionActual->usuario;

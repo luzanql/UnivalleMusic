@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 DROP SCHEMA univallemusic;
+=======
+DELETE SCHEMA univallemusic;
+>>>>>>> origin/master
 CREATE SCHEMA univallemusic;
-USE UnivalleMusic;
+USE univallemusic;
 
 CREATE TABLE perfil
 (
