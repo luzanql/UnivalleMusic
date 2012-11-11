@@ -21,7 +21,7 @@
                 <img src="../Recursos/Banner.png" style="width: 80%; height: 100%;"/>
                 <div style="float:right;">
                     <img src="../Recursos/carrito.jpeg" style=" width:50%; height: 50%; "  />
-                </div>
+                   </div> 
             </div><!-- /header -->
 
             <div data-role="content" data-theme = "a">	
