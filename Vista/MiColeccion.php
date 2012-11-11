@@ -127,7 +127,7 @@
                                             $unaCancion = $daoCanciones->obtenerCancionPorCodigo($unCodigoCancion);
                                             $artista = $controladorArtista->obtenerNombreArtista($unaCancion['artista']);
                                             echo '<li rel="../Recursos/Canciones/' . $unaCancion['codigo'] . '">
-                                            <strong>' . $unaCancion['nombre'] . 'url ../Recursos/Canciones/' . $unaCancion['codigo'] . '</strong>
+                                            <strong>' . $unaCancion['nombre'] . '</strong>
                                             <em>' . $artista . '</em>
                                             </li>';
                                         }
