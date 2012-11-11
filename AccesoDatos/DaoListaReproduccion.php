@@ -22,6 +22,20 @@ class DaoListaReproduccion {
         $this->conexion->cerrar();
         return $filas;
     }
+    
+    function getCodigoNombreListasPorUsuario($idUsuario) {
+        $this->conexion->Conectar();
+        $sql = "SELECT codigo,nombre FROM listareproduccion WHERE id_Usuario='$idUsuario'";
+        $respuesta = mysql_query($sql);
+        $filas = array();
+        while ($row = mysql_fetch_array($respuesta)) {
+            $unaFila = array($row ["codigo"],$row ["nombre"]);
+            $filas [] = $unaFila;
+        }
+        $this->conexion->cerrar();
+        return json_encode($filas);
+        
+    }
 
     function createListaReproduccion(ListaReproduccion $lr) {
         $this->conexion->Conectar();

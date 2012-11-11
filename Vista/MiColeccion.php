@@ -159,8 +159,8 @@
             <div data-role="popup" id="agregarAListas" data-overlay-theme="b" >
                 <h3>Agregar a las Listas de Reproduccion:</h3>
                 <div data-role="fieldcontain" style="width: 80%;">
-                    <fieldset id="checkboxListas" data-role="controlgroup">
-                        <label><input type="checkbox" name="checkbox-0" /> Favoritas </label>
+                    <fieldset id="checkboxListas" data-theme="a" data-type="vertical" data-role="controlgroup">
+                        
                     </fieldset>
                 </div>
 

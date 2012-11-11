@@ -2,6 +2,7 @@
 
 require_once 'conexion.php';
 include_once '../AccesoDatos/DaoUsuario.php';
+include_once '../AccesoDatos/DaoListaReproduccion.php';
 //require_once '../Controladores/ControladorUsuario.php';
 
 $conexion = new Conexion();
@@ -77,6 +78,14 @@ switch ($opcion) {
              echo "false";
              break;             
              }
+             
+      case 6:
+         $usuario=$_GET['usuario'];
+         $daoListaReproduccion = new DaoListaReproduccion();
+         $resultado = $daoListaReproduccion->getCodigoNombreListasPorUsuario($usuario);
+         echo $resultado;
+         break;             
+         
 }
      
 ?>
