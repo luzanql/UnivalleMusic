@@ -29,7 +29,7 @@
                     <div class="ui-block-a" style="width:250px; margin:3%">
 
                         <div data-role="controlgroup"> 
-                            <a href="index.html" data-role="button"> Mi Perfil </a> 
+                            <a href="../Vista/MiPerfil.php" data-role="button"> Mi Perfil </a> 
                             <a href="../Vista/MiColeccion.php" data-role="button"> Mi Coleccion</a> 
                             <a href="../Vista/MisListas.php" data-role="button"> Listas de Reproduccion</a> 
                             <a href="index.html" data-role="button"> Comprar Musica</a>
