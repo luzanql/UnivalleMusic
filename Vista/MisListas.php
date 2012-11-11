@@ -43,9 +43,14 @@
                         
                         if($_POST){
                             $nombre = $_POST['nombre'];
+                            if($controlador->existeLista($nombre)){
+                                echo "<h4>La lista con nombre: $nombre ya EXISTE!</h4>";
+                                
+                            }else{
                             $controlador->createListaReproduccion($nombre);
                             echo "<h4>Se ha creado la Lista de Reproduccion: $nombre con exito!</h4>";
-                            }
+                            }}
+                         
                         ?>
                             
                             
@@ -80,7 +85,9 @@
                         
                         <table  border="2" width=80%" bordercolor="black">
                             <tr>
-                                <th color="black">Nombre de la Lista </th>
+                                <th>Nombre de la Lista </th>
+                                <th>Opciones</th>
+                                
                                 
                             </tr>
                             
@@ -91,7 +98,8 @@
                         $listasUsuario=$controladorLista->obtenerListasReproduccionPorUsuario();
                                                
                         for ($index = 0; $index < count($listasUsuario); $index++) {
-                                echo "<tr><td><a href='MiColeccion.php?nombreLista=$listasUsuario[$index]'>$listasUsuario[$index]</a></td></tr>";
+                                echo "<tr><td><a href='MiColeccion.php?nombreLista=$listasUsuario[$index]'>$listasUsuario[$index]</a></td>
+                                    <td><a  href='EliminarLista.php?lista=$listasUsuario[$index]' data-rel='dialog'  data-role='button' data-icon='delete' >Eliminar</a></td></tr>";
                            
                         }
                         
@@ -114,7 +122,7 @@
 
         </div><!-- /page -->
 
-         <div data-role="page" id="CrearLista" data-theme= "a">
+         <div data-role="page" id="CrearLista" data-theme= "a" >
             <div data-role="header" data-theme= "b" data-transition="slidedowm" > <h3>Nuevo Lista Reproduccion</h3></div>
             <div data-role="content" align= "center" data-theme = "a">
                  <form name="formCrearLista" action="MisListas.php" method="post" enctype="multipart/form-data">
@@ -125,6 +133,9 @@
             </div>
          </div>
         
+     
+        
+     
         
 
     </body>

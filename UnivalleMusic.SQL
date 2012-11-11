@@ -314,7 +314,3 @@ CREATE TABLE cancionesxlistareproduccion
 ;
 
 SHOW TABLES;
-select * from cancion;
-select * from cancionesxusuario;
-SELECT codigo_Cancion FROM cancionesxusuario WHERE codigo_Usuario='admin';
-SELECT * FROM cancionesxusuario WHERE codigo_Cancion='php.mp3' AND codigo_Usuario='admin';

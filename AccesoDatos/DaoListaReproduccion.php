@@ -38,8 +38,44 @@ class DaoListaReproduccion {
     function deleteListaReproduccion($codigo) {
         $this->conexion->Conectar();
         $sql = "DELETE FROM listareproduccion WHERE codigo=$codigo";
-        $ejecutar = mysql_query($sql);
+        //echo $sql;
+        mysql_query($sql);
+        $sql2="DELETE fROM cancionesxlistareproduccion WHERE codigo_Lista=$codigo";
+        mysql_query($sql2);
         $this->conexion->cerrar();
+        
+        
+    }
+    
+    function obtenerCodigoLista($nombre,$usuario){
+        
+         $this->conexion->Conectar();
+        $sql = "SELECT codigo FROM listareproduccion WHERE nombre='$nombre' AND id_Usuario='$usuario'";
+        $ejecutar = mysql_query($sql);
+        $fila = array();
+        $row = mysql_fetch_row($ejecutar);
+        //  $row = mysql_fetch_row($ejecutar);
+       echo $sql;
+        
+        $this->conexion->cerrar();
+       
+        return $row[0];
+        
+    }
+    
+    
+    function  existeLista($usuario,$lista){
+         $this->conexion->Conectar();
+        $sql = "SELECT codigo FROM listareproduccion WHERE nombre='$lista' AND id_Usuario='$usuario'";
+        $ejecutar = mysql_query($sql);
+        $row = mysql_fetch_array($ejecutar);
+        $this->conexion->cerrar();
+        if ($row >= 1) {
+            return true;
+        }else
+            return false;
+        
+        
     }
 
 }
