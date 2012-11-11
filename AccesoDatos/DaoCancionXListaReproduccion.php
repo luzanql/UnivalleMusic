@@ -2,27 +2,27 @@
 
 require_once 'conexion.php';
 
-class DaoArtistaXCancion {
+class DaoCancionXListaReproduccion {
 
     private $conexion;
 
-    function DaoArtistaXCancion() {
+    function DaoCancionXListaReproduccion() {
         $this->conexion = new Conexion();
     }
 
-    function createArtistaXCancion(ArtistaXCancion $artistaXCancion) {
+    function createCancionXListaReproduccion(CancionesXListaReproduccion $cancionxlistareproduccion) {
 
         $this->conexion->Conectar();
-        $artista = $artistaXCancion->getCodigoArtista();
-        $cancion = $artistaXCancion->getCodigoCancion();
-        $sql = "INSERT INTO artistasxcancion VALUES ('$cancion','$artista')";
+        $cancion = $cancionxlistareproduccion->getCodigoCancion();
+        $artista = $cancionxlistareproduccion->getCodigoLista();
+        $sql = "INSERT INTO cancionesxlistareproduccion VALUES ('$cancion','$artista')";
         $ejecutar = mysql_query($sql);
         $this->conexion->cerrar();
     }
 
-    function existeArtistasXCancion($codigo_Artista, $codigo_Cancion) {
+    function existeCancionXListaReproduccion($cancion, $lista) {
         $this->conexion->Conectar();
-        $sql = "SELECT * FROM artistasxcancion WHERE codigo_Cancion='$codigo_Cancion' AND codigo_Artista='$codigo_Artista';";
+        $sql = "SELECT * FROM cancionesxlistareproduccion WHERE codigo_Cancion='$cancion' AND codigo_Lista='$lista';";
         $ejecutar = mysql_query($sql);
         $row = mysql_fetch_array($ejecutar);
         $this->conexion->cerrar();
@@ -30,6 +30,15 @@ class DaoArtistaXCancion {
             return true;
         }else
             return false;
+    }
+    
+    function deleteCancionXListaReproduccion($cancion,$lista){
+        $this->conexion->Conectar();
+        $sql = "DELETE FROM cancionesxlistareproduccion WHERE codigo_Cancion='$cancion' AND codigo_Lista='$lista';";
+        $ejecutar = mysql_query($sql);
+        $row = mysql_fetch_array($ejecutar);
+        $this->conexion->cerrar();
+        
     }
 
 }

@@ -1,29 +1,33 @@
 <?php
 
-require_once'../Logica/ArtistaXCancion.php';
-require_once'../Controladores/ControladorArtistaXCancion.php';
-require_once '../AccesoDatos/DaoArtistaXCancion.php';
+require_once'../Logica/CancionesXListaReproduccion.php';
+require_once '../AccesoDatos/DaoCancionXListaReproduccion.php';
 
-class ControladorArtistaXCancion{
+class ControladorCancionXListaReproduccion{
 
-    private $daoArtistaXCancion;
+    private $daoCancionXListaReproduccion;
 
-    function ControladorArtistaXCancion() 
+    function ControladorCancionXListaReproduccion() 
     {
-        $this->daoArtistaXCancion=new DaoArtistaXCancion(); 
+        $this->daoCancionXListaReproduccion=new DaoCancionXListaReproduccion();
     }
     
-    function createArtistaXCancion($codigo_Cancion, $codigo_Artista)
+    function createCancionXListaReproduccion($cancion, $lista)
     {
-        $artistaxCancion = new ArtistaXCancion();
-        $artistaxCancion->setCodigoArtista($codigo_Artista);
-        $artistaxCancion->setCodigoCancion($codigo_Cancion);
-        $this->daoArtistaXCancion->createArtistaXCancion($artistaxCancion);
+        $cancionXlista=new CancionesXListaReproduccion();
+        $cancionXlista->setCodigoCancion($cancion);
+        $cancionXlista->setCodigoLista($lista);
+        $this->daoCancionXListaReproduccion->createCancionXListaReproduccion($cancionXlista);
     
     }
-    function existeArtistaXAlbum($artista,$album){
-        return $this->daoArtistasxAlbum->existeArtistasXAlbum($album, $artista);
+    function existeCancionXListaReproduccion($cancion,$lista){
+        return $this->daoCancionXListaReproduccion->existeCancionXListaReproduccion($cancion, $lista);
     } 
+    
+    function deleteCancionXListaReproduccion($cancion,$lista){
+        
+        $this->daoCancionXListaReproduccion->deleteCancionXListaReproduccion($cancion, $lista);
+    }
 
 
    

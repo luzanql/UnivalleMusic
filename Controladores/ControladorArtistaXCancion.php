@@ -21,8 +21,8 @@ class ControladorArtistaXCancion{
         $this->daoArtistaXCancion->createArtistaXCancion($artistaxCancion);
     
     }
-    function existeArtistaXAlbum($artista,$album){
-        return $this->daoArtistasxAlbum->existeArtistasXAlbum($album, $artista);
+    function existeArtistaXCancion($artista,$cancion){
+        return $this->daoArtistaXCancion->existeArtistasXCancion($artista, $cancion);
     } 
 
 
