@@ -19,7 +19,7 @@ $(function(){
         //llamamos a la funcion que reproduce los archivos
         $.fntReproducir();
     });
-	
+    	
     //reproducir el siguiente archivo de la lista
     $('#btnSiguiente').on('click',function(){
         //verificamos si siguen mas canciones en la lista
@@ -116,7 +116,8 @@ $(function(){
     });
 	
     //evento al hacer clic en cualquiera de las canciones
-    $('#olCanciones li').on('click',function(){
+    var listaCanciones = $('#olCanciones li');
+    listaCanciones.on('dblclick',function(){
         //establecemos el numero de cancion (usando el indice del li clickeado)
         iCancionActual=$(this).index();
         //llamamos a la funcion que reproduce los archivos de audio
@@ -208,6 +209,11 @@ $(function(){
         //devolvemos un array con el tiempo formateado
         return Array(iMinutos,iSegundos);
     };
+    
+    $(document).focusout( function(){
+        //objReproductor.play();
+        objReproductor.pause();
+    });
 	
     //cambiar la opacidad de los botones al colocar el puntero del raton sobre ellos
     $('input[type="button"]').hover(function(){
