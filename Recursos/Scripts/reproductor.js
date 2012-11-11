@@ -124,10 +124,11 @@ $(function(){
     });
 	
     //errores del reproductor
+    
     $(objReproductor).on('error',function(){
         alert('Se produjo un error en la reproducción!');
     });
-	
+
     //pausar o continuar la reproduccion
     $('#btnPausar').on('click',function(){
         //verificamos si la reproduccion esta pausada

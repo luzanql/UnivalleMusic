@@ -15,7 +15,7 @@ class ControladorCancionesXUsuario{
     
     function createCancionesXUsuario($codigo_cancion)
     {
-        $sessionActual = Session::getInstance();
+        $sessionActual = new Session();
         $codigo_usuario = $sessionActual->usuario;
         $cancionXUsuario = new CancionesXUsuario();
         $cancionXUsuario->setCodigoCancion($codigo_cancion);
@@ -29,10 +29,8 @@ class ControladorCancionesXUsuario{
     
     
     function obtenerCancionesXUsuario($usuario){
-        return $this->daoCancionesXUsuario->obtenerCancionesXUsuario($usuario);
-        
+        return $this->daoCancionesXUsuario->obtenerCancionesXUsuario($usuario);        
     }
-    
    
 }
 ?>

@@ -17,6 +17,7 @@ class DaoCancionesXUsuario {
         $cancion = $cancionXUsuario->getCodigoCancion();
 
         $sql = "INSERT INTO cancionesxusuario (codigo_Usuario, codigo_Cancion, fecha) VALUES ('$usuario','$cancion',CURRENT_TIMESTAMP)";
+        printf($sql);
         $ejecutar = mysql_query($sql);
         $this->conexion->cerrar();
     }
@@ -33,13 +34,16 @@ class DaoCancionesXUsuario {
             return false;
     }
 
-    function obtenerCancionesXUsuario($codigoUsuario) {
+    function obtenerCancionesXUsuario($codigo_usuario) {
         $this->conexion->Conectar();
-        $sql = "SELECT codigo_Cancion FROM cancionesxusuario WHERE codigo_Usuario='$codigoUsuario'";
+        $sql = "SELECT codigo_Cancion FROM cancionesxusuario WHERE codigo_Usuario='$codigo_usuario'";
         $ejecutar = mysql_query($sql);
-        $row = mysql_fetch_array($ejecutar);
-        $this->conexion->Cerrar();
-        return $row;
+        $filas = array();
+        while($row = mysql_fetch_array($ejecutar)){
+            $filas[] = $row[0];
+        }
+        $this->conexion->cerrar();
+        return $filas;  
     }
 
 }

@@ -28,6 +28,10 @@ class ControladorArtista {
         return $this->daoArtista->obtenerCodigoArtista($nombre);
     }
     
+    function obtenerNombreArtista($codigo){
+        return $this->daoArtista->obtenerNombreArtista($codigo);
+    }
+    
 
 }
 

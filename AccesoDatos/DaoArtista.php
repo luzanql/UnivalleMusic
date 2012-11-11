@@ -58,6 +58,16 @@ class DaoArtista {
         return $row[0];
         
     }
+    
+    function obtenerNombreArtista($codigo){
+        $this->conexion->Conectar();
+        $sql="SELECT nombre FROM artista WHERE codigo='$codigo'";
+        $ejecutar=mysql_query($sql);
+        $row= mysql_fetch_row($ejecutar);
+        $this->conexion->cerrar();
+        return $row[0];
+        
+    }
 }
 
 ?>

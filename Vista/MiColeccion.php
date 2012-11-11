@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -38,8 +39,15 @@
                         </div>
                     </div>
                     <div class="ui-block-b" style=" margin:3%" >
-
-                        <h1>Colecci&oacute;n</h1>                       
+                        
+                        <?php
+                        if (isset($_GET['nombreLista'])) {
+                            $nombreLista = $_GET['nombreLista'];
+                            echo "<h1>" . $nombreLista . "</h1>";
+                        } else {
+                            echo "<h1>Mi Colecci&oacute;n</h1>";
+                        }
+                        ?>                                               
                         <table>
                             <tr>
                                 <td>
@@ -91,25 +99,39 @@
                             </div>
                             <div id="divLista">
                                 <ol id="olCanciones">
-                                    
+
                                     <li rel="../Recursos/Canciones/Tone_Urbano.mp3">
                                         <strong>Gingle</strong>
                                         <em>Univalle Music</em>
                                     </li>
-                                    
+
                                     <?php
                                     include_once '../AccesoDatos/Session.php';
-                                    include_once '../AccesoDatos/DaoCancionesXUsuario.php';
-                                    include_once '../AccesoDatos/DaoCancion.php';
-                                    include_once '../AccesoDatos/DaoArtista.php';
+                                    include_once '../Controladores/ControladorCancionesXUsuario.php';
+                                    include_once '../Controladores/ControladorCancion.php';
+                                    include_once '../Controladores/ControladorArtista.php';
 
                                     $session = new Session();
 
                                     $usuarioActual = $session->usuario;
-
-                                    $daoCancionesXUsuario = new DaoCancionesXUsuario();
-                                    $daoArtista = new DaoArtista();
                                     
+                                    $controladorCancionesXUsuario = new ControladorCancionesXUsuario();
+                                    $controladorArtista = new ControladorArtista();
+
+                                    $codigosCanciones = $controladorCancionesXUsuario->obtenerCancionesXUsuario($usuarioActual);
+
+                                    if ($codigosCanciones > 0) {
+                                        foreach ($codigosCanciones as $unCodigoCancion) {
+
+                                            $daoCanciones = new DaoCancion();
+                                            $unaCancion = $daoCanciones->obtenerCancionPorCodigo($unCodigoCancion);
+                                            $artista = $controladorArtista->obtenerNombreArtista($unaCancion['artista']);
+                                            echo '<li rel="../Recursos/Canciones/' . $unaCancion['codigo'] . '">
+                                            <strong>' . $unaCancion['nombre'] . 'url ../Recursos/Canciones/' . $unaCancion['codigo'] . '</strong>
+                                            <em>' . $artista . '</em>
+                                            </li>';
+                                        }
+                                    }
                                     ?>
 
                                 </ol>
