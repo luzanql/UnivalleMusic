@@ -49,7 +49,7 @@ class DaoUsuario {
     function eliminarUsuario($usuario){
         $this->conexion->Conectar();
 
-        $consulta = "DELETE * FROM usuario WHERE usuario='$usuario'";
+        $consulta = "DELETE  FROM usuario WHERE usuario='$usuario'";
         $respuesta = mysql_query($consulta);
         $row = mysql_fetch_array($respuesta);
         $this->conexion->cerrar();
