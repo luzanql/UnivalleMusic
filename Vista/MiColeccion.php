@@ -23,7 +23,12 @@
             <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
                 <img src="../Recursos/Banner.png" style="width: 80%; height: 100%;"/>
                 <div style="float:right;">
-                    <img src="../Recursos/carrito.jpeg" style=" width:50%; height: 50%; "  />
+                    <div style="float:top;">
+                        <img src="../Recursos/carrito.jpeg" style=" width:100%; height: 80%; "  />
+                    </div>
+                    <div id="usuarioLogueado" style="float:button; color: white;">
+                        <?php echo $_SESSION['usuario'] ?>
+                    </div>
                 </div>
             </div><!-- /header -->
 
@@ -39,7 +44,7 @@
                         </div>
                     </div>
                     <div class="ui-block-b" style=" margin:3%" >
-                        
+
                         <?php
                         if (isset($_GET['nombreLista'])) {
                             $nombreLista = $_GET['nombreLista'];
@@ -71,6 +76,7 @@
                         </table>
 
                         <script type="text/javascript" src="../Recursos/Scripts/reproductor.js"></script>
+                        <script type="text/javascript" src="../Recursos/Scripts/ManejaCanciones.js"></script>
                         <div id="divReproductor">
                             <div id="divInfo">
                                 <div id="divLogo" style="width: 15%;">
@@ -103,6 +109,7 @@
                                     <li rel="../Recursos/Canciones/Tone_Urbano.mp3">
                                         <strong>Gingle</strong>
                                         <em>Univalle Music</em>
+                                        <a href="#agregarAListas" name="Tone_Urbano.mp3" data-rel="popup" data-position-to="window" data-transition="pop">Agregar a Listas</a>
                                     </li>
 
                                     <?php
@@ -114,7 +121,7 @@
                                     $session = new Session();
 
                                     $usuarioActual = $session->usuario;
-                                    
+
                                     $controladorCancionesXUsuario = new ControladorCancionesXUsuario();
                                     $controladorArtista = new ControladorArtista();
 
@@ -128,7 +135,8 @@
                                             $artista = $controladorArtista->obtenerNombreArtista($unaCancion['artista']);
                                             echo '<li rel="../Recursos/Canciones/' . $unaCancion['codigo'] . '">
                                             <strong>' . $unaCancion['nombre'] . '</strong>
-                                            <em>' . $artista . '</em>
+                                            <em>' . $artista . '</em><a href="#agregarAListas" name="'.$unCodigoCancion.
+                                                    '" data-rel="popup" data-position-to="window" data-transition="pop">Agregar a Listas</a>
                                             </li>';
                                         }
                                     }
@@ -137,8 +145,6 @@
                                 </ol>
                             </div>				
                         </div>
-
-
                     </div>
 
                 </div><!-- /grid-b -->
@@ -148,6 +154,17 @@
             <div data-role="footer" data-theme = "b" STYLE=" border-style:solid; border-color: #c73930;">
                 <h6>UNIVERSIDAD DEL VALLE</h6>
                 <h6>Aplicaciones en la Web y Redes Inhalambricas</h6>
+            </div>
+
+            <div data-role="popup" id="agregarAListas" data-overlay-theme="b" >
+                <h3>Agregar a las Listas de Reproduccion:</h3>
+                <div data-role="fieldcontain" style="width: 80%;">
+                    <fieldset id="checkboxListas" data-role="controlgroup">
+                        <label><input type="checkbox" name="checkbox-0" /> Favoritas </label>
+                    </fieldset>
+                </div>
+
+                <a data-role="button" data-rel="back" data-inline="true" data-mini="true">Cancel</a>	
             </div>
 
 
