@@ -34,6 +34,19 @@ class ControladorListaReproduccion {
     function deleteListaReproduccion($codigo){
         $this->daoListaReproduccion->deleteListaReproduccion($codigo);
     }
+    
+    
+    function obtenerCodigoLista($nombre){
+        $sessionActual = Session::getInstance();
+        $idUsuario = $sessionActual->usuario;
+        return $this->daoListaReproduccion->obtenerCodigoLista($nombre, $idUsuario);
+    }
+    
+    function existeLista($lista){
+        $sessionActual = Session::getInstance();
+        $usuario = $sessionActual->usuario;
+        return $this->daoListaReproduccion->existeLista($usuario, $lista);
+    }
 
 }
 ?>
