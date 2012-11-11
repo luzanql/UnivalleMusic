@@ -53,7 +53,7 @@
                             <tr>
                                 <td>
                             <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-                                <a href="../Vista/CrearListaReproduccion.html" data-role="button" data-icon="plus" >Crear Lista</a>
+                                <a href="#CrearLista" data-rel="dialog" data-role="button" data-icon="plus" >Crear Lista</a>
                             </div>
                                 </td>
                             </tr>
@@ -82,6 +82,18 @@
 
         </div><!-- /page -->
 
+         <div data-role="page" id="CrearLista" data-theme= "a">
+            <div data-role="header" data-theme= "b" data-transition="slidedowm" > <h3>Nuevo Lista Reproduccion</h3></div>
+            <div data-role="content" align= "center" data-theme = "a">
+                 <form name="formCrearLista" action="MisListas.php" method="post" enctype="multipart/form-data">
+                                <label for="basic" data-mini="true">Nombre:</label>
+                                <input type="text" name="nombre" id="nombre" value="" data-mini="true"  required="" />
+                                <input  data-role="button" value="Crear Lista" type="submit"/>                                    
+                            </form>
+            </div>
+         </div>
+        
+        
 
     </body>
 </html>
