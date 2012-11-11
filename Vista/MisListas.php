@@ -44,30 +44,61 @@
                         if($_POST){
                             $nombre = $_POST['nombre'];
                             $controlador->createListaReproduccion($nombre);
-                            echo "<h2>Se ha creado la Lista de Reproduccion: $nombre con exito!</h2>";
+                            echo "<h4>Se ha creado la Lista de Reproduccion: $nombre con exito!</h4>";
                             }
                         ?>
-                                
-                        <h1>Mis Listas</h1>
+                            
+                            
+                            
                         <table>
                             <tr>
                                 <td>
-                            <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-                                <a href="#CrearLista" data-rel="dialog" data-role="button" data-icon="plus" >Crear Lista</a>
+                                    <h1>Mis Listas</h1>
+                                </td>
+                                <td><h1>    </h1></td>
+                                <td>
+                                    <img src="../Recursos/listaReproduccion.png" align="right">
+                                </td>
+                                    
+                            </tr>
+                                
+                        </table>
+                            
+                            
+                            
+                        <table>
+                            <tr>
+                                <td>
+                                    <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+                                        <a href="#CrearLista" data-rel="dialog" data-role="button" data-icon="plus" >Crear Lista</a>
                             </div>
                                 </td>
+                               
                             </tr>
 
                         </table>
-                        <table >
+                        
+                        <table  border="2" width=80%" bordercolor="black">
                             <tr>
-                                <th>Nombre de la Lista </th>
+                                <th color="black">Nombre de la Lista </th>
                                 
                             </tr>
-                            <tr>
-                                <td></td>                              
-                            </tr>
+                            
+                             <?php
+                               include_once '../Controladores/ControladorListaReproduccion.php';
+                        $controladorLista=new ControladorListaReproduccion();
+                        $listasUsuario= array();
+                        $listasUsuario=$controladorLista->obtenerListasReproduccionPorUsuario();
+                                               
+                        for ($index = 0; $index < count($listasUsuario); $index++) {
+                                echo "<tr><td><a href='MiColeccion.php?nombreLista=$listasUsuario[$index]'>$listasUsuario[$index]</a></td></tr>";
+                        }
+                        
+                        ?>
+                           
                         </table>
+                        
+                       
                     </div>
 
                 </div><!-- /grid-b -->

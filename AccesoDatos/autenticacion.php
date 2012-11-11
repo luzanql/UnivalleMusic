@@ -24,7 +24,7 @@ if ($nr == 1) {
     if ($sessionActual->perfil == 1) {
         header("Location: ../Vista/MisListas.php", false);
     } else {
-        header("Location: ../Vista/agregarCancion.html");
+        header("Location: ../Vista/MisListas.php");
     }
 } else if ($nr <= 0) {
 //si no existe se va a ... y pone el valor de error a SI

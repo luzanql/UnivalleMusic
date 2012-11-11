@@ -1,6 +1,6 @@
-DROP table  usuario;
+DELETE SCHEMA univallemusic;
 CREATE SCHEMA univallemusic;
-USE UnivalleMusic;
+USE univallemusic;
 
 CREATE TABLE perfil
 (
@@ -270,7 +270,7 @@ CREATE TABLE usuario
 ) 
 ;
 
-INSERT INTO usuario VALUES ('admin',MD5('admin'),1,'Admin','Admin','admin@univallemusic.com',10);
+INSERT INTO usuario VALUES ('admin',MD5('admin'),1,'Admin','Admin','admin@univallemusic.com',10,DEFAULT);
 
 CREATE TABLE cancionesdescargadas
 (

@@ -69,7 +69,7 @@
                                 <th width="40%">Opciones</th>
                             </tr>
                                 <?php
-                                
+                              
                                 $dir = "../Recursos/Canciones/";
       /*  
        * //--------------Leer Directorios----------
