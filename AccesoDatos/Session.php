@@ -14,7 +14,7 @@ class Session {
     // THE only instance of the class
     private static $instance;
 
-    private function __construct() {
+    public function __construct() {
         
     }
 

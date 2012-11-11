@@ -13,6 +13,7 @@
         <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
         <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 
+        <link rel="stylesheet" type="text/css" href="../themes/reproductor.css">
     </head>
     <body>
 
@@ -61,13 +62,41 @@
 
                         </table>
 
-                        <table border="3" width="200%" bordercolor="gray">
-                            <tr>
-                                <th width="30%">Nombre Canci&oacute;n </th>
-                                <th width="30%">&Aacute;rtista</th>
-                                <th width="20%">&Aacute;lbum</th>
-                                <th width="40%">Opciones</th>
-                            </tr>
+                        <script type="text/javascript" src="../Recursos/Scripts/reproductor.js"></script>
+                        <div id="divReproductor">
+                            <div id="divInfo">
+                                <div id="divLogo" style="width: 15%;">
+                                    <img src="../Recursos/logo UM.png" align="left" width="100%">
+                                </div>
+                                <div id="divInfoCancion">
+                                    <label id="lblCancion"><strong>Nombre: </strong><span>-</span></label>
+                                    <label id="lblArtista"><strong>Artista: </strong><span>-</span></label>
+                                    <label id="lblDuracion"><strong>Duraci&oacute;n: </strong><span>-</span></label>
+                                    <label id="lblEstado"><strong>Transcurrido: </strong><span>-</span></label>
+                                </div>
+                                <div style="clear: both"></div>
+                            </div>
+                            <div id="divControles">
+                                <input type="image" src="../Recursos/ImgReproductor/reproducir.png" id="btnReproducir" title="Reproducir" >
+                                <input type="image" src="../Recursos/ImgReproductor/pausar.png" id="btnPausar" title="Pausar/Continuar">
+                                <input type="image" src="../Recursos/ImgReproductor/anterior.png" id="btnAnterior" title="Anterior">
+                                <input type="image" src="../Recursos/ImgReproductor/siguiente.png" id="btnSiguiente" title="Siguiente">
+                                <input type="image" src="../Recursos/ImgReproductor/subir-volumen.png" id="btnSubirVolumen" title="Subir volumen">
+                                <input type="image" src="../Recursos/ImgReproductor/bajar-volumen.png" id="btnBajarVolumen" title="Bajar volumen">
+                                <input type="image" src="../Recursos/ImgReproductor/silencio.png" id="btnSilencio" title="Poner/Quitar silencio">
+                                <input type="image" src="../Recursos/ImgReproductor/repetir.png" id="btnRepetir" title="Repetir la lista al finalizar"> 
+                            </div>
+                            <div id="divProgreso">
+                                <div id="divBarra"></div>
+                            </div>
+                            <div id="divLista">
+                                <ol id="olCanciones">
+                                    
+                                    <li rel="../Recursos/Canciones/Tone_Urbano.mp3">
+                                        <strong>Gingle</strong>
+                                        <em>Univalle Music</em>
+                                    </li>
+                                    
                                 <?php
                               
                                 $dir = "../Recursos/Canciones/";
@@ -88,10 +117,7 @@
                             <tr>
                                 <td></td>
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </table>
+
 
                     </div>
 
