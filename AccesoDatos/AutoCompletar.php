@@ -1,6 +1,8 @@
 <?php
 
 require_once 'conexion.php';
+include_once '../AccesoDatos/DaoUsuario.php';
+//require_once '../Controladores/ControladorUsuario.php';
 
 $conexion = new Conexion();
 $opcion = $_GET['opcion'];
@@ -62,6 +64,19 @@ switch ($opcion) {
         }
         $conexion->cerrar();
         echo json_encode($filas);
+        break;
+        
+     case 5:
+         $usuario=$_GET['usuario'];
+         $daoUsuario = new DaoUsuario();
+         $existe = $daoUsuario->existeUsuario($usuario);
+         if($existe){
+             echo "true";
+             break;
+         }else{
+             echo "false";
+             break;             
+             }
 }
      
 ?>

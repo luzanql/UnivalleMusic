@@ -2,7 +2,7 @@
     
 class Usuario
 {
-     private $id_Usuario;
+  
      private $codigo_Perfil;
      private $nombre;
      private $apellido;
@@ -10,15 +10,20 @@ class Usuario
      private $contrasena;
      private $email;
      private $codigo_nacionalidad;
+     private $estado;
+     
+     
+     function getEstado(){
+         return $this->estado;
+     }
+     
+     function setEstado($estado){
+         
+         $this->estado=$estado;
+     }
+     
 
-      function setId_Usuario($id_Usuario)
-    { 
-        $this->id_Usuario=$id_Usuario;
-    }
-    
-     function getId_Usuario() {
-        return $this->id_Usuario;
-    }
+
 
      function getCodigo_Perfil() {
         return $this->codigo_Perfil;

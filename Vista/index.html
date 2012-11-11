@@ -12,8 +12,9 @@
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
         <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
         <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
-        
-         
+       
+
+     
     </head>
     <body>
         <!-- inicio sesion-->
@@ -23,8 +24,8 @@
             <div data-role="header" data-theme ="b" style="height: 167px;"><!--background-image: url(banner.png); -->
                 <div style="width:180px; height:100px; float:right; ">
                     <form name="autenticarForm" method="post" data-ajax="false" action="../AccesoDatos/autenticacion.php">   
-                        <label for="basic" data-mini="true">Usuario:</label><input type="text" name="usuario" id="basic" value="" data-mini="true"  />
-                        <label for="basic" data-mini="true">Password:</label><input type="password" name="password" id="basic" value=""  data-mini="true" />
+                        <label for="basic" data-mini="true">Usuario:</label><input type="text" name="usuario" id="usuario" value="" data-mini="true"  />
+                        <label for="basic" data-mini="true">Password:</label><input type="password" name="password" id="contrasena" value=""  data-mini="true" />
                         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
                             <input  data-role="button" value="Ingresar" type="submit"/> 
                             <a href="#NuevoUsuario" data-role="button" data-inline="true" data-rel="dialog">Registrarse</a>
@@ -56,30 +57,62 @@
         <div data-role="page" id="NuevoUsuario" data-theme= "a">
             <div data-role="header" data-theme= "b" data-transition="slidedowm" > <h3>Nuevo Usuario</h3></div>
             <div data-role="content" align= "center" data-theme = "a">
-                  <form name="formNuevoUsuario" action="resultadoNuevoUsuario.php" method="post" data-ajax="false" enctype="multipart/form-data">
-                    <h4>Datos Personales</h4>
+                 <form name="formNuevoUsuario" action="resultadoNuevoUsuario.php" method="post" data-ajax="false" enctype="multipart/form-data" >
+                     <h4>Datos Personales</h4>
                     <div data-role="fieldcontain">
-                        <label for="basic" data-mini="true">Nombre:</label> <input type="text" name="nombre" id="nombre" value="" data-mini="true"  required="" style="width:200px;height:30px"/>
+                        <label for="basic" data-mini="true">Nombre:</label> <input type="text" name="nombre" id="nombre" value="" data-mini="true"   style="width:200px;height:30px;"  required="" />
                     </div>
                     <div data-role="fieldcontain">                                
-                        <label for="basic" data-mini="true">Apellido:</label><input type="text" name="apellido" id="apellido" value=""  data-mini="true"  required="" style="width:200px;height:30px"/>
+                        <label for="basic" data-mini="true">Apellido:</label><input type="text" name="apellido" id="apellido" value=""  data-mini="true"   style="width:200px;height:30px" required=""/>
                     </div>
                     <div data-role="fieldcontain">
-                        <label for="basic" data-mini="true">Email:</label><input type="text" name="email" id="email" value=""  data-mini="true" required="" style="width:200px;height:30px"/>
+                        <label for="basic" data-mini="true">Email:</label><input type="email" name="email" id="email" value=""  data-mini="true"  style="width:200px;height:30px" required=""/>
                     </div>
                     <div data-role="fieldcontain">
-                        <label for="basic" data-mini="true">Naciona:</label><input type="text" name="nacionalidad" id="nacionalidad" value="" data-mini="true"  required="" style="width:200px;height:30px" />
+                        <label for="basic" data-mini="true">Nacionalidad:</label><input type="text" name="nacionalidad" id="nacionalidad" value="" data-mini="true"  style="width:200px;height:30px" required="" />
                     </div>
                     <h4>Datos Login</h4>
                     <div data-role="fieldcontain">
-                        <label for="basic" data-mini="true">User:</label><input type="text" name="user" id="user" value=""  data-mini="true" required="" style="width:200px;height:30px"/>
+                        <label for="basic" data-mini="true">User:</label><input type="text" name="user" id="user" value=""  data-mini="true"  style="width:200px;height:30px" required=""/>
                     </div>
+                    <div data-role="fieldcontain" id="mensajes" class="mensagesError"></div>
                     <div data-role="fieldcontain">
-                        <label for="basic" data-mini="true">Password:</label><input type="password" name="password" id="password" value=""  data-mini="true" required="" style="width:200px;height:30px"/>
-                    </div>                                   
-                    <input  data-role="button" value="Crear" type="submit" style="width:200px;height:30px" /> 
+                        <label for="basic" data-mini="true">Password:</label><input type="password" name="password" id="password" value=""  data-mini="true"  style="width:200px;height:30px" required=""/>
+                    </div>                  
+                   <input  data-role="button" value="Crear" type="submit" /> 
 
                 </form>
+                
+                    <script>
+                        $("#mensajes").hide();
+                        $( "#nacionalidad").autocomplete({
+                            source:  "../AccesoDatos/AutoCompletar.php?opcion=2", 
+                            minLength:2,
+                            select: function ( event, ui ) {}
+                        });
+                        $("#user").blur(function() {
+                            var usuario= document.getElementById('user').value;
+                            var urlPhp= "../AccesoDatos/AutoCompletar.php?opcion=5&usuario="+usuario;
+                            var existe = false;
+                            
+                            $.ajax({
+                                type: "POST",
+                                url: urlPhp                                
+                            }).done(function( msg ) {
+                                //alert(msg);
+                                if(msg == "true"){
+                                    $("#mensajes").show();
+                                    $("#mensajes").text("El usuario ya exite");
+                                    $("#user").val("");
+                                }else{$("#mensajes").hide();}
+                            });
+                    
+                                 }
+                
+                
+                    )
+                      </script>
+                    
             </div>
               <div data-role="footer" data-theme = "b" STYLE=" border-style:solid; border-color: #c73930;">
                 <h6>UNIVERSIDAD DEL VALLE</h6>
@@ -91,4 +124,6 @@
 
 
     </body>
+    
+
 </html>

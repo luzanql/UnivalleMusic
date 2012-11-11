@@ -1,59 +1,97 @@
 <?php
 
 require_once 'conexion.php';
-require_once '../Logica/Cancion.php';
+require_once '../Logica/Usuario.php';
 
-class DaoCancion {
+class DaoUsuario {
 
     private $conexion;
 
-    function Daocancion() {
+    function DaoUsuario() {
         $this->conexion = new Conexion();
     }
 
-    function getCanciones() {
+    function getUsuarios() {
         $this->conexion->Conectar();
-        $sql = "SELECT * FROM cancion";
+        $sql = "SELECT * FROM usuario";
         //ejecutando la consulta
         $respuesta = mysql_query($sql);
         return $row = mysql_fetch_object($respuesta);
     }
 
-    function createCancion(Cancion $c) {
+    function createUsuario(Usuario $usu) {
         $this->conexion->Conectar();
-        $cancion = $c;
-        $codigo = $cancion->getCodigo();
-        $titulo = $cancion->getTitulo();
-        $artista = $cancion->getArtista();
-        $album = $cancion->getAlbum();
-        $genero = $cancion->getGenero();
-
-        $consulta = "INSERT INTO cancion (codigo,nombre, artista,codigo_Album,genero) VALUES('$codigo','$titulo','$artista','$album','$genero')";
-
-        mysql_query($consulta);
+        $usuario = $usu;
+        $nombre=$usuario->getNombre(); 
+        $apellido = $usuario->getApellido();
+        $email=$usuario->getEmail();
+        $perfil=$usuario->getCodigo_Perfil();
+        $nacionalidad=$usuario->getCodigo_nacionalidad();
+        $nombreusuario=$usuario->getUsuario();
+        $contraseña=$usuario->getContrasena();
+        //MD5('admin')
+        
+        $consulta = "INSERT INTO usuario (usuario,contrasena, codigo_Perfil,nombre,apellido,email,codigo_nacionalidad,estado) VALUES('$nombreusuario',MD5('$contraseña'),'$perfil','$nombre','$apellido','$email','$nacionalidad',DEFAULT)";
+         mysql_query($consulta);
         $this->conexion->cerrar();
     }
 
-    function obtenerCancion($nombre, $artista, $album) {
+    function obtenerUsuario($nombreUsuario) {
         $this->conexion->Conectar();
 
-        $consulta = "SELECT * FROM cancion WHERE nombre='$nombre' AND artista='$artista' AND codigo_Album='$album'";
+        $consulta = "SELECT * FROM usuario WHERE usuario='$nombreUsuario'";
         $respuesta = mysql_query($consulta);
         $row = mysql_fetch_array($respuesta);
         $this->conexion->cerrar();
         return $row;
     }
-
-    function obtenerCancionPorCodigo($codigo) {
+    
+    function eliminarUsuario($usuario){
         $this->conexion->Conectar();
 
-        $consulta = "SELECT * FROM cancion WHERE codigo='$codigo'";
+        $consulta = "DELETE * FROM usuario WHERE usuario='$usuario'";
         $respuesta = mysql_query($consulta);
         $row = mysql_fetch_array($respuesta);
         $this->conexion->cerrar();
-        return $row;
+        
+        
+    }
+    
+    function darDeBaja($usuario){
+        
+        $this->conexion->Conectar();
+        $consulta = "UPDATE usuario WHERE usario='$usuario' SET estado='Inactivo' ";
+        $respuesta = mysql_query($consulta);
+        $row = mysql_fetch_array($respuesta);
+        $this->conexion->cerrar();
+        
+    }
+    
+    
+    function activarCuenta($usuario){
+        $this->conexion->Conectar();
+        $consulta = "UPDATE usuario WHERE usario='$usuario' SET estado='Activo' ";
+        $respuesta = mysql_query($consulta);
+        $row = mysql_fetch_array($respuesta);
+        $this->conexion->cerrar();
+        
+    }
+    
+    function existeUsuario($usu){
+        $this->conexion->Conectar();
+        $consulta = "SELECT * FROM usuario WHERE usuario='$usu'";
+        $respuesta = mysql_query($consulta);
+        $row = mysql_fetch_array($respuesta);
+        $this->conexion->cerrar();
+         if ($row >= 1) {
+            return true;
+        } else {
+            return false;
+        }
+        
     }
 
+  
 }
 
 ?>

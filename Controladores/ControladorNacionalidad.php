@@ -1,32 +1,31 @@
 <?php
 
-require_once'../AccesoDatos/DaoAlbum.php';
-require_once'../Logica/Album.php';
+require_once'../AccesoDatos/DaoNacionalidad.php';
+require_once'../Logica/Nacionalidad.php';
 
-class ControladorAlbum {
+class ControladorNAcionalidad {
 
-    private $daoAlbum;
+    private $daoNacionalidad;
 
-    function ControladorAlbum() {
-        $this->daoAlbum = new DaoAlbum();
+    function ControladorNAcionalidad() {
+        $this->daoNacionalidad = new DaoNacionalidad();
     }
     
     
-    function createAlbum($nombre){
-        $album=new Album();     
-        $album->setNombre($nombre);
-        $this->daoAlbum->createAlbum($album);
-        
+    function createNacionalidad($nombre){
+        $nacionalidad=new Nacionalidad();     
+        $nacionalidad->setNombre($nombre);
+        $this->daoNacionalidad->createNacionalidad($nacionalidad);      
         
     }
     
-    function existeAlbum($nombre){
-        return $this->daoAlbum->existeAlbum($nombre);
+    function existeNacionalidad($nombre){
+        return $this->daoNacionalidad->existeNacionalidad($nombre);
     }
     
-    function obtenerCodigoAlbum($nombre){
+    function obtenerCodigoNAcionalidad($nombre){
         
-        return $this->daoAlbum->obtenerCodigoAlbum($nombre);
+        return $this->daoNacionalidad->obtenerCodigoNacionalidad($nombre);
     }
     
 

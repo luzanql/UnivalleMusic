@@ -1,45 +1,66 @@
 <?php
-require_once'../AccesoDatos/DaoCancion.php';
-require_once'../Logica/Cancion.php';
+require_once'../AccesoDatos/DaoUsuario.php';
+require_once'../Logica/Usuario.php';
 
-class ControladorCancion{
+class ControladorUsuario{
 
-    private $daocancion;
+    private $daousuario;
 
-    function ControladorCancion() {
-        $this->daocancion = new DaoCancion();
+    function ControladorUsuario() {
+        $this->daousuario = new DaoUsuario();
     }
 
   
     
-    function createCancion($codigo,$titulo,$album,$genero,$artista){
-        $cancion=new Cancion();
-        $cancion->setCodigo($codigo);
-        $cancion->setTitulo($titulo);
-        $cancion->setAlbum($album);
-        $cancion->setGenero($genero);
-        $cancion->setArtista($artista);
-        $this->daocancion->createCancion($cancion);
+    function createUsuario($nombre,$apellido,$email,$nacionalidad,$usuario,$pass){
+        $miusuario=new Usuario();
+        $miusuario->setApellido($apellido);
+        $miusuario->setCodigo_Perfil(2);
+        $miusuario->setContrasena($pass);
+        $miusuario->setEmail($email);
+        $miusuario->setNombre($nombre);
+        $miusuario->setUsuario($usuario);
+        $miusuario->setCodigo_nacionalidad($nacionalidad);
+        
+        $this->daousuario->createUsuario($miusuario);
     }
     
-    function obtenerCancion($nombre,$artista,$album){
-        $cancion=$this->daocancion->obtenerCancion($nombre, $artista, $album);
-        $miCancion=new Cancion();
+    function obtenerUsuario($usu){
+        $usuario=$this->daousuario->obtenerUsuario($usu);
+        $miUsuario=new Usuario();
         
-        $titulo=$cancion ["nombre"];
-        $artista=$cancion ["artista"];
-        $album=$cancion ["codigo_Album"];
-        $codigo=$cancion ["codigo"];
-        $genero=$cancion ["genero"];
-        $miCancion->setTitulo($titulo);
-        $miCancion->setAlbum($album);
-        $miCancion->setArtista($artista);
-        $miCancion->setCodigo($codigo);
-        $miCancion->setGenero($genero);
+        $nombre=$usuario["nombre"];
+        $apellido=$usuario["apellido"];
+        $email=$usuario["email"];
+        $codigo_nacionalidad=$usuario["codigo_nacionalidad"];
+        $perfil=$usuario["codigo_Perfil"];
+        $nombre_usuario=$usuario["usuario"];
+        $estado=$usuario["estado"];
         
-        return $miCancion;
+        $miUsuario->setApellido($apellido);
+        $miUsuario->setCodigo_Perfil($perfil);
+        $miUsuario->setCodigo_nacionalidad($codigo_nacionalidad);
+        $miUsuario->setEmail($email);
+        $miUsuario->setEstado($estado);
+        $miUsuario->setNombre($nombre);
+        $miUsuario->setUsuario($nombre_usuario);
         
         
+        return $miUsuario;
+        
+        
+    }
+    
+    function darDeBaja($usu){
+        $this->daousuario->darDeBaja($usu);
+    }
+    
+    function activarCuenta($usu){
+        $this->daousuario->activarCuenta($usu);
+    }
+    
+    function existeUsuario($usu) {
+        return $this->daousuario->existeUsuario($usu);
     }
 }
 ?>
