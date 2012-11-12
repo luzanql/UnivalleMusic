@@ -41,5 +41,25 @@ class ControladorCancion{
         
         
     }
+    
+      function obtenerCancionPorCodigo($codigo){
+        $cancion=$this->daocancion->obtenerCancionPorCodigo($codigo);
+        $miCancion=new Cancion();
+        
+        $titulo=$cancion ["nombre"];
+        $artista=$cancion ["artista"];
+        $album=$cancion ["codigo_Album"];
+        $codigo=$cancion ["codigo"];
+        $genero=$cancion ["genero"];
+        $miCancion->setTitulo($titulo);
+        $miCancion->setAlbum($album);
+        $miCancion->setArtista($artista);
+        $miCancion->setCodigo($codigo);
+        $miCancion->setGenero($genero);
+        
+        return $miCancion;
+        
+        
+    }
 }
 ?>

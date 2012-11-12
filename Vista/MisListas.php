@@ -32,7 +32,7 @@
                             <a href="../Vista/MiPerfil.php" data-role="button"> Mi Perfil </a> 
                             <a href="../Vista/MiColeccion.php" data-role="button"> Mi Coleccion</a> 
                             <a href="../Vista/MisListas.php" data-role="button"> Listas de Reproduccion</a> 
-                            <a href="index.html" data-role="button"> Comprar Musica</a>
+                            <a href="ComprarMusica.php" data-role="button"> Comprar Musica</a>
                         </div>
                     </div>
                     <div class="ui-block-b" style=" margin:3%" >

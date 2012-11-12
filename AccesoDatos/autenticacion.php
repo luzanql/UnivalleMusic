@@ -20,6 +20,7 @@ if ($nr == 1) {
     $sessionActual->usuario = $row['usuario'];
     $sessionActual->nombreUsuario = $row['nombre'];
     $sessionActual->perfil = $row['codigo_Perfil'];
+    $sessionActual->carrito = array();
 
     if ($sessionActual->perfil == 1) {
         header("Location: ../Vista/MisListas.php", false);
