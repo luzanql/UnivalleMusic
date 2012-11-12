@@ -68,9 +68,6 @@ class DaoListaReproduccion {
         $ejecutar = mysql_query($sql);
         $fila = array();
         $row = mysql_fetch_row($ejecutar);
-        //  $row = mysql_fetch_row($ejecutar);
-       echo $sql;
-        
         $this->conexion->cerrar();
        
         return $row[0];
