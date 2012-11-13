@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,11 +18,18 @@
     <body>
         <div data-role="page" data-theme= "a">
 
-            <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
+          
+             <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
                 <img src="../Recursos/Banner.png" style="width: 80%; height: 100%;"/>
-                <div style="float:right; "><!--style="width:20%; height:100%; float:right; "-->
+                <div style="float:right;">
                     <img src="../Recursos/carrito.jpeg" style=" width:50%; height: 50%; "  />
+                
+                    <div style="padding: 1%">                        
+                     <?php echo "Usuario:".$_SESSION['usuario']?>
                 </div>
+                </div >
+               
+               
             </div><!-- /header -->
 
             <div data-role="content" data-theme = "a">	
@@ -32,7 +40,7 @@
                             <a href="../Vista/MiPerfil.php" data-role="button"> Mi Perfil </a> 
                             <a href="../Vista/MiColeccion.php" data-role="button"> Mi Coleccion</a> 
                             <a href="../Vista/MisListas.php" data-role="button"> Listas de Reproduccion</a> 
-                            <a href="index.html" data-role="button"> Comprar Musica</a>
+                            <a href="../Vista/ComprarMusica.php" data-role="button"> Comprar Musica</a>
                         </div>
 
                     </div>

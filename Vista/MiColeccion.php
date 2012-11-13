@@ -20,27 +20,27 @@
 
         <div data-role="page" data-theme= "a">
 
-            <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
+         <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
                 <img src="../Recursos/Banner.png" style="width: 80%; height: 100%;"/>
                 <div style="float:right;">
-                    <div style="float:top;">
-                        <img src="../Recursos/carrito.jpeg" style=" width:100%; height: 80%; "  />
+                    <a href="verCarrito.php" data-rel="dialog" >
+                        <img src="../Recursos/carrito.jpeg" style=" width:50%; height: 50%; "  /></a>
+                    <div >   
+                        <?php echo "Usuario:" . $_SESSION['usuario'] ?>
                     </div>
-                    <div id="usuarioLogueado" style="float:button; color: white;">
-                        <?php echo $_SESSION['usuario'] ?>
-                    </div>
-                </div>
-            </div><!-- /header -->
+                </div >
+            </div><!-- /header -->           
+          
 
             <div data-role="content" data-theme = "a">	
                 <div class="ui-grid-b">
                     <div class="ui-block-a" style="width:250px; margin:3%">
 
                         <div data-role="controlgroup"> 
-                            <a href="index.html" data-role="button"> Mi Perfil </a> 
+                            <a href="../Vista/MiPerfil.php" data-role="button"> Mi Perfil </a> 
                             <a href="../Vista/MiColeccion.php" data-role="button"> Mi Coleccion</a> 
                             <a href="../Vista/MisListas.php" data-role="button"> Listas de Reproduccion</a> 
-                            <a href="index.html" data-role="button"> Comprar Musica</a>
+                            <a href="../Vista/ComprarMusica.php" data-role="button"> Comprar Musica</a>
                         </div>
                     </div>
                     <div class="ui-block-b" style=" margin:3%" >

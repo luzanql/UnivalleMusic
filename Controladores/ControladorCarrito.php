@@ -19,6 +19,10 @@ class ControladorCarrito {
 	function obtenerListaCancionesCarrito() {
         return $this->daoCarrito->getListaCancionesCarrito();
     }
+    
+    function deleteCancion(Cancion $cancion){
+        $this->daoCarrito->deleteCancion($cancion);
+    }
 	
 }
 ?>

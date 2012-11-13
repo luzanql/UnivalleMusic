@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,9 +21,14 @@
             <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
                 <img src="../Recursos/Banner.png" style="width: 80%; height: 100%;"/>
                 <div style="float:right;">
-                    <img src="../Recursos/carrito.jpeg" style=" width:50%; height: 50%; "  />
-                </div>
+                    <a href="verCarrito.php" data-rel="dialog" >
+                        <img src="../Recursos/carrito.jpeg" style=" width:50%; height: 50%; "  /></a>
+                    <div >   
+                        <?php echo "Usuario:" . $_SESSION['usuario'] ?>
+                    </div>
+                </div >
             </div><!-- /header -->
+
 
             <div data-role="content" data-theme = "a">	
                 <div class="ui-grid-b">
@@ -32,29 +38,25 @@
                             <a href="../Vista/MiPerfil.php" data-role="button"> Mi Perfil </a> 
                             <a href="../Vista/MiColeccion.php" data-role="button"> Mi Coleccion</a> 
                             <a href="../Vista/MisListas.php" data-role="button"> Listas de Reproduccion</a> 
-                            <a href="ComprarMusica.php" data-role="button"> Comprar Musica</a>
+                            <a href="../Vista/ComprarMusica.php" data-role="button"> Comprar Musica</a>
                         </div>
                     </div>
                     <div class="ui-block-b" style=" margin:3%" >
-                        
+
                         <?php
                         include_once '../Controladores/ControladorListaReproduccion.php';
                         $controlador = new ControladorListaReproduccion();
-                        
-                        if($_POST){
+
+                        if ($_POST) {
                             $nombre = $_POST['nombre'];
-                            if($controlador->existeLista($nombre)){
+                            if ($controlador->existeLista($nombre)) {
                                 echo "<h4>La lista con nombre: $nombre ya EXISTE!</h4>";
-                                
-                            }else{
-                            $controlador->createListaReproduccion($nombre);
-                            echo "<h4>Se ha creado la Lista de Reproduccion: $nombre con exito!</h4>";
-                            }}
-                         
+                            } else {
+                                $controlador->createListaReproduccion($nombre);
+                                echo "<h4>Se ha creado la Lista de Reproduccion: $nombre con exito!</h4>";
+                            }
+                        }
                         ?>
-                            
-                            
-                            
                         <table>
                             <tr>
                                 <td>
@@ -64,50 +66,45 @@
                                 <td>
                                     <img src="../Recursos/listaReproduccion.png" align="right">
                                 </td>
-                                    
+
                             </tr>
-                                
+
                         </table>
-                            
-                            
-                            
+
                         <table>
                             <tr>
                                 <td>
                                     <div data-role="controlgroup" data-type="horizontal" data-mini="true">
                                         <a href="#CrearLista" data-rel="dialog" data-role="button" data-icon="plus" >Crear Lista</a>
-                            </div>
+                                    </div>
                                 </td>
-                               
                             </tr>
 
                         </table>
-                        
+
                         <table  border="2" width=80%" bordercolor="black">
                             <tr>
                                 <th>Nombre de la Lista </th>
                                 <th>Opciones</th>
-                                
-                                
+
+
                             </tr>
-                            
-                             <?php
-                               include_once '../Controladores/ControladorListaReproduccion.php';
-                        $controladorLista=new ControladorListaReproduccion();
-                        $listasUsuario= array();
-                        $listasUsuario=$controladorLista->obtenerListasReproduccionPorUsuario();
-                                               
-                        for ($index = 0; $index < count($listasUsuario); $index++) {
+
+                            <?php
+                            include_once '../Controladores/ControladorListaReproduccion.php';
+                            $controladorLista = new ControladorListaReproduccion();
+                            $listasUsuario = array();
+                            $listasUsuario = $controladorLista->obtenerListasReproduccionPorUsuario();
+
+                            for ($index = 0; $index < count($listasUsuario); $index++) {
                                 echo "<tr><td><a href='MiColeccion.php?nombreLista=$listasUsuario[$index]'>$listasUsuario[$index]</a></td>
                                     <td><a  href='EliminarLista.php?lista=$listasUsuario[$index]' data-rel='dialog'  data-role='button' data-icon='delete' >Eliminar</a></td></tr>";
-                           
-                        }
-                        
-                        ?>
-                           
+                            }
+                            ?>
+
                         </table>
-                        
-                       
+
+
                     </div>
 
                 </div><!-- /grid-b -->
@@ -122,21 +119,15 @@
 
         </div><!-- /page -->
 
-         <div data-role="page" id="CrearLista" data-theme= "a" >
+        <div data-role="page" id="CrearLista" data-theme= "a" >
             <div data-role="header" data-theme= "b" data-transition="slidedowm" > <h3>Nuevo Lista Reproduccion</h3></div>
             <div data-role="content" align= "center" data-theme = "a">
-                 <form name="formCrearLista" action="MisListas.php" method="post" enctype="multipart/form-data">
-                                <label for="basic" data-mini="true">Nombre:</label>
-                                <input type="text" name="nombre" id="nombre" value="" data-mini="true"  required="" />
-                                <input  data-role="button" value="Crear Lista" type="submit"/>                                    
-                            </form>
+                <form name="formCrearLista" action="MisListas.php" method="post" enctype="multipart/form-data">
+                    <label for="basic" data-mini="true">Nombre:</label>
+                    <input type="text" name="nombre" id="nombre" value="" data-mini="true"  required="" />
+                    <input  data-role="button" value="Crear Lista" type="submit"/>                                    
+                </form>
             </div>
-         </div>
-        
-     
-        
-     
-        
-
+        </div>
     </body>
 </html>

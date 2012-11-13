@@ -9,11 +9,7 @@
                 $controladorLista=new ControladorListaReproduccion();
                 $codigo=$controladorLista->obtenerCodigoLista($lista);
                 $controladorLista->deleteListaReproduccion($codigo);
-                        
-                
+                      
                 ?>
-    
-                
-                
             </div>
          </div>
