@@ -24,6 +24,7 @@
         <?php
         include('../Controladores/ControladorUsuario.php');
         include('../Controladores/ControladorNacionalidad.php');
+        include('../Controladores/ControladorListaReproduccion.php');
 
         //
         $nombre = $_POST["nombre"];
@@ -45,6 +46,10 @@
 
         $controladorUsuario = new ControladorUsuario();
         $controladorUsuario->createUsuario($nombre, $apellido, $email, $codigo_nacionalidad, $user, $pass);
+        
+        $controladorLista=new ControladorListaReproduccion();
+        $controladorLista->createListaReproduccionFavoritas($user);
+        
         ?>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
             <a href="../Vista/index.html"  data-role="button">Volver</a>

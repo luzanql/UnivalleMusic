@@ -31,6 +31,16 @@ class ControladorListaReproduccion {
         $this->daoListaReproduccion->createListaReproduccion($listaReproduccion);
     }
     
+     function createListaReproduccionFavoritas($user){
+        $listaReproduccion = new ListaReproduccion();
+        $nombre="Favoritas";
+        $listaReproduccion->setNombre($nombre);
+        //Modificar cuando se implement la sesion
+         $idUsuario = $user;
+        $listaReproduccion->setIdUsuario($idUsuario);
+        $this->daoListaReproduccion->createListaReproduccion($listaReproduccion);
+    }
+    
     function deleteListaReproduccion($codigo){
         $this->daoListaReproduccion->deleteListaReproduccion($codigo);
     }
