@@ -57,7 +57,7 @@
                             <tr>
                                 <td>
                                     <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-                                        <a href="../Vista/AgregarCancion.html" data-role="button" data-icon="plus" >Subir Cancion</a>
+                                        <a href="../Vista/AgregarCancion.php" data-role="button" data-icon="plus" >Subir Cancion</a>
                                     </div>
                                 </td>
                                 <td>

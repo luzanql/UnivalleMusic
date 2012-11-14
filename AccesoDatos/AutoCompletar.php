@@ -84,7 +84,23 @@ switch ($opcion) {
          $daoListaReproduccion = new DaoListaReproduccion();
          $resultado = $daoListaReproduccion->getCodigoNombreListasPorUsuario($usuario);
          echo $resultado;
-         break;             
+         break;   
+     
+     //hecho por male
+     case 7:
+         $sessionActual = Session::getInstance();
+         $idUsuario = $sessionActual->usuario;
+         $usuario=$idUsuario;
+         $daoUsuario=new DaoUsuario();
+         $daoNacionalidad=new DaoNacionalidad();
+         $usuarioFinal=$daoUsuario->obtenerUsuario($usuario);
+         $nombre=$usuarioFinal['nombre'];
+         $apellido=$usuarioFinal['apellido'];
+         $nacionalidad=$daoNacionalidad->obtenerNombreNacionalidad($usuarioFinal['codigo_nacionalidad']);
+         $email=$usuarioFinal['email'];
+         $usuario=$usuarioFinal['usuario'];
+         $passw=$usuarioFinal['contrasena'];
+         echo $nombre.','.$apellido.','.$email.','.$nacionalidad.','.$usuario.','.$passw;
          
 }
      

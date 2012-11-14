@@ -54,7 +54,7 @@ class DaoListaReproduccion {
         $sql = "DELETE FROM listareproduccion WHERE codigo=$codigo";
         //echo $sql;
         mysql_query($sql);
-        $sql2="DELETE fROM cancionesxlistareproduccion WHERE codigo_Lista=$codigo";
+        $sql2="DELETE FROM cancionesxlistareproduccion WHERE codigo_Lista=$codigo";
         mysql_query($sql2);
         $this->conexion->cerrar();
         

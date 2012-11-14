@@ -46,6 +46,17 @@ class DaoNacionalidad {
         $this->conexion->cerrar();
         return $row['codigo'];
     }
+    
+    function obtenerNombreNacionalidad($codigo){
+          $this->conexion->Conectar();
+        $sql = "SELECT nombre FROM nacionalidad WHERE codigo='$codigo'";
+        $ejecutar = mysql_query($sql);
+        $fila = array();
+        $row = mysql_fetch_array($ejecutar);
+        $this->conexion->cerrar();
+        return $row['nombre'];
+        
+    }
 
 }
 

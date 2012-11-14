@@ -57,7 +57,7 @@
         <div data-role="page" id="NuevoUsuario" data-theme= "a" >
             <div data-role="header" data-theme= "b" data-transition="slidedowm" > <h3>Nuevo Usuario</h3></div>
             <div data-role="content" align= "center" data-theme = "a">
-                 <form name="formNuevoUsuario" action="resultadoNuevoUsuario.php" method="post" data-ajax="false" enctype="multipart/form-data" >
+                 <form name="formNuevoUsuario" action="resultadoNuevoUsuario.php" method="post" data-ajax="false" enctype="multipart/form-data">
                      <h4>Datos Personales</h4>
                     <div data-role="fieldcontain" >
                         <label for="basic" data-mini="true">Nombre:</label> <input type="text" name="nombre" id="nombre" value="" data-mini="true"   style="width:200px;height:30px;"  required="" />
@@ -79,11 +79,13 @@
                     <div data-role="fieldcontain" >
                         <label for="basic" data-mini="true">Password:</label><input type="password" name="password" id="password" value=""  data-mini="true"  style="width:200px;height:30px" required=""/>
                     </div>                  
-                   <input  data-role="button" value="Crear" type="submit" align="right"/> 
+                   <input  data-role="button" value="Crear" type="submit" align="right" data-rel="dialog"/> 
 
                 </form>
+         
                 
                     <script>
+                        $("#nombre").val('hola');
                         $("#mensajes").hide();
                         $( "#nacionalidad").autocomplete({
                             source:  "../AccesoDatos/AutoCompletar.php?opcion=2", 
@@ -112,7 +114,10 @@
                 
                     )
                       </script>
+              
+                
                       </div>
+            
                     
             </div>
              

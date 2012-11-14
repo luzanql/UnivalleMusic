@@ -1,5 +1,7 @@
 <?php session_start(); ?>
+        
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -15,7 +17,7 @@
         <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
     </head>
     <body>
-
+         
         <div data-role="page" data-theme= "a">
 
             <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
@@ -40,6 +42,7 @@
                             <a href="../Vista/ComprarMusica.php" data-role="button"> Comprar Musica</a>
                         </div>
                     </div>
+                   
                     <div class="ui-block-b" style=" margin:3%" align="center">               
                         <table align="right"> 
                             <tr>
@@ -54,32 +57,36 @@
                             </tr>
 
                         </table>
-
+                      
                         <form name="formMiPerfil" action="" method="post" enctype="multipart/form-data">
                             <div data-role="fieldcontain" align="right">
                                 <label for="basic" data-mini="true">Nombre:</label> <input type="text" name="nombre" id="nombre" value="" data-mini="true"   style="width:200px;height:30px;"  required=""  align="right"/>
                             </div>
                             <div data-role="fieldcontain" align="right">
-                                <label for="basic" data-mini="true">Apellido:</label> <input type="text" name="nombre" id="apellido" value="" data-mini="true"   style="width:200px;height:30px;"  required=""  float="right"  align="right"/>
+                                <label for="basic" data-mini="true">Apellido:</label> <input type="text" name="apellido" id="apellido" value="" data-mini="true"   style="width:200px;height:30px;"  required=""    align="right"/>
                             </div> 
                             <div data-role="fieldcontain"  align="right">
-                                <label for="basic" data-mini="true">E-mail:</label> <input type="email" name="nombre" id="e-mail" value="" data-mini="true"   style="width:200px;height:30px;"  required="" float="right"  />
+                                <label for="basic" data-mini="true">E-mail:</label> <input type="email" name="e-mail" id="e-mail" value="" data-mini="true"   style="width:200px;height:30px;"  required="" align="right"  />
                             </div> 
                             <div data-role="fieldcontain" align="right">
-                                <label for="basic" data-mini="true">Nacionalidad:</label> <input type="text" name="nombre" id="nacionalidad" value="" data-mini="true"   style="width:200px;height:30px;"  required="" />
+                                <label for="basic" data-mini="true">Nacionalidad:</label> <input type="text" name="nacionalidad" id="nacionalidad" value="" data-mini="true"   style="width:200px;height:30px;"  required="" align="right" />
                             </div> 
                             <div data-role="fieldcontain" align="right">
-                                <label for="basic" data-mini="true">Usuario:</label> <input type="text" name="nombre" id="usuario" value="" data-mini="true"   style="width:200px;height:30px;"  required="" disabled=""/>
+                                <label for="basic" data-mini="true">Usuario:</label> <input type="text" name="usuario" id="usuario" value="" data-mini="true"   style="width:200px;height:30px;"  required="" disabled="" align="right" />
                             </div> 
                             <div data-role="fieldcontain" align="right">
-                                <label for="basic" data-mini="true">Password:</label> <input type="password" name="nombre" id="password" value="" data-mini="true"   style="width:200px;height:30px;"  required="" />
+                                <label for="basic" data-mini="true">Password:</label> <input type="password" name="password" id="password" value="" data-mini="true"   style="width:200px;height:30px;"  required=""  align="right" />
                             </div> 
                             <div data-role="controlgroup" data-type="horizontal" data-mini="true" align="right">
                                 <input  data-role="button" value="Darme De Baja" type="button" /> 
                                 <input  data-role="button" value="Modificar" type="submit" /> 
                             </div>
                         </form>
+                         
+    
+                        
                     </div>
+                    
                 </div>
 
 
@@ -95,4 +102,7 @@
         </div><!-- /page -->
 
     </body>
+     
+              
+ 
 </html>
