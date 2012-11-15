@@ -82,6 +82,26 @@
                                 <input  data-role="button" value="Modificar" type="submit" /> 
                             </div>
                         </form>
+                        <script>
+        $(document).ready(function() {
+            var urlPhp="../AccesoDatos/AutoCompletar.php?opcion=7";
+            $.ajax({
+                                type: "POST",
+                                url: urlPhp                                
+                            }).done(function( msg ) {
+                                var datos=msg.split(",");
+                                
+                                $("#nombre").val(datos[0]);
+                                $("#apellido").val(datos[1]);
+                                $("#e-mail").val(datos[2]);
+                                $("#nacionalidad").val(datos[3]);
+                                $("#usuario").val(datos[4]);
+                                $("#password").val(datos[5]);
+                            });
+        
+        
+        })
+    </script>
                          
     
                         
@@ -102,6 +122,7 @@
         </div><!-- /page -->
 
     </body>
+    
      
               
  

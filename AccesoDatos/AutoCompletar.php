@@ -3,6 +3,8 @@
 require_once 'conexion.php';
 include_once '../AccesoDatos/DaoUsuario.php';
 include_once '../AccesoDatos/DaoListaReproduccion.php';
+include_once '../AccesoDatos/DaoNacionalidad.php';
+include_once '../AccesoDatos/Session.php';
 //require_once '../Controladores/ControladorUsuario.php';
 
 $conexion = new Conexion();
@@ -98,9 +100,9 @@ switch ($opcion) {
          $apellido=$usuarioFinal['apellido'];
          $nacionalidad=$daoNacionalidad->obtenerNombreNacionalidad($usuarioFinal['codigo_nacionalidad']);
          $email=$usuarioFinal['email'];
-         $usuario=$usuarioFinal['usuario'];
+         $usuarioF=$usuarioFinal['usuario'];
          $passw=$usuarioFinal['contrasena'];
-         echo $nombre.','.$apellido.','.$email.','.$nacionalidad.','.$usuario.','.$passw;
+         echo $nombre.','.$apellido.','.$email.','.$nacionalidad.','.$usuarioF.','.$passw;
          
 }
      
