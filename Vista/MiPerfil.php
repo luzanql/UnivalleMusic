@@ -60,7 +60,7 @@
                       
                         <form name="formMiPerfil" action="" method="post" enctype="multipart/form-data">
                             <div data-role="fieldcontain" align="right">
-                                <label for="basic" data-mini="true">Nombre:</label> <input type="text" name="nombre" id="nombre" value="" data-mini="true"   style="width:200px;height:30px;"  required=""  align="right"/>
+                                <label for="basic" data-mini="true">Nombre:</label> <input type="text" name="nombre" id="nom" value="" data-mini="true"   style="width:200px;height:30px;"  required=""  align="right"/>
                             </div>
                             <div data-role="fieldcontain" align="right">
                                 <label for="basic" data-mini="true">Apellido:</label> <input type="text" name="apellido" id="apellido" value="" data-mini="true"   style="width:200px;height:30px;"  required=""    align="right"/>
@@ -91,7 +91,7 @@
                             }).done(function( msg ) {
                                 var datos=msg.split(",");
                                 
-                                $("#nombre").val(datos[0]);
+                                $("#nom").val(datos[0]);
                                 $("#apellido").val(datos[1]);
                                 $("#e-mail").val(datos[2]);
                                 $("#nacionalidad").val(datos[3]);

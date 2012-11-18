@@ -33,7 +33,7 @@
                     <div class="ui-block-a" style="width:250px; margin:3%">
 
                         <div data-role="controlgroup"> 
-                            <a href="index.html" data-role="button"> Mi Perfil </a> 
+                            <a href="../Vista/MiPerfil.php" data-role="button"> Mi Perfil </a> 
                             <a href="../Vista/MiColeccion.php" data-role="button"> Mi Coleccion</a> 
                             <a href="../Vista/MisListas.php" data-role="button"> Listas de Reproduccion</a> 
                             <a href="../Vista/ComprarMusica.php" data-role="button"> Comprar Musica</a>
@@ -50,12 +50,11 @@
 
                         if ($_GET) {
                             $codigo = $_GET['codigo'];
-                            $cancion = $controladorCancion->obtenerCancionPorCodigo($codigo);
-                            $controladorCarrito->addCancion($cancion);
-                            $sessionActual = Session::getInstance();
-                            $carrito = $sessionActual->carrito;
-                            echo "<h4>Se ha agregado la cancion \"" . $cancion->getTitulo() . " al carrito de compras.</h4>";
-                            //print_r($carrito);
+                            $titulo=$_GET['titulo'];
+                            $controladorCarrito->addCancion($codigo);
+                         
+                            echo "<h4>Se ha agregado la cancion \"" . $titulo . " al carrito de compras.</h4>";
+                          
                         }
                         
                         ?>
@@ -73,14 +72,13 @@
                             <?php
                             include_once '../Controladores/ControladorCarrito.php';
                             $controladorCarrito = new ControladorCarrito();
-                            $listaCanciones = array();
-                            $listaCanciones = $controladorCarrito->obtenerListaCancionesCarrito();
+                            $listaCanciones = $controladorCarrito->obtenerListaCancionesALaVenta();
                             for ($index = 0; $index < count($listaCanciones); $index++) {
                                 echo "<tr><td>" . $listaCanciones[$index][0] . "</td>
 										<td>" . $listaCanciones[$index][1] . "</td>
 										<td>" . $listaCanciones[$index][2] . "</td>
 										<td>" . $listaCanciones[$index][3] . "</td>
-										<td><a href='ComprarMusica.php?codigo=" . $listaCanciones[$index][0] . "'><img src='../Recursos/carrito.jpeg' style='width:50%; height: 50%;' /></a></td></tr>";
+										<td><a href='ComprarMusica.php?codigo=" . $listaCanciones[$index][0] . "&titulo=".$listaCanciones[$index][1]."'><img src='../Recursos/carrito.jpeg' style='width:50%; height: 50%;' /></a></td></tr>";
                             }
                             ?>
                         </table>

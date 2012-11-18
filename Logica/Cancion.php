@@ -1,17 +1,17 @@
 <?php
+
 class Cancion {
-    
+
     Private $titulo;
     Private $codigo;
     Private $album;
     Private $genero;
     Private $artista;
-    
-    
+
     function setArtista($artista) {
         $this->artista = $artista;
     }
-    
+
     function setTitulo($titulo) {
         $this->titulo = $titulo;
     }
@@ -43,10 +43,11 @@ class Cancion {
     function getCodigo() {
         return $this->codigo;
     }
-    
+
     function getArtista() {
         return $this->artista;
     }
 
 }
+
 ?>

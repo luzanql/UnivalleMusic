@@ -11,20 +11,20 @@ class DaoCarrito {
     }
 
 	
-	function addCancion(Cancion $cancion, $idUsuario ) {
-		$sessionActual = Session::getInstance();
+    function addCancion($codigo ) {
+		$sessionActual = new Session();
 		$carrito = $sessionActual->carrito;
-        $carrito[] = $cancion;
+                $carrito[] = $codigo;
 		$sessionActual->carrito = $carrito;
     }
 
-    function deleteCancion(Cancion $cancion) {
-        $sessionActual = Session::getInstance();
-        unset($sessionActual->carrito[$cancion]);// se supone que quita el elemento cancion de el array carrito
+    function deleteCancion($codigo) {
+        $sessionActual = new Session();
+        unset($sessionActual->carrito[$codigo]);// se supone que quita el elemento cancion de el array carrito
     }
 
-	
-	function getListaCancionesCarrito() {
+	// este metodo trae las canciones subidas por el administrador (q estan a la venta)
+	function getListaCancionesALaVenta() {
         
 		$this->conexion->Conectar();
         $sql = "SELECT c.codigo, c.nombre, ar.nombre as artista, al.nombre as album from cancion as c, artista as ar, album as al, cancionesxusuario as cu, usuario as u WHERE c.codigo= cu.codigo_Cancion AND ar.codigo=c.artista AND cu.codigo_Usuario = u.usuario AND c.codigo_Album = al.codigo AND u.codigo_Perfil =1;";
@@ -52,6 +52,11 @@ class DaoCarrito {
 		$this->conexion->cerrar();
 		return $row;
    } 
+   // este metodo me trae las canciones q se han agregado al carrito array $carrito[] de session
+   function getCancionesDelCarrito(){
+       $sessionActual = new Session();
+       return $sessionActual->carrito;       
+   }
 }
 
 ?>
