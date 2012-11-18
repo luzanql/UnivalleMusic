@@ -95,6 +95,7 @@
                             $controladorLista = new ControladorListaReproduccion();
                             $listasUsuario = array();
                             $listasUsuario = $controladorLista->obtenerListasReproduccionPorUsuario();
+                            $codigo= $_SESSION['usuario'];
 
                             for ($index = 0; $index < count($listasUsuario); $index++) {
                                 echo "<tr><td><a href='MiColeccion.php?nombreLista=$listasUsuario[$index]'>$listasUsuario[$index]</a></td>

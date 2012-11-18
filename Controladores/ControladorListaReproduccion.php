@@ -12,7 +12,7 @@ class ControladorListaReproduccion {
     }
 
     function obtenerListasReproduccionPorUsuario() {
-       //Modificar con sesion
+       //Modificar con sesio
         $sessionActual = new Session();
         $idUsuario = $sessionActual->usuario;
        //-----------
@@ -20,6 +20,7 @@ class ControladorListaReproduccion {
     }
     
     function createListaReproduccion($nombre){
+     
         $listaReproduccion = new ListaReproduccion();
         $listaReproduccion->setNombre($nombre);
         //Modificar cuando se implement la sesion
@@ -47,12 +48,14 @@ class ControladorListaReproduccion {
     
     
     function obtenerCodigoLista($nombre){
+        session_start();
         $sessionActual = new Session();
         $idUsuario = $sessionActual->usuario;
         return $this->daoListaReproduccion->obtenerCodigoLista($nombre, $idUsuario);
     }
     
     function existeLista($lista){
+      
         $sessionActual = new Session();
         $usuario = $sessionActual->usuario;
         return $this->daoListaReproduccion->existeLista($usuario, $lista);
