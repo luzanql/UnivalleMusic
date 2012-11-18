@@ -28,6 +28,9 @@ class ControladorAlbum {
         
         return $this->daoAlbum->obtenerCodigoAlbum($nombre);
     }
+     function obtenerNombreAlbum($codigo){
+        return $this->daoAlbum->obtenerNombreAlbum($codigo);
+    }
     
 
 }

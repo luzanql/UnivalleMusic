@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
         <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
         <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="../Recursos/Scripts/ManejaCarrito.js"></script>
     </head>
     <body>
 
@@ -46,23 +47,15 @@
                         include_once '../Controladores/ControladorCancion.php';
                         $controladorCarrito = new ControladorCarrito();
                         $controladorCancion = new ControladorCancion();
-                        
-
-                        if ($_GET) {
-                            $codigo = $_GET['codigo'];
-                            $titulo=$_GET['titulo'];
-                            $controladorCarrito->addCancion($codigo);
-                         
-                            echo "<h4>Se ha agregado la cancion \"" . $titulo . " al carrito de compras.</h4>";
-                          
-                        }
+                       
                         
                         ?>
+                        <div id="mensaje"></div>
 
                         <p>Comprar M&uacute;sica</p>
 
-                        <table border="3" width="200%" bordercolor="gray">
-                            <tr>
+                        <table border="3" width="200%" bordercolor="gray" id="opciones">
+                            <tr >
                                 <th width="30%">Codigo</th>
                                 <th width="30%">Titulo </th>
                                 <th width="20%">&Aacute;rtista</th>
@@ -71,14 +64,15 @@
                             </tr>
                             <?php
                             include_once '../Controladores/ControladorCarrito.php';
+                       
                             $controladorCarrito = new ControladorCarrito();
                             $listaCanciones = $controladorCarrito->obtenerListaCancionesALaVenta();
                             for ($index = 0; $index < count($listaCanciones); $index++) {
                                 echo "<tr><td>" . $listaCanciones[$index][0] . "</td>
-										<td>" . $listaCanciones[$index][1] . "</td>
-										<td>" . $listaCanciones[$index][2] . "</td>
-										<td>" . $listaCanciones[$index][3] . "</td>
-										<td><a href='ComprarMusica.php?codigo=" . $listaCanciones[$index][0] . "&titulo=".$listaCanciones[$index][1]."'><img src='../Recursos/carrito.jpeg' style='width:50%; height: 50%;' /></a></td></tr>";
+					<td>" . $listaCanciones[$index][1] . "</td>
+					<td>" . $listaCanciones[$index][2] . "</td>
+					<td>" . $listaCanciones[$index][3] . "</td>
+					<td name='".$listaCanciones[$index][0]."'><img src='../Recursos/carrito.jpeg' style='width:50%; height: 50%;' /></td></tr>";
                             }
                             ?>
                         </table>

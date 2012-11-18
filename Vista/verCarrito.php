@@ -1,6 +1,8 @@
 <?php session_start();?>
 <div data-role = "dialog" id = "verCarrito" >
+    <div id="mensajeEliminar"></div>
     <div data-role = "header" data-theme = "b" data-transition = "slidedowm" >
+        <script type="text/javascript" src="../Recursos/Scripts/ManejaCarrito.js"></script>
         <h3>Carrito de Compras</h3>
     </div>
     <div data-role = "content" align = "center" data-theme = "a">
@@ -15,15 +17,26 @@
             
              <?php
             include_once '../Controladores/ControladorCarrito.php';
+            include_once '../Controladores/ControladorCancion.php';
+            include_once '../Controladores/ControladorArtista.php';
+            include_once '../Controladores/ControladorAlbum.php';
             $controladorCarrito = new ControladorCarrito();
+            $controladorCancion=new ControladorCancion();
+            $controladorArtista=new ControladorArtista();
+            $controladorAlbum=new ControladorAlbum();
+            
             $listaCanciones = $controladorCarrito->obtenerCancionesDelCarrito();
-            echo $listaCanciones[3];
-              for ($index = 0; $index < count($listaCanciones); $index++) {
-                echo "<tr><td>n</td>
-                    <td>n</td>
-                    <td>n</td>
-                    <td>n</td>                  
-                    <td><a href=><img src='../Recursos/cart_delete.png' style='width:50%; height: 50%;' /></a></td></tr>";                          
+            for ($index = 0; $index < count($listaCanciones); $index++) {
+                $codigo=$listaCanciones[$index];
+                $cancion=$controladorCancion->obtenerCancionPorCodigo($codigo);
+                $titulo=$cancion->getTitulo();
+                $artista=$controladorArtista->obtenerNombreArtista($cancion->getArtista());
+                $album=$controladorAlbum->obtenerNombreAlbum($cancion->getAlbum());
+                echo "<tr><td>".$codigo."</td>
+                    <td>".$titulo."</td>
+                    <td>".$artista."</td>
+                    <td>".$album."</td>                  
+                    <td id='".$listaCanciones[$index]."'><img src='../Recursos/cart_delete.png' style='width:50%; height: 50%;' /></td></tr>";                       
             }
              
             

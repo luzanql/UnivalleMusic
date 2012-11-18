@@ -58,6 +58,15 @@ class DaoAlbum {
         $this->conexion->cerrar();
         return $row['codigo'];
     }
+      function obtenerNombreAlbum($codigo){
+        $this->conexion->Conectar();
+        $sql="SELECT nombre FROM album WHERE codigo='$codigo'";
+        $ejecutar=mysql_query($sql);
+        $row= mysql_fetch_row($ejecutar);
+        $this->conexion->cerrar();
+        return $row[0];
+        
+    }
 
 }
 
