@@ -4,12 +4,12 @@
 
 $(function(){
     
-    var divAgregarAListas = $('#agregarAListas');
     var usuarioLogueado = $('#usuarioLogueado').text();
     usuarioLogueado = usuarioLogueado.trim();
     var listaCanciones = $('li a');
-    var cancionCambiarLista = "";
     
+    var btnAgragarAListas = $('#agragarAListas');
+        
     listaCanciones.on('click',function(){
         cancionCambiarLista = $(this).attr('name');
                 
@@ -32,12 +32,15 @@ $(function(){
                     contenidoHtml += unaFila[1];
                     contenidoHtml += "</label>";                    
                 }
-                //contenedorListas.html(contenidoHtml);
-                contenedorListas.append(contenidoHtml);
-                
+                contenedorListas.html(contenidoHtml);
+                contenidoHtml = "";
             }
         });
+    });
         
+    btnAgragarAListas.on('click',function(){
+        var listasReproduccion = $('input:checked');
+        alert(listasReproduccion.attr('name'));
     });    
     
 });
