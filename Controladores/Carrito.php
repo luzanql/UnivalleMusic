@@ -23,10 +23,11 @@ switch ($opcion) {
         $carrito=$sessionActual->carrito;
         for($index=0;$index<count($carrito);$index++){
             if($carrito[$index]===$codigo){
-                unset($sessionActual->carrito[$index]);
+                unset($carrito[$index]);
             }
             
         }
+        $sessionActual->carrito=$carrito;
         // se supone que quita el elemento cancion de el array carrito
         echo "Cancion ".$codigo." eliminada del carrito";
         break;

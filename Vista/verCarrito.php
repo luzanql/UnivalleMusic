@@ -1,6 +1,6 @@
 <?php session_start();?>
 <div data-role = "dialog" id = "verCarrito" >
-    <div id="mensajeEliminar"></div>
+    <div id="mensajeEliminar" style="color: dodgerblue"></div>
     <div data-role = "header" data-theme = "b" data-transition = "slidedowm" >
         <script type="text/javascript" src="../Recursos/Scripts/ManejaCarrito.js"></script>
         <h3>Carrito de Compras</h3>

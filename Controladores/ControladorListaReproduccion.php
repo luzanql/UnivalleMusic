@@ -13,6 +13,7 @@ class ControladorListaReproduccion {
 
     function obtenerListasReproduccionPorUsuario() {
        //Modificar con sesio
+       
         $sessionActual = new Session();
         $idUsuario = $sessionActual->usuario;
        //-----------
