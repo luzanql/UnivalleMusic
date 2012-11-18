@@ -10,18 +10,6 @@ class DaoCarrito {
         $this->conexion = new Conexion();
     }
 
-	
-    function addCancion($codigo ) {
-		$sessionActual = new Session();
-		$carrito = $sessionActual->carrito;
-                $carrito[] = $codigo;
-		$sessionActual->carrito = $carrito;
-    }
-
-    function deleteCancion($codigo) {
-        $sessionActual = new Session();
-        unset($sessionActual->carrito[$codigo]);// se supone que quita el elemento cancion de el array carrito
-    }
 
 	// este metodo trae las canciones subidas por el administrador (q estan a la venta)
 	function getListaCancionesALaVenta() {
