@@ -164,7 +164,11 @@
                         
                     </fieldset>
                 </div>
-
+                <a data-role="button"
+                   data-rel="back"
+                   id="agragarAListas"
+                   data-inline="true"
+                   data-mini="true">Agregar Canciones a Listas..</a>
                 <a data-role="button" data-rel="back" data-inline="true" data-mini="true">Cancel</a>	
             </div>
 
