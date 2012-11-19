@@ -43,7 +43,7 @@
             ?>
            
         </table>
-        <div id="total">0</div>
+        <div id="total"></div>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true" >
             <input  data-role="button" value="Realizar Compra" type="button"/> 
         </div>

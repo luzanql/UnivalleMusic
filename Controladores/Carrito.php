@@ -11,6 +11,7 @@ switch ($opcion) {
 		$sessionActual = new Session();
 		$carrito = $sessionActual->carrito;
                 $carrito[] = $codigo;
+                $carrito = array_values($carrito);
 		$sessionActual->carrito = $carrito;
                 echo "Cancion ".$codigo." agregada al carrito";
     
@@ -24,8 +25,8 @@ switch ($opcion) {
         for($index=0;$index<count($carrito);$index++){
             if($carrito[$index]===$codigo){
                 unset($carrito[$index]);
-            }
-            
+                $carrito = array_values($carrito);
+            }           
         }
         $sessionActual->carrito=$carrito;
         // se supone que quita el elemento cancion de el array carrito
@@ -35,14 +36,13 @@ switch ($opcion) {
         case 3:
             
             $daoCarrito= new DaoCarrito();
-            $existe="false";
             $canciones=$daoCarrito->getCancionesDelCarrito();
             for($index=0;$index<count($canciones); $index++){
                 if($codigo==$canciones[$index]){
-                    echo $existe="true";
+                    echo "true";
                     break;
                 }else{
-                    echo $existe;
+                    echo "false";
                 }
             }
 
