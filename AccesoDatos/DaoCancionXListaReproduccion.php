@@ -11,18 +11,17 @@ class DaoCancionXListaReproduccion {
     }
 
     function createCancionXListaReproduccion(CancionesXListaReproduccion $cancionxlistareproduccion) {
-
         $this->conexion->Conectar();
         $cancion = $cancionxlistareproduccion->getCodigoCancion();
         $artista = $cancionxlistareproduccion->getCodigoLista();
-        $sql = "INSERT INTO cancionesxlistareproduccion VALUES ('$cancion','$artista')";
+        $sql = "INSERT INTO cancionesxlistareproduccion VALUES ('".$cancion."','".$artista."')";
         $ejecutar = mysql_query($sql);
         $this->conexion->cerrar();
     }
 
     function existeCancionXListaReproduccion($cancion, $lista) {
         $this->conexion->Conectar();
-        $sql = "SELECT * FROM cancionesxlistareproduccion WHERE codigo_Cancion='$cancion' AND codigo_Lista='$lista';";
+        $sql = "SELECT * FROM cancionesxlistareproduccion WHERE codigo_Cancion='".$cancion."' AND codigo_Lista='".$lista."'";
         $ejecutar = mysql_query($sql);
         $row = mysql_fetch_array($ejecutar);
         $this->conexion->cerrar();
@@ -34,7 +33,7 @@ class DaoCancionXListaReproduccion {
     
     function deleteCancionXListaReproduccion($cancion,$lista){
         $this->conexion->Conectar();
-        $sql = "DELETE FROM cancionesxlistareproduccion WHERE codigo_Cancion='$cancion' AND codigo_Lista='$lista';";
+        $sql = "DELETE FROM cancionesxlistareproduccion WHERE codigo_Cancion='".$cancion."' AND codigo_Lista='".$lista."'";
         $ejecutar = mysql_query($sql);
         $row = mysql_fetch_array($ejecutar);
         $this->conexion->cerrar();

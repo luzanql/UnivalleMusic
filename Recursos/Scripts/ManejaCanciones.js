@@ -6,14 +6,23 @@ $(function(){
     
     var usuarioLogueado = $('#usuarioLogueado').text();
     usuarioLogueado = usuarioLogueado.trim();
+    usuarioLogueado = usuarioLogueado.replace("Usuario: ", "");
     var listaCanciones = $('li a');
-    
-    var btnAgragarAListas = $('#agragarAListas');
+    var cancionCambiarLista = "";
+    var btnAgragarAListas = $('#btnAgragarAListas');
+    var btnEliminarDeListas = $('#btnEliminarDeListas');
         
     listaCanciones.on('click',function(){
+        var accion = 0;
+        if($(this).text()=="Agregar a Listas"){
+            accion = 1;
+        }else if($(this).text()=="Eliminar de Listas"){
+            accion = 2;
+        }
         cancionCambiarLista = $(this).attr('name');
                 
-        var contenedorListas = $('#checkboxListas');
+        var contenedorListasAgregar = $('#checkboxListasAgregar');
+        var contenedorListasEliminar = $('#checkboxListasEliminar');
         var urlPhp= "../AccesoDatos/AutoCompletar.php?opcion=6&usuario="+usuarioLogueado;
     
         $.ajax({
@@ -23,24 +32,61 @@ $(function(){
             cache: false,
             success: function(result) {
                 var contenidoHtml = "";
-                contenidoHtml += "<label><input type='checkbox' name='Favoritas' />Favoritas</label>";
                 for(var i=0 ; i < result.length ; i++){
                     var unaFila = result[i];
-                    contenidoHtml += "<label><input type='checkbox' name='";
+                    contenidoHtml += "<label style=\"border: 2px solid #000; margin: 2px 2px 2px 2px; padding: 2px 2px 2px 2px;\" ><input type='checkbox' name='";
                     contenidoHtml += unaFila[0];
                     contenidoHtml += "'/>";
                     contenidoHtml += unaFila[1];
                     contenidoHtml += "</label>";                    
                 }
-                contenedorListas.html(contenidoHtml);
-                contenidoHtml = "";
+                if(accion == 1){
+                    contenedorListasEliminar.html("");
+                    contenedorListasAgregar.html(contenidoHtml);
+                    contenidoHtml = "";
+                }else if(accion == 2){
+                    contenedorListasAgregar.html("");
+                    contenedorListasEliminar.html(contenidoHtml);
+                    contenidoHtml = "";
+                }
             }
         });
     });
-        
+    
+    //Agrega canciones a las listas
     btnAgragarAListas.on('click',function(){
         var listasReproduccion = $('input:checked');
-        alert(listasReproduccion.attr('name'));
-    });    
+        listasReproduccion.each(function(){
+            var codigoLista = $(this).attr('name');
+            var urlPhp= "../Controladores/ListasReproduccionXUsuario.php?opcion=1&usuario="+usuarioLogueado+"&codigoLista="+codigoLista+"&cancion="+cancionCambiarLista;
+            
+            $.ajax({
+                type: 'POST',
+                url: urlPhp,
+                cache: false,
+                success: function(result) {
+                    
+                }
+            });
+        });        
+    });
+    
+    //Elimina canciones de las listas
+    btnEliminarDeListas.on('click',function(){
+        var listasReproduccion = $('input:checked');
+        listasReproduccion.each(function(){
+            var codigoLista = $(this).attr('name');
+            var urlPhp= "../Controladores/ListasReproduccionXUsuario.php?opcion=2&usuario="+usuarioLogueado+"&codigoLista="+codigoLista+"&cancion="+cancionCambiarLista;
+            
+            $.ajax({
+                type: 'POST',
+                url: urlPhp,
+                cache: false,
+                success: function(result) {
+                    
+                }
+            });
+        });        
+    });
     
 });

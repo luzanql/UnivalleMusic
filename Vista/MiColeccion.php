@@ -27,8 +27,8 @@
                 <div style="float:right;">
                     <a href="verCarrito.php" data-rel="dialog" >
                         <img src="../Recursos/carrito.jpeg" style=" width:50%; height: 50%; "  /></a>
-                    <div >   
-                        <?php echo "Usuario:" . $_SESSION['usuario'] ?>
+                    <div id="usuarioLogueado">   
+                        <?php echo "Usuario: " . $_SESSION['usuario'] ?>
                     </div>
                 </div >
             </div><!-- /header -->           
@@ -109,8 +109,7 @@
 
                                     <li rel="../Recursos/Canciones/Tone_Urbano.mp3">
                                         <strong>Gingle</strong>
-                                        <em>Univalle Music</em>
-                                        <a href="#agregarAListas" name="Tone_Urbano.mp3" data-rel="popup" data-position-to="window" data-transition="pop">Agregar a Listas</a>
+                                        <em>Univalle Music</em>                                        
                                     </li>
 
                                     <?php
@@ -138,7 +137,9 @@
                                             <strong>' . $unaCancion['nombre'] . '</strong>
                                             <em>' . $artista . '</em><a href="#agregarAListas" name="'.$unCodigoCancion.
                                                     '" data-rel="popup" data-position-to="window" data-transition="pop">Agregar a Listas</a>
-                                            </li>';
+                                            <a href="#eliminarDeListas" name="'.$unCodigoCancion.
+                                                    '" data-rel="popup" data-position-to="window" data-transition="pop">Eliminar de Listas</a>
+                                                </li>';
                                         }
                                     }
                                     ?>
@@ -160,15 +161,30 @@
             <div data-role="popup" id="agregarAListas" data-overlay-theme="b" >
                 <h3>Agregar a las Listas de Reproduccion:</h3>
                 <div data-role="fieldcontain" style="width: 80%;">
-                    <fieldset id="checkboxListas" data-theme="a" data-type="vertical" data-role="controlgroup">
+                    <fieldset id="checkboxListasAgregar" data-theme="a" data-type="vertical" data-role="controlgroup">
                         
                     </fieldset>
                 </div>
                 <a data-role="button"
                    data-rel="back"
-                   id="agragarAListas"
+                   id="btnAgragarAListas"
                    data-inline="true"
-                   data-mini="true">Agregar Canciones a Listas..</a>
+                   data-mini="true">Agregar Canciones a Listas...</a>
+                <a data-role="button" data-rel="back" data-inline="true" data-mini="true">Cancel</a>	
+            </div>
+            
+            <div data-role="popup" id="eliminarDeListas" data-overlay-theme="b" >
+                <h3>Agregar a las Listas de Reproduccion:</h3>
+                <div data-role="fieldcontain" style="width: 80%;">
+                    <fieldset id="checkboxListasEliminar" data-theme="a" data-type="vertical" data-role="controlgroup">
+                        
+                    </fieldset>
+                </div>
+                <a data-role="button"
+                   data-rel="back"
+                   id="btnEliminarDeListas"
+                   data-inline="true"
+                   data-mini="true">Eliminar Canciones de Listas...</a>
                 <a data-role="button" data-rel="back" data-inline="true" data-mini="true">Cancel</a>	
             </div>
 
