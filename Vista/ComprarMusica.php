@@ -50,7 +50,7 @@
                        
                         
                         ?>
-                        <div id="mensaje"></div>
+                        <div id="mensaje" style="color: dodgerblue"></div>
 
                         <p>Comprar M&uacute;sica</p>
 

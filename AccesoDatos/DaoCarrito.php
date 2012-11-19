@@ -55,7 +55,9 @@ class DaoCarrito {
    // este metodo me trae las canciones q se han agregado al carrito array $carrito[] de session
    function getCancionesDelCarrito(){
        $sessionActual = new Session();
-       return $sessionActual->carrito;       
+       $carrito = $sessionActual->carrito;
+       $carrito = array_values($carrito);
+       return $carrito;       
    }
 }
 

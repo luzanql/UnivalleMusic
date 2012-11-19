@@ -313,4 +313,21 @@ CREATE TABLE cancionesxlistareproduccion
 ) 
 ;
 
+CREATE TABLE compra(
+idCompra INTEGER Auto_INCREMENT,
+idUsuario VARCHAR(50),
+fecha TIMESTAMP NOT NULL,
+valor INTEGER,
+PRIMARY KEY (idCompra),
+FOREIGN KEY (idUsuario) REFERENCES usuario (usuario) ON DELETE CASCADE  
+);
+
+CREATE TABLE cancionesxcompra(
+idCompra INTEGER NOT NULL,
+idCancion VARCHAR(50) NOT NULL,
+PRIMARY KEY (idCompra, idCancion),
+FOREIGN KEY (idCompra) REFERENCES compra (idCompra),
+FOREIGN KEY (idCancion) REFERENCES cancion (idCancion)
+);
+
 SHOW TABLES;

@@ -52,7 +52,6 @@ class DaoListaReproduccion {
     function deleteListaReproduccion($codigo) {
         $this->conexion->Conectar();
         $sql = "DELETE FROM listareproduccion WHERE codigo=$codigo";
-        //echo $sql;
         mysql_query($sql);
         $sql2="DELETE FROM cancionesxlistareproduccion WHERE codigo_Lista=$codigo";
         mysql_query($sql2);
@@ -64,7 +63,7 @@ class DaoListaReproduccion {
     function obtenerCodigoLista($nombre,$usuario){
         
          $this->conexion->Conectar();
-        $sql = "SELECT codigo FROM listareproduccion WHERE nombre='$nombre' AND id_Usuario='$usuario'";
+        $sql = "SELECT codigo FROM listareproduccion WHERE nombre='".$nombre."' AND id_Usuario='".$usuario."'";
         $ejecutar = mysql_query($sql);
         $fila = array();
         $row = mysql_fetch_row($ejecutar);
