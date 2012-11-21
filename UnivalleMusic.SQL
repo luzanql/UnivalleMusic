@@ -224,8 +224,8 @@ CREATE TABLE artistasxalbum
 	codigo_Album INTEGER NOT NULL,
 	codigo_Artista INTEGER NOT NULL,
 	PRIMARY KEY (codigo_Album, codigo_Artista),
-	FOREIGN KEY (codigo_Album) REFERENCES Album (codigo) ON DELETE CASCADE,
-	FOREIGN KEY (codigo_Artista) REFERENCES Artista (codigo) ON DELETE CASCADE
+	FOREIGN KEY (codigo_Album) REFERENCES album (codigo) ON DELETE CASCADE,
+	FOREIGN KEY (codigo_Artista) REFERENCES artista (codigo) ON DELETE CASCADE
 ) 
 ;
 
@@ -237,9 +237,9 @@ CREATE TABLE cancion
 	codigo_Album INTEGER NOT NULL,
 	genero INTEGER,
 	PRIMARY KEY (codigo),
-	FOREIGN KEY (genero) REFERENCES Genero (codigo) ON DELETE CASCADE,
-	FOREIGN KEY (artista) REFERENCES Artista (codigo) ON DELETE CASCADE,
-	FOREIGN KEY (codigo_Album) REFERENCES Album (codigo) ON DELETE CASCADE
+	FOREIGN KEY (genero) REFERENCES genero (codigo) ON DELETE CASCADE,
+	FOREIGN KEY (artista) REFERENCES artista (codigo) ON DELETE CASCADE,
+	FOREIGN KEY (codigo_Album) REFERENCES album (codigo) ON DELETE CASCADE
 ) 
 ;
 
@@ -248,8 +248,8 @@ CREATE TABLE artistasxcancion
 	codigo_Cancion VARCHAR(50) NOT NULL,
 	codigo_Artista INTEGER NOT NULL,
 	PRIMARY KEY (codigo_Cancion, codigo_Artista),
-	FOREIGN KEY (codigo_Cancion) REFERENCES Cancion(codigo) ON DELETE CASCADE,
-	FOREIGN KEY (codigo_Artista) REFERENCES Artista(codigo) ON DELETE CASCADE
+	FOREIGN KEY (codigo_Cancion) REFERENCES cancion(codigo) ON DELETE CASCADE,
+	FOREIGN KEY (codigo_Artista) REFERENCES artista(codigo) ON DELETE CASCADE
 ) 
 ;
 
@@ -265,8 +265,8 @@ CREATE TABLE usuario
 	codigo_nacionalidad INTEGER NOT NULL,
 	estado VARCHAR(10) NOT NULL DEFAULT 'Activo',
 	PRIMARY KEY (usuario),
-	FOREIGN KEY (codigo_Perfil) REFERENCES Perfil(codigo) ON DELETE CASCADE,
-	FOREIGN KEY (codigo_Nacionalidad) REFERENCES Nacionalidad (codigo) ON DELETE CASCADE
+	FOREIGN KEY (codigo_Perfil) REFERENCES perfil(codigo) ON DELETE CASCADE,
+	FOREIGN KEY (codigo_Nacionalidad) REFERENCES nacionalidad (codigo) ON DELETE CASCADE
 ) 
 ;
 
@@ -277,7 +277,7 @@ CREATE TABLE cancionesdescargadas
 	codigo_Cancion VARCHAR(50) NOT NULL,
 	codigo_Usuario INTEGER NOT NULL,
 	fecha_Descarga TIMESTAMP NOT NULL,
-	FOREIGN KEY (codigo_Cancion) REFERENCEs Cancion (codigo) ON DELETE CASCADE
+	FOREIGN KEY (codigo_Cancion) REFERENCEs cancion (codigo) ON DELETE CASCADE
 ) 
 ;
 
@@ -287,8 +287,8 @@ CREATE TABLE cancionesxusuario
 	codigo_Cancion VARCHAR(50) NOT NULL,
 	fecha TIMESTAMP,
 	PRIMARY KEY (codigo_Usuario, codigo_Cancion),
-	FOREIGN KEY (codigo_Cancion) REFERENCES Cancion (codigo) ON DELETE CASCADE,
-	FOREIGN KEY (codigo_Usuario) REFERENCES Usuario(usuario) ON DELETE CASCADE
+	FOREIGN KEY (codigo_Cancion) REFERENCES cancion (codigo) ON DELETE CASCADE,
+	FOREIGN KEY (codigo_Usuario) REFERENCES usuario(usuario) ON DELETE CASCADE
 );
 
 CREATE TABLE listareproduccion
@@ -297,7 +297,7 @@ CREATE TABLE listareproduccion
 	nombre VARCHAR(50) NOT NULL,
 	id_Usuario VARCHAR(50) NOT NULL,
 	PRIMARY KEY (codigo),
-	FOREIGN KEY (id_Usuario) REFERENCES Usuario (usuario) ON DELETE CASCADE
+	FOREIGN KEY (id_Usuario) REFERENCES usuario (usuario) ON DELETE CASCADE
 	
 ) 
 ;
@@ -307,8 +307,8 @@ CREATE TABLE cancionesxlistareproduccion
 	codigo_Cancion VARCHAR(50) NOT NULL,
 	codigo_Lista INTEGER NOT NULL,
 	PRIMARY KEY (codigo_Cancion, codigo_Lista),
-	FOREIGN KEY (codigo_Cancion) REFERENCES Cancion (codigo) ON DELETE CASCADE,
-	FOREIGN KEY (codigo_Lista) REFERENCES ListaReproduccion (codigo) ON DELETE CASCADE
+	FOREIGN KEY (codigo_Cancion) REFERENCES cancion (codigo) ON DELETE CASCADE,
+	FOREIGN KEY (codigo_Lista) REFERENCES listareproduccion (codigo) ON DELETE CASCADE
 
 ) 
 ;
