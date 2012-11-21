@@ -53,7 +53,7 @@
                         
                         if ($_FILES["track_file"]["name"]=="" ){
                               die("Debe elegir un archivo.<br/>
-                                    <a href=\"AgregarCancion.html\" data-role=\"button\"> Volver</a>
+                                    <a href=\"AgregarCancion.php\" data-role=\"button\"> Volver</a>
                                     </div></div><!-- /grid-b --></div><!-- /content -->
                                     <div data-role=\"footer\" data-theme = \"b\" STYLE=\" border-style:solid; border-color: #c73930;\">
                                     <h6>UNIVERSIDAD DEL VALLE</h6>
@@ -86,7 +86,7 @@
 
                             if (!$archivoValido) {
                                 die("El archivo no tiene una extension de archivo valida.<br/>
-                                    <a href=\"AgregarCancion.html\" data-role=\"button\"> Volver</a>
+                                    <a href=\"AgregarCancion.php\" data-role=\"button\"> Volver</a>
                                     </div></div><!-- /grid-b --></div><!-- /content -->
                                     <div data-role=\"footer\" data-theme = \"b\" STYLE=\" border-style:solid; border-color: #c73930;\">
                                     <h6>UNIVERSIDAD DEL VALLE</h6>

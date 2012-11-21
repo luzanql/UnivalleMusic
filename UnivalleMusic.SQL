@@ -327,7 +327,7 @@ idCompra INTEGER NOT NULL,
 idCancion VARCHAR(50) NOT NULL,
 PRIMARY KEY (idCompra, idCancion),
 FOREIGN KEY (idCompra) REFERENCES compra (idCompra),
-FOREIGN KEY (idCancion) REFERENCES cancion (idCancion)
+FOREIGN KEY (idCancion) REFERENCES cancion (codigo)
 );
 
 SHOW TABLES;
