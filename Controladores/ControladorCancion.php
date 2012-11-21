@@ -8,9 +8,7 @@ class ControladorCancion{
 
     function ControladorCancion() {
         $this->daocancion = new DaoCancion();
-    }
-
-  
+    }  
     
     function createCancion($codigo,$titulo,$album,$genero,$artista){
         $cancion=new Cancion();
@@ -57,9 +55,11 @@ class ControladorCancion{
         $miCancion->setCodigo($codigo);
         $miCancion->setGenero($genero);
         
-        return $miCancion;
-        
-        
+        return $miCancion;       
+    }
+    
+    function eliminarCancion($codigo) {
+        return $this->daocancion->eliminarCancion($codigo);
     }
 }
 ?>

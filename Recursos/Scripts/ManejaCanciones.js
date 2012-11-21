@@ -3,14 +3,15 @@
  */
 
 $(function(){
-    
+
     var usuarioLogueado = $('#usuarioLogueado').text();
     usuarioLogueado = usuarioLogueado.trim();
     usuarioLogueado = usuarioLogueado.replace("Usuario: ", "");
     var listaCanciones = $('li a');
-    var cancionCambiarLista = "";
+    var cancionCurrent = "";
     var btnAgragarAListas = $('#btnAgragarAListas');
     var btnEliminarDeListas = $('#btnEliminarDeListas');
+    var btnEliminarCancion = $('#btnEliminarCancion');
         
     listaCanciones.on('click',function(){
         var accion = 0;
@@ -18,11 +19,14 @@ $(function(){
             accion = 1;
         }else if($(this).text()=="Eliminar de Listas"){
             accion = 2;
+        }else if($(this).text()=="Eliminar Cancion"){
+            accion = 3;
         }
-        cancionCambiarLista = $(this).attr('name');
+        cancionCurrent = $(this).attr('name');
                 
         var contenedorListasAgregar = $('#checkboxListasAgregar');
         var contenedorListasEliminar = $('#checkboxListasEliminar');
+        var contenedorEliminarCancion = $('#contentEliminarCancion');
         var urlPhp= "../AccesoDatos/AutoCompletar.php?opcion=6&usuario="+usuarioLogueado;
     
         $.ajax({
@@ -48,6 +52,18 @@ $(function(){
                     contenedorListasAgregar.html("");
                     contenedorListasEliminar.html(contenidoHtml);
                     contenidoHtml = "";
+                }else if(accion == 3){
+                    var urlPhp= "../Controladores/ManejaCancion.php?opcion=2&cancion="+cancionCurrent;
+                    $.ajax({
+                        type: 'POST',
+                        url: urlPhp,
+                        cache: false,
+                        dataType: 'json',
+                        success: function(result) {
+                            contenidoHtml = "Realmente desea Eliminar la cancion: "+result[1];
+                            contenedorEliminarCancion.text(contenidoHtml);
+                        }            
+        }); 
                 }
             }
         });
@@ -58,7 +74,7 @@ $(function(){
         var listasReproduccion = $('input:checked');
         listasReproduccion.each(function(){
             var codigoLista = $(this).attr('name');
-            var urlPhp= "../Controladores/ListasReproduccionXUsuario.php?opcion=1&usuario="+usuarioLogueado+"&codigoLista="+codigoLista+"&cancion="+cancionCambiarLista;
+            var urlPhp= "../Controladores/ListasReproduccionXUsuario.php?opcion=1&usuario="+usuarioLogueado+"&codigoLista="+codigoLista+"&cancion="+cancionCurrent;
             
             $.ajax({
                 type: 'POST',
@@ -76,7 +92,7 @@ $(function(){
         var listasReproduccion = $('input:checked');
         listasReproduccion.each(function(){
             var codigoLista = $(this).attr('name');
-            var urlPhp= "../Controladores/ListasReproduccionXUsuario.php?opcion=2&usuario="+usuarioLogueado+"&codigoLista="+codigoLista+"&cancion="+cancionCambiarLista;
+            var urlPhp= "../Controladores/ListasReproduccionXUsuario.php?opcion=2&usuario="+usuarioLogueado+"&codigoLista="+codigoLista+"&cancion="+cancionCurrent;
             
             $.ajax({
                 type: 'POST',
@@ -87,6 +103,21 @@ $(function(){
                 }
             });
         });        
+    });
+    
+    //Elimina cancion
+    btnEliminarCancion.on('click',function(){        
+        
+        var urlPhp= "../Controladores/ManejaCancion.php?opcion=1&cancion="+cancionCurrent;
+        $.ajax({
+            type: 'POST',
+            url: urlPhp,
+            cache: false,
+            success: function(result) {}            
+        });
+        
+        $('#divReproductor').load("../Vista/MiColeccion.php #divReproductor");
+        
     });
     
 });

@@ -139,6 +139,8 @@
                                                     '" data-rel="popup" data-position-to="window" data-transition="pop">Agregar a Listas</a>
                                             <a href="#eliminarDeListas" name="'.$unCodigoCancion.
                                                     '" data-rel="popup" data-position-to="window" data-transition="pop">Eliminar de Listas</a>
+                                            <a href="#eliminarCancion" name="'.$unCodigoCancion.
+                                                    '" data-rel="popup" data-position-to="window" data-transition="pop">Eliminar Cancion</a>
                                                 </li>';
                                         }
                                     }
@@ -185,6 +187,19 @@
                    id="btnEliminarDeListas"
                    data-inline="true"
                    data-mini="true">Eliminar Canciones de Listas...</a>
+                <a data-role="button" data-rel="back" data-inline="true" data-mini="true">Cancel</a>	
+            </div>
+            
+            <div data-role="popup" id="eliminarCancion" data-overlay-theme="b" >
+                <h3>Agregar a las Listas de Reproduccion:</h3>
+                <div id="contentEliminarCancion" data-role="fieldcontain" style="width: 80%;">
+                    
+                </div>
+                <a data-role="button"
+                   data-rel="back"
+                   id="btnEliminarCancion"
+                   data-inline="true"
+                   data-mini="true">Eliminar Canci&oacute;n</a>
                 <a data-role="button" data-rel="back" data-inline="true" data-mini="true">Cancel</a>	
             </div>
 

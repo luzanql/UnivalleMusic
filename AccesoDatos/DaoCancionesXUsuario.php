@@ -17,7 +17,6 @@ class DaoCancionesXUsuario {
         $cancion = $cancionXUsuario->getCodigoCancion();
 
         $sql = "INSERT INTO cancionesxusuario (codigo_Usuario, codigo_Cancion, fecha) VALUES ('$usuario','$cancion',CURRENT_TIMESTAMP)";
-        printf($sql);
         $ejecutar = mysql_query($sql);
         $this->conexion->cerrar();
     }
