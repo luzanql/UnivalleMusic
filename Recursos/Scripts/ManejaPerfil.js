@@ -21,9 +21,9 @@ $(document).ready(function() {
             alert("Hay Campos Vacios")
         }else 
            
-            esta=validarEmail(email);
-            if(esta=="true"){
-                alert("El email es correcto")
+            var esta=validarEmail(email);
+            if(esta=="false"){
+                alert("El email es incorrecto")
             }
     else{
         alert("Se puede modificar");
@@ -48,7 +48,7 @@ $(document).ready(function() {
              return false;
                                
     }
-    
+    //esto como que no sirve :S
      function validarEmail(valor) {
   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(valor)){
    return "true";
