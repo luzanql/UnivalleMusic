@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
         <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
         <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+        <script src="../Recursos/Scripts/ManejaPerfil.js"></script>
     </head>
     <body>
          
@@ -60,13 +61,13 @@
                       
                         <form name="formMiPerfil" action="" method="post" enctype="multipart/form-data">
                             <div data-role="fieldcontain" align="right">
-                                <label for="basic" data-mini="true">Nombre:</label> <input type="text" name="nombre" id="nom" value="" data-mini="true"   style="width:200px;height:30px;"  required=""  align="right"/>
+                                <label for="basic" data-mini="true">Nombre:</label> <input type="text" name="nombre" id="nombre" value="" data-mini="true"   style="width:200px;height:30px;"  required=""  align="right"/>
                             </div>
                             <div data-role="fieldcontain" align="right">
                                 <label for="basic" data-mini="true">Apellido:</label> <input type="text" name="apellido" id="apellido" value="" data-mini="true"   style="width:200px;height:30px;"  required=""    align="right"/>
                             </div> 
                             <div data-role="fieldcontain"  align="right">
-                                <label for="basic" data-mini="true">E-mail:</label> <input type="email" name="e-mail" id="e-mail" value="" data-mini="true"   style="width:200px;height:30px;"  required="" align="right"  />
+                                <label for="basic" data-mini="true">E-mail:</label> <input type="email" name="e-mail" id="email" value="" data-mini="true"   style="width:200px;height:30px;"  required="" align="right"  />
                             </div> 
                             <div data-role="fieldcontain" align="right">
                                 <label for="basic" data-mini="true">Nacionalidad:</label> <input type="text" name="nacionalidad" id="nacionalidad" value="" data-mini="true"   style="width:200px;height:30px;"  required="" align="right" />
@@ -78,33 +79,11 @@
                                 <label for="basic" data-mini="true">Password:</label> <input type="password" name="password" id="password" value="" data-mini="true"   style="width:200px;height:30px;"  required=""  align="right" />
                             </div> 
                             <div data-role="controlgroup" data-type="horizontal" data-mini="true" align="right">
-                                <input  data-role="button" value="Darme De Baja" type="button" /> 
-                                <input  data-role="button" value="Modificar" type="submit" /> 
+                                <input  data-role="button" value="Darme De Baja" type="button" id="btnDarseBaja"/> 
+                                <input type="button" value="Modificar" id="btnModificar" />
+                                
                             </div>
                         </form>
-                        <script>
-        $(document).ready(function() {
-            var urlPhp="../AccesoDatos/AutoCompletar.php?opcion=7";
-            $.ajax({
-                                type: "POST",
-                                url: urlPhp                                
-                            }).done(function( msg ) {
-                                var datos=msg.split(",");
-                                
-                                $("#nom").val(datos[0]);
-                                $("#apellido").val(datos[1]);
-                                $("#e-mail").val(datos[2]);
-                                $("#nacionalidad").val(datos[3]);
-                                $("#usuario").val(datos[4]);
-                                $("#password").val(datos[5]);
-                            });
-        
-        
-        })
-    </script>
-                         
-    
-                        
                     </div>
                     
                 </div>
