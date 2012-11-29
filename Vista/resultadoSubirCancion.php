@@ -98,8 +98,8 @@
                             }
 
                             $source = $_FILES["track_file"]["tmp_name"];
-                            //$nombreCancion = explode("\\", $source); //Para windows
-							$nombreCancion = explode("/", $source); //Para Linux
+                            $nombreCancion = explode("\\", $source); //Para windows
+							//$nombreCancion = explode("/", $source); //Para Linux
                             $nombreCancion = $nombreCancion[sizeof($nombreCancion) - 1];
                             $nombreCancion = str_replace("tmp", $extensionArchivo, $nombreCancion);
 

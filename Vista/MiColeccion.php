@@ -176,7 +176,7 @@
             </div>
             
             <div data-role="popup" id="eliminarDeListas" data-overlay-theme="b" >
-                <h3>Agregar a las Listas de Reproduccion:</h3>
+                <h3>Eliminar de las  Listas de Reproduccion:</h3>
                 <div data-role="fieldcontain" style="width: 80%;">
                     <fieldset id="checkboxListasEliminar" data-theme="a" data-type="vertical" data-role="controlgroup">
                         
@@ -191,7 +191,7 @@
             </div>
             
             <div data-role="popup" id="eliminarCancion" data-overlay-theme="b" >
-                <h3>Agregar a las Listas de Reproduccion:</h3>
+                <h3>Eliminar Cancion de la Coleccion:</h3>
                 <div id="contentEliminarCancion" data-role="fieldcontain" style="width: 80%;">
                     
                 </div>
