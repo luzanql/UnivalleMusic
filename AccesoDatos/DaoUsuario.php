@@ -46,10 +46,15 @@ class DaoUsuario {
         return $row;
     }
     
-    function eliminarUsuario($usuario){
+    function updateUsuario(Usuario $usuario){
         $this->conexion->Conectar();
-
-        $consulta = "DELETE  FROM usuario WHERE usuario='$usuario'";
+        $codigo=$usuario->getUsuario();
+        $nombre=$usuario->getNombre();
+        $apellido=$usuario->getApellido();
+        $nacionalidad=$usuario->getCodigo_nacionalidad();
+        $pasw=$usuario->getContrasena();
+        $email=$usuario->getEmail();
+        $consulta = "UPDATE usuario WHERE usuario='$codigo' SET nombre='$nombre' apellido='$apellido' codigo_nacionalidad='$nacionalidad' contrasena='$pasw' email='$email'" ;
         $respuesta = mysql_query($consulta);
         $row = mysql_fetch_array($respuesta);
         $this->conexion->cerrar();

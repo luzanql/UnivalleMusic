@@ -99,6 +99,15 @@
 
 
         </div><!-- /page -->
+           <script>
+                       
+                       
+                        $( "#nacionalidad").autocomplete({
+                            source:  "../AccesoDatos/AutoCompletar.php?opcion=2", 
+                            minLength:2,
+                            select: function ( event, ui ) {}
+                        });
+                           </script>
 
     </body>
     

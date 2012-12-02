@@ -19,8 +19,10 @@ $(document).ready(function() {
                var email=$("#email").val();                  
         if(camposVacios()){
             alert("Hay Campos Vacios")
-        }else 
-           
+        }else {
+            //debo obtener los valores de los input y enviarlos a por la url hacia controladorPerfil.php opciom=1
+            
+          /* {
             var esta=validarEmail(email);
             if(esta=="false"){
                 alert("El email es incorrecto")
@@ -29,7 +31,7 @@ $(document).ready(function() {
         alert("Se puede modificar");
     } 
         
-    });
+           }*/}});
     
      $("#btnDarseBaja").on('click',function(){
        alert("me puedo dar de baja"); 
