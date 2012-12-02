@@ -49,7 +49,8 @@
         
         
         <div data-role="controlgroup" data-type="horizontal" data-mini="true" >
-            <input  data-role="button" value="Realizar Compra" type="button"/> 
+            <a href="RealizarCompra.php" data-rel="dialog" >
+                <input  data-role="button" value="Realizar Compra" type="button"/> </a>
         </div>
 
 

@@ -103,6 +103,21 @@ switch ($opcion) {
          $usuarioF=$usuarioFinal['usuario'];
          $passw=$usuarioFinal['contrasena'];
          echo $nombre.','.$apellido.','.$email.','.$nacionalidad.','.$usuarioF.','.$passw;
+         break;
+     
+     case 8:
+        $term = trim(strip_tags($_GET['term']));
+        $conexion->Conectar();
+        $sql = "SELECT nombre FROM banco WHERE nombre LIKE '%$term%'";
+        $respuesta = mysql_query($sql);
+        $filas = array();
+        while ($row = mysql_fetch_array($respuesta)) {
+            $filas [] = $row ["nombre"];
+        }
+        $conexion->cerrar();
+        echo json_encode($filas);
+        break;
+         
          
 }
      
