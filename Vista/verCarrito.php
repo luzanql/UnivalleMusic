@@ -1,4 +1,5 @@
 <?php session_start();?>
+
 <div data-role = "dialog" id = "verCarrito" >
     <div id="mensajeEliminar" style="color: dodgerblue"></div>
     <div data-role = "header" data-theme = "b" data-transition = "slidedowm" >
@@ -43,7 +44,10 @@
             ?>
            
         </table>
-        <div id="total"></div>
+        Total a Pagar:
+      <div id="apagar" style="color: red"></div>
+        
+        
         <div data-role="controlgroup" data-type="horizontal" data-mini="true" >
             <input  data-role="button" value="Realizar Compra" type="button"/> 
         </div>
@@ -51,4 +55,6 @@
 
     </div>
 </div>
+
+
 
