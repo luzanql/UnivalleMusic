@@ -27,6 +27,7 @@ class DaoCompra {
         $consulta = "INSERT INTO compra (idUsuario,fecha,valor) VALUES('$usuario','$fecha','$valor')";
         mysql_query($consulta);
         $this->conexion->cerrar();
+        return $this->obtenerCodigoCompra($usuario, $fecha, $valor);
     }
     
     function obtenerCodigoCompra($idUsuario,$fecha,$valor){

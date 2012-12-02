@@ -3,7 +3,7 @@
 require_once'../AccesoDatos/DaoCompra.php';
 require_once'../Logica/Compra.php';
 require_once '../AccesoDatos/Session.php';
-
+date_default_timezone_set('America/Bogota');
 class ControladorCompra {
 
     private $daoCompra;
@@ -18,9 +18,10 @@ class ControladorCompra {
         $codigo_usuario = $sessionActual->usuario;
         $compra=new Compra();
         $compra->setValor($valor);
-        $compra->setFecha(date("d-m-Y"));
+        $compra->setFecha(date("Y-m-d H:i:s"));
         $compra->setIdUsuario($codigo_usuario);
-        $this->daoCompra->createCompra($compra);
+        $codigo= $this->daoCompra->createCompra($compra);
+        return $codigo;
         
         
     }
