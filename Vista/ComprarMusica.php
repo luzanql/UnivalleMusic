@@ -53,8 +53,8 @@
                         <div id="mensaje" style="color: dodgerblue"></div>
 
                         <p>Comprar M&uacute;sica</p>
-
-                        <table border="3" width="200%" bordercolor="gray" id="opciones">
+                        <div  >
+                            <table border="3" width="200%" bordercolor="gray" id="opciones"   >
                             <tr >
                                 <th width="30%">Codigo</th>
                                 <th width="30%">Titulo </th>
@@ -65,7 +65,7 @@
                             <?php
                             include_once '../Controladores/ControladorCarrito.php';
                        
-                            $controladorCarrito = new ControladorCarrito();
+                           // $controladorCarrito = new ControladorCarrito();
                             $listaCanciones = $controladorCarrito->obtenerListaCancionesALaVenta();
                             for ($index = 0; $index < count($listaCanciones); $index++) {
                                 echo "<tr><td>" . $listaCanciones[$index][0] . "</td>
@@ -76,6 +76,7 @@
                             }
                             ?>
                         </table>
+                           </div>
                     </div>
 
                 </div><!-- /grid-b -->

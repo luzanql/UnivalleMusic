@@ -62,5 +62,18 @@ class ControladorUsuario{
     function existeUsuario($usu) {
         return $this->daousuario->existeUsuario($usu);
     }
+    
+    function updateUsuario($codigo,$nombre,$apellido,$nacionalidad,$pasw,$email){
+        $usuario=new Usuario();
+        $usuario->setApellido($apellido);
+        $usuario->setCodigo_nacionalidad($nacionalidad);
+        $usuario->setContrasena($pasw);
+        $usuario->setEmail($email);
+        $usuario->setNombre($nombre);
+        $usuario->setUsuario($codigo);
+        $daoUsuario=new DaoUsuario();
+        $daoUsuario->updateUsuario($usuario);
+        
+    }
 }
 ?>
