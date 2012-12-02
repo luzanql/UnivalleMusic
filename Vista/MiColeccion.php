@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php include_once '../Recursos/Scripts/Login.php'; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,8 +30,10 @@
                     <div id="usuarioLogueado">   
                         <?php
                         $usuarioActual = $_SESSION['usuario'];
-                        echo "Usuario: " . $usuarioActual;
+                        echo "Usuario: " . $usuarioActual."<br/>".
+                                        "<a href='../Recursos/Scripts/Logout.php'>Cerrar Sesi&oacute;n</a>";
                                 ?>
+                        
                     </div>
                 </div >
             </div><!-- /header -->           

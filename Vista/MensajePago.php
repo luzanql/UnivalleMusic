@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php include_once '../Recursos/Scripts/Login.php'; ?>
 <div data-role = "dialog" id = "confirmacion" >
     
     <div data-role = "header" data-theme = "b" data-transition = "slidedowm" >
