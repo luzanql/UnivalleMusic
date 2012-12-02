@@ -18,18 +18,22 @@
     <body>
         <div data-role="page" data-theme= "a">
 
-          
-             <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
+
+            <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
                 <img src="../Recursos/Banner.png" style="width: 80%; height: 100%;"/>
                 <div style="float:right;">
                     <img src="../Recursos/carrito.jpeg" style=" width:50%; height: 50%; "  />
-                
+
                     <div style="padding: 1%">                        
-                     <?php echo "Usuario:".$_SESSION['usuario']?>
-                </div>
+                        <?php
+                        echo "Usuario:" . $_SESSION['usuario'];
+                        header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+                        header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Fecha en el pasado                             
+                        ?>
+                    </div>
                 </div >
-               
-               
+
+
             </div><!-- /header -->
 
             <div data-role="content" data-theme = "a">	
@@ -54,35 +58,35 @@
                                 <label for="basic" data-mini="true">Artista:</label><input type="text" name="artista" id="artista" value=""  data-mini="true"  required=""/>
                                 <label for="basic" data-mini="true">&Aacute;lbum:</label><input type="text" name="album" id="album" value=""  data-mini="true" required=""/>
                                 <label for="basic" data-mini="true">G&eacute;nero:</label><input type="text" name="genero" id="genero" value=""  data-mini="true" required=""/>
-                                    
+
                                 <input type="file" id="track" class="radius_3" name="track_file" /><!--Campo de examinar-->
                                 <input  data-role="button" value="Subir" type="submit"/> 
-                                    
+
                             </form>
                             <script>
                                   
-                                  $( "#artista").autocomplete({
-                                      source:  "../AccesoDatos/AutoCompletar.php?opcion=3", 
-                                      minLength:2,
-                                      select: function ( event, ui ) {}
-                                  });
+                                $( "#artista").autocomplete({
+                                    source:  "../AccesoDatos/AutoCompletar.php?opcion=3", 
+                                    minLength:2,
+                                    select: function ( event, ui ) {}
+                                });
                                   
-                                  $( "#album" ).autocomplete({
-                                      source:  "../AccesoDatos/AutoCompletar.php?opcion=4", 
-                                      minLength:2,
-                                      select: function ( event, ui ) {}
-                                  });
+                                $( "#album" ).autocomplete({
+                                    source:  "../AccesoDatos/AutoCompletar.php?opcion=4", 
+                                    minLength:2,
+                                    select: function ( event, ui ) {}
+                                });
                                   
-                                  $( "#genero" ).autocomplete({
-                                      source:  "../AccesoDatos/AutoCompletar.php?opcion=1", 
-                                      minLength:2,
-                                      select: function ( event, ui ) {}
-                                  });
+                                $( "#genero" ).autocomplete({
+                                    source:  "../AccesoDatos/AutoCompletar.php?opcion=1", 
+                                    minLength:2,
+                                    select: function ( event, ui ) {}
+                                });
                                     
-                                </script>
+                            </script>
                         </div>
                     </div>
-                        
+
                 </div><!-- /grid-b -->
 
             </div><!-- /content -->

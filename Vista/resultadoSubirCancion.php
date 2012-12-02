@@ -38,6 +38,8 @@
                     <div class="ui-block-b" style="margin:3%">
 
                         <?php
+                        header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+                        header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Fecha en el pasado
                         include('../Controladores/ControladorCancion.php');
                         include('../Controladores/ControladorArtista.php');
                         include('../Controladores/ControladorAlbum.php');
@@ -99,7 +101,7 @@
 
                             $source = $_FILES["track_file"]["tmp_name"];
                             $nombreCancion = explode("\\", $source); //Para windows
-							//$nombreCancion = explode("/", $source); //Para Linux
+                            //$nombreCancion = explode("/", $source); //Para Linux
                             $nombreCancion = $nombreCancion[sizeof($nombreCancion) - 1];
                             $nombreCancion = str_replace("tmp", $extensionArchivo, $nombreCancion);
 
@@ -161,21 +163,7 @@
                             <source src=\"../Recursos/Canciones/$nombreCancion\" type=\"audio/mpeg\">
                                 Your browser does not support the audio element.
                                 </audio>");
-                        /*
-
-                          //--------------Leer Directorios----------
-                          $dir = "canciones/";
-
-                          // Open a known directory, and proceed to read its contents
-                          if (is_dir($dir)) {
-                          if ($dh = opendir($dir)) {
-                          while (($file = readdir($dh)) !== false) {
-                          echo "filename: $file - filetype: " . filetype($dir . $file) . "<br/>";
-                          }
-                          closedir($dh);
-                          }
-                          }
-                          //--------------Fin Leer Directorios---------- */
+                        exit();
                         ?>
                     </div>
 
