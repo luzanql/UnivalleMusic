@@ -3,6 +3,8 @@
 session_start();
 include_once '../AccesoDatos/Session.php';
 include_once '../AccesoDatos/DaoCarrito.php';
+include_once '../Controladores/ControladorCompra.php';
+include_once '../Controladores/ControladorCancionXCompra.php';
 $opcion = $_GET['opcion'];
 
 //$opcion=1;
@@ -54,5 +56,25 @@ switch ($opcion) {
         $canciones = $daoCarrito->getCancionesDelCarrito();
         echo "".count($canciones);
         break;
+    //limpiar carrito
+    case 5:
+        $daoCarrito = new DaoCarrito();
+        $daoCarrito->limpiarCarrito();
+        break;
+    
+    //guarda la compra y las canciones por compra
+    case 6:
+        $sessionActual = new Session();
+        $valor = $_GET['valor'];
+        $controladorCompra=new ControladorCompra();
+        $codigoCompra=$controladorCompra->createCompra($valor);
+        $controladorcancionesXCompra=new ControladorCancionXCompra();
+        $carrito=$sessionActual->carrito;
+      
+        for ($index = 0; $index < count($carrito); $index++) {
+          $controladorcancionesXCompra->createCancionXCompra($carrito[$index], $codigoCompra);  
+        }
+        
+       
 }
 ?>

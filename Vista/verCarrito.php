@@ -4,6 +4,7 @@
     <div id="mensajeEliminar" style="color: dodgerblue"></div>
     <div data-role = "header" data-theme = "b" data-transition = "slidedowm" >
         <script type="text/javascript" src="../Recursos/Scripts/ManejaCarrito.js"></script>
+    
         <h3>Carrito de Compras</h3>
     </div>
     <div data-role = "content" align = "center" data-theme = "a">
@@ -49,7 +50,8 @@
         
         
         <div data-role="controlgroup" data-type="horizontal" data-mini="true" >
-            <input  data-role="button" value="Realizar Compra" type="button"/> 
+            <a href="RealizarCompra.php" data-rel="dialog" >
+                <input  data-role="button"  value="Realizar Compra" type="button"/> </a>
         </div>
 
 

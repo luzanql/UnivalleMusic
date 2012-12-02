@@ -103,7 +103,9 @@ switch ($opcion) {
          $usuarioF=$usuarioFinal['usuario'];
          $passw=$usuarioFinal['contrasena'];
          echo $nombre.','.$apellido.','.$email.','.$nacionalidad.','.$usuarioF.','.$passw;
-         
+         break;
+     
+     
 }
      
 ?>

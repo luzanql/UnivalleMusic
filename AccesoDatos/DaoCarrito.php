@@ -60,6 +60,21 @@ class DaoCarrito {
        $carrito = array_values($carrito);
        return $carrito;       
    }
+   
+   function limpiarCarrito(){
+       $sessionActual = new Session();
+      $sessionActual->carrito= array();
+   }
+   
+   function guardarCompra(){
+       $sessionActual = new Session();
+       
+       $carrito = $sessionActual->carrito;
+       $this->conexion->Conectar();
+       
+   }
+
+   
 }
 
 ?>

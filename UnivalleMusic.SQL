@@ -330,4 +330,33 @@ FOREIGN KEY (idCompra) REFERENCES compra (idCompra),
 FOREIGN KEY (idCancion) REFERENCES cancion (codigo)
 );
 
+
+
+CREATE TABLE bancos 
+(
+	
+	nombre VARCHAR(50) PRIMARY KEY
+	
+) 
+;
+
+INSERT INTO bancos VALUES ("Bancafe");
+INSERT INTO bancos VALUES ("BanCoomeva");
+INSERT INTO bancos VALUES ("Banco Caja Social");
+INSERT INTO bancos VALUES ("Banco Av Villas");
+INSERT INTO bancos VALUES ("Banco de Bogota");
+INSERT INTO bancos VALUES ("Banco de Credito");
+INSERT INTO bancos VALUES ("Banco de Occidente");
+INSERT INTO bancos VALUES ("Banco Popular");
+INSERT INTO bancos VALUES ("BanColdex");
+INSERT INTO bancos VALUES ("Banco Colpatria");
+INSERT INTO bancos VALUES ("Banco de la Republica");
+INSERT INTO bancos VALUES ("Banco HSBC");
+INSERT INTO bancos VALUES ("Banco CityBank");
+INSERT INTO bancos VALUES ("Banco Davivienda");
+INSERT INTO bancos VALUES ("Bancolombia");
+
+SELECT nombre FROM bancos WHERE nombre LIKE %'city'%;
+
+
 SHOW TABLES;
