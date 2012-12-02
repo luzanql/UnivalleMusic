@@ -93,13 +93,12 @@
                             <?php
                             include_once '../Controladores/ControladorListaReproduccion.php';
                             $controladorLista = new ControladorListaReproduccion();
-                            $listasUsuario = array();
                             $listasUsuario = $controladorLista->obtenerListasReproduccionPorUsuario();
                             $codigo= $_SESSION['usuario'];
-
+                            
                             for ($index = 0; $index < count($listasUsuario); $index++) {
-                                echo "<tr><td><a href='MiColeccion.php?nombreLista=$listasUsuario[$index]'>$listasUsuario[$index]</a></td>
-                                    <td><a  href='EliminarLista.php?lista=$listasUsuario[$index]' data-rel='dialog'  data-role='button' data-icon='delete' >Eliminar</a></td></tr>";
+                                echo "<tr><td><a href='MiColeccion.php?nombreLista=".$listasUsuario[$index][1]."&codLista=".$listasUsuario[$index][0]."'>".$listasUsuario[$index][1]."</a></td>
+                                    <td><a  href='EliminarLista.php?lista=".$listasUsuario[$index][1]."' data-rel='dialog'  data-role='button' data-icon='delete' >Eliminar</a></td></tr>";
                             }
                             ?>
 

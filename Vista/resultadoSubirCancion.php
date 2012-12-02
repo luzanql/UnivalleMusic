@@ -163,7 +163,7 @@
                             <source src=\"../Recursos/Canciones/$nombreCancion\" type=\"audio/mpeg\">
                                 Your browser does not support the audio element.
                                 </audio>");
-                        exit();
+                        header("Location: ../Vista/MiColeccion.php");
                         ?>
                     </div>
 

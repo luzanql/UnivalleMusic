@@ -18,7 +18,7 @@
         <script type="text/javascript" src="../Recursos/Scripts/reproductor.js"></script>
         <script type="text/javascript" src="../Recursos/Scripts/ManejaCanciones.js"></script>
     </head>
-    <body>
+    <body onunload="pausarCancion()">
 
         <div data-role="page" data-theme= "a">
 
@@ -28,7 +28,10 @@
                     <a href="verCarrito.php" data-rel="dialog" >
                         <img src="../Recursos/carrito.jpeg" style=" width:50%; height: 50%; "  /></a>
                     <div id="usuarioLogueado">   
-                        <?php echo "Usuario: " . $_SESSION['usuario'] ?>
+                        <?php
+                        $usuarioActual = $_SESSION['usuario'];
+                        echo "Usuario: " . $usuarioActual;
+                                ?>
                     </div>
                 </div >
             </div><!-- /header -->           
@@ -50,9 +53,9 @@
                         <?php
                         if (isset($_GET['nombreLista'])) {
                             $nombreLista = $_GET['nombreLista'];
-                            echo "<h1>" . $nombreLista . "</h1>";
+                            echo "<h1 id='tituloLista'>" . $nombreLista . "</h1>";
                         } else {
-                            echo "<h1>Mi Colecci&oacute;n</h1>";
+                            echo "<h1 id='tituloLista'>Mi Colecci&oacute;n</h1>";
                         }
                         ?>                                               
                         <table>
@@ -64,13 +67,21 @@
                                 </td>
                                 <td>
                                     <fieldset data-role="controlgroup" data-type="horizontal">
-                                        <select name="ordenar" id="ordenarPor" data-mini="true" >
-                                            <option value="pop">Ordenar Por</option>
-                                            <option value="titulo">T&iacute;tulo</option>
-                                            <option value="album">&Aacute;lbum</option>
-                                            <option value="artista">Artista</option>
+                                        <select name="mostrarListasReprocuccion" id="listasReprocuccion" data-mini="true" >
+                                            <option value="ninguna">Lista de Reproducci&oacute;n</option>
+                                            <option value="miColeccion">Mi Colecci&oacute;n</option>
+                                            <?php
+                                            include_once '../Controladores/ControladorListaReproduccion.php';
+                                            $controladorListaReproduccion = new ControladorListaReproduccion();
+                                            $listasPorUsuario = $controladorListaReproduccion->getCodigoNombreListasPorUsuario($usuarioActual);
+                                            if ($listasPorUsuario > 0) {
+                                                foreach ($listasPorUsuario as $unaLista) {
+                                                    echo "<option value='".$unaLista[0]."'>".$unaLista[1]."</option>";
+                                                }
+                                            }
+                                            ?>
                                         </select>
-                                    </fieldset>
+                                    </fieldset>                                    
                                 </td>
 
                             </tr>
@@ -117,6 +128,7 @@
                                     include_once '../Controladores/ControladorCancionesXUsuario.php';
                                     include_once '../Controladores/ControladorCancion.php';
                                     include_once '../Controladores/ControladorArtista.php';
+                                    include_once '../Controladores/ControladorCancionXListaReproduccion.php';
 
                                     $session = new Session();
 
@@ -125,8 +137,13 @@
                                     $controladorCancionesXUsuario = new ControladorCancionesXUsuario();
                                     $controladorArtista = new ControladorArtista();
 
-                                    $codigosCanciones = $controladorCancionesXUsuario->obtenerCancionesXUsuario($usuarioActual);
-
+                                    if (isset($_GET['codLista'])) {
+                                        $codLista = $_GET['codLista'];
+                                        $controladorCancionXListaReproduccion = new ControladorCancionXListaReproduccion();
+                                        $codigosCanciones = $controladorCancionXListaReproduccion->obtenerCancionesDeListaReproduccion($codLista);
+                                    } else {
+                                        $codigosCanciones = $controladorCancionesXUsuario->obtenerCancionesXUsuario($usuarioActual);
+                                    }
                                     if ($codigosCanciones > 0) {
                                         foreach ($codigosCanciones as $unCodigoCancion) {
 
@@ -135,12 +152,12 @@
                                             $artista = $controladorArtista->obtenerNombreArtista($unaCancion['artista']);
                                             echo '<li rel="../Recursos/Canciones/' . $unaCancion['codigo'] . '">
                                             <strong>' . $unaCancion['nombre'] . '</strong>
-                                            <em>' . $artista . '</em><a href="#agregarAListas" name="'.$unCodigoCancion.
-                                                    '" data-rel="popup" data-position-to="window" data-transition="pop">Agregar a Listas</a>
-                                            <a href="#eliminarDeListas" name="'.$unCodigoCancion.
-                                                    '" data-rel="popup" data-position-to="window" data-transition="pop">Eliminar de Listas</a>
-                                            <a href="#eliminarCancion" name="'.$unCodigoCancion.
-                                                    '" data-rel="popup" data-position-to="window" data-transition="pop">Eliminar Cancion</a>
+                                            <em>' . $artista . '</em><a href="#agregarAListas" name="' . $unCodigoCancion .
+                                            '" data-rel="popup" data-position-to="window" data-transition="pop">Agregar a Listas</a>
+                                            <a href="#eliminarDeListas" name="' . $unCodigoCancion .
+                                            '" data-rel="popup" data-position-to="window" data-transition="pop">Eliminar de Listas</a>
+                                            <a href="#eliminarCancion" name="' . $unCodigoCancion .
+                                            '" data-rel="popup" data-position-to="window" data-transition="pop">Eliminar Cancion</a>
                                                 </li>';
                                         }
                                     }

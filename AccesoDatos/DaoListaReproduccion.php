@@ -13,11 +13,11 @@ class DaoListaReproduccion {
 
     function getListasReproduccionPorUsuario($idUsuario) {
         $this->conexion->Conectar();
-        $sql = "SELECT nombre FROM listareproduccion WHERE id_Usuario='$idUsuario'";
+        $sql = "SELECT codigo,nombre FROM listareproduccion WHERE id_Usuario='$idUsuario'";
         $respuesta = mysql_query($sql);
         $filas = array();
         while ($row = mysql_fetch_array($respuesta)) {
-            $filas [] = $row ["nombre"];
+            $filas [] = $row;
         }
         $this->conexion->cerrar();
         return $filas;

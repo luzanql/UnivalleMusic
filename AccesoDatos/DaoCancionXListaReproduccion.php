@@ -39,6 +39,18 @@ class DaoCancionXListaReproduccion {
         $this->conexion->cerrar();
         
     }
+    
+    function obtenerCancionesDeListaReproduccion($lista){        
+        $this->conexion->Conectar();
+        $sql = "SELECT codigo_Cancion FROM cancionesxlistareproduccion WHERE codigo_Lista='".$lista."'";
+        $ejecutar = mysql_query($sql);
+        $filas = array();
+        while($row = mysql_fetch_array($ejecutar)){
+            $filas[] = $row[0];
+        }
+        $this->conexion->cerrar();
+        return $filas;  
+    }
 
 }
 

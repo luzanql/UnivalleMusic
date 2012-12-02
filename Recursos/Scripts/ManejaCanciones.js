@@ -63,7 +63,7 @@ $(function(){
                             contenidoHtml = "Realmente desea Eliminar la cancion: "+result[1];
                             contenedorEliminarCancion.text(contenidoHtml);
                         }            
-        }); 
+                    }); 
                 }
             }
         });
@@ -113,11 +113,37 @@ $(function(){
             type: 'POST',
             url: urlPhp,
             cache: false,
-            success: function(result) {}            
+            success: function(result) {
+                //reidirije navegador
+                setTimeout(function() {
+                    document.location.href="../Vista/MiColeccion.php";
+                },1000);
+            }            
         });
+    });
+    
+    //Cambia lisa Reproduccion
+    $('select').change(function(){
+        var codListaSelecionada = $('select option:selected').val();
+        var nombreListaSelecionada = $('select option:selected').text();
+        var urlLista = "../Vista/MiColeccion.php";
+        var listaActual = $('#tituloLista').text();
         
-        $('#divReproductor').load("../Vista/MiColeccion.php #divReproductor");
-        
+        if(codListaSelecionada != "ninguna"){
+            if(nombreListaSelecionada != listaActual){
+                if(codListaSelecionada == "miColeccion"){
+                    setTimeout(function() {
+                        document.location.href = urlLista;
+                    },1000);
+                }else{
+                    urlLista += "?codLista="+codListaSelecionada;
+                    urlLista += "&nombreLista="+nombreListaSelecionada;
+                    setTimeout(function() {
+                        document.location.href = urlLista;
+                    },1000);
+                }
+            }
+        }
     });
     
 });
