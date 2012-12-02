@@ -1,36 +1,37 @@
 <?php
 
-require_once'../AccesoDatos/DaoAlbum.php';
-require_once'../Logica/Album.php';
+require_once'../AccesoDatos/DaoCompra.php';
+require_once'../Logica/Compra.php';
+require_once '../AccesoDatos/Session.php';
 
-class ControladorAlbum {
+class ControladorCompra {
 
-    private $daoAlbum;
+    private $daoCompra;
 
-    function ControladorAlbum() {
-        $this->daoAlbum = new DaoAlbum();
+    function ControladorCompra() {
+        $this->daoCompra = new DaoCompra();
     }
     
     
-    function createAlbum($nombre){
-        $album=new Album();     
-        $album->setNombre($nombre);
-        $this->daoAlbum->createAlbum($album);
+    function createCompra($valor){
+        $sessionActual = new Session();
+        $codigo_usuario = $sessionActual->usuario;
+        $compra=new Compra();
+        $compra->setValor($valor);
+        $compra->setFecha(date("d-m-Y"));
+        $compra->setIdUsuario($codigo_usuario);
+        $this->daoCompra->createCompra($compra);
         
         
     }
     
-    function existeAlbum($nombre){
-        return $this->daoAlbum->existeAlbum($nombre);
-    }
+   
     
-    function obtenerCodigoAlbum($nombre){
+    function obtenerCodigoCompra($idUsuario,$valor,$fecha){
         
-        return $this->daoAlbum->obtenerCodigoAlbum($nombre);
+        return $this->daoCompra->obtenerCodigoCompra($idUsuario, $valor, $fecha);
     }
-     function obtenerNombreAlbum($codigo){
-        return $this->daoAlbum->obtenerNombreAlbum($codigo);
-    }
+   
     
 
 }

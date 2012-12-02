@@ -1,26 +1,46 @@
 <?php
 
-class Album
+class Compra
 {
     Private $codigo;
-    Private $nombre;
+    Private $idUsuario;
+    Private $fecha;
+    Private $valor; 
     
-    
-      function setCodigo($codigo) {
-        $this->codigo = $codigo;
-    }
-    
-        function setNombre($nombre) {
-        $this->nombre = $nombre;
-    }
-    
+
+
     function getCodigo() {
         return $this->codigo;
     }
-    
-    function getNombre() {
-        return $this->nombre;
+
+    public function setCodigo($codigo) {
+        $this->codigo = $codigo;
     }
+
+    public function getIdUsuario() {
+        return $this->idUsuario;
+    }
+
+    public function setIdUsuario($idUsuario) {
+        $this->idUsuario = $idUsuario;
+    }
+
+    public function getFecha() {
+        return $this->fecha;
+    }
+
+    public function setFecha($fecha) {
+        $this->fecha = $fecha;
+    }
+
+    public function getValor() {
+        return $this->valor;
+    }
+
+    public function setValor($valor) {
+        $this->valor = $valor;
+    }
+
     
 }
 

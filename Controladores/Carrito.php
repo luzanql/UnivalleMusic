@@ -54,5 +54,9 @@ switch ($opcion) {
         $canciones = $daoCarrito->getCancionesDelCarrito();
         echo "".count($canciones);
         break;
+    
+    case 5:
+        $daoCarrito = new DaoCarrito();
+        $daoCarrito->limpiarCarrito();
 }
 ?>

@@ -1,31 +1,26 @@
 <?php
 
-class CancionesXListaReproduccion{
-    
-    Private $codigoCancion;
-    Private $codigoLista;
-    
-  
+class CancionesXCompra {
 
-    function setCodigoCancion($codigoCancion) {
-        $this->codigoCancion = $codigoCancion;
+    Private $idCompra;
+    Private $idCancion;
+
+    function getIdCompra() {
+        return $this->idCompra;
     }
 
-    public function setCodigoLista($codigoLista) {
-        $this->codigoLista = $codigoLista;
+    public function setIdCompra($idCompra) {
+        $this->idCompra = $idCompra;
     }
 
-    public function getCodigoCancion() {
-        return $this->codigoCancion;
+    public function getIdCancion() {
+        return $this->idCancion;
     }
 
-    public function getCodigoLista() {
-        return $this->codigoLista;
+    public function setIdCancion($idCancion) {
+        $this->idCancion = $idCancion;
     }
 
-
-
-    
-    
 }
+
 ?>

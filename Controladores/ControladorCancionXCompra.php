@@ -1,35 +1,26 @@
 <?php
 
-require_once'../Logica/CancionesXListaReproduccion.php';
-require_once '../AccesoDatos/DaoCancionXListaReproduccion.php';
+require_once'../Logica/CancionesXCompra.php';
+require_once '../AccesoDatos/DaoCancionXCompra.php';
 
-class ControladorCancionXListaReproduccion{
+class ControladorCancionXCompra{
 
-    private $daoCancionXListaReproduccion;
+    private $daoCancionXCompra;
 
-    function ControladorCancionXListaReproduccion() 
+    function ControladorCancionXCompra() 
     {
-        $this->daoCancionXListaReproduccion=new DaoCancionXListaReproduccion();
+        $this->daoCancionXCompra=new DaoCancionXCompra();
     }
     
-    function createCancionXListaReproduccion($cancion, $lista)
+    function createCancionXCompra($cancion, $compra)
     {
-        $cancionXlista=new CancionesXListaReproduccion();
-        $cancionXlista->setCodigoCancion($cancion);
-        $cancionXlista->setCodigoLista($lista);
-        $this->daoCancionXListaReproduccion->createCancionXListaReproduccion($cancionXlista);
+        $cancionXCompra=new CancionesXCompra();   
+        $cancionXCompra->setIdCancion($cancion);
+        $cancionXCompra->setIdCompra($compra);
+        $this->daoCancionXCompra->createCancionXCompra($cancionXCompra);
     
     }
-    function existeCancionXListaReproduccion($cancion,$lista){
-        return $this->daoCancionXListaReproduccion->existeCancionXListaReproduccion($cancion, $lista);
-    } 
     
-    function deleteCancionXListaReproduccion($cancion,$lista){
-        
-        $this->daoCancionXListaReproduccion->deleteCancionXListaReproduccion($cancion, $lista);
-    }
-
-
    
 }
 ?>

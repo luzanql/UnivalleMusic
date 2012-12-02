@@ -1,67 +1,36 @@
 $(document).ready(function() {
-    var urlPhp="../AccesoDatos/AutoCompletar.php?opcion=7";
+
+    var url="../Controladores/Carrito.php?opcion=4";        
+        
     $.ajax({
         type: "POST",
-        url: urlPhp                                
-    }).done(function( msg ) {
-        var datos=msg.split(",");
-                                
-        $("#nombre").val(datos[0]);
-        $("#apellido").val(datos[1]);
-        $("#email").val(datos[2]);
-        $("#nacionalidad").val(datos[3]);
-        $("#usuario").val(datos[4]);
-        $("#password").val(datos[5]);
-    });
-                            
-    $("#btnModificar").on('click',function(){
-        
-               var email=$("#email").val();                  
-        if(camposVacios()){
-            alert("Hay Campos Vacios")
-        }else 
-           
-            var esta=validarEmail(email);
-            if(esta=="false"){
-                alert("El email es incorrecto")
-            }
-    else{
-        alert("Se puede modificar");
-    } 
-        
-    });
-    
-     $("#btnDarseBaja").on('click',function(){
-       alert("me puedo dar de baja"); 
-        
-    });
-                             
-    function camposVacios(){
-        var nombre=$("#nombre").val();
-        var apellido=$("#apellido").val();
-        var email=$("#email").val();
-        var nacionalidad=$("#nacionalidad").val();
-        var password=$("#password").val();
-         if(nombre==""|| apellido==""|| email==""|| nacionalidad==""|| password==""){
-             return true;
-         }else 
-             return false;
-                               
+        url: url,
+        success: function( msg ) {
+            var pesos=(msg * 1950);
+            if(pesos<=0){
+                $("#mensajeConfirmacion").text("Lo sentimos, el valor de su transaccion es inferior al monto minimo establecido");
+
+            } else {
+       
+               
+                var url1="../Controladores/Carrito.php?opcion=5";
+                $.ajax({
+                    type: "POST",
+                    url: url1,
+                    success: function( msg ) {}
+                })
+                 $("#mensajeConfirmacion").text("El pago se realizo satisfactoriamente");
+        }
+                
     }
-    //esto como que no sirve :S
-     function validarEmail(valor) {
-  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(valor)){
-   return "true";
-  } else {
-   return "false";
-  }
-}
- 
-    
+    });
+
+});
+
 
 
 
         
         
-})
+
 

@@ -1,45 +1,27 @@
 <?php
 
 require_once 'conexion.php';
+require_once '../Logica/CancionesXCompra.php';
 
-class DaoCancionXListaReproduccion {
+class DaoCancionXCompra{
 
     private $conexion;
 
-    function DaoCancionXListaReproduccion() {
+    function DaoCancionXCompra() {
         $this->conexion = new Conexion();
     }
 
-    function createCancionXListaReproduccion(CancionesXListaReproduccion $cancionxlistareproduccion) {
+    function createCancionXCompra(CancionesXCompra $cancionxcompra) {
         $this->conexion->Conectar();
-        $cancion = $cancionxlistareproduccion->getCodigoCancion();
-        $artista = $cancionxlistareproduccion->getCodigoLista();
-        $sql = "INSERT INTO cancionesxlistareproduccion VALUES ('".$cancion."','".$artista."')";
+        $cancion = $cancionxcompra->getIdCancion();
+        $compra = $cancionxcompra->getIdCompra();
+        $sql = "INSERT INTO cancionesxcompra VALUES ('".$compra."','".$cancion."')";
         $ejecutar = mysql_query($sql);
         $this->conexion->cerrar();
     }
 
-    function existeCancionXListaReproduccion($cancion, $lista) {
-        $this->conexion->Conectar();
-        $sql = "SELECT * FROM cancionesxlistareproduccion WHERE codigo_Cancion='".$cancion."' AND codigo_Lista='".$lista."'";
-        $ejecutar = mysql_query($sql);
-        $row = mysql_fetch_array($ejecutar);
-        $this->conexion->cerrar();
-        if ($row >= 1) {
-            return true;
-        }else
-            return false;
-    }
-    
-    function deleteCancionXListaReproduccion($cancion,$lista){
-        $this->conexion->Conectar();
-        $sql = "DELETE FROM cancionesxlistareproduccion WHERE codigo_Cancion='".$cancion."' AND codigo_Lista='".$lista."'";
-        $ejecutar = mysql_query($sql);
-        $row = mysql_fetch_array($ejecutar);
-        $this->conexion->cerrar();
-        
-    }
-
+   
+  
 }
 
 ?>
