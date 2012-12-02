@@ -334,27 +334,27 @@ FOREIGN KEY (idCancion) REFERENCES cancion (codigo)
 
 CREATE TABLE bancos 
 (
-	codigo INTEGER AUTO_INCREMENT,
-	nombre VARCHAR(50) NOT NULL,
-	PRIMARY KEY (codigo)
+	
+	nombre VARCHAR(50) PRIMARY KEY
+	
 ) 
 ;
 
-INSERT INTO bancos (nombre) VALUES ("Bancafe");
-INSERT INTO bancos (nombre) VALUES ("BanCoomeva");
-INSERT INTO bancos (nombre) VALUES ("Banco Caja Social");
-INSERT INTO bancos (nombre) VALUES ("Banco Av Villas");
-INSERT INTO bancos (nombre) VALUES ("Banco de Bogota");
-INSERT INTO bancos (nombre) VALUES ("Banco de Credito");
-INSERT INTO bancos (nombre) VALUES ("Banco de Occidente");
-INSERT INTO bancos (nombre) VALUES ("Banco Popular");
-INSERT INTO bancos (nombre) VALUES ("BanColdex");
-INSERT INTO bancos (nombre) VALUES ("Banco Colpatria");
-INSERT INTO bancos (nombre) VALUES ("Banco de la Republica");
-INSERT INTO bancos (nombre) VALUES ("Banco HSBC");
-INSERT INTO bancos (nombre) VALUES ("Banco CityBank");
-INSERT INTO bancos (nombre) VALUES ("Banco Davivienda");
-INSERT INTO bancos (nombre) VALUES ("Bancolombia");
+INSERT INTO bancos VALUES ("Bancafe");
+INSERT INTO bancos VALUES ("BanCoomeva");
+INSERT INTO bancos VALUES ("Banco Caja Social");
+INSERT INTO bancos VALUES ("Banco Av Villas");
+INSERT INTO bancos VALUES ("Banco de Bogota");
+INSERT INTO bancos VALUES ("Banco de Credito");
+INSERT INTO bancos VALUES ("Banco de Occidente");
+INSERT INTO bancos VALUES ("Banco Popular");
+INSERT INTO bancos VALUES ("BanColdex");
+INSERT INTO bancos VALUES ("Banco Colpatria");
+INSERT INTO bancos VALUES ("Banco de la Republica");
+INSERT INTO bancos VALUES ("Banco HSBC");
+INSERT INTO bancos VALUES ("Banco CityBank");
+INSERT INTO bancos VALUES ("Banco Davivienda");
+INSERT INTO bancos VALUES ("Bancolombia");
 
 
 
