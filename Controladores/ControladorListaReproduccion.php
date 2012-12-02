@@ -12,8 +12,6 @@ class ControladorListaReproduccion {
     }
 
     function obtenerListasReproduccionPorUsuario() {
-       //Modificar con sesio
-       
         $sessionActual = new Session();
         $idUsuario = $sessionActual->usuario;
        //-----------
@@ -60,6 +58,10 @@ class ControladorListaReproduccion {
         $sessionActual = new Session();
         $usuario = $sessionActual->usuario;
         return $this->daoListaReproduccion->existeLista($usuario, $lista);
+    }
+    
+    function getCodigoNombreListasPorUsuario($idUsuario){
+        return json_decode($this->daoListaReproduccion->getCodigoNombreListasPorUsuario($idUsuario));
     }
 
 }

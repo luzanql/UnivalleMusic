@@ -1,7 +1,4 @@
-/* reproductor de musica con html5 y jquery
- * autor: cali rojas
- * sitio web: www.lewebmonster.com
- */
+/* reproductor de musica con html5 y jquery */
 
 $(function(){
     //creamos un objeto Audio de HTML5 para reproducir archivos
@@ -210,10 +207,9 @@ $(function(){
         return Array(iMinutos,iSegundos);
     };
     
-    $(document).focusout( function(){
-        //objReproductor.play();
+    function pausarCancion(){
         objReproductor.pause();
-    });
+    }
 	
     //cambiar la opacidad de los botones al colocar el puntero del raton sobre ellos
     $('input[type="button"]').hover(function(){

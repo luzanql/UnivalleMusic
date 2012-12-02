@@ -20,13 +20,17 @@ class ControladorCancionXListaReproduccion{
         $this->daoCancionXListaReproduccion->createCancionXListaReproduccion($cancionXlista);
     
     }
+    
     function existeCancionXListaReproduccion($cancion,$lista){
         return $this->daoCancionXListaReproduccion->existeCancionXListaReproduccion($cancion, $lista);
     } 
     
-    function deleteCancionXListaReproduccion($cancion,$lista){
-        
+    function deleteCancionXListaReproduccion($cancion,$lista){        
         $this->daoCancionXListaReproduccion->deleteCancionXListaReproduccion($cancion, $lista);
+    }
+    
+    function obtenerCancionesDeListaReproduccion($lista){        
+        return $this->daoCancionXListaReproduccion->obtenerCancionesDeListaReproduccion($lista);
     }
 
 
