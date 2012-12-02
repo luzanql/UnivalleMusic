@@ -4,10 +4,11 @@
 
 $(function(){
     $('#mensaje').hide();
-    $('#mensajeEliminaar').hide();
+    $('#mensajeEliminar').hide();
+    $('td[name*=php]').unbind('click');
     
     $('td[name*=php]').on('click',function(){
-        alert("dio click");
+        $('td[name*=php]').bind('click');
         var codigoCancion = $(this).attr('name');
         var urlPhp="../Controladores/Carrito.php?opcion=1&codigo="+codigoCancion;
         var url="../Controladores/Carrito.php?opcion=3&codigo="+codigoCancion;        
@@ -29,10 +30,7 @@ $(function(){
                             $('#mensaje').show();
                         }        
                     });
-                    var total = $('#total').text();
-                    total++;
-                    $('#total').text(total);
-                    alert(total);
+                
                 }
             }        
         });
@@ -53,6 +51,16 @@ $(function(){
         
         });
     });
+    
+      var url="../Controladores/Carrito.php?opcion=4";        
+        
+        $.ajax({
+            type: "POST",
+            url: url,
+            success: function( msg ) {
+                var pesos=(msg * 1950);
+                $('#apagar').text("$"+pesos);
+            }});
     
     
     
