@@ -14,9 +14,9 @@ $(document).ready(function() {
         $("#password").val(datos[5]);
     });
                             
-    $("#btnModificar").on('click',function(){
+    $("#btnModificar").on('click',modificar);
         
-               var email=$("#email").val();                  
+     function modificar(){           
         if(camposVacios()){
             alert("Hay Campos Vacios")
         }else {
@@ -31,10 +31,39 @@ $(document).ready(function() {
         alert("Se puede modificar");
     } 
         
-           }*/}});
+           }*/
+        var codigo=$("#usuario").val();
+        var nombre=$("#nombre").val();
+        var apellido=$("#apellido").val();
+        var email=$("#email").val();
+        var nacionalidad=$("#nacionalidad").val();
+        var pasw=$("#password").val(); 
+            var url="../Controladores/ControladorPerfil.php?opcion=1&codigo="+codigo+"&nombre="+nombre+"&apellido="+apellido+"&email="+email+"&nacionalidad="+nacionalidad+"&pasw="+pasw;
+         $.ajax({
+            type: "POST",
+            url: url,
+            success: function( msg ) {
+                alert(msg);
+            }
+    
+
+})
+
+}}
     
      $("#btnDarseBaja").on('click',function(){
-       alert("me puedo dar de baja"); 
+         var codigo=$("#usuario").val();
+         var url1="../Controladores/ControladorPerfil.php?opcion=2&codigo="+codigo+"";
+       $.ajax({
+            type: "POST",
+            url: url1,
+            success: function( msg ) {
+                alert(msg);
+            }
+    
+
+});
+
         
     });
                              

@@ -1,5 +1,6 @@
 <?php
 require_once'../AccesoDatos/DaoUsuario.php';
+//require_once'../Controladores/ControladorNacionalidad.php';
 require_once'../Logica/Usuario.php';
 
 class ControladorUsuario{
@@ -52,7 +53,7 @@ class ControladorUsuario{
     }
     
     function darDeBaja($usu){
-        $this->daousuario->darDeBaja($usu);
+        return $this->daousuario->darDeBaja($usu);
     }
     
     function activarCuenta($usu){
@@ -64,9 +65,10 @@ class ControladorUsuario{
     }
     
     function updateUsuario($codigo,$nombre,$apellido,$nacionalidad,$pasw,$email){
+        $controladorNacionalidad=new ControladorNacionalidad();
         $usuario=new Usuario();
         $usuario->setApellido($apellido);
-        $usuario->setCodigo_nacionalidad($nacionalidad);
+        $usuario->setCodigo_nacionalidad($controladorNacionalidad->obtenerCodigoNacionalidad($nacionalidad));
         $usuario->setContrasena($pasw);
         $usuario->setEmail($email);
         $usuario->setNombre($nombre);

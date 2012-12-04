@@ -20,9 +20,10 @@ if ($nr == 1) {
     $sessionActual->usuario = $row['usuario'];
     $sessionActual->nombreUsuario = $row['nombre'];
     $sessionActual->perfil = $row['codigo_Perfil'];
+    $sessionActual->perfil = $row['estado'];
     $sessionActual->carrito = array();
 
-    if ($sessionActual->perfil == 1) {
+    if ($sessionActual->perfil == 1 && $sessionActual->perfil=='Activo' ) {
         header("Location: ../Vista/MisListas.php", false);
     } else {
         header("Location: ../Vista/MisListas.php");

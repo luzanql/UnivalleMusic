@@ -1,13 +1,13 @@
 <?php
 
-require_once'../AccesoDatos/DaoNacionalidad.php';
-require_once'../Logica/Nacionalidad.php';
+include'../AccesoDatos/DaoNacionalidad.php';
+include'../Logica/Nacionalidad.php';
 
-class ControladorNAcionalidad {
+class ControladorNacionalidad {
 
     private $daoNacionalidad;
 
-    function ControladorNAcionalidad() {
+    function ControladorNacionalidad() {
         $this->daoNacionalidad = new DaoNacionalidad();
     }
     
@@ -23,7 +23,7 @@ class ControladorNAcionalidad {
         return $this->daoNacionalidad->existeNacionalidad($nombre);
     }
     
-    function obtenerCodigoNAcionalidad($nombre){
+    function obtenerCodigoNacionalidad($nombre){
         
         return $this->daoNacionalidad->obtenerCodigoNacionalidad($nombre);
     }

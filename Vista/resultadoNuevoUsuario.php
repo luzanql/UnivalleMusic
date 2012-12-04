@@ -34,7 +34,7 @@
         $user = $_POST["user"];
         $pass = $_POST["password"];
 
-        $controladorNacionalidad = new ControladorNAcionalidad();
+        $controladorNacionalidad = new ControladorNacionalidad();
         $existeNacionalidad = $controladorNacionalidad->existeNacionalidad($nacionalidad);
 
         if (!$existeNacionalidad) {
@@ -42,7 +42,7 @@
             $controladorNacionalidad->createNacionalidad($nacionalidad);
         }
 
-        $codigo_nacionalidad = $controladorNacionalidad->obtenerCodigoNAcionalidad($nacionalidad);
+        $codigo_nacionalidad = $controladorNacionalidad->obtenerCodigoNacionalidad($nacionalidad);
 
         $controladorUsuario = new ControladorUsuario();
         $controladorUsuario->createUsuario($nombre, $apellido, $email, $codigo_nacionalidad, $user, $pass);

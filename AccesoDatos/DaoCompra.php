@@ -35,7 +35,7 @@ class DaoCompra {
         $consulta = "SELECT * FROM compra WHERE idUsuario='$idUsuario' AND fecha='$fecha' AND valor='$valor'";
         $respuesta=mysql_query($consulta);
         $this->conexion->cerrar();
-        $row = mysql_fetch_array($respuesta);
+        $row = mysql_fetch_object($respuesta);
         return $row['idCompra'];
     }
 

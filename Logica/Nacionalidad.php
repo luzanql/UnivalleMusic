@@ -2,9 +2,10 @@
 
 class Nacionalidad
 {
+    
     Private $codigo;
     Private $nombre;
-    
+    function __construct() {}
     
       function setCodigo($codigo) {
         $this->codigo = $codigo;

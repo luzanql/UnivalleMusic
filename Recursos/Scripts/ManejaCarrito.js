@@ -3,10 +3,12 @@
  */
 
 $(function(){
+    llenarTabla();
     $('#mensaje').hide();
     $('#mensajeEliminar').hide();
     $('td[name*=php]').unbind('click');
     
+    //agregar cancion al carrito
     $('td[name*=php]').on('click',function(){
         $('td[name*=php]').bind('click');
         var codigoCancion = $(this).attr('name');
@@ -36,8 +38,20 @@ $(function(){
         });
     });
        
+       
+        //muestra el valor a pagar 
+      var url="../Controladores/Carrito.php?opcion=4";        
+        
+        $.ajax({
+            type: "POST",
+            url: url,
+            success: function( msg ) {
+                var pesos=(msg * 1950);
+                $('#apagar').text("$"+pesos);
+            }});
+    });
     
-    
+    /*elimina cancion del carrito
     $('td[id*=php]').click(function(){
        
         var codigoCancion = $(this).attr('id');
@@ -50,18 +64,53 @@ $(function(){
             $('#mensajeEliminar').show();
         
         });
-    });
+    });*/
     
-      var url="../Controladores/Carrito.php?opcion=4";        
+   
+    
+    function llenarTabla(){
+        var urlPhp="../Controladores/Carrito.php?opcion=7";
+        var titulosTabla = "<tr><th>Titulo</th> <th>Artista</th> <th>Album</th> <th>Eliminar</th></tr>";
+        $('#tablaVerCarrito').html("");
+        $('#tablaVerCarrito').append(titulosTabla);
+    
+        $.ajax({
+            type: 'POST',
+            url: urlPhp,
+            dataType: 'json',
+            cache: false,
+           success: function(result) {
+            for(var i=0 ; i < result.length ; i++){
+                var contenidoHtml = "";
+                var unaFila = result[i];
+                contenidoHtml += "<tr><td>"+ unaFila[1]+"</td><td>"+unaFila[2]+"</td> <td>"+unaFila[3]+"</td><td id="+unaFila[0]+"><a href='' onclick='eliminar(unaFila[0])'><img src='../Recursos/cart_delete.png' style='width:50%; height: 50%;' /></a></td></tr>";
+                $('#tablaVerCarrito').append(contenidoHtml); 
+                //alert(unaFila[0]);
+            }
+        }     
+         
+        }
+        );
         
+    
+    }
+    
+     function eliminar(codigoCancion){
+      //  var codigoCancion = $(this).attr('id');
+        var urlPhp="../Controladores/Carrito.php?opcion=2&codigo="+codigoCancion;
         $.ajax({
             type: "POST",
-            url: url,
-            success: function( msg ) {
-                var pesos=(msg * 1950);
-                $('#apagar').text("$"+pesos);
-            }});
+            url: urlPhp                                
+        }).done(function( msg ) {
+            $('#mensajeEliminar').text(msg);
+            $('#mensajeEliminar').show();
+        
+        });
+        
+        llenarTabla();
+               
+    }
     
-    
-    
-});
+   
+     
+

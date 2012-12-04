@@ -5,6 +5,10 @@ include_once '../AccesoDatos/Session.php';
 include_once '../AccesoDatos/DaoCarrito.php';
 include_once '../Controladores/ControladorCompra.php';
 include_once '../Controladores/ControladorCancionXCompra.php';
+include_once '../Controladores/ControladorCarrito.php';
+include_once '../Controladores/ControladorCancion.php';
+include_once '../Controladores/ControladorArtista.php';
+include_once '../Controladores/ControladorAlbum.php';
 $opcion = $_GET['opcion'];
 
 //$opcion=1;
@@ -74,7 +78,32 @@ switch ($opcion) {
         for ($index = 0; $index < count($carrito); $index++) {
           $controladorcancionesXCompra->createCancionXCompra($carrito[$index], $codigoCompra);  
         }
-        
+        //obtiene la tabla de las canciones del carrito con nombre de artista, album etc
+    case 7:
+       
+            $controladorCarrito = new ControladorCarrito();
+            $controladorCancion=new ControladorCancion();
+            $controladorArtista=new ControladorArtista();
+            $controladorAlbum=new ControladorAlbum();
+            $tabla=array();
+            
+            $listaCanciones = $controladorCarrito->obtenerCancionesDelCarrito();
+            for ($index = 0; $index < count($listaCanciones); $index++) {
+                $codigo=$listaCanciones[$index];
+                $cancion=$controladorCancion->obtenerCancionPorCodigo($codigo);
+                $titulo=$cancion->getTitulo();
+                $artista=$controladorArtista->obtenerNombreArtista($cancion->getArtista());
+                $album=$controladorAlbum->obtenerNombreAlbum($cancion->getAlbum());
+                $fila=array();
+                $fila[]=$codigo;
+                $fila[]=$titulo;
+                $fila[]=$artista;
+                $fila[]=$album;
+                $tabla[]=$fila;
+                           
+            }
+            echo json_encode($tabla);
+            break;
        
 }
 ?>

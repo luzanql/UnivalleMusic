@@ -24,7 +24,7 @@
                     <a href="verCarrito.php" data-rel="dialog" >
                         <img src="../Recursos/carrito.jpeg" style=" width:50%; height: 50%; "  /></a>
                     <div >   
-                        <?php echo "Usuario:" . $_SESSION['usuario'] ?>
+                        <?php echo "Usuario:" . $_SESSION['usuario']; ?>
                     </div>
                 </div >
             </div><!-- /header -->
@@ -56,7 +56,6 @@
                         <div  >
                             <table border="3" width="200%" bordercolor="gray" id="opciones"   >
                             <tr >
-                                <th width="30%">Codigo</th>
                                 <th width="30%">Titulo </th>
                                 <th width="20%">&Aacute;rtista</th>
                                 <th width="40%">&Aacute;lbum</th>
@@ -68,7 +67,7 @@
                            // $controladorCarrito = new ControladorCarrito();
                             $listaCanciones = $controladorCarrito->obtenerListaCancionesALaVenta();
                             for ($index = 0; $index < count($listaCanciones); $index++) {
-                                echo "<tr><td>" . $listaCanciones[$index][0] . "</td>
+                                echo "<tr>
 					<td>" . $listaCanciones[$index][1] . "</td>
 					<td>" . $listaCanciones[$index][2] . "</td>
 					<td>" . $listaCanciones[$index][3] . "</td>

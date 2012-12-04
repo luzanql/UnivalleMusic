@@ -1,5 +1,5 @@
 <?php include_once '../Recursos/Scripts/Login.php'; ?>
-<div data-role = "dialog" id = "verCarrito" >
+<div data-role = "page" id = "verCarrito" >
     <div id="mensajeEliminar" style="color: dodgerblue"></div>
     <div data-role = "header" data-theme = "b" data-transition = "slidedowm" >
         <script type="text/javascript" src="../Recursos/Scripts/ManejaCarrito.js"></script>
@@ -7,16 +7,16 @@
         <h3>Carrito de Compras</h3>
     </div>
     <div data-role = "content" align = "center" data-theme = "a">
-        <table border = "3" width = "100%" bordercolor = "gray">
-            <tr>
-                <th width = "30%">Codigo</th>
+        <table border = "3" width = "100%" bordercolor = "gray" id="tablaVerCarrito">
+           <!--<tr>
                 <th width = "30%">Titulo </th>
                 <th width = "20%">&Aacute;rtista</th>
                 <th width = "40%">&Aacute;lbum</th>
                 <th width = "40%">Eliminar</th>
-            </tr>
+            </tr>-->
             
-             <?php
+            <?php
+            /*
             include_once '../Controladores/ControladorCarrito.php';
             include_once '../Controladores/ControladorCancion.php';
             include_once '../Controladores/ControladorArtista.php';
@@ -33,15 +33,16 @@
                 $titulo=$cancion->getTitulo();
                 $artista=$controladorArtista->obtenerNombreArtista($cancion->getArtista());
                 $album=$controladorAlbum->obtenerNombreAlbum($cancion->getAlbum());
-                echo "<tr><td>".$codigo."</td>
+                echo "<tr>
                     <td>".$titulo."</td>
                     <td>".$artista."</td>
                     <td>".$album."</td>                  
                     <td id='".$listaCanciones[$index]."'><img src='../Recursos/cart_delete.png' style='width:50%; height: 50%;' /></td></tr>";                       
-            }
+            }*/
              
             
             ?>
+           
            
         </table>
         Total a Pagar:
