@@ -63,6 +63,10 @@ class ControladorListaReproduccion {
     function getCodigoNombreListasPorUsuario($idUsuario){
         return json_decode($this->daoListaReproduccion->getCodigoNombreListasPorUsuario($idUsuario));
     }
+    
+    function getCodigoListaFavoritaPorUsuario($idUsuario){
+        return $this->daoListaReproduccion->getCodigoListaFavoritaPorUsuario($idUsuario);
+    }
 
 }
 ?>

@@ -2,11 +2,28 @@
 
 include_once '../AccesoDatos/DaoCancionXListaReproduccion.php';
 include_once '../Logica/CancionesXListaReproduccion.php';
+include_once '../AccesoDatos/DaoListaReproduccion.php';
 
-$opcion = $_GET['opcion'];
-$codigoLista = $_GET['codigoLista'];
-$usuario = $_GET['usuario'];
-$cancion = $_GET['cancion'];
+$opcion = "";
+$codigoLista = "";
+$usuario = "";
+$cancion = "";
+
+if(isset($_GET['opcion'])){
+    $opcion = $_GET['opcion'];
+}
+
+if(isset($_GET['codigoLista'])){
+    $codigoLista = $_GET['codigoLista'];
+}
+
+if(isset($_GET['cancion'])){
+    $cancion = $_GET['cancion'];
+}
+
+if(isset($_GET['usuario'])){
+    $usuario = $_GET['usuario'];
+}
 
 switch ($opcion) {
     //Caso 1 agregar cancion a Lista de Reproduccion
@@ -27,6 +44,12 @@ switch ($opcion) {
         if ($existe) {
             $daoCancionXListaReproduccion->deleteCancionXListaReproduccion($cancion, $codigoLista);
         }
+        break;
+    //Caso 3: Agergar cancion a Favoritas
+    case 3:
+        $daoListaReproduccion= new DaoListaReproduccion();
+        $codigoCancion = $daoListaReproduccion->getCodigoListaFavoritaPorUsuario($usuario);
+        echo $codigoCancion;
         break;
 }
 ?>
