@@ -76,15 +76,5 @@ class ControladorUsuario{
         $daoUsuario->updateUsuario($usuario);
         
     }
-    
-    function contrasenaDeUsuario($usuario,$contrasena){
-        $daoUsuario=new DaoUsuario();
-        return $daoUsuario->contraseñaDeUsuario($usuario, $contrasena);
-    }
-    
-    function usuarioEstaActivo($usuario){
-        $daoUsuario=new DaoUsuario();
-       return  $daoUsuario->usuarioEstaActivo($usuario);
-    }
 }
 ?>

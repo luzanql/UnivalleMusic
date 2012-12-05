@@ -12,8 +12,6 @@
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
         <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
         <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
-         <script src="../Recursos/Scripts/ManejaAutenticacion.js"></script>
-         
        
 
      
@@ -25,13 +23,11 @@
 
             <div data-role="header" data-theme ="b" style="height: 167px;"><!--background-image: url(banner.png); -->
                 <div style="width:180px; height:100px; float:right; ">
-                    <div id="mensaje"  style="color: dodgerblue"></div>
                     <form name="autenticarForm" method="post" data-ajax="false" action="../AccesoDatos/autenticacion.php">   
                         <label for="basic" data-mini="true">Usuario:</label><input type="text" name="usuario" id="usuario" value="" data-mini="true"  />
                         <label for="basic" data-mini="true">Password:</label><input type="password" name="password" id="contrasena" value=""  data-mini="true" />
                         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-                            <a href="" data-role="button" data-inline="true"  id="btnIngresar">Ingresar</a>
-                            <!--<input  data-role="button" value="Ingresar" data-inline="true" data-mini="true" id="btnIngresar"/>-->
+                            <input  data-role="button" value="Ingresar" type="submit"/> 
                             <a href="#NuevoUsuario" data-role="button" data-inline="true" data-rel="dialog">Registrarse</a>
                         </div>
                     </form> 

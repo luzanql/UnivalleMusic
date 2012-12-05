@@ -13,7 +13,6 @@
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
         <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
         <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
-      
     </head>
     <body>
 
@@ -25,11 +24,7 @@
                     <a href="verCarrito.php" data-rel="dialog" >
                         <img src="../Recursos/carrito.jpeg" style=" width:50%; height: 50%; "  /></a>
                     <div >   
-                        <?php
-                        $usuarioActual = $_SESSION['usuario'];
-                        echo "Usuario: " . $usuarioActual."<br/>".
-                                        "<a href='../Recursos/Scripts/Logout.php'>Cerrar Sesi&oacute;n</a>";
-                                ?>
+                        <?php echo "Usuario:" . $_SESSION['usuario'] ?>
                     </div>
                 </div >
             </div><!-- /header -->
@@ -40,10 +35,10 @@
                     <div class="ui-block-a" style="width:250px; margin:3%">
 
                         <div data-role="controlgroup"> 
-                            <a href="../Vista/MiPerfil.php" data-role="button" id="perfil"> Mi Perfil </a> 
-                            <a href="../Vista/MiColeccion.php" data-role="button" id="coleccion"> Mi Coleccion</a> 
-                            <a href="../Vista/MisListas.php" data-role="button" id="listas"> Listas de Reproduccion</a> 
-                            <a href="../Vista/ComprarMusica.php" data-role="button" id="comprar"> Comprar Musica</a>
+                            <a href="../Vista/MiPerfil.php" data-role="button"> Mi Perfil </a> 
+                            <a href="../Vista/MiColeccion.php" data-role="button"> Mi Coleccion</a> 
+                            <a href="../Vista/MisListas.php" data-role="button"> Listas de Reproduccion</a> 
+                            <a href="../Vista/ComprarMusica.php" data-role="button"> Comprar Musica</a>
                         </div>
                     </div>
                     <div class="ui-block-b" style=" margin:3%" >
@@ -99,7 +94,7 @@
                             include_once '../Controladores/ControladorListaReproduccion.php';
                             $controladorLista = new ControladorListaReproduccion();
                             $listasUsuario = $controladorLista->obtenerListasReproduccionPorUsuario();
-                           // $codigo= $_SESSION['usuario'];
+                            $codigo= $_SESSION['usuario'];
                             
                             for ($index = 0; $index < count($listasUsuario); $index++) {
                                 echo "<tr><td><a href='MiColeccion.php?nombreLista=".$listasUsuario[$index][1]."&codLista=".$listasUsuario[$index][0]."'>".$listasUsuario[$index][1]."</a></td>

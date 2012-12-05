@@ -17,7 +17,7 @@ $(document).ready(function() {
                     type: "POST",
                     url: url2,
                     success: function( msg ) {
-                        alert(msg);
+                        alert("insertar "+msg)
                     }
                 })
                

@@ -14,7 +14,6 @@
         <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
         <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
         <script type="text/javascript" src="../Recursos/Scripts/ManejaCarrito.js"></script>
-       
     </head>
     <body>
 
@@ -25,11 +24,7 @@
                     <a href="verCarrito.php" data-rel="dialog" >
                         <img src="../Recursos/carrito.jpeg" style=" width:50%; height: 50%; "  /></a>
                     <div >   
-                       <?php
-                        $usuarioActual = $_SESSION['usuario'];
-                        echo "Usuario: " . $usuarioActual."<br/>".
-                                        "<a href='../Recursos/Scripts/Logout.php'>Cerrar Sesi&oacute;n</a>";
-                                ?>
+                        <?php echo "Usuario:" . $_SESSION['usuario']; ?>
                     </div>
                 </div >
             </div><!-- /header -->
@@ -38,11 +33,11 @@
                 <div class="ui-grid-b">
                     <div class="ui-block-a" style="width:250px; margin:3%">
 
-                         <div data-role="controlgroup"> 
-                            <a href="../Vista/MiPerfil.php" data-role="button" id="perfil"> Mi Perfil </a> 
-                            <a href="../Vista/MiColeccion.php" data-role="button" id="coleccion"> Mi Coleccion</a> 
-                            <a href="../Vista/MisListas.php" data-role="button" id="listas"> Listas de Reproduccion</a> 
-                            <a href="../Vista/ComprarMusica.php" data-role="button" id="comprar"> Comprar Musica</a>
+                        <div data-role="controlgroup"> 
+                            <a href="../Vista/MiPerfil.php" data-role="button"> Mi Perfil </a> 
+                            <a href="../Vista/MiColeccion.php" data-role="button"> Mi Coleccion</a> 
+                            <a href="../Vista/MisListas.php" data-role="button"> Listas de Reproduccion</a> 
+                            <a href="../Vista/ComprarMusica.php" data-role="button"> Comprar Musica</a>
                         </div>
                     </div>
                     <div class="ui-block-b" style="width:250px; margin:3%">
