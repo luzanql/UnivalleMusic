@@ -24,6 +24,8 @@ $(document).ready(function() {
                         url: url1,
                         success: function( msg ) {
                             //usuario y pasw correctos
+                            
+                            
                             if(msg=="true"){                                
                                 //hace login
                                 var url2="../Controladores/Login.php?opcion=3&usuario="+usuario;
