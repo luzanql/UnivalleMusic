@@ -25,7 +25,8 @@ $(function(){
         }else if($(this).text()=="Eliminar Cancion"){
             accion = 3;
         }else if($(this).text()=="Me Gusta"){
-            var urlPhp= "../Controladores/ListasReproduccionXUsuario.php?opcion=3&usuario="+usuarioLogueado;
+            //Me gusta
+			var urlPhp= "../Controladores/ListasReproduccionXUsuario.php?opcion=3&usuario="+usuarioLogueado;
             var codidoListaFavorita = "";
             $.ajax({
                 type: 'POST',

@@ -1,33 +1,20 @@
 <?php
 
+session_start();
+include_once '../AccesoDatos/Session.php';
 include_once '../AccesoDatos/DaoCancionXListaReproduccion.php';
 include_once '../Logica/CancionesXListaReproduccion.php';
 include_once '../AccesoDatos/DaoListaReproduccion.php';
 
-$opcion = "";
-$codigoLista = "";
-$usuario = "";
-$cancion = "";
+$opcion = $_GET['opcion'];
 
-if(isset($_GET['opcion'])){
-    $opcion = $_GET['opcion'];
-}
-
-if(isset($_GET['codigoLista'])){
-    $codigoLista = $_GET['codigoLista'];
-}
-
-if(isset($_GET['cancion'])){
-    $cancion = $_GET['cancion'];
-}
-
-if(isset($_GET['usuario'])){
-    $usuario = $_GET['usuario'];
-}
 
 switch ($opcion) {
     //Caso 1 agregar cancion a Lista de Reproduccion
     case 1:
+        $codigoLista = $_GET['codigoLista'];
+        $usuario = $_GET['usuario'];
+        $cancion = $_GET['cancion'];
         $daoCancionXListaReproduccion = new DaoCancionXListaReproduccion();
         $existe = $daoCancionXListaReproduccion->existeCancionXListaReproduccion($cancion, $codigoLista);
         if (!$existe) {
@@ -39,17 +26,23 @@ switch ($opcion) {
         break;
     //Caso 2 eliminar cancion de la lista de reproduccion
     case 2:
+        $codigoLista = $_GET['codigoLista'];
+        $usuario = $_GET['usuario'];
+        $cancion = $_GET['cancion'];
         $daoCancionXListaReproduccion = new DaoCancionXListaReproduccion();
         $existe = $daoCancionXListaReproduccion->existeCancionXListaReproduccion($cancion, $codigoLista);
         if ($existe) {
             $daoCancionXListaReproduccion->deleteCancionXListaReproduccion($cancion, $codigoLista);
         }
         break;
-    //Caso 3: Agergar cancion a Favoritas
-    case 3:
-        $daoListaReproduccion= new DaoListaReproduccion();
-        $codigoCancion = $daoListaReproduccion->getCodigoListaFavoritaPorUsuario($usuario);
-        echo $codigoCancion;
-        break;
+        //obtener listas del usuario
+        case 3:
+
+             $sessionActual = new Session();
+             $usuario = $sessionActual->usuario;
+
+            $daoListaReproduccion=new DaoListaReproduccion();
+            $listas=$daoListaReproduccion->getListasReproduccionPorUsuario($usuario);
+            echo json_encode($listas);
 }
 ?>

@@ -16,8 +16,10 @@ class DaoCancionXCompra{
         $cancion = $cancionxcompra->getIdCancion();
         $compra = $cancionxcompra->getIdCompra();
         $sql = "INSERT INTO cancionesxcompra VALUES ('".$compra."','".$cancion."')";
+        echo($sql);
         $ejecutar = mysql_query($sql);
         $this->conexion->cerrar();
+        return $sql;
     }
 
    

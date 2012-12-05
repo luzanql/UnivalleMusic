@@ -96,6 +96,34 @@ class DaoUsuario {
         }
         
     }
+    
+    function contraseñaDeUsuario($usuario,$contrasena){
+        $this->conexion->Conectar();
+        $consulta = "SELECT * FROM usuario WHERE contrasena= MD5('$contrasena') AND usuario='$usuario'";
+        $respuesta = mysql_query($consulta);
+        $row = mysql_fetch_array($respuesta);
+        $this->conexion->cerrar();
+         if ($row >= 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+        
+    function usuarioEstaActivo ($usuario){
+        $this->conexion->Conectar();
+        $consulta = "SELECT * FROM usuario WHERE usuario='$usuario'";
+        $respuesta = mysql_query($consulta);
+        $row = mysql_fetch_array($respuesta);
+        $this->conexion->cerrar();
+         if ($row['estado']=='Activo') {            
+            return true;
+        } else {
+            return false;
+        }
+        
+        
+    }
 
   
 }
