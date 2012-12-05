@@ -33,7 +33,8 @@ class DaoListaReproduccion {
             $filas [] = $unaFila;
         }
         $this->conexion->cerrar();
-        return json_encode($filas);        
+        return json_encode($filas);
+        
     }
 
     function createListaReproduccion(ListaReproduccion $lr) {
@@ -86,15 +87,6 @@ class DaoListaReproduccion {
         
         
     }
-    
-    function getCodigoListaFavoritaPorUsuario($idUsuario) {
-        $this->conexion->Conectar();
-        $sql = "SELECT codigo FROM listareproduccion WHERE id_Usuario='$idUsuario' AND nombre='Favoritas'";
-        $respuesta = mysql_query($sql);
-        $row = mysql_fetch_array($respuesta);        
-        $this->conexion->cerrar();
-        return $row[0];        
-        }
 
 }
 ?>

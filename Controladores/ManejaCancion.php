@@ -4,7 +4,6 @@ include_once '../Controladores/ControladorCancion.php';
 
 $opcion = $_GET['opcion'];
 $cancion = $_GET['cancion'];
-$usuario = $_GET['usuario'];
 
 switch ($opcion) {
     //Caso 1 eliminar cancion
@@ -13,7 +12,6 @@ switch ($opcion) {
         echo $controladorCancion->eliminarCancion($cancion);
         unlink ("../Recursos/Canciones/" . $cancion);
         break;
-    //Caso 2: Obtiene codigo y titulo cancion
     case 2:
         $controladorCancion = new ControladorCancion();
         $cancion = $controladorCancion->obtenerCancionPorCodigo($cancion);

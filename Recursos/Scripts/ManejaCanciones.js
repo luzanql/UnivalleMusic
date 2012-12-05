@@ -12,11 +12,8 @@ $(function(){
     var btnAgragarAListas = $('#btnAgragarAListas');
     var btnEliminarDeListas = $('#btnEliminarDeListas');
     var btnEliminarCancion = $('#btnEliminarCancion');
-    var btnMeGusta = $('#btnMeGusta');
         
     listaCanciones.on('click',function(){
-        cancionCurrent = $(this).attr('name');
-        
         var accion = 0;
         if($(this).text()=="Agregar a Listas"){
             accion = 1;
@@ -24,29 +21,9 @@ $(function(){
             accion = 2;
         }else if($(this).text()=="Eliminar Cancion"){
             accion = 3;
-        }else if($(this).text()=="Me Gusta"){
-            var urlPhp= "../Controladores/ListasReproduccionXUsuario.php?opcion=3&usuario="+usuarioLogueado;
-            var codidoListaFavorita = "";
-            $.ajax({
-                type: 'POST',
-                url: urlPhp,
-                cache: false,
-                success: function(result) {
-                    codidoListaFavorita = result;
-                    var urlPhp1= "../Controladores/ListasReproduccionXUsuario.php?opcion=1&usuario="+usuarioLogueado+"&codigoLista="+codidoListaFavorita+"&cancion="+cancionCurrent;
-                    $.ajax({
-                        type: 'POST',
-                        url: urlPhp1,
-                        cache: false,
-                        success: function(result) {
-                            alert('La cancion se agrego a la lista de reproduccion "Favoritas"');
-                        }
-                    });
-                }
-            });
-            return;
-        }        
-                        
+        }
+        cancionCurrent = $(this).attr('name');
+                
         var contenedorListasAgregar = $('#checkboxListasAgregar');
         var contenedorListasEliminar = $('#checkboxListasEliminar');
         var contenedorEliminarCancion = $('#contentEliminarCancion');
@@ -145,7 +122,7 @@ $(function(){
         });
     });
     
-    //Cambia lista Reproduccion
+    //Cambia lisa Reproduccion
     $('select').change(function(){
         var codListaSelecionada = $('select option:selected').val();
         var nombreListaSelecionada = $('select option:selected').text();

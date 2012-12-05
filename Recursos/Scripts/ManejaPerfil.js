@@ -53,8 +53,11 @@ $(document).ready(function() {
         $.ajax({
             type: "POST",
             url: url1,
-            success: function( msg ) {
-                alert(msg);
+                success: function( msg ) {
+                    alert(msg);
+                    setTimeout(function() {
+                        document.location.href="../Vista/index.html";
+                    },1000);
             
    
 
