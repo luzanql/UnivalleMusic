@@ -14,10 +14,9 @@ switch ($opcion) {
         $nombre=$_GET['nombre'];
         $apellido=$_GET['apellido'];
         $nacionalidad=$_GET['nacionalidad'];
-        $pasw=$_GET['pasw'];
         $email=$_GET['email'];
         $controladorUsuario=new ControladorUsuario();
-        $controladorUsuario->updateUsuario($codigo, $nombre, $apellido, $nacionalidad, $pasw, $email);
+        $controladorUsuario->updateUsuario($codigo, $nombre, $apellido, $nacionalidad,  $email);
         echo "Informacion modificada";
         break;
     //dar de baja
@@ -25,7 +24,7 @@ switch ($opcion) {
         $codigo = $_GET['codigo'];
         $controladorUsuario=new ControladorUsuario();
         $consulta=$controladorUsuario->darDeBaja($codigo);
-        echo $consulta;
+        echo "Usted se ha dado de baja";
         break;
         
         

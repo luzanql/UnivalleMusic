@@ -22,9 +22,9 @@
             <h4>Usuario creado con exito! Puedes empezar a hacer uso de la aplicación </h4>
         </div>
         <?php
-        include('../Controladores/ControladorUsuario.php');
-        include('../Controladores/ControladorNacionalidad.php');
-        include('../Controladores/ControladorListaReproduccion.php');
+        include_once('../Controladores/ControladorUsuario.php');
+        include_once('../Controladores/ControladorNacionalidad.php');
+        include_once('../Controladores/ControladorListaReproduccion.php');
 
         //
         $nombre = $_POST["nombre"];

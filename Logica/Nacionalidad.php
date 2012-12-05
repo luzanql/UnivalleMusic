@@ -1,10 +1,9 @@
 <?php
 
-class Nacionalidad
-{
+class Nacionalidad{
     
-    Private $codigo;
-    Private $nombre;
+    private $codigo;
+    private $nombre;
     function __construct() {}
     
       function setCodigo($codigo) {
@@ -24,7 +23,5 @@ class Nacionalidad
     }
     
 }
-
-
 
 ?>

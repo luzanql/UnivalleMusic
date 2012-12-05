@@ -7,7 +7,7 @@ $conexion = new Conexion();
 $conexion->Conectar();
 
 //generando la consulta sobre el usuario y su contrasena
-$sqr = "SELECT usuario, contrasena, nombre, apellido, codigo_Perfil FROM usuario WHERE usuario = '" . $_POST["usuario"] . "' and contrasena='" . md5($_POST["password"]) . "'";
+$sqr = "SELECT usuario, contrasena, nombre, apellido,estado codigo_Perfil FROM usuario WHERE usuario = '" . $_POST["usuario"] . "' and contrasena='" . md5($_POST["password"]) . "'";
 //ejecutando la consulta
 $rs = mysql_query($sqr);
 $row = mysql_fetch_array($rs);
@@ -26,7 +26,7 @@ if ($nr == 1) {
     if ($sessionActual->perfil == 1 && $sessionActual->perfil=='Activo' ) {
         header("Location: ../Vista/MisListas.php", false);
     } else {
-        header("Location: ../Vista/MisListas.php");
+        header("Location: ../Vista/MiColeccion.php", false);
     }
 } else if ($nr <= 0) {
 //si no existe se va a ... y pone el valor de error a SI

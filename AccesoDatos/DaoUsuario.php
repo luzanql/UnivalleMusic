@@ -52,18 +52,11 @@ class DaoUsuario {
         $nombre=$usuario->getNombre();
         $apellido=$usuario->getApellido();
         $nacionalidad=$usuario->getCodigo_nacionalidad();
-        $pasw=$usuario->getContrasena();
         $email=$usuario->getEmail();
-        $consulta1="SELECT contrasena FROM usuario WHERE usuario='"+$codigo+"'";
-        $respuesta1 = mysql_query($consulta1);
-        if($pasw==$respuesta1){
-            $consulta = "UPDATE usuario  SET nombre='$nombre', apellido='$apellido',codigo_nacionalidad='$nacionalidad',email='$email' WHERE usuario='$codigo'" ;
-        }else{
-        $consulta = "UPDATE usuario  SET nombre='$nombre', apellido='$apellido',codigo_nacionalidad='$nacionalidad', contrasena='MD5($pasw') ,email='$email' WHERE usuario='$codigo'" ;
+       
+        $consulta = "UPDATE usuario  SET nombre='$nombre', apellido='$apellido',codigo_nacionalidad='$nacionalidad', email='$email' WHERE usuario='$codigo'" ;
         $respuesta = mysql_query($consulta);
-      //  $row = mysql_fetch_array($respuesta);
-        }
-        echo($consulta);
+   
         $this->conexion->cerrar();
         
         
@@ -72,12 +65,12 @@ class DaoUsuario {
     function darDeBaja($usuario){
         
         $this->conexion->Conectar();
-        $consulta = "UPDATE usuario  SET estado='Inactivo' WHERE usario='$usuario' ";
+        $consulta = "UPDATE usuario  SET estado='Inactivo' WHERE usuario='$usuario' ";
         $respuesta = mysql_query($consulta);
         //$row = mysql_fetch_array($respuesta);
        
         $this->conexion->cerrar();
-         return $consulta;
+        
     }
     
     

@@ -74,11 +74,9 @@
                             <div data-role="fieldcontain" align="right">
                                 <label for="basic" data-mini="true">Usuario:</label> <input type="text" name="usuario" id="usuario" value="" data-mini="true"   style="width:200px;height:30px;"  required="" disabled="" align="right" />
                             </div> 
-                            <div data-role="fieldcontain" align="right">
-                                <label for="basic" data-mini="true">Password:</label> <input type="password" name="password" id="password" value="" data-mini="true"   style="width:200px;height:30px;"  required=""  align="right" />
-                            </div> 
+                           
                             <div data-role="controlgroup" data-type="horizontal" data-mini="true" align="right">
-                                <input  data-role="button" value="Darme De Baja" type="button" id="btnDarseBaja"/> 
+                               <a href='../Recursos/Scripts/Logout.php'> <input  data-role="button" value="Darme De Baja" type="button" id="btnDarseBaja"/> </a>
                                 <input type="button" value="Modificar" id="btnModificar" />
                                 
                             </div>

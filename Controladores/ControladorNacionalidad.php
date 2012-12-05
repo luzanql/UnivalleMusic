@@ -1,7 +1,7 @@
 <?php
 
-include'../AccesoDatos/DaoNacionalidad.php';
-include'../Logica/Nacionalidad.php';
+include_once '../AccesoDatos/DaoNacionalidad.php';
+include_once '../Logica/Nacionalidad.php';
 
 class ControladorNacionalidad {
 

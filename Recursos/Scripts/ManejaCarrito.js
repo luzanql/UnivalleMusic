@@ -40,15 +40,7 @@ $(function(){
        
        
         //muestra el valor a pagar 
-      var url="../Controladores/Carrito.php?opcion=4";        
-        
-        $.ajax({
-            type: "POST",
-            url: url,
-            success: function( msg ) {
-                var pesos=(msg * 1950);
-                $('#apagar').text("$"+pesos);
-            }});
+   
     });
     
     /*elimina cancion del carrito
@@ -83,20 +75,27 @@ $(function(){
             for(var i=0 ; i < result.length ; i++){
                 var contenidoHtml = "";
                 var unaFila = result[i];
-                contenidoHtml += "<tr><td>"+ unaFila[1]+"</td><td>"+unaFila[2]+"</td> <td>"+unaFila[3]+"</td><td id="+unaFila[0]+"><a href='' onclick='eliminar(unaFila[0])'><img src='../Recursos/cart_delete.png' style='width:50%; height: 50%;' /></a></td></tr>";
-                $('#tablaVerCarrito').append(contenidoHtml); 
-                //alert(unaFila[0]);
+                contenidoHtml += "<tr><td>"+ unaFila[1]+"</td><td>"+unaFila[2]+"</td> <td>"+unaFila[3]+"</td><td id='"+unaFila[0]+"'><a href='' onclick='eliminar(\""+unaFila[0]+"\")'><img src='../Recursos/cart_delete.png' style='width:50%; height: 50%;' /></a></td></tr>";
+                $('#tablaVerCarrito').append(contenidoHtml);                
             }
         }     
          
         }
-        );
+        );   
+               var url="../Controladores/Carrito.php?opcion=4";        
         
+        $.ajax({
+            type: "POST",
+            url: url,
+            success: function( msg ) {
+                var pesos=(msg * 1950);
+                $('#apagar').text("$"+pesos);
+            }});
     
     }
     
      function eliminar(codigoCancion){
-      //  var codigoCancion = $(this).attr('id');
+        //  var codigoCancion = $(this).attr('id');
         var urlPhp="../Controladores/Carrito.php?opcion=2&codigo="+codigoCancion;
         $.ajax({
             type: "POST",
