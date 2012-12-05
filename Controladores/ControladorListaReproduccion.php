@@ -40,6 +40,15 @@ class ControladorListaReproduccion {
         $listaReproduccion->setIdUsuario($idUsuario);
         $this->daoListaReproduccion->createListaReproduccion($listaReproduccion);
     }
+     function createListaReproduccionCompartidas($user){
+        $listaReproduccion = new ListaReproduccion();
+        $nombre="Compartidas";
+        $listaReproduccion->setNombre($nombre);
+        //Modificar cuando se implement la sesion
+         $idUsuario = $user;
+        $listaReproduccion->setIdUsuario($idUsuario);
+        $this->daoListaReproduccion->createListaReproduccion($listaReproduccion);
+    }
     
     function deleteListaReproduccion($codigo){
         $this->daoListaReproduccion->deleteListaReproduccion($codigo);

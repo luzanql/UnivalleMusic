@@ -1,109 +1,57 @@
 <?php
 
-session_start();
+include_once '../Controladores/ControladorUsuario.php';
 include_once '../AccesoDatos/Session.php';
-include_once '../AccesoDatos/DaoCarrito.php';
-include_once '../Controladores/ControladorCompra.php';
-include_once '../Controladores/ControladorCancionXCompra.php';
-include_once '../Controladores/ControladorCarrito.php';
-include_once '../Controladores/ControladorCancion.php';
-include_once '../Controladores/ControladorArtista.php';
-include_once '../Controladores/ControladorAlbum.php';
+
 $opcion = $_GET['opcion'];
 
 //$opcion=1;
 
 switch ($opcion) {
+    //esta activo
     case 1:
-        $codigo = $_GET['codigo'];
-        $sessionActual = new Session();
-        $carrito = $sessionActual->carrito;
-        $carrito[] = $codigo;
-        $carrito = array_values($carrito);
-        $sessionActual->carrito = $carrito;
-        echo "Cancion " . $codigo . " agregada al carrito";
-
+        $usuario = $_GET['usuario'];
+        $controladorUsuario = new ControladorUsuario();
+        if ($controladorUsuario->usuarioEstaActivo($usuario) == true) {
+            echo "true";
+        } else {
+            echo "false";
+        }
         break;
 
-
+//contraseña correcta
     case 2:
-        $codigo = $_GET['codigo'];
-        $sessionActual = new Session();
-        $carrito = $sessionActual->carrito;
-        for ($index = 0; $index < count($carrito); $index++) {
-            if ($carrito[$index] === $codigo) {
-                unset($carrito[$index]);
-                $carrito = array_values($carrito);
-            }
+        $usuario = $_GET['usuario'];
+        $contrasena = $_GET['pasw'];
+        $controladorUsuario = new ControladorUsuario();
+        if ($controladorUsuario->contrasenaDeUsuario($usuario, $contrasena)) {
+            echo "true";
+        } else {
+            echo "false";
         }
-        $sessionActual->carrito = $carrito;
-        // se supone que quita el elemento cancion de el array carrito
-        echo "Cancion " . $codigo . " eliminada del carrito";
         break;
 
+//Login
     case 3:
-        $codigo = $_GET['codigo'];
-        $daoCarrito = new DaoCarrito();
-        $canciones = $daoCarrito->getCancionesDelCarrito();
-        for ($index = 0; $index < count($canciones); $index++) {
-            if ($codigo == $canciones[$index]) {
-                echo "true";
-                break;
-            } else {
-                echo "false";
-            }
-        }
+        /*
+         * debes hacer casi lo mismo del caso 2 pero debes obtener el registro completo para 
+         * que obtengas todo lo q se necesita  SI AnMoOmRbre codPerfil y el estado exacto amor
+         * eso lo entendist
+         * ahora si vamos  al js
+         */
+        $usuario = $_GET['usuario'];
+        $controladorUsuario=new ControladorUsuario();
+        $row=$controladorUsuario->obtenerUsuario($usuario);
+        $sessionActual = Session::getInstance();
+        $sessionActual->usuario = $row->getUsuario();
+        $sessionActual->nombreUsuario = $row->getNombre();
+        $sessionActual->perfil = $row->getCodigo_Perfil();
+        $sessionActual->estado = $row->getEstado();
+        $sessionActual->carrito = array();
         break;
-
+    //obtener estado
     case 4:
-        $daoCarrito = new DaoCarrito();
-        $canciones = $daoCarrito->getCancionesDelCarrito();
-        echo "".count($canciones);
-        break;
-    //limpiar carrito
-    case 5:
-        $daoCarrito = new DaoCarrito();
-        $daoCarrito->limpiarCarrito();
-        break;
-    
-    //guarda la compra y las canciones por compra
-    case 6:
-        $sessionActual = new Session();
-        $valor = $_GET['valor'];
-        $controladorCompra=new ControladorCompra();
-        $codigoCompra=$controladorCompra->createCompra($valor);
-        $controladorcancionesXCompra=new ControladorCancionXCompra();
-        $carrito=$sessionActual->carrito;
-      
-        for ($index = 0; $index < count($carrito); $index++) {
-          $controladorcancionesXCompra->createCancionXCompra($carrito[$index], $codigoCompra);  
-        }
-        //obtiene la tabla de las canciones del carrito con nombre de artista, album etc
-    case 7:
-       
-            $controladorCarrito = new ControladorCarrito();
-            $controladorCancion=new ControladorCancion();
-            $controladorArtista=new ControladorArtista();
-            $controladorAlbum=new ControladorAlbum();
-            $tabla=array();
-            
-            $listaCanciones = $controladorCarrito->obtenerCancionesDelCarrito();
-            for ($index = 0; $index < count($listaCanciones); $index++) {
-                $codigo=$listaCanciones[$index];
-                $cancion=$controladorCancion->obtenerCancionPorCodigo($codigo);
-                $titulo=$cancion->getTitulo();
-                $artista=$controladorArtista->obtenerNombreArtista($cancion->getArtista());
-                $album=$controladorAlbum->obtenerNombreAlbum($cancion->getAlbum());
-                $fila=array();
-                $fila[]=$codigo;
-                $fila[]=$titulo;
-                $fila[]=$artista;
-                $fila[]=$album;
-                $tabla[]=$fila;
-                           
-            }
-            echo json_encode($tabla);
-            break;
-       
+        $sessionActual = Session::getInstance();
+        echo $sessionActual->perfil; 
 }
 ?>
