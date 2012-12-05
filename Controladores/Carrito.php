@@ -5,6 +5,7 @@ include_once '../AccesoDatos/Session.php';
 include_once '../AccesoDatos/DaoCarrito.php';
 include_once '../Controladores/ControladorCompra.php';
 include_once '../Controladores/ControladorCancionXCompra.php';
+include_once '../Controladores/ControladorCancionesXUsuario.php';
 include_once '../Controladores/ControladorCarrito.php';
 include_once '../Controladores/ControladorCancion.php';
 include_once '../Controladores/ControladorArtista.php';
@@ -72,12 +73,16 @@ switch ($opcion) {
         $valor = $_GET['valor'];
         $controladorCompra=new ControladorCompra();
         $codigoCompra=$controladorCompra->createCompra($valor);
+        echo $codigoCompra;
         $controladorcancionesXCompra=new ControladorCancionXCompra();
+        $controladorCancionesXUsuario=new ControladorCancionesXUsuario();
         $carrito=$sessionActual->carrito;
       
         for ($index = 0; $index < count($carrito); $index++) {
-          $controladorcancionesXCompra->createCancionXCompra($carrito[$index], $codigoCompra);  
+          $controladorcancionesXCompra->createCancionXCompra($carrito[$index], $codigoCompra);
+          $controladorCancionesXUsuario->createCancionesXUsuario($carrito[$index]);
         }
+       
         //obtiene la tabla de las canciones del carrito con nombre de artista, album etc
     case 7:
        
