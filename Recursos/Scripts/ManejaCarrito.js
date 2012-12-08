@@ -10,6 +10,7 @@ $(function(){
     
     //agregar cancion al carrito
     $('td[name*=php]').on('click',function(){
+        alert("DiO CLICK AGREGAR");
         $('td[name*=php]').bind('click');
         var codigoCancion = $(this).attr('name');
         var urlPhp="../Controladores/Carrito.php?opcion=1&codigo="+codigoCancion;

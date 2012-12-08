@@ -49,7 +49,6 @@
         
         $controladorLista=new ControladorListaReproduccion();
         $controladorLista->createListaReproduccionFavoritas($user);
-        $controladorLista->createListaReproduccionCompartidas($user);
         
         ?>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">

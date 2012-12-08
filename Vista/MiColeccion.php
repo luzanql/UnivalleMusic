@@ -9,46 +9,44 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" />
         <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-            
+
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
         <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
         <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
-            
+
         <link rel="stylesheet" type="text/css" href="../themes/reproductor.css">
         <script type="text/javascript" src="../Recursos/Scripts/reproductor.js"></script>
         <script type="text/javascript" src="../Recursos/Scripts/ManejaCanciones.js"></script>
-      
     </head>
     <body onunload="pausarCancion()">
 
         <div data-role="page" data-theme= "a">
 
-         <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
+            <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
                 <img src="../Recursos/Banner.png" style="width: 80%; height: 100%;"/>
                 <div style="float:right;">
-                    <a href="verCarrito.php" data-rel="dialog" id="logoCarrito">
+                    <a href="verCarrito.php" data-rel="dialog" >
                         <img src="../Recursos/carrito.jpeg" style=" width:50%; height: 50%; "  /></a>
                     <div id="usuarioLogueado">   
                         <?php
                         $usuarioActual = $_SESSION['usuario'];
-                        echo "Usuario: " . $usuarioActual."<br/>".
-                                        "<a href='../Recursos/Scripts/Logout.php'>Cerrar Sesi&oacute;n</a>";
-                                ?>
-                        
+                        echo "Usuario: " . $usuarioActual . "<br/>";
+                        ?>                        
                     </div>
+                    <div><a href='../Recursos/Scripts/Logout.php'>Cerrar Sesi&oacute;n</a></div>
                 </div >
             </div><!-- /header -->           
-          
+
 
             <div data-role="content" data-theme = "a">	
                 <div class="ui-grid-b">
                     <div class="ui-block-a" style="width:250px; margin:3%">
 
                         <div data-role="controlgroup"> 
-                            <a href="../Vista/MiPerfil.php" data-role="button" id="perfil"> Mi Perfil </a> 
-                            <a href="../Vista/MiColeccion.php" data-role="button" id="coleccion"> Mi Coleccion</a> 
-                            <a href="../Vista/MisListas.php" data-role="button" id="listas"> Listas de Reproduccion</a> 
-                            <a href="../Vista/ComprarMusica.php" data-role="button" id="comprar"> Comprar Musica</a>
+                            <a href="../Vista/MiPerfil.php" data-role="button"> Mi Perfil </a> 
+                            <a href="../Vista/MiColeccion.php" data-role="button"> Mi Coleccion</a> 
+                            <a href="../Vista/MisListas.php" data-role="button"> Listas de Reproduccion</a> 
+                            <a href="../Vista/ComprarMusica.php" data-role="button"> Comprar Musica</a>
                         </div>
                     </div>
                     <div class="ui-block-b" style=" margin:3%" >
@@ -79,7 +77,7 @@
                                             $listasPorUsuario = $controladorListaReproduccion->getCodigoNombreListasPorUsuario($usuarioActual);
                                             if ($listasPorUsuario > 0) {
                                                 foreach ($listasPorUsuario as $unaLista) {
-                                                    echo "<option value='".$unaLista[0]."'>".$unaLista[1]."</option>";
+                                                    echo "<option value='" . $unaLista[0] . "'>" . $unaLista[1] . "</option>";
                                                 }
                                             }
                                             ?>
@@ -91,7 +89,7 @@
 
                         </table>
 
-                      
+
                         <div id="divReproductor">
                             <div id="divInfo">
                                 <div id="divLogo" style="width: 15%;">
@@ -155,12 +153,13 @@
                                             $artista = $controladorArtista->obtenerNombreArtista($unaCancion['artista']);
                                             echo '<li rel="../Recursos/Canciones/' . $unaCancion['codigo'] . '">
                                             <strong>' . $unaCancion['nombre'] . '</strong>
-                                            <em>' . $artista . '</em><a href="#agregarAListas" name="' . $unCodigoCancion .
+                                            <em>' . $artista . '</em><a href="#agregarAListas" style="color: blue;" name="' . $unCodigoCancion .
                                             '" data-rel="popup" data-position-to="window" data-transition="pop">Agregar a Listas</a>
+                                            <a id="btnMeGusta" style="color: blue;" data-mini="true" name="' . $unCodigoCancion . '">Me Gusta</a>                                            
                                             <a href="#eliminarDeListas" name="' . $unCodigoCancion .
                                             '" data-rel="popup" data-position-to="window" data-transition="pop">Eliminar de Listas</a>
                                             <a href="#eliminarCancion" name="' . $unCodigoCancion .
-                                            '" data-rel="popup" data-position-to="window" data-transition="pop">Eliminar Cancion</a>
+                                            '" data-rel="popup" data-position-to="window" data-transition="pop">Eliminar Cancion</a>                                            
                                                 </li>';
                                         }
                                     }
@@ -184,7 +183,7 @@
                 <h3>Agregar a las Listas de Reproduccion:</h3>
                 <div data-role="fieldcontain" style="width: 80%;">
                     <fieldset id="checkboxListasAgregar" data-theme="a" data-type="vertical" data-role="controlgroup">
-                        
+
                     </fieldset>
                 </div>
                 <a data-role="button"
@@ -194,12 +193,12 @@
                    data-mini="true">Agregar Canciones a Listas...</a>
                 <a data-role="button" data-rel="back" data-inline="true" data-mini="true">Cancel</a>	
             </div>
-            
+
             <div data-role="popup" id="eliminarDeListas" data-overlay-theme="b" >
                 <h3>Eliminar de las  Listas de Reproduccion:</h3>
                 <div data-role="fieldcontain" style="width: 80%;">
                     <fieldset id="checkboxListasEliminar" data-theme="a" data-type="vertical" data-role="controlgroup">
-                        
+
                     </fieldset>
                 </div>
                 <a data-role="button"
@@ -209,11 +208,11 @@
                    data-mini="true">Eliminar Canciones de Listas...</a>
                 <a data-role="button" data-rel="back" data-inline="true" data-mini="true">Cancel</a>	
             </div>
-            
+
             <div data-role="popup" id="eliminarCancion" data-overlay-theme="b" >
                 <h3>Eliminar Cancion de la Coleccion:</h3>
                 <div id="contentEliminarCancion" data-role="fieldcontain" style="width: 80%;">
-                    
+
                 </div>
                 <a data-role="button"
                    data-rel="back"

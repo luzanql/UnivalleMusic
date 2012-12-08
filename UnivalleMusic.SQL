@@ -356,7 +356,7 @@ INSERT INTO bancos VALUES ("Banco CityBank");
 INSERT INTO bancos VALUES ("Banco Davivienda");
 INSERT INTO bancos VALUES ("Bancolombia");
 
-SELECT nombre FROM bancos WHERE nombre LIKE %'city'%;
+SELECT nombre FROM bancos WHERE nombre LIKE '%city%';
 
 
 SHOW TABLES;

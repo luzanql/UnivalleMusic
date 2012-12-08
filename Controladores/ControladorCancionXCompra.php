@@ -17,7 +17,7 @@ class ControladorCancionXCompra{
         $cancionXCompra=new CancionesXCompra();   
         $cancionXCompra->setIdCancion($cancion);
         $cancionXCompra->setIdCompra($compra);
-        return $this->daoCancionXCompra->createCancionXCompra($cancionXCompra);
+        $this->daoCancionXCompra->createCancionXCompra($cancionXCompra);
     
     }
     

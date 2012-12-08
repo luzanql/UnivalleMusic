@@ -15,6 +15,7 @@ $opcion = $_GET['opcion'];
 //$opcion=1;
 
 switch ($opcion) {
+    //agregar cancion al carrito
     case 1:
         $codigo = $_GET['codigo'];
         $sessionActual = new Session();
@@ -41,7 +42,7 @@ switch ($opcion) {
         // se supone que quita el elemento cancion de el array carrito
         echo "Cancion " . $codigo . " eliminada del carrito";
         break;
-
+//revisar si la cancion se agrego al carrito
     case 3:
         $codigo = $_GET['codigo'];
         $daoCarrito = new DaoCarrito();

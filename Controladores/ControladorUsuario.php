@@ -53,7 +53,7 @@ class ControladorUsuario{
     }
     
     function darDeBaja($usu){
-       $this->daousuario->darDeBaja($usu);
+    $this->daousuario->darDeBaja($usu);
     }
     
     function activarCuenta($usu){

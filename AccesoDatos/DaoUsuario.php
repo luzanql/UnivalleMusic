@@ -67,6 +67,7 @@ class DaoUsuario {
         $this->conexion->Conectar();
         $consulta = "UPDATE usuario  SET estado='Inactivo' WHERE usuario='$usuario' ";
         $respuesta = mysql_query($consulta);
+        $consulta;
         //$row = mysql_fetch_array($respuesta);
        
         $this->conexion->cerrar();

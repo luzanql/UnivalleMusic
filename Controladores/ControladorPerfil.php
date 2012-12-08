@@ -24,7 +24,7 @@ switch ($opcion) {
         $codigo = $_GET['codigo'];
         $controladorUsuario=new ControladorUsuario();
         $consulta=$controladorUsuario->darDeBaja($codigo);
-        echo "Usted se ha dado de baja";
+        echo "usted se ha dado de baja";
         break;
         
         
