@@ -202,10 +202,6 @@ $(function(){
         return Array(iMinutos,iSegundos);
     };
     
-    function pausarCancion(){
-        objReproductor.pause();
-    }
-	
     //cambiar la opacidad de los botones al colocar el puntero del raton sobre ellos
     $('input[type="button"]').hover(function(){
         //cambiamos la opacidad a 50%
@@ -224,7 +220,11 @@ $(function(){
 function reproducirDobleClick(evento){
         //establecemos el numero de cancion (usando el indice del li clickeado)
         iCancionActual=evento.index();
-        //iCancionActual = 1;
         //llamamos a la funcion que reproduce los archivos de audio
         $.fntReproducir();
     }    
+    
+function pausarCancion(){
+        alert("cierra pagina")
+        objReproductor.pause();
+    }

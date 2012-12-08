@@ -18,7 +18,7 @@
         <script type="text/javascript" src="../Recursos/Scripts/reproductor.js"></script>
         <script type="text/javascript" src="../Recursos/Scripts/ManejaCanciones.js"></script>
     </head>
-    <body onunload="pausarCancion()">
+    <body onunload="pausarCancion();">
 
         <div data-role="page" data-theme= "a">
 
