@@ -119,7 +119,7 @@
                             <div id="divLista">
                                 <ol id="olCanciones">
 
-                                    <li rel="../Recursos/Canciones/Tone_Urbano.mp3">
+                                    <li rel="../Recursos/Canciones/Tone_Urbano.mp3" ondblclick="reproducirDobleClick($(this));">
                                         <strong>Gingle</strong>
                                         <em>Univalle Music</em>                                        
                                     </li>
@@ -151,7 +151,7 @@
                                             $daoCanciones = new DaoCancion();
                                             $unaCancion = $daoCanciones->obtenerCancionPorCodigo($unCodigoCancion);
                                             $artista = $controladorArtista->obtenerNombreArtista($unaCancion['artista']);
-                                            echo '<li rel="../Recursos/Canciones/' . $unaCancion['codigo'] . '">
+                                            echo '<li rel="../Recursos/Canciones/' . $unaCancion['codigo'] . '" ondblclick="reproducirDobleClick($(this));">
                                             <strong>' . $unaCancion['nombre'] . '</strong>
                                             <em>' . $artista . '</em><a href="#agregarAListas" style="color: blue;" name="' . $unCodigoCancion .
                                             '" data-rel="popup" data-position-to="window" data-transition="pop">Agregar a Listas</a>

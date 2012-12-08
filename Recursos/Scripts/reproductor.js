@@ -1,10 +1,14 @@
 /* reproductor de musica con html5 y jquery */
 
-$(function(){
-    //creamos un objeto Audio de HTML5 para reproducir archivos
     var objReproductor=new Audio();
     //variable para almacenar la cancion que se esta reproduciendo
     var iCancionActual=0;
+    
+$(function(){
+    //creamos un objeto Audio de HTML5 para reproducir archivos
+    //var objReproductor=new Audio();
+    //variable para almacenar la cancion que se esta reproduciendo
+    //var iCancionActual=0;
     //obtenemos la cantidad total de canciones en la lista (mas abajo la necesitaremos)
     var iTotalCanciones=$('#olCanciones li').length;
 	
@@ -111,16 +115,7 @@ $(function(){
         //reproducimos la cancion
         $.fntReproducir();
     });
-	
-    //evento al hacer clic en cualquiera de las canciones
-    var listaCanciones = $('#olCanciones li');
-    listaCanciones.on('dblclick',function(){
-        //establecemos el numero de cancion (usando el indice del li clickeado)
-        iCancionActual=$(this).index();
-        //llamamos a la funcion que reproduce los archivos de audio
-        $.fntReproducir();
-    });
-	
+		
     //errores del reproductor
     
     $(objReproductor).on('error',function(){
@@ -225,3 +220,11 @@ $(function(){
     });
 	
 });
+
+function reproducirDobleClick(evento){
+        //establecemos el numero de cancion (usando el indice del li clickeado)
+        iCancionActual=evento.index();
+        //iCancionActual = 1;
+        //llamamos a la funcion que reproduce los archivos de audio
+        $.fntReproducir();
+    }    
