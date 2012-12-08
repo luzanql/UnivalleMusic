@@ -2,6 +2,8 @@
 
 require_once 'conexion.php';
 
+    
+
     class DaoReporte {
 
     private $conexion;
@@ -10,14 +12,24 @@ require_once 'conexion.php';
         $this->conexion = new Conexion();
     }
 
-   
-
-    function createNacionalidad() {
+    function getArtistaxCancion() 
+    {
         $this->conexion->Conectar();
-        $consulta = "SELECT c.nombre, ar.nombre FROM cancion as c, artista  as ar WHERE c.artista=ar.codigo;";
-        mysql_query($consulta);
+        $consulta = "SELECT song.nombre as cancion, ar.nombre as artista FROM cancion as song, artista  as ar WHERE song.artista=ar.codigo;";
+       $respuesta = mysql_query($consulta);
+        $filas = array();
+          while ($row = mysql_fetch_array($respuesta)) {
+            $filas [] = array($row ["cancion"], $row ["artista"]);
+        }
+        print_r($filas);
+
         $this->conexion->cerrar();
+        return $filas;
     }
+        
+        
+        
+    
 
 
 
