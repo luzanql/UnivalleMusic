@@ -109,9 +109,10 @@
                         </table>
                             
                     </div>
-                    <div class="ui-block-c" style="width:10%; margin:3%"  id="publicidad">
+                    <div class="ui-block-c" style="width:25%; height: 200px; margin:3%"  id="publicidad">
                         <iframe src="backEnd.php" height="0" width="0"></iframe>
-                        <div id="content" style="color: red">The server time will be shown here</div>
+                        <div id="content" style="background-image: url('../Recursos/notas.jpg'); background-size: cover; height: 100%; width: 100%;">The server time will be shown here</div>
+                        
                         <script type="text/javascript">
                             
                             var content = $('#content');
