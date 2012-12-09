@@ -52,11 +52,11 @@
                     <div class="ui-block-b" style=" margin:3%" >
 
                         <?php
-                        if (isset($_GET['nombreLista'])) {
+                        if (isset($_GET['nombreLista']) && isset($_GET['codLista'])) {
                             $nombreLista = $_GET['nombreLista'];
-                            echo "<h1 id='tituloLista'>" . $nombreLista . "</h1>";
+                            echo "<h1 id='tituloLista' name='".$_GET['codLista']."'>" . $nombreLista . "</h1>";
                         } else {
-                            echo "<h1 id='tituloLista'>Mi Colecci&oacute;n</h1>";
+                            echo "<h1 id='tituloLista' name=''>Mi Colecci&oacute;n</h1>";
                         }
                         ?>                                               
                         <table>
@@ -81,6 +81,15 @@
                                                 }
                                             }
                                             ?>
+                                        </select>
+                                    </fieldset>                                    
+                                </td>
+                                <td>
+                                    <fieldset data-role="controlgroup" data-type="horizontal">
+                                        <select name="mostrarListasReprocuccion" id="ordenarListasReprocuccion" data-mini="true" >
+                                            <option>Ordenar por:</option>
+                                            <option>Titulo Cancion</option>
+                                            <option>Artista</option>
                                         </select>
                                     </fieldset>                                    
                                 </td>
