@@ -20,8 +20,26 @@ require_once 'conexion.php';
         $filas = array();
           while ($row = mysql_fetch_array($respuesta)) {
             $filas [] = array($row ["cancion"], $row ["artista"]);
-        }
-        print_r($filas);
+        } // las consultas deben quedar en formtato de matriz
+//        print_r($filas);
+
+        $this->conexion->cerrar();
+        return $filas;
+    }
+    
+    function getNCancionesXArtista() 
+    {
+        $this->conexion->Conectar();
+        $consulta = "SELECT ar.nombre as artista COUNT(song.nombre) AS canciones
+            FROM cancion as song, artista  as ar 
+            WHERE song.artista=ar.codigo
+            GROUP BY ar.codigo;";
+       $respuesta = mysql_query($consulta);
+        $filas = array();
+          while ($row = mysql_fetch_array($respuesta)) {
+            $filas [] = array($row ["cancion"], $row ["artista"]);
+        } // las consultas deben quedar en formtato de matriz
+//        print_r($filas);
 
         $this->conexion->cerrar();
         return $filas;

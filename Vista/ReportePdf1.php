@@ -45,7 +45,7 @@ $pdf=new PdfTable();
 
 //T�tulos de las columnas
 //$header=array('Nombre','E-Mail','Twitter');
-$header=array('Artista','Cancion');
+$header=array('Cancion','Artista');
 
 //anchos de cada columna
 //$widths=array(40,70,40);
