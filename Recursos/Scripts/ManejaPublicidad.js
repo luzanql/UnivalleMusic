@@ -1,37 +1,38 @@
 $(document).ready(function() {
-     var url="../Controladores/Carrito.php?opcion=4";     
-    $('#pagarFinal').click(function(){
-        alert('Dio cliock pagar');
-            $.ajax({
-        type: "POST",
-        url: url,
+       
+    $('#content').click(function(){
+        var info=$('#content').text();
+        var datosCancion=info.split(",");
+        var nombrecancion=datosCancion[0].split(":");
+        var artistacancion=datosCancion[1].split(":")
+        var titulo= nombrecancion[1];
+        var artista=artistacancion[1];
+        alert(titulo+"-"+artista);
+        setTimeout(function() {
+                        document.location.href="../Vista/ComprarMusica.php";
+                    },1000);
+       // var urlPhp="../Controladores/Carrito.php?opcion=1&codigo="+codigoCancion;
+        //var url="../Controladores/Carrito.php?opcion=3&codigo="+codigoCancion;  
+      
+          /*  $.ajax({
+            type: "POST",
+            url: url,
             success: function( msg ) {
-                var pesos=(msg * 1950);
-                if(pesos<=0){
-                    $("#mensajeConfirmacion").text("Lo sentimos, el valor de su transaccion es inferior al monto minimo establecido");
-
-                } else {
-                    //ajax de guardar compra y canciones por compra
-                    var url2="../Controladores/Carrito.php?opcion=6&valor="+pesos;
+                if(msg=="true"){
+                  
+                }else{
                     $.ajax({
                         type: "POST",
-                        url: url2,
+                        url: urlPhp,
                         success: function( msg ) {
-                            alert(msg);
-                            var url1="../Controladores/Carrito.php?opcion=5";
-                            $.ajax({
-                                type: "POST",
-                                url: url1,
-                                success: function( msg ) {}
-                            })
-                            $("#mensajeConfirmacion").text("El pago se realizo satisfactoriamente");
-                        }
-                    })
-               
-                }
+                            $('#mensaje').text(msg);
+                            $('#mensaje').show();
+                        }        
+                    });
                 
-        }
-    });
+                }
+            }        
+        });*/
             
     });
 

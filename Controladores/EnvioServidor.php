@@ -44,11 +44,11 @@ error_reporting(E_ALL);
 //time() - $startTime
 
         while (0 < $maxLoopTime) {
-            $randon = mt_rand(0, count($codigoCanciones));
+            $randon = mt_rand(0, count($codigoCanciones)-1);
             $acum++;
             $cancion = $controladorCancion->obtenerCancionPorCodigo($codigoCanciones[$randon]);
             echo "<script type='text/javascript'>";                        
-            echo "dumpText('Titulo:".$cancion->getTitulo()."</br> Arstista:".$controladorArtista->obtenerNombreArtista($cancion->getArtista())."');".str_repeat(' ',500); //500 characters of padding
+            echo "dumpText('ADQUIERALA YA! </br>Titulo:".$cancion->getTitulo().",</br> Arstista:".$controladorArtista->obtenerNombreArtista($cancion->getArtista())."');".str_repeat(' ',500); //500 characters of padding
             echo "</script>\r\n";
 
 
@@ -60,7 +60,7 @@ error_reporting(E_ALL);
             flush();
 
             //$randSleep = mt_rand(100000, 2000000); //sleep between 100 ms and 2 seconds
-            $randSleep = 5000000;
+            $randSleep = 6000000;
             usleep($randSleep);
         }
         ?>

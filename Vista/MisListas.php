@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
         <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
         <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+        <script src="../Recursos/Scripts/ManejaPublicidad.js"></script>
     </head>
     <body>
 
@@ -111,7 +112,7 @@
                     </div>
                     <div class="ui-block-c" style="width:25%; height: 200px; margin:3%"  id="publicidad">
                         <iframe src="../Controladores/EnvioServidor.php" height="0" width="0"></iframe>
-                        <div id="content" style="background-image: url('../Recursos/notas.jpg'); background-size: cover; height: 100%; width: 100%; color: blue; font-weight: bold"></div>
+                        <div id="content" style="background-image: url('../Recursos/notas.gif'); background-size: cover; height: 100%; width: 100%; color: white; font-weight: bold"></div>
                         
                         <script type="text/javascript">
                             
