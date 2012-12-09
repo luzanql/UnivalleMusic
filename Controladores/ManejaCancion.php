@@ -2,9 +2,21 @@
 
 include_once '../Controladores/ControladorCancion.php';
 
-$opcion = $_GET['opcion'];
-$cancion = $_GET['cancion'];
-$usuario = $_GET['usuario'];
+$opcion = "";
+$cancion = "";
+$usuario = "";
+
+if (isset($_GET['opcion'])) {
+    $opcion = $_GET['opcion'];
+}
+
+if (isset($_GET['cancion'])) {
+    $cancion = $_GET['cancion'];
+}
+
+if (isset($_GET['usuario'])) {
+    $usuario = $_GET['usuario'];
+}
 
 switch ($opcion) {
     //Caso 1 eliminar cancion
