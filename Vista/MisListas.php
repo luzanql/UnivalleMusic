@@ -35,7 +35,7 @@
 
 
             <div data-role="content" data-theme = "a">	
-                <div class="ui-grid-b">
+              <div class="ui-grid-b">
                     <div class="ui-block-a" style="width:250px; margin:3%">
 
                         <div data-role="controlgroup"> 
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="ui-block-b" style=" margin:3%" >
-
+                        
                         <?php
                         include_once '../Controladores/ControladorListaReproduccion.php';
                         $controlador = new ControladorListaReproduccion();
@@ -70,11 +70,11 @@
                                 <td>
                                     <img src="../Recursos/listaReproduccion.png" align="right">
                                 </td>
-
+                                    
                             </tr>
-
+                                
                         </table>
-
+                            
                         <table>
                             <tr>
                                 <td>
@@ -83,36 +83,51 @@
                                     </div>
                                 </td>
                             </tr>
-
+                                
                         </table>
-
+                            
                         <table  border="2" width=80%" bordercolor="black">
                             <tr>
                                 <th>Nombre de la Lista </th>
                                 <th>Opciones</th>
-
-
+                                    
+                                    
                             </tr>
-
+                                
                             <?php
                             include_once '../Controladores/ControladorListaReproduccion.php';
                             $controladorLista = new ControladorListaReproduccion();
                             $listasUsuario = $controladorLista->obtenerListasReproduccionPorUsuario();
-                            $codigo= $_SESSION['usuario'];
-                            
+                            $codigo = $_SESSION['usuario'];
+
                             for ($index = 0; $index < count($listasUsuario); $index++) {
-                                echo "<tr><td><a href='MiColeccion.php?nombreLista=".$listasUsuario[$index][1]."&codLista=".$listasUsuario[$index][0]."'>".$listasUsuario[$index][1]."</a></td>
-                                    <td><a  href='EliminarLista.php?lista=".$listasUsuario[$index][1]."' data-rel='dialog'  data-role='button' data-icon='delete' >Eliminar</a></td></tr>";
+                                echo "<tr><td><a href='MiColeccion.php?nombreLista=" . $listasUsuario[$index][1] . "&codLista=" . $listasUsuario[$index][0] . "'>" . $listasUsuario[$index][1] . "</a></td>
+                                    <td><a  href='EliminarLista.php?lista=" . $listasUsuario[$index][1] . "' data-rel='dialog'  data-role='button' data-icon='delete' >Eliminar</a></td></tr>";
                             }
                             ?>
-
+                                
                         </table>
-
-
+                            
                     </div>
-
-                </div><!-- /grid-b -->
-
+                    <div class="ui-block-c" style="width:25%; height: 200px; margin:3%"  id="publicidad">
+                        <iframe src="backEnd.php" height="0" width="0"></iframe>
+                        <div id="content" style="background-image: url('../Recursos/notas.jpg'); background-size: cover; height: 100%; width: 100%;">The server time will be shown here</div>
+                        
+                        <script type="text/javascript">
+                            
+                            var content = $('#content');
+                            var dumpText = function(text){
+                                //alert(text);
+                                content.html(text);
+                                //content.innerHTML = content.innerHTML + '<BR>'+ text;
+                            }
+                  
+                            
+                        </script>
+                   
+                    </div>
+              </div><!-- /grid-b -->
+                  
             </div><!-- /content -->
 
             <div data-role="footer" data-theme = "b" STYLE=" border-style:solid; border-color: #c73930;">
