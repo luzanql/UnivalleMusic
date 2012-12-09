@@ -6,8 +6,10 @@
     
         <h3>Carrito de Compras</h3>
     </div>
+    
     <div data-role = "content" align = "center" data-theme = "a">
         <div id="mensajeEliminar" style="color: dodgerblue"></div>
+        <div style="overflow: auto; height: 250px; width: 100%;">
         <table border = "3" width = "100%" bordercolor = "gray" id="tablaVerCarrito">
            <!--<tr>
                 <th width = "30%">Titulo </th>
@@ -18,6 +20,7 @@
             
             
         </table>
+        </div>
         Total a Pagar:
       <div id="apagar" style="color: red"></div>
         

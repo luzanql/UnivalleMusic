@@ -37,7 +37,7 @@
 
             <div data-role="content" data-theme = "a">	
                 <div class="ui-grid-b">
-                    <div class="ui-block-a" style="width:250px; margin:3%">
+                    <div class="ui-block-a" style="width:20%; margin:3%">
 
                          <div data-role="controlgroup"> 
                             <a href="../Vista/MiPerfil.php" data-role="button" id="perfil"> Mi Perfil </a> 
@@ -46,7 +46,7 @@
                             <a href="../Vista/ComprarMusica.php" data-role="button" id="comprar"> Comprar Musica</a>
                         </div>
                     </div>
-                    <div class="ui-block-b" style="width:250px; margin:3%">
+                    <div class="ui-block-b" style="width:25%; margin:3%;">
 
                         <?php
                         include_once '../Controladores/ControladorCarrito.php';
@@ -59,8 +59,8 @@
                         <div id="mensaje" style="color: dodgerblue"></div>
 
                         <p>Comprar M&uacute;sica</p>
-                        <div  >
-                            <table border="3" width="200%" bordercolor="gray" id="opciones"   >
+                        <div style="overflow: auto; height: 250px; width: 250%;">
+                            <table border="3" bordercolor="gray" id="opciones" >
                             <tr >
                                 <th width="30%">Titulo </th>
                                 <th width="20%">&Aacute;rtista</th>
@@ -77,7 +77,7 @@
 					<td>" . $listaCanciones[$index][1] . "</td>
 					<td>" . $listaCanciones[$index][2] . "</td>
 					<td>" . $listaCanciones[$index][3] . "</td>
-					<td name='".$listaCanciones[$index][0]."'><img src='../Recursos/carrito.jpeg' style='width:50%; height: 50%;' /></td></tr>";
+					<td name='".$listaCanciones[$index][0]."'><img src='../Recursos/carrito.jpeg' style='width:80%; height: 50%;' /></td></tr>";
                             }
                             ?>
                         </table>
