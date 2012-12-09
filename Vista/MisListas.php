@@ -18,16 +18,20 @@
 
         <div data-role="page" data-theme= "a">
 
-            <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
+ <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
                 <img src="../Recursos/Banner.png" style="width: 80%; height: 100%;"/>
                 <div style="float:right;">
                     <a href="verCarrito.php" data-rel="dialog" >
                         <img src="../Recursos/carrito.jpeg" style=" width:50%; height: 50%; "  /></a>
-                    <div >   
-                        <?php echo "Usuario:" . $_SESSION['usuario'] ?>
+                    <div id="usuarioLogueado">   
+                        <?php
+                        $usuarioActual = $_SESSION['usuario'];
+                        echo "Usuario: " . $usuarioActual . "<br/>";
+                        ?>                        
                     </div>
+                    <div><a href='../Recursos/Scripts/Logout.php'>Cerrar Sesi&oacute;n</a></div>
                 </div >
-            </div><!-- /header -->
+            </div><!-- /header -->  
 
 
             <div data-role="content" data-theme = "a">	
