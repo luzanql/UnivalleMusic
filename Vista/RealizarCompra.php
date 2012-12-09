@@ -1,7 +1,7 @@
 <?php include_once '../Recursos/Scripts/Login.php'; ?>
 <div data-role = "dialog" id = "realizarCompra" >
-    
-    <div data-role = "header" data-theme = "b" data-transition = "slidedowm" >
+        <div data-role = "header" data-theme = "b" data-transition = "slidedowm" >
+            <script type="text/javascript" src="../Recursos/Scripts/ManejaCompra.js"></script>
       
 
         

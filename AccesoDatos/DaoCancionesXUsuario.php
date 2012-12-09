@@ -12,13 +12,25 @@ class DaoCancionesXUsuario {
 
     function createCancionXUsuario(CancionesXUsuario $cancionXUsuario) {
 
-        $this->conexion->Conectar();
+        
         $usuario = $cancionXUsuario->getCodigoUsuario();
         $cancion = $cancionXUsuario->getCodigoCancion();
-
-        $sql = "INSERT INTO cancionesxusuario (codigo_Usuario, codigo_Cancion, fecha) VALUES ('$usuario','$cancion',CURRENT_TIMESTAMP)";
-        $ejecutar = mysql_query($sql);
-        $this->conexion->cerrar();
+        
+        /* valido si ya compro la cancion
+         * 
+         */
+       $existe=$this->existeCancionXUsuario($usuario, $cancion);
+       
+        if (!$existe) {
+            $this->conexion->Conectar();
+            $sql = "INSERT INTO cancionesxusuario (codigo_Usuario, codigo_Cancion, fecha) VALUES ('$usuario','$cancion',CURRENT_TIMESTAMP)";
+            $ejecutar = mysql_query($sql);
+        
+           $this->conexion->cerrar();
+        } else {       
+           
+        };
+        
     }
 
     function existeCancionXUsuario($codigo_usuario, $codigo_Cancion) {
@@ -27,11 +39,14 @@ class DaoCancionesXUsuario {
         $ejecutar = mysql_query($sql);
         $row = mysql_fetch_array($ejecutar);
         $this->conexion->cerrar();
-        if ($row >= 1) {
+        
+        if ($row > 0) {
+            
             return true;
-        }else
+        }else{
+            
             return false;
-    }
+    }}
 
     function obtenerCancionesXUsuario($codigo_usuario) {
         $this->conexion->Conectar();

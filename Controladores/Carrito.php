@@ -74,7 +74,7 @@ switch ($opcion) {
         $valor = $_GET['valor'];
         $controladorCompra=new ControladorCompra();
         $codigoCompra=$controladorCompra->createCompra($valor);
-        echo $codigoCompra;
+        //echo $codigoCompra;
         $controladorcancionesXCompra=new ControladorCancionXCompra();
         $controladorCancionesXUsuario=new ControladorCancionesXUsuario();
         $carrito=$sessionActual->carrito;
@@ -83,6 +83,7 @@ switch ($opcion) {
           $controladorcancionesXCompra->createCancionXCompra($carrito[$index], $codigoCompra);
           $controladorCancionesXUsuario->createCancionesXUsuario($carrito[$index]);
         }
+       // echo "tamaño carro "+  count($carrito);
        
         //obtiene la tabla de las canciones del carrito con nombre de artista, album etc
     case 7:

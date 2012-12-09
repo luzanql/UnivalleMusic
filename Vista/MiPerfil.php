@@ -37,7 +37,8 @@
             </div><!-- /header -->
 
 
-            <div data-role="content" data-theme = "a">	
+            <div data-role="content" data-theme = "a">
+               
                 <div class="ui-grid-b">
                     <div class="ui-block-a" style="width:250px; margin:3%">
                           <div data-role="controlgroup"> 
@@ -48,7 +49,8 @@
                         </div>
                     </div>
                    
-                    <div class="ui-block-b" style=" margin:3%" align="center">               
+                    <div class="ui-block-b" style=" margin:3%" align="center">
+                        
                         <table align="right"> 
                             <tr>
                                 <td>
@@ -64,6 +66,7 @@
                         </table>
                       
                         <form name="formMiPerfil" action="" method="post" enctype="multipart/form-data">
+                            
                             <div data-role="fieldcontain" align="right">
                                 <label for="basic" data-mini="true">Nombre:</label> <input type="text" name="nombre" id="nombre" value="" data-mini="true"   style="width:200px;height:30px;"  required=""  align="right"/>
                             </div>
@@ -79,7 +82,7 @@
                             <div data-role="fieldcontain" align="right">
                                 <label for="basic" data-mini="true">Usuario:</label> <input type="text" name="usuario" id="usuario" value="" data-mini="true"   style="width:200px;height:30px;"  required="" disabled="" align="right" />
                             </div> 
-                           
+                            
                             <div data-role="controlgroup" data-type="horizontal" data-mini="true" align="right">
                              <input  data-role="button" value="Darme De Baja" type="button" id="btnDarseBaja"/>
                                 <input type="button" value="Modificar" id="btnModificar" />
@@ -109,6 +112,9 @@
                             minLength:2,
                             select: function ( event, ui ) {}
                         });
+                        
+                        
+                        
                            </script>
 
     </body>
