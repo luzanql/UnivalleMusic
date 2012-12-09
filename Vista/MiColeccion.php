@@ -118,53 +118,7 @@
                             </div>
                             <div id="divLista">
                                 <ol id="olCanciones">
-
-                                    <li rel="../Recursos/Canciones/Tone_Urbano.mp3" ondblclick="reproducirDobleClick($(this));">
-                                        <strong>Gingle</strong>
-                                        <em>Univalle Music</em>                                        
-                                    </li>
-
-                                    <?php
-                                    include_once '../AccesoDatos/Session.php';
-                                    include_once '../Controladores/ControladorCancionesXUsuario.php';
-                                    include_once '../Controladores/ControladorCancion.php';
-                                    include_once '../Controladores/ControladorArtista.php';
-                                    include_once '../Controladores/ControladorCancionXListaReproduccion.php';
-
-                                    $session = new Session();
-
-                                    $usuarioActual = $session->usuario;
-
-                                    $controladorCancionesXUsuario = new ControladorCancionesXUsuario();
-                                    $controladorArtista = new ControladorArtista();
-
-                                    if (isset($_GET['codLista'])) {
-                                        $codLista = $_GET['codLista'];
-                                        $controladorCancionXListaReproduccion = new ControladorCancionXListaReproduccion();
-                                        $codigosCanciones = $controladorCancionXListaReproduccion->obtenerCancionesDeListaReproduccion($codLista);
-                                    } else {
-                                        $codigosCanciones = $controladorCancionesXUsuario->obtenerCancionesXUsuario($usuarioActual);
-                                    }
-                                    if ($codigosCanciones > 0) {
-                                        foreach ($codigosCanciones as $unCodigoCancion) {
-
-                                            $daoCanciones = new DaoCancion();
-                                            $unaCancion = $daoCanciones->obtenerCancionPorCodigo($unCodigoCancion);
-                                            $artista = $controladorArtista->obtenerNombreArtista($unaCancion['artista']);
-                                            echo '<li rel="../Recursos/Canciones/' . $unaCancion['codigo'] . '" ondblclick="reproducirDobleClick($(this));">
-                                            <strong>' . $unaCancion['nombre'] . '</strong>
-                                            <em>' . $artista . '</em><a href="#agregarAListas" style="color: blue;" name="' . $unCodigoCancion .
-                                            '" data-rel="popup" data-position-to="window" data-transition="pop">Agregar a Listas</a>
-                                            <a id="btnMeGusta" style="color: blue;" data-mini="true" name="' . $unCodigoCancion . '">Me Gusta</a>                                            
-                                            <a href="#eliminarDeListas" name="' . $unCodigoCancion .
-                                            '" data-rel="popup" data-position-to="window" data-transition="pop">Eliminar de Listas</a>
-                                            <a href="#eliminarCancion" name="' . $unCodigoCancion .
-                                            '" data-rel="popup" data-position-to="window" data-transition="pop">Eliminar Cancion</a>                                            
-                                                </li>';
-                                        }
-                                    }
-                                    ?>
-
+                                    
                                 </ol>
                             </div>				
                         </div>
