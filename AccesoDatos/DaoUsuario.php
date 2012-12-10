@@ -77,9 +77,9 @@ class DaoUsuario {
     
     function activarCuenta($usuario){
         $this->conexion->Conectar();
-        $consulta = "UPDATE usuario WHERE usario='$usuario' SET estado='Activo' ";
+        $consulta = "UPDATE usuario SET estado='Activo' WHERE usuario='$usuario'";
         $respuesta = mysql_query($consulta);
-        $row = mysql_fetch_array($respuesta);
+        $row = mysql_query($respuesta);
         $this->conexion->cerrar();
         
     }
