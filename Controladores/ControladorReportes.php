@@ -5,7 +5,7 @@ require_once '../AccesoDatos/DaoReporte.php';
 
 class ControladorReportes
 {
-    private $daoReportes;
+    private $daoReporte;
     
      function ControladorReportes() 
     {
@@ -19,7 +19,7 @@ class ControladorReportes
     
      function getNCancionesXArtista() 
     {
-       return $this->daoReporte->getNCancionesXArtistas();
+       return $this->daoReporte->getNCancionesXArtista();
     }
 
     

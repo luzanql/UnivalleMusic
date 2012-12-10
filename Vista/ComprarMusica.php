@@ -44,6 +44,7 @@
                             <a href="../Vista/MiColeccion.php" data-role="button" id="coleccion"> Mi Coleccion</a> 
                             <a href="../Vista/MisListas.php" data-role="button" id="listas"> Listas de Reproduccion</a> 
                             <a href="../Vista/ComprarMusica.php" data-role="button" id="comprar"> Comprar Musica</a>
+                            <a href="../Vista/Reportes.php" data-role="button"> Reportes </a>
                         </div>
                     </div>
                     <div class="ui-block-b" style="width:250px; margin:3%">

@@ -59,6 +59,9 @@ $listaArtistasxCanciones = $controladorReporte ->getArtistxSong();
 
 $pdf->SetFont('Arial','',14);
 $pdf->AddPage();
+$pdf->Write(5,'Canciones y Artistas Guardadas');
+$pdf->Ln();
+$pdf->Ln();
 $pdf->FancyTable($header,$listaArtistasxCanciones,$widths);
 $pdf->Output();
 ?>
