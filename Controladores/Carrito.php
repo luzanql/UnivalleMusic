@@ -47,14 +47,13 @@ switch ($opcion) {
         $codigo = $_GET['codigo'];
         $daoCarrito = new DaoCarrito();
         $canciones = $daoCarrito->getCancionesDelCarrito();
+        $salida = "false";
         for ($index = 0; $index < count($canciones); $index++) {
             if ($codigo == $canciones[$index]) {
-                echo "true";
-                break;
-            } else {
-                echo "false";
-            }
+                $salida = "true";                
+            } 
         }
+        echo $salida;
         break;
 
     case 4:

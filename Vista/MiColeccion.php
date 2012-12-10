@@ -40,7 +40,7 @@
 
             <div data-role="content" data-theme = "a">	
                 <div class="ui-grid-b">
-                    <div class="ui-block-a" style="width:250px; margin:3%">
+                    <div class="ui-block-a" style="width:21%; margin:3%">
 
                         <div data-role="controlgroup"> 
                             <a href="../Vista/MiPerfil.php" data-role="button"> Mi Perfil </a> 
@@ -50,14 +50,14 @@
                             <a href="../Vista/Reportes.php" data-role="button"> Reportes </a>
                         </div>
                     </div>
-                    <div class="ui-block-b" style=" margin:3%" >
+                    <div class="ui-block-b" style="width:25%; margin:3%" >
 
                         <?php
-                        if (isset($_GET['nombreLista'])) {
+                        if (isset($_GET['nombreLista']) && isset($_GET['codLista'])) {
                             $nombreLista = $_GET['nombreLista'];
-                            echo "<h1 id='tituloLista'>" . $nombreLista . "</h1>";
+                            echo "<h1 id='tituloLista' name='".$_GET['codLista']."'>" . $nombreLista . "</h1>";
                         } else {
-                            echo "<h1 id='tituloLista'>Mi Colecci&oacute;n</h1>";
+                            echo "<h1 id='tituloLista' name=''>Mi Colecci&oacute;n</h1>";
                         }
                         ?>                                               
                         <table>
@@ -85,7 +85,24 @@
                                         </select>
                                     </fieldset>                                    
                                 </td>
-
+                                <td>
+                                    <fieldset data-role="controlgroup" data-type="horizontal">
+                                        <select name="mostrarListasReprocuccion" id="ordenarListasReprocuccion" data-mini="true" >
+                                            <option>Ordenar por:</option>
+                                            <option>Titulo Cancion</option>
+                                            <option>Artista</option>
+                                        </select>
+                                    </fieldset>                                    
+                                </td>
+                                <!--campo busca-->
+                                <td>                                    
+                                    <input type="text" name="buscar" id="buscar" value="" data-mini="true"   style="width:200px;height:30px;" align="right" />                                  
+                                </td>
+                                <td>
+                                    <button>Buscar</button>
+                                </td>
+                                <!--fin buscar-->
+                                    
                             </tr>
 
                         </table>
@@ -179,7 +196,18 @@
 
 
         </div><!-- /page -->
-
+ <script>
+                       
+                       
+                        $( "#buscar").autocomplete({
+                            source:  "../AccesoDatos/AutoCompletar.php?opcion=8", 
+                            minLength:2,
+                            select: function ( event, ui ) {}
+                        });
+                        
+                        
+                        
+                           </script>
 
     </body>
 </html>

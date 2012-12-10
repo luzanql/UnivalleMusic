@@ -7,7 +7,9 @@ var cancionCurrent = "";
 
 $(function(){
     
-    llenarListaReproductor("");
+    var listaActual = $('#tituloLista').text();
+    var codLista = $('#tituloLista').attr('name');
+    llenarListaReproductor(codLista,"");
 
     usuarioLogueado = $('#usuarioLogueado').text();
     usuarioLogueado = usuarioLogueado.trim();
@@ -63,15 +65,15 @@ $(function(){
             url: urlPhp,
             cache: false,
             success: function(result) {
-                llenarListaReproductor("");
+                llenarListaReproductor("","");
             }            
         });
     });
     
     //Cambia lista Reproduccion
-    $('select').change(function(){
-        var codListaSelecionada = $('select option:selected').val();
-        var nombreListaSelecionada = $('select option:selected').text();
+    $('#listasReprocuccion').change(function(){
+        var codListaSelecionada = $('#listasReprocuccion option:selected').val();
+        var nombreListaSelecionada = $('#listasReprocuccion option:selected').text();
         var listaActual = $('#tituloLista').text();
                 
         if(codListaSelecionada != "ninguna"){
@@ -80,11 +82,27 @@ $(function(){
                 
                 if(codListaSelecionada == "miColeccion"){
                     $('#tituloLista').text(nombreListaSelecionada);
-                    llenarListaReproductor("");
+                    $('#tituloLista').attr('name',"");
+                    llenarListaReproductor("","");
                 }else{
                     $('#tituloLista').text(nombreListaSelecionada);
-                    llenarListaReproductor(codListaSelecionada);
+                    $('#tituloLista').attr('name',codListaSelecionada);
+                    llenarListaReproductor(codListaSelecionada,"");
                 }
+            }
+        }
+    });
+    
+    //Cambia orden lista Reproduccion
+    $('#ordenarListasReprocuccion').change(function(){
+        var ordenSeleccionado = $('#ordenarListasReprocuccion option:selected').text();
+        var codListaActual = $('#tituloLista').attr('name');
+        
+        if(ordenSeleccionado != "Ordenar por:"){            
+            if(ordenSeleccionado == "Titulo Cancion"){
+                llenarListaReproductor(codListaActual, "1");
+            }else if(ordenSeleccionado == "Artista"){
+                llenarListaReproductor(codListaActual, "2");
             }
         }
     });
@@ -111,8 +129,7 @@ function llenarListasReproduccion(cancionElegida,accion){
                 contenidoHtml += unaFila[0];
                 contenidoHtml += "'/>";
                 contenidoHtml += unaFila[1];
-                contenidoHtml += "</label>";
-                
+                contenidoHtml += "</label>";                
             }
             if(accion == 1){
                 contenedorListasEliminar.html("");
@@ -139,12 +156,19 @@ function llenarListasReproduccion(cancionElegida,accion){
     });
 }
 
-function llenarListaReproductor(lista){
-    var liGingle = "<li rel=\"../Recursos/Canciones/Tone_Urbano.mp3\" ondblclick=\"reproducirDobleClick($(this));\"> <strong>Gingle</strong> <em>Univalle Music</em></li>";
+function llenarListaReproductor(lista,orden){
+    iTotalCanciones = 1;
+    //var liGingle = "<li rel=\"../Recursos/Canciones/Tone_Urbano.mp3\" ondblclick=\"reproducirDobleClick($(this));\"> <strong>Gingle</strong> <em>Univalle Music</em></li>";
     var urlListaPhp = "../Controladores/ControladorListaReproductor.php";
-    if(lista != ""){
+    if(lista != "" && orden != ""){
+        urlListaPhp += "?codLista="+lista;
+        urlListaPhp += "&orden="+orden;
+    }else if(orden != "" && lista == ""){
+        urlListaPhp += "?orden="+orden;
+    }else if(orden == "" && lista != ""){
         urlListaPhp += "?codLista="+lista;
     }
+    
     var contenedorCanciones = $("#olCanciones");
     $.ajax({
         type: 'POST',
@@ -153,11 +177,12 @@ function llenarListaReproductor(lista){
         dataType: 'json',
         success: function(result) {
             contenedorCanciones.html("");
-            contenedorCanciones.append(liGingle);
+            //contenedorCanciones.append(liGingle);
             for(var i=0 ; i < result.length ; i++){
                 var contenidoHtml = "";
                 contenidoHtml = result[i];
                 contenedorCanciones.append(contenidoHtml);
+                iTotalCanciones++;
             }
         }            
     }); 

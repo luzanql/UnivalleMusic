@@ -104,6 +104,21 @@ switch ($opcion) {
          $passw=$usuarioFinal['contrasena'];
          echo $nombre.','.$apellido.','.$email.','.$nacionalidad.','.$usuarioF.','.$passw;
          break;
+     //autocompletar busqueda de cancion
+     case 8:
+        $term = trim(strip_tags($_GET['term']));
+        $sessionActual = Session::getInstance();
+        $idUsuario = $sessionActual->usuario;
+        $conexion->Conectar();
+        $sql = "SELECT DISTINCT nombre FROM cancion JOIN cancionesxusuario where codigo_Usuario='$idUsuario' and codigo=codigo_Cancion and nombre LIKE '%$term%';";
+        $respuesta = mysql_query($sql);
+        $filas = array();
+        while ($row = mysql_fetch_array($respuesta)) {
+            $filas [] = $row ["nombre"];
+        }
+        $conexion->cerrar();
+        echo json_encode($filas);
+        break;
      
      
 }

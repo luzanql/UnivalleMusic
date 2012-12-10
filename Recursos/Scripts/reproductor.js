@@ -1,20 +1,12 @@
 /* reproductor de musica con html5 y jquery */
 
+    //creamos un objeto Audio de HTML5 para reproducir archivos
     var objReproductor=new Audio();
     //variable para almacenar la cancion que se esta reproduciendo
     var iCancionActual=0;
-    
+    var iTotalCanciones = 0;
 $(function(){
-    //creamos un objeto Audio de HTML5 para reproducir archivos
-    //var objReproductor=new Audio();
-    //variable para almacenar la cancion que se esta reproduciendo
-    //var iCancionActual=0;
-    //obtenemos la cantidad total de canciones en la lista (mas abajo la necesitaremos)
-    var iTotalCanciones=$('#olCanciones li').length;
-	
-    //le asignamos al reproductor la primera cancion de la lista
-    objReproductor.src=$('#olCanciones').children().eq(0).attr('rel');
-	
+    
     //clic en el boton play
     $('#btnReproducir').on('click',function(){
         //llamamos a la funcion que reproduce los archivos
@@ -23,6 +15,7 @@ $(function(){
     	
     //reproducir el siguiente archivo de la lista
     $('#btnSiguiente').on('click',function(){
+        alert(iCancionActual+" de "+iTotalCanciones);
         //verificamos si siguen mas canciones en la lista
         if(iCancionActual<iTotalCanciones-1){
             //pasamos a la siguiente cancion
@@ -110,7 +103,7 @@ $(function(){
             iCancionActual--;
         }else{
             //pasamos a la ultima cancion de la lista
-            iCancionActual=$('#olCanciones li').length-1;
+            iCancionActual=iTotalCanciones-1;
         }
         //reproducimos la cancion
         $.fntReproducir();
@@ -119,7 +112,7 @@ $(function(){
     //errores del reproductor
     
     $(objReproductor).on('error',function(){
-        alert('Se produjo un error en la reproducción!');
+        alert("Se produjo un error en la reproducción!");
     });
 
     //pausar o continuar la reproduccion
@@ -228,3 +221,9 @@ function pausarCancion(){
         alert("cierra pagina")
         objReproductor.pause();
     }
+    
+    function getType(obj){
+    if (obj === undefined) { return 'undefined'; }
+    if (obj === null) { return 'null'; }
+    return Object.prototype.toString.call(obj).split(' ').pop().split(']').shift().toLowerCase();
+}
