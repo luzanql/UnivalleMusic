@@ -37,7 +37,7 @@
 
             <div data-role="content" data-theme = "a">	
                 <div class="ui-grid-b">
-                    <div class="ui-block-a" style="width:20%; margin:3%">
+                    <div class="ui-block-a" style="width:21%; margin:3%">
 
                          <div data-role="controlgroup"> 
                             <a href="../Vista/MiPerfil.php" data-role="button" id="perfil"> Mi Perfil </a> 

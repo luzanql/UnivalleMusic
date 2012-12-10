@@ -40,7 +40,7 @@
             <div data-role="content" data-theme = "a">
                
                 <div class="ui-grid-b">
-                    <div class="ui-block-a" style="width:250px; margin:3%">
+                    <div class="ui-block-a" style="width:21%; margin:3%">
                           <div data-role="controlgroup"> 
                             <a href="../Vista/MiPerfil.php" data-role="button" id="perfil"> Mi Perfil </a> 
                             <a href="../Vista/MiColeccion.php" data-role="button" id="coleccion"> Mi Coleccion</a> 
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                    
-                    <div class="ui-block-b" style=" margin:3%" align="center">
+                    <div class="ui-block-b" style=" width:27%; margin:3%" align="center">
                         
                         <table align="right"> 
                             <tr>

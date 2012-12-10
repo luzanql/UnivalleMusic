@@ -1,13 +1,13 @@
 $(document).ready(function() {
        
     $('#content').click(function(){
-        var info=$('#content').text();
+        /*var info=$('#content').text();
         var datosCancion=info.split(",");
         var nombrecancion=datosCancion[0].split(":");
         var artistacancion=datosCancion[1].split(":")
         var titulo= nombrecancion[1];
         var artista=artistacancion[1];
-        alert(titulo+"-"+artista);
+        alert(titulo+"-"+artista);*/
         setTimeout(function() {
                         document.location.href="../Vista/ComprarMusica.php";
                     },1000);

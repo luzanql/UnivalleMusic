@@ -38,7 +38,7 @@
 
             <div data-role="content" data-theme = "a">	
                 <div class="ui-grid-b">
-                    <div class="ui-block-a" style="width:250px; margin:3%">
+                    <div class="ui-block-a" style="width:21%; margin:3%">
 
                         <div data-role="controlgroup"> 
                             <a href="../Vista/MiPerfil.php" data-role="button"> Mi Perfil </a> 
@@ -49,7 +49,7 @@
 
                     </div>
 
-                    <div class="ui-block-b" style="margin:3%">
+                    <div class="ui-block-b" style="width:25%;margin:3%">
                         <h3>Subir Canción</h3>
                         <h5>Ficha de la Canción</h5>
                         <div id="FichaCancion">

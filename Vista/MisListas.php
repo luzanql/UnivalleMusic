@@ -37,7 +37,7 @@
 
             <div data-role="content" data-theme = "a">	
               <div class="ui-grid-b">
-                    <div class="ui-block-a" style="width:250px; margin:3%">
+                    <div class="ui-block-a" style="width:21%; margin:3%">
 
                         <div data-role="controlgroup"> 
                             <a href="../Vista/MiPerfil.php" data-role="button"> Mi Perfil </a> 
@@ -46,7 +46,7 @@
                             <a href="../Vista/ComprarMusica.php" data-role="button"> Comprar Musica</a>
                         </div>
                     </div>
-                    <div class="ui-block-b" style=" margin:3%" >
+                    <div class="ui-block-b" style="width:30%; margin:3%" >
                         
                         <?php
                         include_once '../Controladores/ControladorListaReproduccion.php';
@@ -112,7 +112,9 @@
                     </div>
                     <div class="ui-block-c" style="width:25%; height: 200px; margin:3%"  id="publicidad">
                         <iframe src="../Controladores/EnvioServidor.php" height="0" width="0"></iframe>
-                        <div id="content" style="background-image: url('../Recursos/notas.gif'); background-size: cover; height: 100%; width: 100%; color: white; font-weight: bold"></div>
+                        <div id="content" style="background-image: url('../Recursos/notas.gif'); background-size: cover; height: 100%; width: 100%; color: white; font-weight: bold">
+                            Compra YA, la mejor Musica 
+                        </div>
                         
                         <script type="text/javascript">
                             

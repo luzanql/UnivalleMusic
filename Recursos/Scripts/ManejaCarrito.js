@@ -10,7 +10,7 @@ $(function(){
     
     //agregar cancion al carrito
     $('td[name*=php]').on('click',function(){
-        alert("dio click");
+     //   alert("dio click");
         $('td[name*=php]').bind('click');
         var codigoCancion = $(this).attr('name');
         var urlPhp="../Controladores/Carrito.php?opcion=1&codigo="+codigoCancion;
@@ -20,9 +20,9 @@ $(function(){
             type: "POST",
             url: url,
             success: function( msg ) {
-                alert(msg);
+               // alert(msg);
                 if(msg=="true"){
-                    alert("ya se agrego al carrito");
+                  //  alert("ya se agrego al carrito");
                     $('#mensaje').text("LA cancion YA se agrego al carrito");
                     $('#mensaje').show();
                    

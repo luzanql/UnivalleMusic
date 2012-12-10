@@ -60,7 +60,7 @@ error_reporting(E_ALL);
             flush();
 
             //$randSleep = mt_rand(100000, 2000000); //sleep between 100 ms and 2 seconds
-            $randSleep = 6000000;
+            $randSleep = 500000;
             usleep($randSleep);
         }
         ?>

@@ -13,17 +13,19 @@ $(document).ready(function() {
         
         $.ajax({
             type: "POST",
-            url: url,            
+            url: url1,            
             success: function( msg ) {
                
-                //si esta activo 
+                // pasw y usuario correctos
                 if(msg=="true"){
-                     //verifico pasw y usuario correctos
+                     //verifico si esta activo
                     $.ajax({
                         type: "POST",
-                        url: url1,
+                        url: url,
                         success: function( msg ) {
-                            //usuario y pasw correctos
+                            
+                            
+                            //si esta activo
                             
                             
                             if(msg=="true"){                                
@@ -33,7 +35,7 @@ $(document).ready(function() {
                                     type: "POST",
                                     url: url2,
                                     success: function( msg ) {
-                                        alert("Entro: "+msg);
+                                        //alert("Entro: "+msg);
                                             setTimeout(function() {
                                             document.location.href="../Vista/MiColeccion.php";
                                         },1000);
@@ -43,14 +45,14 @@ $(document).ready(function() {
                             //fin hace login
                             }else{
                                
-                                $('#mensaje').text("El usuario o la contraseña NO son correctos");                   
+                                $('#mensaje').text("El usuario NO esta activo");                   
                             }
                         }
                     });
                 }
                 //el usuario NO esta activo
                 else{
-                    $('#mensaje').text("El usuario NO esta activo");
+                    $('#mensaje').text("El usuario o la contraseña NO son correctos");
                    
                 }
             }
