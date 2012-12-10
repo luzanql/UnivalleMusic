@@ -45,6 +45,7 @@
                             <a href="../Vista/MiColeccion.php" data-role="button"> Mi Coleccion</a> 
                             <a href="../Vista/MisListas.php" data-role="button"> Listas de Reproduccion</a> 
                             <a href="../Vista/ComprarMusica.php" data-role="button"> Comprar Musica</a>
+                            <a href="../Vista/Reportes.php" data-role="button"> Reportes </a>
                         </div>
 
                     </div>

@@ -45,7 +45,7 @@ $pdf=new PdfTable();
 
 //T�tulos de las columnas
 //$header=array('Nombre','E-Mail','Twitter');
-$header=array('Artista','Cancion');
+$header=array('Cancion','Artista');
 
 //anchos de cada columna
 //$widths=array(40,70,40);
@@ -59,6 +59,9 @@ $listaArtistasxCanciones = $controladorReporte ->getArtistxSong();
 
 $pdf->SetFont('Arial','',14);
 $pdf->AddPage();
+$pdf->Write(5,'Canciones y Artistas Guardadas');
+$pdf->Ln();
+$pdf->Ln();
 $pdf->FancyTable($header,$listaArtistasxCanciones,$widths);
 $pdf->Output();
 ?>
