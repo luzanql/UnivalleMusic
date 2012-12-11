@@ -89,27 +89,30 @@
 
                         </table>
 
-                        <table  border="2" width=80%" bordercolor="black" id="tablaMisListas">
-                            <tr>
-                                <th>Nombre de la Lista </th>
-                                <th>Opciones</th>
+                        <div style="overflow: auto; height: 200px; width: 80%;">
+                            <table  border="2" width=100%" bordercolor="black" id="tablaMisListas">
+                                <tr>
+                                    <th>Nombre de la Lista </th>
+                                    <th>Opciones</th>
 
 
-                            </tr>
+                                </tr>
 
-                            <?php
-                            include_once '../Controladores/ControladorListaReproduccion.php';
-                            $controladorLista = new ControladorListaReproduccion();
-                            $listasUsuario = $controladorLista->obtenerListasReproduccionPorUsuario();
-                         
+                                <?php
+                                include_once '../Controladores/ControladorListaReproduccion.php';
+                                $controladorLista = new ControladorListaReproduccion();
+                                $listasUsuario = $controladorLista->obtenerListasReproduccionPorUsuario();
 
-                            for ($index = 0; $index < count($listasUsuario); $index++) {
-                                echo "<tr><td><a href='MiColeccion.php?nombreLista=" . $listasUsuario[$index][1] . "&codLista=" . $listasUsuario[$index][0] . "'>" . $listasUsuario[$index][1] . "</a></td>
+
+                                for ($index = 0; $index < count($listasUsuario); $index++) {
+                                    echo "<tr><td><a href='MiColeccion.php?nombreLista=" . $listasUsuario[$index][1] . "&codLista=" . $listasUsuario[$index][0] . "'>" . $listasUsuario[$index][1] . "</a></td>
                                     <td><a  href='EliminarLista.php?lista=" . $listasUsuario[$index][1] . "' data-rel='dialog'  data-role='button' data-icon='delete' >Eliminar</a></td></tr>";
-                            }
-                            ?>
+                                }
+                                ?>
 
-                        </table>
+                            </table>
+                        </div>
+
 
                     </div>
                     <div class="ui-block-c" style="width:25%; height: 200px; margin:3%"  id="publicidad">
