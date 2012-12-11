@@ -40,7 +40,8 @@ $(document).ready(function() {
     $('#content').hover(function(){
     $('#content').animate({
          'border-bottom-width': "20",
-         'font-size': '25pt'
+         'font-size': '25pt',
+         'color':'red'
          
       });
       /* $('#publicidad').animate({
@@ -51,7 +52,9 @@ $(document).ready(function() {
    $('#content').mouseleave(function(){
         $('#content').animate({
          //'border-bottom-width': "20"
-         'font-size': '15pt'
+         'font-size': '15pt',
+          'color':'white'
+         
       });
     /*   $('#publicidad').animate({
           'height': '200%'
