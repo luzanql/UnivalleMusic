@@ -46,9 +46,10 @@
 
         $controladorUsuario = new ControladorUsuario();
         $controladorUsuario->createUsuario($nombre, $apellido, $email, $codigo_nacionalidad, $user, $pass);
-        
+        //creo lista de reproduccion favoritas y compartidas
         $controladorLista=new ControladorListaReproduccion();
         $controladorLista->createListaReproduccionFavoritas($user);
+         $controladorLista->createListaReproduccionCompartidas($user);
         
         ?>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">

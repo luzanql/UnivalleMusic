@@ -7,6 +7,14 @@ var cancionCurrent = "";
 
 $(function(){
     
+    $("#buscar").autocomplete({
+        source:  "../AccesoDatos/AutoCompletar.php?opcion=8", 
+        minLength: 2,
+        select: function() {
+            buscarCanciones();
+        }        
+    });
+    
     var listaActual = $('#tituloLista').text();
     var codLista = $('#tituloLista').attr('name');
     llenarListaReproductor(codLista,"");
@@ -15,7 +23,7 @@ $(function(){
     usuarioLogueado = usuarioLogueado.trim();
     usuarioLogueado = usuarioLogueado.replace("Usuario: ", "");
     usuarioLogueado = usuarioLogueado.trim();
-    var listaCanciones = $('li a');    
+     
     var btnAgragarAListas = $('#btnAgragarAListas');
     var btnEliminarDeListas = $('#btnEliminarDeListas');
     var btnEliminarCancion = $('#btnEliminarCancion');
@@ -189,24 +197,53 @@ function llenarListaReproductor(lista,orden){
 }
 
 function meGusta(cancionCurrent,evento){
-    //evento.text("No me gusta");
+    var accion = evento.text();
     var urlPhp= "../Controladores/ListasReproduccionXUsuario.php?opcion=3&usuario="+usuarioLogueado;
-    var codidoListaFavorita = "";
+    var codigoListaFavorita = "";
     $.ajax({
         type: 'POST',
         url: urlPhp,
         cache: false,
         success: function(result) {
-            codidoListaFavorita = result;
-            var urlPhp1= "../Controladores/ListasReproduccionXUsuario.php?opcion=1&usuario="+usuarioLogueado+"&codigoLista="+codidoListaFavorita+"&cancion="+cancionCurrent;
-            $.ajax({
-                type: 'POST',
-                url: urlPhp1,
-                cache: false,
-                success: function(result) {
-                    alert('La cancion se agrego a la lista de reproduccion "Favoritas"');
-                }
-            });
+            codigoListaFavorita = result;
+            if(accion == "Me gusta"){
+                var urlPhp1= "../Controladores/ListasReproduccionXUsuario.php?opcion=1&usuario="+usuarioLogueado+"&codigoLista="+codigoListaFavorita+"&cancion="+cancionCurrent;
+                $.ajax({
+                    type: 'POST',
+                    url: urlPhp1,
+                    cache: false,
+                    success: function(result) {
+                        alert('La cancion se agrego a la lista de reproduccion "Favoritas"');
+                        evento.text("Ya no me gusta");
+                        var codLista = $('#tituloLista').attr('name');
+                        llenarListaReproductor(codLista,"");
+                    }
+                });
+            }else if(accion == "Ya no me gusta"){
+                var urlPhp1= "../Controladores/ListasReproduccionXUsuario.php?opcion=2&usuario="+usuarioLogueado+"&codigoLista="+codigoListaFavorita+"&cancion="+cancionCurrent;
+                $.ajax({
+                    type: 'POST',
+                    url: urlPhp1,
+                    cache: false,
+                    success: function(result) {
+                        alert('La cancion se elimino de la lista de reproduccion "Favoritas"');
+                        evento.text("Me gusta");
+                        var codLista = $('#tituloLista').attr('name');
+                        llenarListaReproductor(codLista,"");
+                    }
+                });
+            }
         }
     });            
+}
+
+function buscarCanciones(){
+    var valBuscar = $('#buscar').val();
+    var listaCanciones = $('li strong');
+    listaCanciones.each(function(){
+        $(this).parent().show();
+        if($(this).text() != valBuscar){
+            $(this).parent().hide();
+        }
+    });
 }

@@ -1,5 +1,8 @@
 $(document).ready(function() {
     llenarDatos();
+    $("#btnDarseBaja").on('click',darseBaja);
+    $("#btnModificar").on('click',modificar);
+        
     function llenarDatos(){
         var urlPhp="../AccesoDatos/AutoCompletar.php?opcion=7";
         $.ajax({
@@ -17,8 +20,7 @@ $(document).ready(function() {
         });
     }
                             
-    $("#btnModificar").on('click',modificar);
-        
+   
     function modificar(){           
         if(camposVacios()){
             alert("Hay Campos Vacios")
@@ -44,7 +46,7 @@ $(document).ready(function() {
         }
         llenarDatos();
     }
-     $("#btnDarseBaja").on('click',darseBaja);
+    
      
      function darseBaja(){
     $("#btnDarseBaja").on('click',function(){

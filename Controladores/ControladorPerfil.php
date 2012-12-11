@@ -26,6 +26,16 @@ switch ($opcion) {
         $consulta=$controladorUsuario->darDeBaja($codigo);
         echo "usted se ha dado de baja";
         break;
+    
+    //activar cuenta
+    case 3:
+        $codigo = $_GET['codigo'];
+        $controladorUsuario=new ControladorUsuario();
+        $consulta=$controladorUsuario->activarCuenta($codigo);
+        echo "Tu cuenta fue ACTIVADA";
+        break;
+    
+        
         
         
        

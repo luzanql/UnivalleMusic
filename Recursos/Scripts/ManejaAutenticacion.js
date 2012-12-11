@@ -18,7 +18,7 @@ $(document).ready(function() {
                
                 // pasw y usuario correctos
                 if(msg=="true"){
-                     //verifico si esta activo
+                    //verifico si esta activo
                     $.ajax({
                         type: "POST",
                         url: url,
@@ -36,22 +36,38 @@ $(document).ready(function() {
                                     url: url2,
                                     success: function( msg ) {
                                         //alert("Entro: "+msg);
-                                            setTimeout(function() {
+                                        setTimeout(function() {
                                             document.location.href="../Vista/MiColeccion.php";
                                         },1000);
                                          
                                     }
                                 });
                             //fin hace login
-                            }else{
+                            }
+                            //si no esta activo lo reactiva
+                            else{
+                                var url3="../Controladores/ControladorPerfil.php?opcion=3&codigo="+usuario;
+                                $.ajax({
+                                    type: "POST",
+                                    url: url3,
+                                    success: function( msg ) {
+                                        alert(msg);
+                                        setTimeout(function() {
+                                            document.location.href="../Vista/MiColeccion.php";
+                                        },1000);
+                                         
+                                    }
+                                });
+                               // alert("TU CUENTA FUE ACTIVADA");
                                
-                                $('#mensaje').text("El usuario NO esta activo");                   
+                            // $('#mensaje').text("El usuario NO esta activo");                   
                             }
                         }
                     });
                 }
-                //el usuario NO esta activo
+                //usuario opasww incorrectos
                 else{
+                    
                     $('#mensaje').text("El usuario o la contraseña NO son correctos");
                    
                 }

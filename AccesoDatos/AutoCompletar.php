@@ -110,11 +110,11 @@ switch ($opcion) {
         $sessionActual = Session::getInstance();
         $idUsuario = $sessionActual->usuario;
         $conexion->Conectar();
-        $sql = "SELECT DISTINCT nombre FROM cancion JOIN cancionesxusuario where codigo_Usuario='$idUsuario' and codigo=codigo_Cancion and nombre LIKE '%$term%';";
+        $sql = "SELECT DISTINCT codigo,nombre FROM cancion JOIN cancionesxusuario where codigo_Usuario='$idUsuario' and codigo=codigo_Cancion and nombre LIKE '%$term%';";
         $respuesta = mysql_query($sql);
         $filas = array();
         while ($row = mysql_fetch_array($respuesta)) {
-            $filas [] = $row ["nombre"];
+            $filas [$row ["codigo"]] = $row ["nombre"];
         }
         $conexion->cerrar();
         echo json_encode($filas);

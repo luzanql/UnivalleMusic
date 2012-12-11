@@ -55,7 +55,7 @@
                         <?php
                         if (isset($_GET['nombreLista']) && isset($_GET['codLista'])) {
                             $nombreLista = $_GET['nombreLista'];
-                            echo "<h1 id='tituloLista' name='".$_GET['codLista']."'>" . $nombreLista . "</h1>";
+                            echo "<h1 id='tituloLista' name='" . $_GET['codLista'] . "'>" . $nombreLista . "</h1>";
                         } else {
                             echo "<h1 id='tituloLista' name=''>Mi Colecci&oacute;n</h1>";
                         }
@@ -95,14 +95,13 @@
                                     </fieldset>                                    
                                 </td>
                                 <!--campo busca-->
-                                <td>                                    
-                                    <input type="text" name="buscar" id="buscar" value="" data-mini="true"   style="width:200px;height:30px;" align="right" />                                  
+                                <td>                                 
+                                    <input type="text" id="buscar" data-mini="true" style="width:200px;height:30px;" align="right" />                                  
                                 </td>
                                 <td>
-                                    <button>Buscar</button>
+                                    <button id="btnBuscar" onclick="buscarCanciones();">Buscar</button>
                                 </td>
                                 <!--fin buscar-->
-                                    
                             </tr>
 
                         </table>
@@ -136,7 +135,7 @@
                             </div>
                             <div id="divLista">
                                 <ol id="olCanciones">
-                                    
+
                                 </ol>
                             </div>				
                         </div>
@@ -193,21 +192,6 @@
                    data-mini="true">Eliminar Canci&oacute;n</a>
                 <a data-role="button" data-rel="back" data-inline="true" data-mini="true">Cancel</a>	
             </div>
-
-
-        </div><!-- /page -->
- <script>
-                       
-                       
-                        $( "#buscar").autocomplete({
-                            source:  "../AccesoDatos/AutoCompletar.php?opcion=8", 
-                            minLength:2,
-                            select: function ( event, ui ) {}
-                        });
-                        
-                        
-                        
-                           </script>
-
+        </div><!-- /page -->        
     </body>
 </html>
