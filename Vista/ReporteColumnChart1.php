@@ -12,84 +12,92 @@
         <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
         <script type="text/javascript">
             google.load("visualization", "1", {packages:["corechart"]});
-            google.setOnLoadCallback(drawChart);
-            //      $array =array();
+            google.setOnLoadCallback(onLoad);
+     
+       function onLoad(){
+           
+             var content = document.getElementById('content');
+             
+             $.ajax({
+                            type: "POST",
+                            url: "../Controladores/ReportesGraficas.php?opcion=1",
+                            dataType: 'json',
+                            success: function(msg)
+                            {
+                                var datos = new Array();
+                                datos[0] = new Array("Artista", "Numero Canciones");
+                                for(var i=0 ; i<msg.length ; i++)
+                                   {                    
+                                    datos[i+1] = new Array(''+msg[i][1],msg[i][0]);
+                                   }
+                  
+                                var array = new Array();
+                                array[0] = new Array('Year', 'Sales', 'Expenses');
+                                array[1] = new Array('2004',  1000,      400);
+                                array[2] = new Array('2005',  1170,      460);
+                                array[3] = new Array('2006',  660,       1120);
+                                array[4] = new Array('2007',  1030,      540);
         
-          var array;
-////          var datos;
-//            $.ajax({
-//                type: "POST",
-//                url: "../Controladores/ReportesGraficas.php?opcion=1",
-//                dataType: 'json',
-//                success: function(msg)
-//                {
-//                    var datos = new Array();
-//                    datos[0] = new Array("Artista", "Numero Canciones");
-//                    for(var i=0 ; i<msg.length ; i++)
-//                       {                    
-//                        datos[i+1] = new Array(''+msg[i][1],msg[i][0]);
-//                        }
-//        
-//                    array = new Array([
-//                    ['Year', 'Sales', 'Expenses'],
-//                    ['2004',  1000,      400],
-//                    ['2005',  1170,      460],
-//                    ['2006',  660,       1120],
-//                    ['2007',  1030,      540]
-//                    ]);
-//        //        alert(datos2);
-//                   drawChart();
-//        
-//    }}); 
+                                  
+                          alert(datos);
+                          drawChart(datos);
 
-                function drawChart() {
-//                array =  new Array(array);
-//                array2 = new Array();
-//                j = 0;
-//                for(k = 0;j<array.length; k++)
-//                {
-//                    for(i = 0;i<2; i++)
-//                    {
-//                        array2[k][i] = array[j];
-//                        j++;
-//                    }
-//                }
-//                array2 = array;
-//                alert(datos2);
-  $.ajax({
-                type: "POST",
-                url: "../Controladores/ReportesGraficas.php?opcion=1",
-                dataType: 'json',
-                success: function(msg)
-                {
-                    var datos = new Array();
-                    datos[0] = new Array("Artista", "Numero Canciones");
-                    for(var i=0 ; i<msg.length ; i++)
-                       {                    
-                        datos[i+1] = new Array(''+msg[i][1],msg[i][0]);
-                        }
+                 }})
+             }
+             
+                    function drawChart(array2) {
+//                           var array_split = array2.split(",");
+                           
+                           var arrayString = new String(array2);
+                           var array_split = arrayString.split(",");
+//                           alert(array[0]);
+                           var array = new Array();
+                           var k = 0;
+                           alert(array_split.length);
+                            for (var i=0; k<array_split.length; i++)
+                            {   array[i]=new Array();
+                                for (var j=0; j<2 ; j++){
+//                                    alert(i+" - "+j+" - "+k+" - " +array_split[k]);
+                                    var num = array_split[k];
+                                    if(j>0){
+                                        array[i][j] =parseInt(num);
+                                    }else{
+                                        array[i][j] = num;
+                                    } 
+                                    
+                                    k++;
+                                }
+                            }
+//                            
+                            
+//                            var array = new Array();
+//                                array[0] = new Array('Year', 'Nro Canciones');
+//                                array[1] = new Array('2004',  1000);
+//                                array[2] = new Array('2005',  1170);
+//                                array[3] = new Array('2006',  660);
+//                                array[4] = new Array('2007',  1030);
         
-                    array = new Array([
-                    ['Year', 'Sales', 'Expenses'],
-                    ['2004',  1000,      400],
-                    ['2005',  1170,      460],
-                    ['2006',  660,       1120],
-                    ['2007',  1030,      540]
-                    ]);
-        //        alert(datos2);
-//                   drawChart();
-        
-    }}); 
-
+//                            var array2 = new Array();
+//                            var j = 0;
+//                            for(var k = 0;j<array.length; k++)
+//                            {
+//                                for(var i = 0;i<3; i++)
+//                                {
+//                                    array2[k][i] = array[j];
+//                                    j++;
+//                                }
+//                              }
                 var data = google.visualization.arrayToDataTable(array);
                 var options = {
-                    title: 'Company Performance',
+                    title: 'Cantidad de canciones por Artista',
                     hAxis: {title: 'Artista', titleTextStyle: {color: 'red'}}
                 };
 
                 var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
                 chart.draw(data, options);
             }
+       
+       
         </script>
     </head>
     <body>
