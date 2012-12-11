@@ -25,21 +25,13 @@
                             success: function(msg)
                             {
                                 var datos = new Array();
-                                datos[0] = new Array("Artista", "Numero Canciones");
+                                datos[0] = new Array("Artista", "Nro Canciones");
                                 for(var i=0 ; i<msg.length ; i++)
                                    {                    
                                     datos[i+1] = new Array(''+msg[i][1],msg[i][0]);
                                    }
-                  
-                                var array = new Array();
-                                array[0] = new Array('Year', 'Sales', 'Expenses');
-                                array[1] = new Array('2004',  1000,      400);
-                                array[2] = new Array('2005',  1170,      460);
-                                array[3] = new Array('2006',  660,       1120);
-                                array[4] = new Array('2007',  1030,      540);
-        
-                                  
-                          alert(datos);
+                        
+//                          alert(datos);
                           drawChart(datos);
 
                  }})
@@ -59,7 +51,7 @@
                                 for (var j=0; j<2 ; j++){
 //                                    alert(i+" - "+j+" - "+k+" - " +array_split[k]);
                                     var num = array_split[k];
-                                    if(j>0){
+                                    if(j>0 && i>0){
                                         array[i][j] =parseInt(num);
                                     }else{
                                         array[i][j] = num;
@@ -68,25 +60,7 @@
                                     k++;
                                 }
                             }
-//                            
-                            
-//                            var array = new Array();
-//                                array[0] = new Array('Year', 'Nro Canciones');
-//                                array[1] = new Array('2004',  1000);
-//                                array[2] = new Array('2005',  1170);
-//                                array[3] = new Array('2006',  660);
-//                                array[4] = new Array('2007',  1030);
-        
-//                            var array2 = new Array();
-//                            var j = 0;
-//                            for(var k = 0;j<array.length; k++)
-//                            {
-//                                for(var i = 0;i<3; i++)
-//                                {
-//                                    array2[k][i] = array[j];
-//                                    j++;
-//                                }
-//                              }
+
                 var data = google.visualization.arrayToDataTable(array);
                 var options = {
                     title: 'Cantidad de canciones por Artista',
