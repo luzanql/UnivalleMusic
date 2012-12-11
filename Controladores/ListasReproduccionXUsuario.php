@@ -45,7 +45,7 @@ switch ($opcion) {
             $daoCancionXListaReproduccion->deleteCancionXListaReproduccion($cancion, $codigoLista);
         }
         break;
-    //Caso 3: Agergar cancion a Favoritas
+    //Caso 3: Obtener codigo de lista Favoritas
     case 3:
         $daoListaReproduccion= new DaoListaReproduccion();
         $codigoCancion = $daoListaReproduccion->getCodigoListaFavoritaPorUsuario($usuario);
