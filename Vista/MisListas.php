@@ -14,12 +14,13 @@
         <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
         <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
         <script src="../Recursos/Scripts/ManejaPublicidad.js"></script>
+        <!--<script src="../Recursos/Scripts/ManejaListas.js"></script>-->
     </head>
     <body>
 
         <div data-role="page" data-theme= "a">
 
- <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
+            <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
                 <img src="../Recursos/Banner.png" style="width: 80%; height: 100%;"/>
                 <div style="float:right;">
                     <a href="verCarrito.php" data-rel="dialog" >
@@ -36,7 +37,7 @@
 
 
             <div data-role="content" data-theme = "a">	
-              <div class="ui-grid-b">
+                <div class="ui-grid-b">
                     <div class="ui-block-a" style="width:21%; margin:3%">
 
                         <div data-role="controlgroup"> 
@@ -47,8 +48,8 @@
                             <a href="../Vista/Reportes.php" data-role="button"> Reportes </a>
                         </div>
                     </div>
-                    <div class="ui-block-b" style="width:30%; margin:3%" >
-                        
+                    <div class="ui-block-b" style="width:35%; margin:3%" >
+
                         <?php
                         include_once '../Controladores/ControladorListaReproduccion.php';
                         $controlador = new ControladorListaReproduccion();
@@ -72,11 +73,11 @@
                                 <td>
                                     <img src="../Recursos/listaReproduccion.png" align="right">
                                 </td>
-                                    
+
                             </tr>
-                                
+
                         </table>
-                            
+
                         <table>
                             <tr>
                                 <td>
@@ -85,17 +86,17 @@
                                     </div>
                                 </td>
                             </tr>
-                                
+
                         </table>
-                            
-                        <table  border="2" width=80%" bordercolor="black">
+
+                        <table  border="2" width=80%" bordercolor="black" id="tablaMisListas">
                             <tr>
                                 <th>Nombre de la Lista </th>
                                 <th>Opciones</th>
-                                    
-                                    
+
+
                             </tr>
-                                
+
                             <?php
                             include_once '../Controladores/ControladorListaReproduccion.php';
                             $controladorLista = new ControladorListaReproduccion();
@@ -107,16 +108,16 @@
                                     <td><a  href='EliminarLista.php?lista=" . $listasUsuario[$index][1] . "' data-rel='dialog'  data-role='button' data-icon='delete' >Eliminar</a></td></tr>";
                             }
                             ?>
-                                
+
                         </table>
-                            
+
                     </div>
                     <div class="ui-block-c" style="width:25%; height: 200px; margin:3%"  id="publicidad">
                         <iframe src="../Controladores/EnvioServidor.php" height="0" width="0"></iframe>
                         <div id="content" style="background-image: url('../Recursos/notas.gif'); background-size: cover; height: 100%; width: 100%; color: white; font-weight: bold">
                             Compra YA, la mejor Musica 
                         </div>
-                        
+
                         <script type="text/javascript">
                             
                             var content = $('#content');
@@ -128,10 +129,10 @@
                   
                             
                         </script>
-                   
+
                     </div>
-              </div><!-- /grid-b -->
-                  
+                </div><!-- /grid-b -->
+
             </div><!-- /content -->
 
             <div data-role="footer" data-theme = "b" STYLE=" border-style:solid; border-color: #c73930;">
