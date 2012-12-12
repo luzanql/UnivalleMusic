@@ -27,7 +27,11 @@
                     <a href="verCarrito.php" data-rel="dialog" >
                         <img src="../Recursos/carrito.jpeg" style=" width:50%; height: 50%; "  /></a>
                     <div >   
-                        <?php echo "Usuario:" . $_SESSION['usuario'] ?>
+                        <?php
+                        $usuarioActual = $_SESSION['usuario'];
+                        echo "Usuario: " . $usuarioActual."<br/>".
+                                        "<a href='../Recursos/Scripts/Logout.php'>Cerrar Sesi&oacute;n</a>";
+                                ?>
                     </div>
                 </div >
             </div><!-- /header -->
