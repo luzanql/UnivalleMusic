@@ -15,7 +15,13 @@ switch ($opcion)
            echo json_encode($tabla);
 //           print_r($tabla);
             break;   
-}
+        
+        case 2: //grafico 5b canciones mas escucha\da
+            $controladorReportes = new ControladorReportes();
+            $tabla = $controladorReportes ->getNCancionesCompradas();
+           echo json_encode($tabla);
+//           print_r($tabla);
+            break;  }
 
 
 ?>

@@ -61,10 +61,8 @@
                         </table>
                     </div>
                         <div data-role="content">
-                            <a data-role="button" data-theme="b" href="../Vista/ReportePdf1.php"> Reporte PDF</a>
-                            <a data-role="button" data-theme="b" href="../Vista/ReporteColumnChart1.php">
-                                Reportes Graficos
-                            </a>
+                            <a data-role="button" data-theme="b" href="../Vista/ReportePdf.php"> Reporte PDF</a>
+                            <a data-role="button" data-theme="b" href="../Vista/ReportesGraficas.php">Reportes Graficos</a>                            
                         </div>
                      
               
