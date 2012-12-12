@@ -21,6 +21,11 @@ class ControladorReportes
     {
        return $this->daoReporte->getNCancionesXArtista();
     }
+    
+    function getNCancionesCompradas()
+    {
+        return $this->daoReporte->getNCancionesCompradas();
+    }
 
     
     
