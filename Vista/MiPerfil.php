@@ -15,6 +15,7 @@
         <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
         <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
         <script src="../Recursos/Scripts/ManejaPerfil.js"></script>
+        <script src="../Recursos/Scripts/ManejaDowload.js"></script>
 
       
     </head>
@@ -88,9 +89,12 @@
                             <div data-role="controlgroup" data-type="horizontal" data-mini="true" align="right">
                              <input  data-role="button" value="Darme De Baja" type="button" id="btnDarseBaja"/>
                                 <input type="button" value="Modificar" id="btnModificar" />
-                                                              
+                                
                             </div>
-                        </form>
+                        </form >
+                        <form action="../Controladores/Dowload.php">
+                                <input type="submit" value="Descargar" id="btnDowload" />
+                                </form>                        
                     </div>
                     
                 </div>
