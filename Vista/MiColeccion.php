@@ -17,6 +17,7 @@
         <link rel="stylesheet" type="text/css" href="../themes/reproductor.css">
         <script type="text/javascript" src="../Recursos/Scripts/reproductor.js"></script>
         <script type="text/javascript" src="../Recursos/Scripts/ManejaCanciones.js"></script>
+        <script type="text/javascript" src="../Recursos/Scripts/Opciones.js"></script>
     </head>
     <body onunload="pausarCancion();">
 
@@ -25,7 +26,7 @@
             <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
                 <img src="../Recursos/Banner.png" style="width: 80%; height: 100%;"/>
                 <div style="float:right;">
-                    <a href="verCarrito.php" data-rel="dialog" >
+                    <a href="verCarrito.php" data-rel="dialog" id="logoCarrito">
                         <img src="../Recursos/carrito.jpeg" style=" width:50%; height: 50%; "  /></a>
                     <div id="usuarioLogueado">   
                         <?php
@@ -46,8 +47,8 @@
                             <a href="../Vista/MiPerfil.php" data-role="button"> Mi Perfil </a> 
                             <a href="../Vista/MiColeccion.php" data-role="button"> Mi Coleccion</a> 
                             <a href="../Vista/MisListas.php" data-role="button"> Listas de Reproduccion</a> 
-                            <a href="../Vista/ComprarMusica.php" data-role="button"> Comprar Musica</a>
-                            <a href="../Vista/Reportes.php" data-role="button"> Reportes </a>
+                            <a href="../Vista/ComprarMusica.php" data-role="button" id="comprarMusica"> Comprar Musica</a>
+                            <a href="../Vista/Reportes.php" data-role="button" id="reportes"> Reportes </a>
                         </div>
                     </div>
                     <div class="ui-block-b" style="width:25%; margin:3%" >

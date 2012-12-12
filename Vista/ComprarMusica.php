@@ -15,7 +15,7 @@
         <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
         <script type="text/javascript" src="../Recursos/Scripts/ManejaCarrito.js"></script>
         <script type="text/javascript" src="../Recursos/Scripts/ManejaCompra.js"></script>
-       
+        <script type="text/javascript" src="../Recursos/Scripts/Opciones.js"></script>
     </head>
     <body>
 
@@ -23,7 +23,7 @@
             <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
                 <img src="../Recursos/Banner.png" style="width: 80%; height: 100%;"/>
                 <div style="float:right;">
-                    <a href="verCarrito.php" data-rel="dialog" >
+                    <a href="verCarrito.php" data-rel="dialog" id="logoCarrito">
                         <img src="../Recursos/carrito.jpeg" style=" width:50%; height: 50%; "  /></a>
                     <div >   
                        <?php
@@ -43,8 +43,8 @@
                             <a href="../Vista/MiPerfil.php" data-role="button" id="perfil"> Mi Perfil </a> 
                             <a href="../Vista/MiColeccion.php" data-role="button" id="coleccion"> Mi Coleccion</a> 
                             <a href="../Vista/MisListas.php" data-role="button" id="listas"> Listas de Reproduccion</a> 
-                            <a href="../Vista/ComprarMusica.php" data-role="button" id="comprar"> Comprar Musica</a>
-                            <a href="../Vista/Reportes.php" data-role="button"> Reportes </a>
+                            <a href="../Vista/ComprarMusica.php" data-role="button" id="comprarMusica"> Comprar Musica</a>
+                            <a href="../Vista/Reportes.php" data-role="button" id="reportes"> Reportes </a>
                         </div>
                     </div>
                     <div class="ui-block-b" style="width:25%; margin:3%;">

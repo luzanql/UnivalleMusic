@@ -1,21 +1,23 @@
 $(function(){
-  var url="../Controladores/Login.php?opcion=4";
-   alert("usuario");
-    $("#comprar").hide();
+    var url="../Controladores/Login.php?opcion=4";
+  
+    $("#comprarMusica").hide();
     $("#logoCarrito").hide();
-$.ajax({
-            type: "POST",
-            url: url,            
-            success: function( msg ) {
+    $("#reportes").hide();
+    $.ajax({
+        type: "POST",
+        url: url,            
+        success: function( msg ) {
                
-                if(msg=='1'){
-                   
-                }else{
-                     $("#comprar").show();
-                    $("#logoCarrito").show();
-                }
+            if(msg=='1'){
+                $("#reportes").show();
+                
+            }else{
+                $("#comprarMusica").show();
+                $("#logoCarrito").show();
             }
         }
+    }
     )
               
  
