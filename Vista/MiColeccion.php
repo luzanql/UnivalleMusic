@@ -21,7 +21,7 @@
     </head>
     <body onunload="pausarCancion();">
 
-        <div data-role="page" data-theme= "a">
+        <div data-role="page" data-theme= "a" >
 
             <div data-role="header" data-theme ="b" style=" height: 167px;"><!--background-image: url(banner.png); -->
                 <img src="../Recursos/Banner.png" style="width: 80%; height: 100%;"/>
@@ -44,11 +44,11 @@
                     <div class="ui-block-a" style="width:21%; margin:3%">
 
                         <div data-role="controlgroup"> 
-                            <a href="../Vista/MiPerfil.php" data-role="button"> Mi Perfil </a> 
-                            <a href="../Vista/MiColeccion.php" data-role="button"> Mi Coleccion</a> 
-                            <a href="../Vista/MisListas.php" data-role="button"> Listas de Reproduccion</a> 
-                            <a href="../Vista/ComprarMusica.php" data-role="button" id="comprarMusica"> Comprar Musica</a>
-                            <a href="../Vista/Reportes.php" data-role="button" id="reportes"> Reportes </a>
+                            <a href="../Vista/MiPerfil.php" data-role="button"  rel="external"> Mi Perfil </a> 
+                            <a href="../Vista/MiColeccion.php" data-role="button"  rel="external">  Mi Coleccion</a> 
+                            <a href="../Vista/MisListas.php" data-role="button"  rel="external"> Listas de Reproduccion</a> 
+                            <a href="../Vista/ComprarMusica.php" data-role="button" id="comprarMusica"  rel="external"> Comprar Musica</a>
+                            <a href="../Vista/Reportes.php" data-role="button" id="reportes"  rel="external"> Reportes </a>
                         </div>
                     </div>
                     <div class="ui-block-b" style="width:25%; margin:3%" >

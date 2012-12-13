@@ -16,7 +16,8 @@
         <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
         <script src="../Recursos/Scripts/ManejaPerfil.js"></script>
         <script src="../Recursos/Scripts/ManejaDowload.js"></script>
-        <script type="text/javascript" src="../Recursos/Scripts/Opciones.js"></script>
+         <script type="text/javascript" src="../Recursos/Scripts/Opciones.js"></script>
+        
 
       
     </head>
@@ -45,11 +46,11 @@
                 <div class="ui-grid-b">
                     <div class="ui-block-a" style="width:21%; margin:3%">
                           <div data-role="controlgroup"> 
-                            <a href="../Vista/MiPerfil.php" data-role="button" id="perfil"> Mi Perfil </a> 
-                            <a href="../Vista/MiColeccion.php" data-role="button" id="coleccion"> Mi Coleccion</a> 
-                            <a href="../Vista/MisListas.php" data-role="button" id="listas"> Listas de Reproduccion</a> 
-                            <a href="../Vista/ComprarMusica.php" data-role="button" id="comprarMusica"> Comprar Musica</a>
-                            <a href="../Vista/Reportes.php" data-role="button" id="reportes"> Reportes </a>
+                            <a href="../Vista/MiPerfil.php" data-role="button" id="perfil"  rel="external"> Mi Perfil </a> 
+                            <a href="../Vista/MiColeccion.php" data-role="button" id="coleccion"  rel="external"> Mi Coleccion</a> 
+                            <a href="../Vista/MisListas.php" data-role="button" id="listas"  rel="external"> Listas de Reproduccion</a> 
+                            <a href="../Vista/ComprarMusica.php" data-role="button" id="comprarMusica"  rel="external"> Comprar Musica</a>
+                            <a href="../Vista/Reportes.php" data-role="button" id="reportes"  rel="external"> Reportes </a>
                         </div>
                     </div>
                    
@@ -123,6 +124,7 @@
                         
                         
                            </script>
+                          
 
     </body>
     
