@@ -45,12 +45,13 @@ $pdf=new ReportePdf();
 
 //T�tulos de las columnas
 //$header=array('Nombre','E-Mail','Twitter');
-$header=array('Cancion','Artista');
-$header2=array('Cancion','Nro Compras');
+$header=array('Cancion','Artista', 'Album');
+$header2=array('Cancion','Artista','Nro Compras');
 $header3=array('Nro Canciones','Artista');
 //anchos de cada columna
 //$widths=array(40,70,40);
 $widths=array(40,40);
+$widths2=array(40,40,50);
 
 $controladorReporte = new ControladorReportes();
 $listaArtistasxCanciones = $controladorReporte ->getArtistxSong();
@@ -60,20 +61,26 @@ $listaNroCancionesxArtistas = $controladorReporte ->getNCancionesXArtista();
 
 //print_r($listaArtistasxCanciones);
 //Carga de datos
+//$pdf->Ln();
 
+
+//$pdf->Write(10,'asdf');
 $pdf->SetFont('Arial','',14);
+
 $pdf->AddPage();
+$pdf->Write(20,'Reportes UnivalleMusic');
+$pdf->Ln();
 $pdf->Write(10,'Canciones y Artistas Guardadas');
 $pdf->Ln();
 $pdf->Ln();
-$pdf->FancyTable($header,$listaArtistasxCanciones,$widths);
+$pdf->FancyTable($header,$listaArtistasxCanciones,$widths2);
 //$pdf->Ln();
 $pdf->AddPage();
 $pdf->Ln();
 $pdf->Write(10,'5 Canciones mas compradas');
 $pdf->Ln();
 $pdf->Ln();
-$pdf->FancyTable($header2,$topCancionesCompradas,$widths);
+$pdf->FancyTable($header2,$topCancionesCompradas,$widths2);
 $pdf->AddPage();
 $pdf->Ln();
 $pdf->Write(10,'Cantidad de canciones por Artista');
