@@ -15,7 +15,8 @@
         <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
         <script src="../Recursos/Scripts/ManejaPublicidad.js"></script>
         <!--<script src="../Recursos/Scripts/ManejaListas.js"></script>-->
-        <script type="text/javascript" src="../Recursos/Scripts/Opciones.js"></script>
+         <script type="text/javascript" src="../Recursos/Scripts/Opciones.js"></script>
+        
     </head>
     <body>
 
@@ -42,11 +43,11 @@
                     <div class="ui-block-a" style="width:21%; margin:3%">
 
                         <div data-role="controlgroup"> 
-                            <a href="../Vista/MiPerfil.php" data-role="button"> Mi Perfil </a> 
-                            <a href="../Vista/MiColeccion.php" data-role="button"> Mi Coleccion</a> 
-                            <a href="../Vista/MisListas.php" data-role="button"> Listas de Reproduccion</a> 
-                            <a href="../Vista/ComprarMusica.php" data-role="button" id="comprarMusica"> Comprar Musica</a>
-                            <a href="../Vista/Reportes.php" data-role="button" id="reportes"> Reportes </a>
+                            <a href="../Vista/MiPerfil.php" data-role="button" rel="external"> Mi Perfil </a> 
+                            <a href="../Vista/MiColeccion.php" data-role="button" rel="external"> Mi Coleccion</a> 
+                            <a href="../Vista/MisListas.php" data-role="button" rel="external"> Listas de Reproduccion</a> 
+                            <a href="../Vista/ComprarMusica.php" data-role="button" id="comprarMusica" rel="external"> Comprar Musica</a>
+                            <a href="../Vista/Reportes.php" data-role="button" id="reportes" rel="external"> Reportes </a>
                         </div>
                     </div>
                     <div class="ui-block-b" style="width:35%; margin:3%" >
@@ -107,7 +108,7 @@
 
                                 for ($index = 0; $index < count($listasUsuario); $index++) {
                                     echo "<tr><td><a href='MiColeccion.php?nombreLista=" . $listasUsuario[$index][1] . "&codLista=" . $listasUsuario[$index][0] . "'>" . $listasUsuario[$index][1] . "</a></td>
-                                    <td><a  href='EliminarLista.php?lista=" . $listasUsuario[$index][1] . "' data-rel='dialog'  data-role='button' data-icon='delete' >Eliminar</a></td></tr>";
+                                    <td><a  href='EliminarLista.php?lista=" . $listasUsuario[$index][1] . "' data-rel='dialog'  data-role='button' data-icon='delete'>Eliminar</a></td></tr>";
                                 }
                                 ?>
 
@@ -147,7 +148,7 @@
 
         </div><!-- /page -->
 
-        <div data-role="page" id="CrearLista" data-theme= "a" >
+        <div data-role="page" id="CrearLista" data-theme= "a">
             <div data-role="header" data-theme= "b" data-transition="slidedowm" > <h3>Nuevo Lista Reproduccion</h3></div>
             <div data-role="content" align= "center" data-theme = "a">
                 <form name="formCrearLista" action="MisListas.php" method="post" enctype="multipart/form-data">
@@ -157,5 +158,6 @@
                 </form>
             </div>
         </div>
+       
     </body>
 </html>

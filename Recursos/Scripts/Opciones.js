@@ -10,11 +10,14 @@ $(function(){
         success: function( msg ) {
                
             if(msg=='1'){
+                 
+               
                 $("#reportes").show();
-                
+                $("#publicidad").hide();
             }else{
                 $("#comprarMusica").show();
                 $("#logoCarrito").show();
+                
             }
         }
     }

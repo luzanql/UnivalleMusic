@@ -17,6 +17,7 @@
         <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
         <script type="text/javascript" src="../Recursos/Scripts/ManejaPerfil.js"></script>
         <script type="text/javascript" src="../Recursos/Scripts/Opciones.js"></script>
+        
     </head>
     <body>
          
@@ -42,11 +43,11 @@
                 <div class="ui-grid-b">
                     <div class="ui-block-a" style="width:250px; margin:3%">
                         <div data-role="controlgroup"> 
-                            <a href="../Vista/MiPerfil.php" data-role="button"> Mi Perfil </a> 
-                            <a href="../Vista/MiColeccion.php" data-role="button"> Mi Coleccion</a> 
-                            <a href="../Vista/MisListas.php" data-role="button"> Listas de Reproduccion</a> 
-                            <a href="../Vista/ComprarMusica.php" data-role="button" id="comprarMusica"> Comprar Musica</a>
-                            <a href="../Vista/Reportes.php" data-role="button" id="reportes"> Reportes </a>
+                            <a href="../Vista/MiPerfil.php" data-role="button"  rel="external"> Mi Perfil </a> 
+                            <a href="../Vista/MiColeccion.php" data-role="button"  rel="external"> Mi Coleccion</a> 
+                            <a href="../Vista/MisListas.php" data-role="button" rel="external"> Listas de Reproduccion</a> 
+                            <a href="../Vista/ComprarMusica.php" data-role="button" id="comprarMusica" rel="external"> Comprar Musica</a>
+                            <a href="../Vista/Reportes.php" data-role="button" id="reportes" rel="external"> Reportes </a>
                         </div>
                     </div>
                    
@@ -66,8 +67,8 @@
                         </table>
                     </div>
                         <div data-role="content">
-                            <a data-role="button" data-theme="b" href="../Vista/ReportePdf.php"> Reporte PDF</a>
-                            <a data-role="button" data-theme="b" href="../Vista/ReportesGraficas.php">Reportes Graficos</a>                            
+                            <a data-role="button" data-theme="b" href="../Vista/ReportePdf.php" rel="external"> Reporte PDF</a>
+                            <a data-role="button" data-theme="b" href="../Vista/ReportesGraficas.php" rel="external">Reportes Graficos</a>                            
                         </div>
                      
               
@@ -87,6 +88,7 @@
 
 
         </div><!-- /page -->
+        
 
     </body>
     

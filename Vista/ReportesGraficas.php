@@ -43,11 +43,11 @@
                 <div class="ui-grid-b">
                     <div class="ui-block-a" style="width:250px; margin:3%">
                         <div data-role="controlgroup"> 
-                            <a href="../Vista/MiPerfil.php" data-role="button"> Mi Perfil </a> 
-                            <a href="../Vista/MiColeccion.php" data-role="button"> Mi Coleccion</a> 
-                            <a href="../Vista/MisListas.php" data-role="button"> Listas de Reproduccion</a> 
-                            <a href="../Vista/ComprarMusica.php" data-role="button" id="comprarMusica"> Comprar Musica</a>
-                            <a href="../Vista/Reportes.php" data-role="button" id="reportes"> Reportes </a>
+                            <a href="../Vista/MiPerfil.php" data-role="button"  rel="external"> Mi Perfil </a> 
+                            <a href="../Vista/MiColeccion.php" data-role="button"  rel="external"> Mi Coleccion</a> 
+                            <a href="../Vista/MisListas.php" data-role="button" rel="external"> Listas de Reproduccion</a> 
+                            <a href="../Vista/ComprarMusica.php" data-role="button" id="comprarMusica"  rel="external"> Comprar Musica</a>
+                            <a href="../Vista/Reportes.php" data-role="button" id="reportes" rel="external"> Reportes </a>
                         </div>
                     </div>
                    
@@ -67,8 +67,8 @@
                         </table>
                     </div>
                         <div data-role="content">
-                            <a data-role="button" data-theme="b" href="../Vista/ReporteNroCancionxArtista.php"> Nro Canciones por Artista </a>
-                            <a data-role="button" data-theme="b" href="../Vista/ReporteCancionesCompradas.php"> Top 5 Canciones Compradas  </a>
+                            <a data-role="button" data-theme="b" href="../Vista/ReporteNroCancionxArtista.php" rel="external"> Nro Canciones por Artista </a>
+                            <a data-role="button" data-theme="b" href="../Vista/ReporteCancionesCompradas.php" rel="external"> Top 5 Canciones Compradas  </a>
                           
                         </div>
                      
