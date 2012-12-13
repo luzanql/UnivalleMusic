@@ -73,7 +73,8 @@ if ($codigosCanciones > 0) {
                                             <strong>' . $unaCancionOrdenada[1] . '</strong>
                                             <em>' . $unaCancionOrdenada[2] . '</em><a href="#agregarAListas" style="color: blue;" name="' . $unaCancionOrdenada[0] .
                 '" data-rel="popup" data-position-to="window" data-transition="pop" onclick=\'llenarListasReproduccion("' . $unaCancionOrdenada[0] . '",1);\'>Agregar a Listas</a>
-                                            <a style="color: blue;" data-mini="true" name="' . $unaCancionOrdenada[0] . '" onclick=\'meGusta("' . $unaCancionOrdenada[0] . '",$(this));\'>'.  estaEnLaLista($unaCancionOrdenada[0], $cancionesFavoritas).'</a>                                            
+                                            <a style="color: blue;" data-mini="true" name="' . $unaCancionOrdenada[0] . '" onclick=\'meGusta("' . $unaCancionOrdenada[0] . '",$(this));\'>'.  estaEnLaLista($unaCancionOrdenada[0], $cancionesFavoritas).'</a>
+                                                <a style="color: green;" data-mini="true" name="' . $unaCancionOrdenada[0] . '" onclick=\'descargar("' . $unaCancionOrdenada[0] . '");\'>Descargar</a>
                                             <a href="#eliminarDeListas" name="' . $unaCancionOrdenada[0] .
                 '" data-rel="popup" data-position-to="window" data-transition="pop" onclick=\'llenarListasReproduccion("' . $unaCancionOrdenada[0] . '",2);\'>Eliminar de Listas</a>
                                             <a href="#eliminarCancion" name="' . $unaCancionOrdenada[0] .

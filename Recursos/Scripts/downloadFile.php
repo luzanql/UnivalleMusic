@@ -26,11 +26,12 @@ function downloadFile( $fullPath ){
       case "xls": $ctype="application/vnd.ms-excel"; break; 
       case "ppt": $ctype="application/vnd.ms-powerpoint"; break; 
       case "gif": $ctype="image/gif"; break; 
-      case "png": $ctype="image/png"; break; 
+      case "png": $ctype="image/png"; break;
+      case "mp3": $ctype="audio/mpeg"; break;
       case "jpeg": 
       case "jpg": $ctype="image/jpg"; break; 
       default: $ctype="application/force-download"; 
-    } 
+    }
 
     header("Pragma: public"); // required 
     header("Expires: 0"); 
@@ -45,6 +46,6 @@ function downloadFile( $fullPath ){
     readfile( $fullPath ); 
 
   } else 
-    die('File Not Found'); 
+    die('No se encontro el archivo'); 
 } 
 ?>

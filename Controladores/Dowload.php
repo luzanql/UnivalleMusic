@@ -1,8 +1,9 @@
 <?php
-
 include_once '../Recursos/Scripts/downloadFile.php';
 
-$enlace = "../Recursos/Canciones/Tone_Urbano.mp3";
-downloadFile($enlace);
-
+if (isset($_GET['cancion'])) {
+    $cancion = $_GET['cancion'];
+    $enlace = "../Recursos/Canciones/" . $cancion;
+    downloadFile($enlace);    
+}
 ?>

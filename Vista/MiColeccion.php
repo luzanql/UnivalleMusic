@@ -17,6 +17,7 @@
         <link rel="stylesheet" type="text/css" href="../themes/reproductor.css">
         <script type="text/javascript" src="../Recursos/Scripts/reproductor.js"></script>
         <script type="text/javascript" src="../Recursos/Scripts/ManejaCanciones.js"></script>
+        <script type="text/javascript" src="../Recursos/Scripts/ManejaDowload.js"></script>
         <script type="text/javascript" src="../Recursos/Scripts/Opciones.js"></script>
     </head>
     <body onunload="pausarCancion();">
@@ -143,7 +144,7 @@
                     </div>
 
                 </div><!-- /grid-b -->
-
+                <div id="descargar"></div>
             </div><!-- /content -->
 
             <div data-role="footer" data-theme = "b" STYLE=" border-style:solid; border-color: #c73930;">
@@ -192,7 +193,7 @@
                    data-inline="true"
                    data-mini="true">Eliminar Canci&oacute;n</a>
                 <a data-role="button" data-rel="back" data-inline="true" data-mini="true">Cancel</a>	
-            </div>
+            </div>            
         </div><!-- /page -->        
     </body>
 </html>

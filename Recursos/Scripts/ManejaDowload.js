@@ -1,15 +1,23 @@
+var divDescargar;
+    
 $(document).ready(function() {
-
-    $("#btnDowload").click( function(){
-        alert("dio clic");
-       
-        url="../Controladores/Dowload.php";
-        $.ajax({
-            type: "POST",
-            url: url,
-            success: function( msg ) {   
-                alert(msg);
-            }
-        });
-    });
+    divDescargar= $("#descargar");
+    divDescargar.hide();
 });
+
+function descargar(cancionDescarga){
+    var url="../Controladores/Dowload.php?cancion="+cancionDescarga;
+            
+    $.ajax({
+        type: "GET",
+        url: url,
+        success: function(data){
+            if(data == true){
+                alert('Este archivo no se puede descargar.');
+            }else{
+                window.location =""+url+"";
+            }
+        }
+    });
+    
+}
