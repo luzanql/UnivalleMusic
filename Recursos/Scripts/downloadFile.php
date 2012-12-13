@@ -46,6 +46,5 @@ function downloadFile( $fullPath ){
 
   } else 
     die('File Not Found'); 
-
 } 
 ?>
