@@ -31,7 +31,7 @@
                                     datos[i] = new Array(''+msg[i][0]+" - "+msg[i][1],msg[i][2]);
                                    }
                         
-                          alert(datos);
+                        //  alert(datos);
                           drawChart(datos);
 
                  }})
@@ -45,7 +45,7 @@
 //                           alert(array[0]);
                            var array = new Array();
                            var k = 0;
-                           alert(array_split.length);
+                         //  alert(array_split.length);
                             for (var i=0; k<array_split.length; i++)
                             {   array[i]=new Array();
                                 for (var j=0; j<2 ; j++){

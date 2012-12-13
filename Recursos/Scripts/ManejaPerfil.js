@@ -50,7 +50,6 @@ $(document).ready(function() {
      
      function darseBaja(){
     $("#btnDarseBaja").on('click',function(){
-        alert("dio clic darse baja");
         var codigo=$("#usuario").val();
         var url1="../Controladores/ControladorPerfil.php?opcion=2&codigo="+codigo+"";
         $.ajax({
