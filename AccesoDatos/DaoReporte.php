@@ -16,11 +16,12 @@ require_once 'conexion.php';
     function getArtistaxCancion() 
     {
         $this->conexion->Conectar();
-        $consulta = "SELECT song.nombre as cancion, ar.nombre as artista FROM cancion as song, artista  as ar WHERE song.artista=ar.codigo;";
+        $consulta = "SELECT song.nombre as cancion, ar.nombre as artista, alb.nombre as album FROM cancion as song, artista  as ar,
+                     album as alb WHERE song.artista=ar.codigo &&  song.codigo_Album=alb.codigo;";
        $respuesta = mysql_query($consulta);
         $filas = array();
           while ($row = mysql_fetch_array($respuesta)) {
-            $filas [] = array($row ["cancion"], $row ["artista"]);
+            $filas [] = array($row ["cancion"], $row ["artista"], $row["album"]);
         } // las consultas deben quedar en formtato de matriz
 //        print_r($filas);
 
@@ -52,12 +53,14 @@ require_once 'conexion.php';
     function getNCancionesCompradas()
     {
         $this->conexion->Conectar();
-        $consulta = "SELECT song.nombre as nombreCancion, COUNT(cxc.idCancion) as nroCompras from cancionesxcompra as cxc, cancion song WHERE cxc.idCancion=song.codigo 
-                        GROUP BY cxc.idCancion ORDER BY nroCompras limit 5;";
+        $consulta = "SELECT song.nombre as nombreCancion, art.nombre as artista, COUNT(cxc.idCancion) as nroCompras FROM cancionesxcompra as cxc, cancion as song,
+                    artista as art 
+                    WHERE cxc.idCancion=song.codigo && song.artista = art.codigo 
+                    GROUP BY cxc.idCancion ORDER BY nroCompras limit 5;";
         $respuesta = mysql_query($consulta);
         $filas = array();
         while ($row = mysql_fetch_array($respuesta)) {
-            $filas [] = array($row ["nombreCancion"], $row ["nroCompras"]);
+            $filas [] = array($row ["nombreCancion"], $row['artista'], $row ["nroCompras"]);
         } // las consultas deben quedar en formtato de matriz
 //        print_r($filas);
 

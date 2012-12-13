@@ -25,10 +25,10 @@
                             success: function(msg)
                             {
                                 var datos = new Array();
-                                datos[0] = new Array("Nombre Cancion", "Nro Compras");
-                                for(var i=0 ; i<msg.length ; i++)
+                                datos[0] = new Array("Nombre Cancion - Artista", "Nro Compras");
+                                for(var i=1 ; i<msg.length ; i++)
                                    {                    
-                                    datos[i+1] = new Array(''+msg[i][0],msg[i][1]);
+                                    datos[i] = new Array(''+msg[i][0]+" - "+msg[i][1],msg[i][2]);
                                    }
                         
                           alert(datos);
@@ -64,7 +64,7 @@
                 var data = google.visualization.arrayToDataTable(array);
                 var options = {
                     title: 'Canciones Mas Compradas',
-                    hAxis: {title: 'Cancion', titleTextStyle: {color: 'red'}}
+                    hAxis: {title: 'Cancion-Artista', titleTextStyle: {color: 'red'}}
                 };
 
                 var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
