@@ -27,10 +27,12 @@ class ControladorCancionesXUsuario{
         return $this->daoCancionesXUsuario->existeCancionXUsuario($usuario, $cancion);
     } 
     
-    
     function obtenerCancionesXUsuario($usuario){
         return $this->daoCancionesXUsuario->obtenerCancionesXUsuario($usuario);        
     }
-   
+    
+    function eliminarCancionXUsuario($codigo, $usuario){
+        return $this->daoCancionesXUsuario->eliminarCancionXUsuario($codigo, $usuario);
+    }
 }
 ?>

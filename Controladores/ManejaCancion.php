@@ -1,6 +1,7 @@
 <?php
 
 include_once '../Controladores/ControladorCancion.php';
+include_once '../Controladores/ControladorCancionesXUsuario.php';
 
 $opcion = "";
 $cancion = "";
@@ -21,9 +22,9 @@ if (isset($_GET['usuario'])) {
 switch ($opcion) {
     //Caso 1 eliminar cancion
     case 1:
-        $controladorCancion = new ControladorCancion();
-        echo $controladorCancion->eliminarCancion($cancion);
-        unlink ("../Recursos/Canciones/" . $cancion);
+        $controladorCancionesXUsuario = new ControladorCancionesXUsuario();
+        echo $controladorCancionesXUsuario->eliminarCancionXUsuario($cancion, $usuario);
+        //unlink ("../Recursos/Canciones/" . $cancion);
         break;
     //Caso 2: Obtiene codigo y titulo cancion
     case 2:

@@ -66,6 +66,7 @@ if ($_FILES["track_file"]["error"] > 0) {
     //$nombreCancion = explode("/", $source); //Para Linux
     $nombreCancion = $nombreCancion[sizeof($nombreCancion) - 1];
     $nombreCancion = str_replace("tmp", $extensionArchivo, $nombreCancion);
+    //$nombreCancion = $nombreCancion . "." . $extensionArchivo; //Para Linux
 
     echo "Cancion: " . $titulo . "<br />";
     echo "Tipo Archivo: " . $extensionArchivo . "<br />";

@@ -59,6 +59,14 @@ class DaoCancionesXUsuario {
         $this->conexion->cerrar();
         return $filas;  
     }
+    
+    function eliminarCancionXUsuario($codigo,$usuario) {
+        $this->conexion->Conectar();
+        $consulta = "DELETE FROM cancionesxusuario WHERE codigo_Cancion='".$codigo."' AND codigo_Usuario='".$usuario."'";
+        $respuesta = mysql_query($consulta);
+        $this->conexion->cerrar();
+        return $consulta;
+    }
 
 }
 

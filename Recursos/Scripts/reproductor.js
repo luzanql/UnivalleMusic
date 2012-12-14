@@ -15,7 +15,7 @@ $(function(){
     	
     //reproducir el siguiente archivo de la lista
     $('#btnSiguiente').on('click',function(){
-        alert(iCancionActual+" de "+iTotalCanciones);
+        //alert(iCancionActual+" de "+iTotalCanciones);
         //verificamos si siguen mas canciones en la lista
         if(iCancionActual<iTotalCanciones-1){
             //pasamos a la siguiente cancion

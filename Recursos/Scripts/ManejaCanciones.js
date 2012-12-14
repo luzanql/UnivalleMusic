@@ -67,12 +67,13 @@ $(function(){
     //Elimina cancion
     btnEliminarCancion.on('click',function(){        
         
-        var urlPhp= "../Controladores/ManejaCancion.php?opcion=1&cancion="+cancionCurrent;
+        var urlPhp= "../Controladores/ManejaCancion.php?opcion=1&cancion="+cancionCurrent+"&usuario="+usuarioLogueado;
         $.ajax({
             type: 'POST',
             url: urlPhp,
             cache: false,
             success: function(result) {
+                //alert(result);
                 llenarListaReproductor("","");
             }            
         });
