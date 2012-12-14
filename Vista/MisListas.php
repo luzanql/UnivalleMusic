@@ -84,7 +84,7 @@
                             <tr>
                                 <td>
                                     <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-                                        <a href="#CrearLista" data-rel="dialog" data-role="button" data-icon="plus" rel="external">Crear Lista</a>
+                                        <a href="#CrearLista" data-rel="dialog" data-role="button" data-icon="plus" >Crear Lista</a>
                                     </div>
                                 </td>
                             </tr>
