@@ -1,8 +1,7 @@
 $(document).ready(function() {
      var url="../Controladores/Carrito.php?opcion=4";     
     $('#pagarFinal').click(function(){
-        alert('Dio cliock pagar');
-            $.ajax({
+        $.ajax({
         type: "POST",
         url: url,
             success: function( msg ) {
@@ -17,7 +16,6 @@ $(document).ready(function() {
                         type: "POST",
                         url: url2,
                         success: function( msg ) {
-                            alert(msg);
                             var url1="../Controladores/Carrito.php?opcion=5";
                             $.ajax({
                                 type: "POST",
